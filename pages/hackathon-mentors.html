@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Mentors | HackConnect</title>
+    <meta name="description" content="Book sessions with expert mentors for this hackathon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/hackathon-mentors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">OpenAI Hackathon Mentors</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    
+                    <!-- Notifications dropdown -->
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="3">
+                            <i class="far fa-bell"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- User menu dropdown -->
+                    <div class="user-menu">
+                        <button class="user-menu__toggle">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                            <span>John</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="mentors-page">
+                <div class="mentors-header">
+                    <div class="hackathon-info">
+                        <div class="hackathon-badge">
+                            <img src="../assets/images/banner1.jpg" alt="OpenAI Hackathon" class="hackathon-badge__image">
+                        </div>
+                        <div class="hackathon-details">
+                            <h2>OpenAI Hackathon Mentors</h2>
+                            <p>Book a session with an expert mentor to get guidance on your project</p>
+                            <div class="hackathon-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Jun 15 - Jun 18, 2023</span>
+                                </div>
+                                <div class="meta-item status-active">
+                                    <i class="fas fa-circle"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>View:</label>
+                            <div class="view-toggle">
+                                <button class="view-toggle__btn active" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                                <button class="view-toggle__btn" data-view="calendar">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="expertiseFilter">Expertise:</label>
+                            <select id="expertiseFilter">
+                                <option value="all">All Expertise</option>
+                                <option value="ai">AI/ML</option>
+                                <option value="frontend">Frontend</option>
+                                <option value="backend">Backend</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="cloud">Cloud Architecture</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="availabilityFilter">Availability:</label>
+                            <select id="availabilityFilter">
+                                <option value="all">Any Time</option>
+                                <option value="today">Today</option>
+                                <option value="tomorrow">Tomorrow</option>
+                                <option value="weekend">This Weekend</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-filter">
+                            <div class="search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search mentors by name or expertise...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentors-view-container">
+                    <!-- List View -->
+                    <div class="mentors-view active" id="list-view">
+                        <div class="mentors-grid">
+                            <!-- Mentor Card 1 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=200" alt="Sarah Johnson" class="mentor-avatar">
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span>4.5 (38 reviews)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <h3 class="mentor-name">Sarah Johnson</h3>
+                                    <p class="mentor-title">Senior ML Engineer @ Google</p>
+                                    
+                                    <div class="mentor-expertise">
+                                        <span class="expertise-tag">AI/ML</span>
+                                        <span class="expertise-tag">Deep Learning</span>
+                                        <span class="expertise-tag">NLP</span>
+                                        <span class="expertise-tag">Python</span>
+                                    </div>
+                                    
+                                    <p class="mentor-bio">Machine learning expert with 8+ years of experience building AI products at scale. Specialized in NLP and GPT integrations.</p>
+                                    
+                                    <div class="mentor-availability">
+                                        <h4>Next Available Slots</h4>
+                                        <div class="availability-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">3:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">4:30 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Tomorrow</div>
+                                                <div class="time-slot__time">10:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Tomorrow</div>
+                                                <div class="time-slot__time">11:30 AM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--sm btn--icon view-profile-btn" data-mentor="sarah-johnson">
+                                        <i class="fas fa-user"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--sm btn--icon book-session-btn" data-mentor="sarah-johnson">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 2 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=David+Lee&background=10b981&color=fff&size=200" alt="David Lee" class="mentor-avatar">
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>5.0 (42 reviews)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <h3 class="mentor-name">David Lee</h3>
+                                    <p class="mentor-title">Senior DevOps Engineer @ AWS</p>
+                                    
+                                    <div class="mentor-expertise">
+                                        <span class="expertise-tag">Cloud Architecture</span>
+                                        <span class="expertise-tag">AWS</span>
+                                        <span class="expertise-tag">DevOps</span>
+                                        <span class="expertise-tag">Kubernetes</span>
+                                    </div>
+                                    
+                                    <p class="mentor-bio">Cloud infrastructure expert specializing in scalable architectures. Certified AWS Solutions Architect with experience deploying ML models to production.</p>
+                                    
+                                    <div class="mentor-availability">
+                                        <h4>Next Available Slots</h4>
+                                        <div class="availability-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Tomorrow</div>
+                                                <div class="time-slot__time">2:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Tomorrow</div>
+                                                <div class="time-slot__time">3:30 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">10:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">11:30 AM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--sm btn--icon view-profile-btn" data-mentor="david-lee">
+                                        <i class="fas fa-user"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--sm btn--icon book-session-btn" data-mentor="david-lee">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 3 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=200" alt="Priya Sharma" class="mentor-avatar">
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>5.0 (27 reviews)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <h3 class="mentor-name">Priya Sharma</h3>
+                                    <p class="mentor-title">Lead UX Designer @ Adobe</p>
+                                    
+                                    <div class="mentor-expertise">
+                                        <span class="expertise-tag">UI/UX Design</span>
+                                        <span class="expertise-tag">Product Design</span>
+                                        <span class="expertise-tag">AI Interfaces</span>
+                                        <span class="expertise-tag">Design Systems</span>
+                                    </div>
+                                    
+                                    <p class="mentor-bio">Design leader with a passion for creating beautiful, usable AI products. Experienced in mentoring teams on how to create effective interfaces for complex AI applications.</p>
+                                    
+                                    <div class="mentor-availability">
+                                        <h4>Next Available Slots</h4>
+                                        <div class="availability-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">5:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">6:30 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">3:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sat</div>
+                                                <div class="time-slot__time">11:00 AM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--sm btn--icon view-profile-btn" data-mentor="priya-sharma">
+                                        <i class="fas fa-user"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--sm btn--icon book-session-btn" data-mentor="priya-sharma">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 4 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=200" alt="Marcus Wilson" class="mentor-avatar">
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span>4.1 (15 reviews)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <h3 class="mentor-name">Marcus Wilson</h3>
+                                    <p class="mentor-title">AI Research Scientist @ DeepMind</p>
+                                    
+                                    <div class="mentor-expertise">
+                                        <span class="expertise-tag">Machine Learning</span>
+                                        <span class="expertise-tag">NLP</span>
+                                        <span class="expertise-tag">GPT Models</span>
+                                        <span class="expertise-tag">PyTorch</span>
+                                    </div>
+                                    
+                                    <p class="mentor-bio">Specialized in deep learning and natural language processing. Published researcher with expertise in GPT models, prompt engineering, and optimizing AI model performance.</p>
+                                    
+                                    <div class="mentor-availability">
+                                        <h4>Next Available Slots</h4>
+                                        <div class="availability-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">7:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Thu</div>
+                                                <div class="time-slot__time">5:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sun</div>
+                                                <div class="time-slot__time">1:00 PM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--sm btn--icon view-profile-btn" data-mentor="marcus-wilson">
+                                        <i class="fas fa-user"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--sm btn--icon book-session-btn" data-mentor="marcus-wilson">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Calendar View -->
+                    <div class="mentors-view" id="calendar-view">
+                        <div class="calendar-header">
+                            <div class="calendar-nav">
+                                <button class="btn btn--icon btn--sm calendar-prev">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h3 class="calendar-title">June 2023</h3>
+                                <button class="btn btn--icon btn--sm calendar-next">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-view-options">
+                                <button class="btn btn--sm btn--outline active" data-calendar-view="week">Week</button>
+                                <button class="btn btn--sm btn--outline" data-calendar-view="day">Day</button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-container">
+                            <div class="calendar-weekdays">
+                                <div class="calendar-weekday-header"></div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Mon</span>
+                                    <span class="weekday-date">Jun 12</span>
+                                </div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Tue</span>
+                                    <span class="weekday-date">Jun 13</span>
+                                </div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Wed</span>
+                                    <span class="weekday-date">Jun 14</span>
+                                </div>
+                                <div class="calendar-weekday today">
+                                    <span class="weekday-name">Thu</span>
+                                    <span class="weekday-date">Jun 15</span>
+                                </div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Fri</span>
+                                    <span class="weekday-date">Jun 16</span>
+                                </div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Sat</span>
+                                    <span class="weekday-date">Jun 17</span>
+                                </div>
+                                <div class="calendar-weekday">
+                                    <span class="weekday-name">Sun</span>
+                                    <span class="weekday-date">Jun 18</span>
+                                </div>
+                            </div>
+                            
+                            <div class="calendar-grid">
+                                <!-- Time column -->
+                                <div class="calendar-times">
+                                    <div class="calendar-time-slot">9:00 AM</div>
+                                    <div class="calendar-time-slot">10:00 AM</div>
+                                    <div class="calendar-time-slot">11:00 AM</div>
+                                    <div class="calendar-time-slot">12:00 PM</div>
+                                    <div class="calendar-time-slot">1:00 PM</div>
+                                    <div class="calendar-time-slot">2:00 PM</div>
+                                    <div class="calendar-time-slot">3:00 PM</div>
+                                    <div class="calendar-time-slot">4:00 PM</div>
+                                    <div class="calendar-time-slot">5:00 PM</div>
+                                    <div class="calendar-time-slot">6:00 PM</div>
+                                </div>
+                                
+                                <!-- Monday column -->
+                                <div class="calendar-day">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-success);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=David+Lee&background=10b981&color=fff&size=64" alt="David Lee" class="avatar avatar--xs">
+                                                <span>David Lee</span>
+                                            </div>
+                                            <div class="calendar-event__time">11:00 AM - 12:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-warning);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=64" alt="Marcus Wilson" class="avatar avatar--xs">
+                                                <span>Marcus Wilson</span>
+                                            </div>
+                                            <div class="calendar-event__time">3:00 PM - 4:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Tuesday column -->
+                                <div class="calendar-day">
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-primary);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=64" alt="Sarah Johnson" class="avatar avatar--xs">
+                                                <span>Sarah Johnson</span>
+                                            </div>
+                                            <div class="calendar-event__time">9:00 AM - 10:00 AM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-info);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=64" alt="Priya Sharma" class="avatar avatar--xs">
+                                                <span>Priya Sharma</span>
+                                            </div>
+                                            <div class="calendar-event__time">2:00 PM - 3:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Wednesday column -->
+                                <div class="calendar-day">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-info);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=64" alt="Priya Sharma" class="avatar avatar--xs">
+                                                <span>Priya Sharma</span>
+                                            </div>
+                                            <div class="calendar-event__time">4:00 PM - 5:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Thursday (Today) column -->
+                                <div class="calendar-day today-column">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-primary);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=64" alt="Sarah Johnson" class="avatar avatar--xs">
+                                                <span>Sarah Johnson</span>
+                                            </div>
+                                            <div class="calendar-event__time">3:00 PM - 4:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-info);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=64" alt="Priya Sharma" class="avatar avatar--xs">
+                                                <span>Priya Sharma</span>
+                                            </div>
+                                            <div class="calendar-event__time">5:00 PM - 6:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Friday column -->
+                                <div class="calendar-day">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-success);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=David+Lee&background=10b981&color=fff&size=64" alt="David Lee" class="avatar avatar--xs">
+                                                <span>David Lee</span>
+                                            </div>
+                                            <div class="calendar-event__time">10:00 AM - 11:00 AM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-info);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=64" alt="Priya Sharma" class="avatar avatar--xs">
+                                                <span>Priya Sharma</span>
+                                            </div>
+                                            <div class="calendar-event__time">3:00 PM - 4:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Saturday column -->
+                                <div class="calendar-day weekend">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-info);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=64" alt="Priya Sharma" class="avatar avatar--xs">
+                                                <span>Priya Sharma</span>
+                                            </div>
+                                            <div class="calendar-event__time">11:00 AM - 12:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-warning);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=64" alt="Marcus Wilson" class="avatar avatar--xs">
+                                                <span>Marcus Wilson</span>
+                                            </div>
+                                            <div class="calendar-event__time">1:00 PM - 2:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                                
+                                <!-- Sunday column -->
+                                <div class="calendar-day weekend">
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot">
+                                        <div class="calendar-event" style="--event-color: var(--color-warning);">
+                                            <div class="calendar-event__mentor">
+                                                <img src="https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=64" alt="Marcus Wilson" class="avatar avatar--xs">
+                                                <span>Marcus Wilson</span>
+                                            </div>
+                                            <div class="calendar-event__time">1:00 PM - 2:00 PM</div>
+                                            <button class="btn btn--xs btn--primary calendar-event__book">Book</button>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                    <div class="calendar-slot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Booking Modal -->
+                <div class="modal" id="bookingModal">
+                    <div class="modal__content">
+                        <button class="modal__close" id="closeBookingModalBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
+                        <div class="booking-session">
+                            <div class="booking-session__header">
+                                <h2>Book a Session</h2>
+                                <div class="hackathon-badge">
+                                    <img src="../assets/images/banner1.jpg" alt="OpenAI Hackathon" class="hackathon-badge__image">
+                                    <span>OpenAI Hackathon</span>
+                                </div>
+                                <div class="booking-session__mentor">
+                                    <img src="" alt="" class="avatar avatar--md" id="bookingMentorAvatar">
+                                    <div>
+                                        <h3 id="bookingMentorName"></h3>
+                                        <p id="bookingMentorTitle"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="booking-form">
+                                <form class="form">
+                                    <div class="form__row">
+                                        <div class="form__group">
+                                            <label for="sessionDate">Date</label>
+                                            <select id="sessionDate" required>
+                                                <option value="2023-06-15">Thursday, June 15, 2023</option>
+                                                <option value="2023-06-16">Friday, June 16, 2023</option>
+                                                <option value="2023-06-17">Saturday, June 17, 2023</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form__group">
+                                            <label for="sessionTime">Time</label>
+                                            <select id="sessionTime" required>
+                                                <option value="15:00">3:00 PM - 4:00 PM</option>
+                                                <option value="16:30">4:30 PM - 5:30 PM</option>
+                                                <option value="17:00">5:00 PM - 6:00 PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="sessionTopic">What would you like to discuss?</label>
+                                        <textarea id="sessionTopic" rows="3" placeholder="Briefly describe what you need help with..." required></textarea>
+                                    </div>
+                                    
+                                    <div class="form__row">
+                                        <div class="form__group">
+                                            <label for="sessionTeam">Your Team</label>
+                                            <select id="sessionTeam" required>
+                                                <option value="team1">CodeCrusaders</option>
+                                                <option value="team2">CloudNinjas</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form__group">
+                                            <label for="sessionFormat">Session Format</label>
+                                            <select id="sessionFormat" required>
+                                                <option value="video">Video Call</option>
+                                                <option value="chat">Text Chat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="inviteTeam">
+                                            <label for="inviteTeam">Invite my entire team to this session</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__actions">
+                                        <button type="button" id="cancelBooking" class="btn btn--text">Cancel</button>
+                                        <button type="submit" class="btn btn--primary">Confirm Booking</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // View toggle (List/Calendar)
+            const viewToggleBtns = document.querySelectorAll('.view-toggle__btn');
+            const mentorViews = document.querySelectorAll('.mentors-view');
+            
+            viewToggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const viewType = this.getAttribute('data-view');
+                    
+                    // Update active button
+                    viewToggleBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected view
+                    mentorViews.forEach(view => view.classList.remove('active'));
+                    document.getElementById(`${viewType}-view`).classList.add('active');
+                });
+            });
+            
+            // Calendar view toggle (Week/Day)
+            const calendarViewBtns = document.querySelectorAll('[data-calendar-view]');
+            
+            calendarViewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const viewType = this.getAttribute('data-calendar-view');
+                    
+                    // Update active button
+                    calendarViewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // In a real app, you would update the calendar view here
+                    console.log(`Switching to ${viewType} view`);
+                });
+            });
+            
+            // Calendar Navigation
+            const calendarPrev = document.querySelector('.calendar-prev');
+            const calendarNext = document.querySelector('.calendar-next');
+            const calendarTitle = document.querySelector('.calendar-title');
+            
+            if (calendarPrev && calendarNext) {
+                // Current month and year
+                let currentMonth = 5; // June (0-based)
+                let currentYear = 2023;
+                
+                const months = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+                
+                calendarPrev.addEventListener('click', () => {
+                    currentMonth--;
+                    if (currentMonth < 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    }
+                    calendarTitle.textContent = `${months[currentMonth]} ${currentYear}`;
+                    // In a real app, you would update the calendar data here
+                });
+                
+                calendarNext.addEventListener('click', () => {
+                    currentMonth++;
+                    if (currentMonth > 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    }
+                    calendarTitle.textContent = `${months[currentMonth]} ${currentYear}`;
+                    // In a real app, you would update the calendar data here
+                });
+            }
+            
+            // Booking Modal Functionality
+            const bookButtons = document.querySelectorAll('.book-session-btn, .calendar-event__book');
+            const bookingModal = document.getElementById('bookingModal');
+            const closeBookingModalBtn = document.getElementById('closeBookingModalBtn');
+            const cancelBooking = document.getElementById('cancelBooking');
+            const bookingMentorAvatar = document.getElementById('bookingMentorAvatar');
+            const bookingMentorName = document.getElementById('bookingMentorName');
+            const bookingMentorTitle = document.getElementById('bookingMentorTitle');
+            
+            // Define mentors data
+            const mentors = {
+                'sarah-johnson': {
+                    name: 'Sarah Johnson',
+                    title: 'Senior ML Engineer @ Google',
+                    avatar: 'https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=200'
+                },
+                'david-lee': {
+                    name: 'David Lee',
+                    title: 'Senior DevOps Engineer @ AWS',
+                    avatar: 'https://ui-avatars.com/api/?name=David+Lee&background=10b981&color=fff&size=200'
+                },
+                'priya-sharma': {
+                    name: 'Priya Sharma',
+                    title: 'Lead UX Designer @ Adobe',
+                    avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=200'
+                },
+                'marcus-wilson': {
+                    name: 'Marcus Wilson',
+                    title: 'AI Research Scientist @ DeepMind',
+                    avatar: 'https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=200'
+                }
+            };
+            
+            bookButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const mentorId = this.getAttribute('data-mentor');
+                    
+                    if (mentorId && mentors[mentorId]) {
+                        const mentor = mentors[mentorId];
+                        
+                        // Update modal with mentor info
+                        bookingMentorAvatar.src = mentor.avatar;
+                        bookingMentorAvatar.alt = mentor.name;
+                        bookingMentorName.textContent = mentor.name;
+                        bookingMentorTitle.textContent = mentor.title;
+                    }
+                    
+                    // Show modal
+                    bookingModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            if (closeBookingModalBtn) {
+                closeBookingModalBtn.addEventListener('click', () => {
+                    bookingModal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            if (cancelBooking) {
+                cancelBooking.addEventListener('click', () => {
+                    bookingModal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Time slot selection in list view
+            const timeSlots = document.querySelectorAll('.time-slot');
+            
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    // Get mentor card and trigger book button click
+                    const mentorCard = this.closest('.mentor-card');
+                    if (mentorCard) {
+                        const bookBtn = mentorCard.querySelector('.book-session-btn');
+                        if (bookBtn) {
+                            bookBtn.click();
+                            
+                            // You could also pre-select the time in the modal
+                            const timeText = this.querySelector('.time-slot__time').textContent;
+                            const dayText = this.querySelector('.time-slot__day').textContent;
+                            
+                            // In a real app, you would update the form fields with this info
+                            console.log(`Selected time: ${dayText} at ${timeText}`);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

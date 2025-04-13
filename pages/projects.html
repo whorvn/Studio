@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | HackConnect</title>
+    <meta name="description" content="View and manage your hackathon projects on HackConnect">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="mentor-booking.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Projects</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <!-- Search, notifications, user menu components -->
+                </div>
+            </header>
+            
+            <main class="projects-page">
+                <div class="projects-header">
+                    <div class="projects-filter">
+                        <div class="tabs">
+                            <button class="tab active" data-filter="all">All Projects</button>
+                            <button class="tab" data-filter="active">Active</button>
+                            <button class="tab" data-filter="completed">Completed</button>
+                            <button class="tab" data-filter="submitted">Submitted</button>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn--outline dropdown-toggle">
+                                <span>Sort: Recent</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" data-sort="recent">Most Recent</a>
+                                <a href="#" data-sort="oldest">Oldest First</a>
+                                <a href="#" data-sort="name">Name (A-Z)</a>
+                                <a href="#" data-sort="popularity">Most Popular</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="projects-search">
+                        <div class="search-input">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search projects...">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project Card 1 - Active -->
+                    <div class="project-card" data-type="active">
+                        <div class="project-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="AI Content Generator" class="project-card__banner">
+                            <div class="project-card__team">
+                                <img src="https://ui-avatars.com/api/?name=Code+Crusaders&background=4f46e5&color=fff" alt="CodeCrusaders" class="team-avatar">
+                                <span>CodeCrusaders</span>
+                            </div>
+                            <div class="project-card__status active">In Progress</div>
+                        </div>
+                        
+                        <div class="project-card__content">
+                            <div class="project-card__event">OpenAI Hackathon</div>
+                            <h3 class="project-card__title">AI Content Generator</h3>
+                            <p class="project-card__description">An AI-powered platform that helps marketing teams generate engaging content across multiple formats using GPT-4.</p>
+                            
+                            <div class="project-card__tech">
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-react"></use></svg>
+                                    React
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-node"></use></svg>
+                                    Node.js
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-tensorflow"></use></svg>
+                                    OpenAI
+                                </div>
+                            </div>
+                            
+                            <div class="project-card__progress">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card__footer">
+                            <div class="project-card__meta">
+                                <span class="meta-item"><i class="far fa-calendar"></i> Due: Jun 18, 2023</span>
+                                <span class="meta-item"><i class="fas fa-users"></i> 4 Members</span>
+                            </div>
+                            <div class="project-card__actions">
+                                <button class="btn btn--sm btn--text">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Repository</span>
+                                </button>
+                                <button class="btn btn--sm btn--primary">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    <span>Edit Project</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 - Active -->
+                    <div class="project-card" data-type="active">
+                        <div class="project-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="Serverless Analytics Platform" class="project-card__banner">
+                            <div class="project-card__team">
+                                <img src="https://ui-avatars.com/api/?name=Cloud+Ninjas&background=10b981&color=fff" alt="CloudNinjas" class="team-avatar">
+                                <span>CloudNinjas</span>
+                            </div>
+                            <div class="project-card__status active">In Progress</div>
+                        </div>
+                        
+                        <div class="project-card__content">
+                            <div class="project-card__event">AWS Cloud Innovation</div>
+                            <h3 class="project-card__title">Serverless Analytics Platform</h3>
+                            <p class="project-card__description">A real-time data processing platform utilizing AWS Lambda, Kinesis, and S3 for cost-effective big data analytics.</p>
+                            
+                            <div class="project-card__tech">
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-aws"></use></svg>
+                                    AWS
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-python"></use></svg>
+                                    Python
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-react"></use></svg>
+                                    React
+                                </div>
+                            </div>
+                            
+                            <div class="project-card__progress">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card__footer">
+                            <div class="project-card__meta">
+                                <span class="meta-item"><i class="far fa-calendar"></i> Due: Jun 20, 2023</span>
+                                <span class="meta-item"><i class="fas fa-users"></i> 3 Members</span>
+                            </div>
+                            <div class="project-card__actions">
+                                <button class="btn btn--sm btn--text">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Repository</span>
+                                </button>
+                                <button class="btn btn--sm btn--primary">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    <span>Edit Project</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 - Completed -->
+                    <div class="project-card" data-type="completed">
+                        <div class="project-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="Blockchain Payment Platform" class="project-card__banner">
+                            <div class="project-card__team">
+                                <img src="https://ui-avatars.com/api/?name=Block+Masters&background=f59e0b&color=fff" alt="BlockMasters" class="team-avatar">
+                                <span>BlockMasters</span>
+                            </div>
+                            <div class="project-card__status completed">Completed</div>
+                        </div>
+                        
+                        <div class="project-card__content">
+                            <div class="project-card__event">FinTech Hackathon</div>
+                            <h3 class="project-card__title">Blockchain Payment Platform</h3>
+                            <p class="project-card__description">A secure, low-fee international payment platform using blockchain for instant cross-border transactions and settlements.</p>
+                            
+                            <div class="project-card__tech">
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-javascript"></use></svg>
+                                    JavaScript
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-node"></use></svg>
+                                    Node.js
+                                </div>
+                                <div class="tech-tag">Solidity</div>
+                            </div>
+                            
+                            <div class="project-card__achievement">
+                                <div class="achievement-badge">
+                                    <i class="fas fa-medal"></i>
+                                    <span>3rd Place</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card__footer">
+                            <div class="project-card__meta">
+                                <span class="meta-item"><i class="far fa-calendar"></i> May 10, 2023</span>
+                                <span class="meta-item"><i class="fas fa-users"></i> 3 Members</span>
+                            </div>
+                            <div class="project-card__actions">
+                                <button class="btn btn--sm btn--text">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Repository</span>
+                                </button>
+                                <button class="btn btn--sm btn--primary">
+                                    <i class="fas fa-eye"></i>
+                                    <span>View Details</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 4 - Submitted -->
+                    <div class="project-card" data-type="submitted">
+                        <div class="project-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="TeleMed Connect" class="project-card__banner">
+                            <div class="project-card__team">
+                                <img src="https://ui-avatars.com/api/?name=Health+Tech&background=ec4899&color=fff" alt="HealthTech" class="team-avatar">
+                                <span>HealthTech Heroes</span>
+                            </div>
+                            <div class="project-card__status submitted">Submitted</div>
+                        </div>
+                        
+                        <div class="project-card__content">
+                            <div class="project-card__event">Health Innovations 2022</div>
+                            <h3 class="project-card__title">TeleMed Connect</h3>
+                            <p class="project-card__description">A telemedicine platform connecting patients with healthcare providers, featuring AI-powered symptom assessment and secure video consultations.</p>
+                            
+                            <div class="project-card__tech">
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-react"></use></svg>
+                                    React Native
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-python"></use></svg>
+                                    Python
+                                </div>
+                                <div class="tech-tag">
+                                    <svg class="tech-icon"><use href="../assets/images/skill-icons.svg#icon-tensorflow"></use></svg>
+                                    TensorFlow
+                                </div>
+                            </div>
+                            
+                            <div class="project-card__evaluation">
+                                <div class="evaluation-tag">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <span>Judging in Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card__footer">
+                            <div class="project-card__meta">
+                                <span class="meta-item"><i class="far fa-calendar"></i> Dec 15, 2022</span>
+                                <span class="meta-item"><i class="fas fa-users"></i> 4 Members</span>
+                            </div>
+                            <div class="project-card__actions">
+                                <button class="btn btn--sm btn--text">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Repository</span>
+                                </button>
+                                <button class="btn btn--sm btn--primary">
+                                    <i class="fas fa-eye"></i>
+                                    <span>View Details</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="empty-state" style="display: none;">
+                    <div class="empty-state__icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>No projects found</h3>
+                    <p>Join or create a team to start working on projects.</p>
+                    <a href="team-management.html" class="btn btn--primary">Find a Team</a>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Project filtering
+            const filterTabs = document.querySelectorAll('.tab');
+            const projectCards = document.querySelectorAll('.project-card');
+            const emptyState = document.querySelector('.empty-state');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active tab
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter project cards
+                    let visibleCards = 0;
+                    
+                    projectCards.forEach(card => {
+                        const cardType = card.getAttribute('data-type');
+                        
+                        if (filter === 'all' || filter === cardType) {
+                            card.style.display = 'flex';
+                            visibleCards++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide empty state
+                    if (visibleCards === 0) {
+                        emptyState.style.display = 'flex';
+                    } else {
+                        emptyState.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Dropdown functionality
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdownMenu.classList.toggle('show');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+            }
+            
+            // Sort functionality
+            const sortOptions = document.querySelectorAll('[data-sort]');
+            
+            if (sortOptions.length) {
+                sortOptions.forEach(option => {
+                    option.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const sortValue = this.getAttribute('data-sort');
+                        const sortText = this.textContent;
+                        
+                        // Update dropdown button text
+                        document.querySelector('.dropdown-toggle span').textContent = `Sort: ${sortText}`;
+                        
+                        // Hide dropdown
+                        dropdownMenu.classList.remove('show');
+                        
+                        // Here you would sort the project cards based on the sortValue
+                        // For this demo, we'll just log what would happen
+                        console.log(`Sorting projects by: ${sortValue}`);
+                    });
+                });
+            }
+            
+            // Search functionality
+            const searchInput = document.querySelector('.projects-search input');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchValue = this.value.toLowerCase();
+                    let visibleCards = 0;
+                    
+                    projectCards.forEach(card => {
+                        const title = card.querySelector('.project-card__title').textContent.toLowerCase();
+                        const description = card.querySelector('.project-card__description').textContent.toLowerCase();
+                        const team = card.querySelector('.project-card__team span').textContent.toLowerCase();
+                        const event = card.querySelector('.project-card__event').textContent.toLowerCase();
+                        
+                        if (title.includes(searchValue) || 
+                            description.includes(searchValue) || 
+                            team.includes(searchValue) || 
+                            event.includes(searchValue)) {
+                            card.style.display = 'flex';
+                            visibleCards++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide empty state
+                    if (visibleCards === 0) {
+                        emptyState.style.display = 'flex';
+                    } else {
+                        emptyState.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Space - CodeCrusaders | HackConnect</title>
+    <meta name="description" content="Team workspace for CodeCrusaders - manage projects, collaborate with team members, and track progress.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/team-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="mentor-booking.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Team Space</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <!-- Search, notifications, user menu components -->
+                </div>
+            </header>
+            
+            <main class="team-space">
+                <div class="team-header">
+                    <div class="team-header__main">
+                        <div class="team-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Code+Crusaders&background=4f46e5&color=fff" alt="CodeCrusaders">
+                        </div>
+                        <div class="team-header__info">
+                            <h2>CodeCrusaders</h2>
+                            <div class="team-meta">
+                                <span class="team-meta__item">
+                                    <i class="fas fa-user-friends"></i> 4 Team Members
+                                </span>
+                                <span class="team-meta__item">
+                                    <i class="fas fa-rocket"></i> Project: AI Content Generator
+                                </span>
+                                <span class="team-meta__tag active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-header__actions">
+                        <button class="btn btn--primary btn--icon">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Invite Members</span>
+                        </button>
+                        <button class="btn btn--outline btn--icon">
+                            <i class="fas fa-cog"></i>
+                            <span>Team Settings</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="team-tab-bar">
+                    <button class="team-tab active" data-tab="overview">Overview</button>
+                    <button class="team-tab" data-tab="members">Members</button>
+                    <button class="team-tab" data-tab="tasks">Tasks</button>
+                    <button class="team-tab" data-tab="resources">Resources</button>
+                    <button class="team-tab" data-tab="chat">Team Chat</button>
+                </div>
+                
+                <div class="team-content">
+                    <!-- Overview Tab -->
+                    <div class="team-tab-content active" id="overview">
+                        <div class="team-section">
+                            <div class="team-section__header">
+                                <h3>Project Overview</h3>
+                                <button class="btn btn--sm btn--text">Edit Project</button>
+                            </div>
+                            
+                            <div class="project-info">
+                                <div class="project-summary">
+                                    <h4>AI Content Generator</h4>
+                                    <p>An AI-powered platform that helps marketing teams generate engaging content across multiple formats using GPT-4. Features include template-based generation, brand voice customization, and SEO optimization suggestions.</p>
+                                    
+                                    <div class="project-tech">
+                                        <h5>Tech Stack</h5>
+                                        <div class="tech-stack-tags">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">Node.js</span>
+                                            <span class="tech-tag">Express</span>
+                                            <span class="tech-tag">MongoDB</span>
+                                            <span class="tech-tag">OpenAI API</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-links">
+                                    <a href="#" class="project-link github">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub Repository</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link figma">
+                                        <i class="fab fa-figma"></i>
+                                        <span>Figma Designs</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link docs">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Project Documentation</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link demo">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>Live Demo</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-grid">
+                            <div class="team-grid__main">
+                                <div class="team-section">
+                                    <div class="team-section__header">
+                                        <h3>Project Progress</h3>
+                                    </div>
+                                    
+                                    <div class="progress-overview">
+                                        <div class="progress-stats">
+                                            <div class="progress-stat">
+                                                <div class="progress-stat__number">75%</div>
+                                                <div class="progress-stat__label">Overall Progress</div>
+                                            </div>
+                                            <div class="progress-stat">
+                                                <div class="progress-stat__number">3</div>
+                                                <div class="progress-stat__label">Days Remaining</div>
+                                            </div>
+                                            <div class="progress-stat">
+                                                <div class="progress-stat__number">16</div>
+                                                <div class="progress-stat__label">Tasks Completed</div>
+                                            </div>
+                                            <div class="progress-stat">
+                                                <div class="progress-stat__number">5</div>
+                                                <div class="progress-stat__label">Tasks Remaining</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="progress-chart">
+                                            <div class="progress-chart__header">
+                                                <h4>Project Timeline</h4>
+                                                <span class="date-range">Jun 15 - Jun 18, 2023</span>
+                                            </div>
+                                            <div class="progress-bar-large">
+                                                <div class="progress-bar-large__fill" style="width: 75%;">
+                                                    <span class="progress-bar-large__label">75%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="milestone-list">
+                                            <h4>Key Milestones</h4>
+                                            <div class="milestone-items">
+                                                <div class="milestone-item completed">
+                                                    <div class="milestone-item__check">
+                                                        <i class="fas fa-check"></i>
+                                                    </div>
+                                                    <div class="milestone-item__content">
+                                                        <h5>Project Setup & Planning</h5>
+                                                        <p>Repository created, project requirements documented, and initial tasks assigned</p>
+                                                        <div class="milestone-item__meta">
+                                                            <span><i class="fas fa-calendar-check"></i> Completed Jun 15</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="milestone-item completed">
+                                                    <div class="milestone-item__check">
+                                                        <i class="fas fa-check"></i>
+                                                    </div>
+                                                    <div class="milestone-item__content">
+                                                        <h5>Frontend Prototype</h5>
+                                                        <p>Basic UI components created, user flows established, and design system implemented</p>
+                                                        <div class="milestone-item__meta">
+                                                            <span><i class="fas fa-calendar-check"></i> Completed Jun 16</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="milestone-item active">
+                                                    <div class="milestone-item__check">
+                                                        <i class="fas fa-spinner fa-spin"></i>
+                                                    </div>
+                                                    <div class="milestone-item__content">
+                                                        <h5>API Integration</h5>
+                                                        <p>Connect with OpenAI API, implement content generation features, and set up backend services</p>
+                                                        <div class="milestone-item__meta">
+                                                            <span><i class="fas fa-clock"></i> In Progress</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="milestone-item">
+                                                    <div class="milestone-item__check"></div>
+                                                    <div class="milestone-item__content">
+                                                        <h5>Testing & Refinement</h5>
+                                                        <p>Conduct usability testing, fix bugs, optimize performance, and improve UI</p>
+                                                        <div class="milestone-item__meta">
+                                                            <span><i class="fas fa-calendar"></i> Due Jun 17</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="milestone-item">
+                                                    <div class="milestone-item__check"></div>
+                                                    <div class="milestone-item__content">
+                                                        <h5>Final Submission</h5>
+                                                        <p>Prepare documentation, create demo video, and submit final project</p>
+                                                        <div class="milestone-item__meta">
+                                                            <span><i class="fas fa-calendar"></i> Due Jun 18</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-section">
+                                    <div class="team-section__header">
+                                        <h3>Recent Activity</h3>
+                                    </div>
+                                    
+                                    <div class="activity-list">
+                                        <div class="activity-item">
+                                            <div class="activity-item__avatar">
+                                                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--sm">
+                                            </div>
+                                            <div class="activity-item__content">
+                                                <p class="activity-item__text"><strong>Jane Smith</strong> completed task <strong>"Implement OpenAI API integration"</strong></p>
+                                                <p class="activity-item__time">2 hours ago</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item">
+                                            <div class="activity-item__avatar">
+                                                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--sm">
+                                            </div>
+                                            <div class="activity-item__content">
+                                                <p class="activity-item__text"><strong>Mike Johnson</strong> uploaded new designs to <strong>Figma</strong></p>
+                                                <p class="activity-item__time">4 hours ago</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item">
+                                            <div class="activity-item__avatar">
+                                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                                            </div>
+                                            <div class="activity-item__content">
+                                                <p class="activity-item__text"><strong>John Doe</strong> pushed 8 commits to <strong>main</strong> branch</p>
+                                                <p class="activity-item__time">Yesterday at 9:45 PM</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item">
+                                            <div class="activity-item__avatar">
+                                                <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar avatar--sm">
+                                            </div>
+                                            <div class="activity-item__content">
+                                                <p class="activity-item__text"><strong>Lisa Chen</strong> created task <strong>"Fine-tune content generator for different tones"</strong></p>
+                                                <p class="activity-item__time">Yesterday at 3:20 PM</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="activity-item">
+                                            <div class="activity-item__avatar">
+                                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                                            </div>
+                                            <div class="activity-item__content">
+                                                <p class="activity-item__text"><strong>John Doe</strong> booked a mentor session with <strong>Sarah Johnson</strong></p>
+                                                <p class="activity-item__time">Yesterday at 1:15 PM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-grid__sidebar">
+                                <div class="team-section">
+                                    <div class="team-section__header">
+                                        <h3>Team Members</h3>
+                                        <button class="btn btn--sm btn--text btn--icon">
+                                            <i class="fas fa-user-plus"></i>
+                                            <span>Invite</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="member-list">
+                                        <div class="member-card">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                                            <div class="member-info">
+                                                <h4>John Doe</h4>
+                                                <p class="member-role">Team Lead</p>
+                                            </div>
+                                            <div class="member-status online"></div>
+                                        </div>
+                                        
+                                        <div class="member-card">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar">
+                                            <div class="member-info">
+                                                <h4>Jane Smith</h4>
+                                                <p class="member-role">Backend Developer</p>
+                                            </div>
+                                            <div class="member-status online"></div>
+                                        </div>
+                                        
+                                        <div class="member-card">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar">
+                                            <div class="member-info">
+                                                <h4>Mike Johnson</h4>
+                                                <p class="member-role">UI/UX Designer</p>
+                                            </div>
+                                            <div class="member-status offline"></div>
+                                        </div>
+                                        
+                                        <div class="member-card">
+                                            <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar">
+                                            <div class="member-info">
+                                                <h4>Lisa Chen</h4>
+                                                <p class="member-role">ML Engineer</p>
+                                            </div>
+                                            <div class="member-status online"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-section">
+                                    <div class="team-section__header">
+                                        <h3>Upcoming Sessions</h3>
+                                    </div>
+                                    
+                                    <div class="session-list">
+                                        <div class="session-card">
+                                            <div class="session-card__icon">
+                                                <i class="fas fa-chalkboard-teacher"></i>
+                                            </div>
+                                            <div class="session-card__content">
+                                                <h4>Mentor Session: Sarah Johnson</h4>
+                                                <p>UI/UX Design Feedback</p>
+                                                <div class="session-card__time">
+                                                    <i class="far fa-clock"></i>
+                                                    <span>Today, 3:00 PM (45 min)</span>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn--sm btn--primary">Join</button>
+                                        </div>
+                                        
+                                        <div class="session-card">
+                                            <div class="session-card__icon">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                            <div class="session-card__content">
+                                                <h4>Team Stand-up</h4>
+                                                <p>Daily Progress Update</p>
+                                                <div class="session-card__time">
+                                                    <i class="far fa-clock"></i>
+                                                    <span>Tomorrow, 10:00 AM (30 min)</span>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn--sm btn--outline">Add to Calendar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-section">
+                                    <div class="team-section__header">
+                                        <h3>Quick Links</h3>
+                                    </div>
+                                    
+                                    <div class="quick-links">
+                                        <a href="hackathon-mentors.html" class="quick-link">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                            <span>Find a Mentor</span>
+                                        </a>
+                                        <a href="#" class="quick-link">
+                                            <i class="fas fa-code-branch"></i>
+                                            <span>GitHub Repository</span>
+                                        </a>
+                                        <a href="#" class="quick-link">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Project Documentation</span>
+                                        </a>
+                                        <a href="#" class="quick-link">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span>Team Calendar</span>
+                                        </a>
+                                        <a href="#" class="quick-link">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <span>Submit Project</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Members Tab -->
+                    <div class="team-tab-content" id="members">
+                        <div class="team-section">
+                            <div class="team-section__header">
+                                <h3>Team Members</h3>
+                                <button class="btn btn--primary btn--sm btn--icon">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Invite New Members</span>
+                                </button>
+                            </div>
+                            
+                            <div class="member-table">
+                                <div class="member-table__header">
+                                    <div class="member-table__cell">Member</div>
+                                    <div class="member-table__cell">Role</div>
+                                    <div class="member-table__cell">Skills</div>
+                                    <div class="member-table__cell">Status</div>
+                                    <div class="member-table__cell">Actions</div>
+                                </div>
+                                
+                                <div class="member-table__row">
+                                    <div class="member-table__cell">
+                                        <div class="member-info-row">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                                            <div>
+                                                <h4>John Doe</h4>
+                                                <p>john.doe@example.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="role-badge admin">Team Lead</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">React</span>
+                                            <span class="skill-tag">Node.js</span>
+                                            <span class="skill-tag">MongoDB</span>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="status-badge online">Online</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="member-actions">
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="member-table__row">
+                                    <div class="member-table__cell">
+                                        <div class="member-info-row">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--sm">
+                                            <div>
+                                                <h4>Jane Smith</h4>
+                                                <p>jane.smith@example.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="role-badge">Backend Developer</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Python</span>
+                                            <span class="skill-tag">Flask</span>
+                                            <span class="skill-tag">AI</span>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="status-badge online">Online</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="member-actions">
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="member-table__row">
+                                    <div class="member-table__cell">
+                                        <div class="member-info-row">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--sm">
+                                            <div>
+                                                <h4>Mike Johnson</h4>
+                                                <p>mike.johnson@example.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="role-badge">UI/UX Designer</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Figma</span>
+                                            <span class="skill-tag">UI Design</span>
+                                            <span class="skill-tag">Prototyping</span>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="status-badge offline">Offline</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="member-actions">
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="member-table__row">
+                                    <div class="member-table__cell">
+                                        <div class="member-info-row">
+                                            <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar avatar--sm">
+                                            <div>
+                                                <h4>Lisa Chen</h4>
+                                                <p>lisa.chen@example.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="role-badge">ML Engineer</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">TensorFlow</span>
+                                            <span class="skill-tag">NLP</span>
+                                            <span class="skill-tag">GPT Models</span>
+                                        </div>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <span class="status-badge online">Online</span>
+                                    </div>
+                                    <div class="member-table__cell">
+                                        <div class="member-actions">
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-comment"></i>
+                                            </button>
+                                            <button class="btn btn--icon btn--sm">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tasks Tab -->
+                    <div class="team-tab-content" id="tasks">
+                        <div class="team-section">
+                            <div class="team-section__header">
+                                <h3>Project Tasks</h3>
+                                <button class="btn btn--primary btn--sm btn--icon">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Add Task</span>
+                                </button>
+                            </div>
+                            
+                            <div class="task-filters">
+                                <div class="task-filter">
+                                    <label for="taskStatusFilter">Status:</label>
+                                    <select id="taskStatusFilter">
+                                        <option value="all">All Tasks</option>
+                                        <option value="todo">To Do</option>
+                                        <option value="in-progress">In Progress</option>
+                                        <option value="review">In Review</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="task-filter">
+                                    <label for="taskAssigneeFilter">Assignee:</label>
+                                    <select id="taskAssigneeFilter">
+                                        <option value="all">All Members</option>
+                                        <option value="john">John Doe</option>
+                                        <option value="jane">Jane Smith</option>
+                                        <option value="mike">Mike Johnson</option>
+                                        <option value="lisa">Lisa Chen</option>
+                                        <option value="unassigned">Unassigned</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="task-search">
+                                    <input type="text" placeholder="Search tasks...">
+                                </div>
+                            </div>
+                            
+                            <div class="task-board">
+                                <div class="task-column">
+                                    <div class="task-column__header">
+                                        <h4>To Do</h4>
+                                        <span class="task-count">3</span>
+                                    </div>
+                                    
+                                    <div class="task-list">
+                                        <div class="task-card">
+                                            <div class="task-card__priority high"></div>
+                                            <h5 class="task-card__title">Implement user authentication</h5>
+                                            <p class="task-card__description">Set up JWT authentication and user login/registration flows</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar"></i>
+                                                    <span>Jun 17</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card">
+                                            <div class="task-card__priority medium"></div>
+                                            <h5 class="task-card__title">Content export functionality</h5>
+                                            <p class="task-card__description">Add ability to export generated content in multiple formats (PDF, Word, HTML)</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <div class="avatar avatar--xs unassigned">
+                                                        <i class="fas fa-user-plus"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar"></i>
+                                                    <span>Jun 17</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card">
+                                            <div class="task-card__priority low"></div>
+                                            <h5 class="task-card__title">Social media sharing</h5>
+                                            <p class="task-card__description">Create direct sharing options for generated content to social platforms</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar"></i>
+                                                    <span>Jun 18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-column">
+                                    <div class="task-column__header">
+                                        <h4>In Progress</h4>
+                                        <span class="task-count">2</span>
+                                    </div>
+                                    
+                                    <div class="task-list">
+                                        <div class="task-card">
+                                            <div class="task-card__priority high"></div>
+                                            <h5 class="task-card__title">Fine-tune content generator</h5>
+                                            <p class="task-card__description">Add options for different tones (professional, casual, humorous) and content types</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar"></i>
+                                                    <span>Jun 16</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card">
+                                            <div class="task-card__priority medium"></div>
+                                            <h5 class="task-card__title">Create onboarding flow</h5>
+                                            <p class="task-card__description">Design and implement user onboarding experience with tutorials</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar"></i>
+                                                    <span>Jun 17</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-column">
+                                    <div class="task-column__header">
+                                        <h4>In Review</h4>
+                                        <span class="task-count">1</span>
+                                    </div>
+                                    
+                                    <div class="task-list">
+                                        <div class="task-card">
+                                            <div class="task-card__priority high"></div>
+                                            <h5 class="task-card__title">API rate limiting</h5>
+                                            <p class="task-card__description">Implement token bucket algorithm for OpenAI API usage to manage costs</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar-check"></i>
+                                                    <span>Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-column">
+                                    <div class="task-column__header">
+                                        <h4>Completed</h4>
+                                        <span class="task-count">4</span>
+                                    </div>
+                                    
+                                    <div class="task-list">
+                                        <div class="task-card completed">
+                                            <div class="task-card__priority high"></div>
+                                            <h5 class="task-card__title">OpenAI API integration</h5>
+                                            <p class="task-card__description">Connect application to OpenAI's API for content generation features</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar-check"></i>
+                                                    <span>Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card completed">
+                                            <div class="task-card__priority high"></div>
+                                            <h5 class="task-card__title">Basic UI Components</h5>
+                                            <p class="task-card__description">Create React components for the editor, settings panel, and content display</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar-check"></i>
+                                                    <span>Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card completed">
+                                            <div class="task-card__priority medium"></div>
+                                            <h5 class="task-card__title">Setup MongoDB Database</h5>
+                                            <p class="task-card__description">Configure database for user data and content storage</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar-check"></i>
+                                                    <span>Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="task-card completed">
+                                            <div class="task-card__priority medium"></div>
+                                            <h5 class="task-card__title">Project initialization</h5>
+                                            <p class="task-card__description">Set up project repository, base architecture, and development environment</p>
+                                            <div class="task-card__meta">
+                                                <div class="task-card__assignee">
+                                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--xs">
+                                                </div>
+                                                <div class="task-card__due">
+                                                    <i class="far fa-calendar-check"></i>
+                                                    <span>Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Tab -->
+                    <div class="team-tab-content" id="resources">
+                        <div class="team-section">
+                            <div class="team-section__header">
+                                <h3>Project Resources</h3>
+                                <button class="btn btn--primary btn--sm btn--icon">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Add Resource</span>
+                                </button>
+                            </div>
+                            
+                            <div class="resources-grid">
+                                <div class="resource-card">
+                                    <div class="resource-card__icon doc">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="resource-card__content">
+                                        <h4>Project Requirements</h4>
+                                        <p>Detailed description of project goals, features, and technical requirements</p>
+                                        <div class="resource-card__meta">
+                                            <span><i class="far fa-clock"></i> Updated 2 days ago</span>
+                                            <span><i class="fas fa-user"></i> John Doe</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-card__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-card__icon figma">
+                                        <i class="fab fa-figma"></i>
+                                    </div>
+                                    <div class="resource-card__content">
+                                        <h4>UI Design Files</h4>
+                                        <p>Figma design files with UI components, mockups, and prototypes</p>
+                                        <div class="resource-card__meta">
+                                            <span><i class="far fa-clock"></i> Updated 4 hours ago</span>
+                                            <span><i class="fas fa-user"></i> Mike Johnson</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-card__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-card__icon github">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div class="resource-card__content">
+                                        <h4>GitHub Repository</h4>
+                                        <p>Main project repository with codebase and documentation</p>
+                                        <div class="resource-card__meta">
+                                            <span><i class="far fa-clock"></i> Updated 2 hours ago</span>
+                                            <span><i class="fas fa-code-branch"></i> 28 commits</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-card__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-card__icon api">
+                                        <i class="fas fa-plug"></i>
+                                    </div>
+                                    <div class="resource-card__content">
+                                        <h4>OpenAI API Documentation</h4>
+                                        <p>Reference documentation for integrating with OpenAI's API</p>
+                                        <div class="resource-card__meta">
+                                            <span><i class="fas fa-external-link-alt"></i> External Resource</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-card__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-card__icon presentation">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                    </div>
+                                    <div class="resource-card__content">
+                                        <h4>Project Presentation</h4>
+                                        <p>Slides for final project presentation and demo</p>
+                                        <div class="resource-card__meta">
+                                            <span><i class="far fa-clock"></i> Updated yesterday</span>
+                                            <span><i class="fas fa-user"></i> Lisa Chen</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-card__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Tab -->
+                    <div class="team-tab-content" id="chat">
+                        <div class="team-chat">
+                            <div class="chat-sidebar">
+                                <div class="chat-channels">
+                                    <h3 class="chat-heading">Channels</h3>
+                                    <div class="channel-list">
+                                        <a href="#" class="channel-item active">
+                                            <span class="channel-name"># general</span>
+                                            <span class="channel-badge">3</span>
+                                        </a>
+                                        <a href="#" class="channel-item">
+                                            <span class="channel-name"># frontend</span>
+                                        </a>
+                                        <a href="#" class="channel-item">
+                                            <span class="channel-name"># backend</span>
+                                            <span class="channel-badge">2</span>
+                                        </a>
+                                        <a href="#" class="channel-item">
+                                            <span class="channel-name"># design</span>
+                                        </a>
+                                    </div>
+                                    
+                                    <h3 class="chat-heading">Direct Messages</h3>
+                                    <div class="dm-list">
+                                        <a href="#" class="dm-item">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--xs">
+                                            <span class="dm-name">Jane Smith</span>
+                                            <span class="status-indicator online"></span>
+                                        </a>
+                                        <a href="#" class="dm-item">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--xs">
+                                            <span class="dm-name">Mike Johnson</span>
+                                            <span class="status-indicator offline"></span>
+                                        </a>
+                                        <a href="#" class="dm-item">
+                                            <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar avatar--xs">
+                                            <span class="dm-name">Lisa Chen</span>
+                                            <span class="status-indicator online"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-main">
+                                <div class="chat-header">
+                                    <div class="chat-header__info">
+                                        <h4># general</h4>
+                                        <p>Team-wide discussion and updates</p>
+                                    </div>
+                                    <div class="chat-header__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-users"></i>
+                                        </button>
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="chat-messages">
+                                    <div class="chat-date-divider">
+                                        <span>Yesterday</span>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">John Doe</span>
+                                                <span class="chat-message__time">10:15 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>Hey team! I've pushed the initial project setup to the repo. Take a look and let me know if you have any questions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">Jane Smith</span>
+                                                <span class="chat-message__time">10:32 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>Thanks John! I'm starting on the OpenAI API integration now. Has anyone worked with their API before?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff" alt="Lisa Chen" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">Lisa Chen</span>
+                                                <span class="chat-message__time">10:45 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>I have some experience with it! Happy to jump on a call later to walk through how their API works.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-date-divider">
+                                        <span>Today</span>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff" alt="Mike Johnson" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">Mike Johnson</span>
+                                                <span class="chat-message__time">9:12 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>Morning all! I've uploaded the UI designs to Figma. Would love feedback on the content editor component.</p>
+                                                <div class="chat-message__attachment">
+                                                    <i class="fab fa-figma"></i>
+                                                    <span>content-editor-v2.fig</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff" alt="Jane Smith" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">Jane Smith</span>
+                                                <span class="chat-message__time">10:03 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>Great news everyone! I've completed the OpenAI API integration 🎉 You can now generate content using our basic prompt templates.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chat-message">
+                                        <div class="chat-message__avatar">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                                        </div>
+                                        <div class="chat-message__content">
+                                            <div class="chat-message__header">
+                                                <span class="chat-message__author">John Doe</span>
+                                                <span class="chat-message__time">10:15 AM</span>
+                                            </div>
+                                            <div class="chat-message__text">
+                                                <p>Amazing work Jane! I'll test it out now. Don't forget we have a mentor session with Sarah Johnson at 3pm today to review our progress.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="chat-input">
+                                    <div class="chat-input__actions">
+                                        <button class="btn btn--icon btn--sm">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="chat-input__field">
+                                        <input type="text" placeholder="Message #general">
+                                    </div>
+                                    <div class="chat-input__send">
+                                        <button class="btn btn--primary btn--sm">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Team tabs functionality
+            const tabButtons = document.querySelectorAll('.team-tab');
+            const tabContents = document.querySelectorAll('.team-tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get the tab to show
+                    const tabToShow = this.getAttribute('data-tab');
+                    
+                    // Hide all tabs and show the selected one
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabToShow).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

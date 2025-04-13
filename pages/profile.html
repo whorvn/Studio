@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile | HackConnect</title>
-    <meta name="description" content="View and edit your HackConnect profile, skills and achievements.">
+    <meta name="description" content="View and edit your HackConnect profile, showcase your skills and achievements">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../components/dashboard.css">
     <link rel="stylesheet" href="../components/profile.css">
@@ -130,103 +130,640 @@
             
             <main class="profile-page">
                 <div class="profile-header">
-                    <div class="profile-cover">
-                        <img src="../assets/images/cover-placeholder.jpg" alt="Profile Cover" class="profile-cover__image">
-                        <button class="btn btn--icon-only profile-cover__edit" aria-label="Change cover photo">
+                    <div class="profile-header__cover">
+                        <img src="../assets/images/banner1.jpg" alt="Profile cover">
+                        <button class="btn btn--sm btn--icon profile-cover-btn">
                             <i class="fas fa-camera"></i>
+                            <span>Change Cover</span>
                         </button>
                     </div>
                     
                     <div class="profile-header__content">
-                        <div class="profile-header__info">
-                            <div class="profile-avatar">
-                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=200" alt="John Doe" class="profile-avatar__image">
-                                <button class="profile-avatar__edit" aria-label="Change profile photo">
-                                    <i class="fas fa-camera"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="profile-header__text">
-                                <h2>John Doe</h2>
-                                <p class="profile-header__title">Full Stack Developer at TechCorp</p>
-                                <p class="profile-header__location">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    San Francisco, CA
-                                </p>
-                            </div>
+                        <div class="profile-avatar-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=200" alt="John Doe" class="profile-avatar">
+                            <button class="profile-avatar-edit">
+                                <i class="fas fa-camera"></i>
+                            </button>
                         </div>
                         
-                        <div class="profile-actions">
-                            <button class="btn btn--primary btn--icon" id="editProfileBtn">
-                                <i class="fas fa-pencil-alt"></i>
-                                Edit Profile
-                            </button>
-                            <button class="btn btn--outline btn--icon">
-                                <i class="fas fa-share-alt"></i>
-                                Share Profile
-                            </button>
+                        <div class="profile-info">
+                            <div class="profile-info__primary">
+                                <h1>John Doe</h1>
+                                <span class="profile-username">@johndoe</span>
+                                <p class="profile-headline">Full Stack Developer | Hackathon Enthusiast | AWS Certified Developer</p>
+                            </div>
+                            
+                            <div class="profile-info__meta">
+                                <div class="profile-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>New York, USA</span>
+                                </div>
+                                <div class="profile-meta-item">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Software Engineer at TechCorp</span>
+                                </div>
+                                <div class="profile-meta-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Computer Science, MIT</span>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-actions">
+                                <a href="settings.html" class="btn btn--primary btn--icon">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Edit Profile</span>
+                                </a>
+                                <button class="btn btn--outline btn--icon">
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>Share Profile</span>
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <div class="profile-nav">
+                        <a href="#about" class="profile-nav__link active">About</a>
+                        <a href="#skills" class="profile-nav__link">Skills</a>
+                        <a href="#hackathons" class="profile-nav__link">Hackathons</a>
+                        <a href="#projects" class="profile-nav__link">Projects</a>
+                        <a href="#achievements" class="profile-nav__link">Achievements</a>
                     </div>
                 </div>
                 
                 <div class="profile-content">
                     <div class="profile-sidebar">
                         <div class="profile-card">
-                            <div class="profile-card__header">
-                                <h3>About</h3>
-                            </div>
-                            <div class="profile-card__body">
-                                <p>Full stack developer with 5+ years of experience building web applications. Passionate about hackathons, innovative tech, and solving real-world problems through code. Currently focusing on AI/ML integration with web platforms.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="profile-card">
-                            <div class="profile-card__header">
-                                <h3>Skills</h3>
-                                <button class="btn btn--text btn--small">Edit</button>
-                            </div>
-                            <div class="profile-card__body">
-                                <div class="skill-tags">
-                                    <span class="skill-tag">JavaScript</span>
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">Node.js</span>
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">Docker</span>
-                                    <span class="skill-tag">AWS</span>
-                                    <span class="skill-tag">GraphQL</span>
-                                    <span class="skill-tag">MongoDB</span>
-                                    <span class="skill-tag">UI/UX</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="profile-card">
-                            <div class="profile-card__header">
-                                <h3>Connect</h3>
-                            </div>
-                            <div class="profile-card__body">
-                                <div class="social-links-list">
-                                    <a href="#" class="social-link">
+                            <h3 class="profile-card__title">Social Profiles</h3>
+                            
+                            <div class="social-links">
+                                <a href="https://github.com/johndoe" target="_blank" class="social-link">
+                                    <div class="social-icon github">
                                         <i class="fab fa-github"></i>
-                                        <span>github.com/johndoe</span>
-                                    </a>
-                                    <a href="#" class="social-link">
-                                        <i class="fab fa-linkedin"></i>
-                                        <span>linkedin.com/in/johndoe</span>
-                                    </a>
-                                    <a href="#" class="social-link">
+                                    </div>
+                                    <div class="social-info">
+                                        <span class="social-name">GitHub</span>
+                                        <span class="social-handle">github.com/johndoe</span>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://linkedin.com/in/johndoe" target="_blank" class="social-link">
+                                    <div class="social-icon linkedin">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                    <div class="social-info">
+                                        <span class="social-name">LinkedIn</span>
+                                        <span class="social-handle">linkedin.com/in/johndoe</span>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://twitter.com/johndoe" target="_blank" class="social-link">
+                                    <div class="social-icon twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <div class="social-info">
+                                        <span class="social-name">Twitter</span>
+                                        <span class="social-handle">@johndoe</span>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://johndoe.dev" target="_blank" class="social-link">
+                                    <div class="social-icon website">
                                         <i class="fas fa-globe"></i>
-                                        <span>johndoe.dev</span>
-                                    </a>
-                                </div>
+                                    </div>
+                                    <div class="social-info">
+                                        <span class="social-name">Website</span>
+                                        <span class="social-handle">johndoe.dev</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         
                         <div class="profile-card">
-                            <div class="profile-card__header">
-                                <h3>Badges & Achievements</h3>
+                            <h3 class="profile-card__title">Teams</h3>
+                            
+                            <div class="teams-list">
+                                <a href="team-management.html" class="team-item">
+                                    <img src="https://ui-avatars.com/api/?name=Code+Crusaders&background=4f46e5&color=fff" alt="CodeCrusaders" class="team-avatar">
+                                    <div class="team-info">
+                                        <h4>CodeCrusaders</h4>
+                                        <p>OpenAI Hackathon</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="team-management.html" class="team-item">
+                                    <img src="https://ui-avatars.com/api/?name=Cloud+Ninjas&background=10b981&color=fff" alt="CloudNinjas" class="team-avatar">
+                                    <div class="team-info">
+                                        <h4>CloudNinjas</h4>
+                                        <p>AWS Cloud Innovation</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="team-management.html" class="team-item">
+                                    <img src="https://ui-avatars.com/api/?name=Block+Masters&background=f59e0b&color=fff" alt="BlockMasters" class="team-avatar">
+                                    <div class="team-info">
+                                        <h4>BlockMasters</h4>
+                                        <p>FinTech Hackathon</p>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="profile-card__body">
+                            
+                            <a href="team-management.html" class="btn btn--text btn--sm btn--full">View All Teams</a>
+                        </div>
+                        
+                        <div class="profile-card">
+                            <h3 class="profile-card__title">Certifications</h3>
+                            
+                            <div class="certifications-list">
+                                <div class="certification-item">
+                                    <div class="certification-icon">
+                                        <img src="https://logo.clearbit.com/aws.amazon.com" alt="AWS">
+                                    </div>
+                                    <div class="certification-info">
+                                        <h4>AWS Certified Developer - Associate</h4>
+                                        <p>Issued Apr 2023 · Expires Apr 2026</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="certification-item">
+                                    <div class="certification-icon">
+                                        <img src="https://logo.clearbit.com/google.com" alt="Google">
+                                    </div>
+                                    <div class="certification-info">
+                                        <h4>Google Cloud Professional Developer</h4>
+                                        <p>Issued Jan 2023 · Expires Jan 2025</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="certification-item">
+                                    <div class="certification-icon">
+                                        <img src="https://logo.clearbit.com/mongodb.com" alt="MongoDB">
+                                    </div>
+                                    <div class="certification-info">
+                                        <h4>MongoDB Certified Developer</h4>
+                                        <p>Issued Nov 2022 · No Expiration</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-main">
+                        <section id="about" class="profile-section active">
+                            <h2 class="profile-section__title">About Me</h2>
+                            
+                            <div class="profile-card profile-bio">
+                                <div class="profile-bio__content">
+                                    <p>Full stack developer with over 5 years of experience, specializing in React, Node.js, and cloud technologies. Passionate about building innovative solutions that solve real-world problems and creating seamless user experiences.</p>
+                                    
+                                    <p>I regularly participate in hackathons to challenge myself, collaborate with diverse teams, and stay up-to-date with emerging technologies. My goal is to leverage technology to create positive social impact and mentor upcoming developers in the community.</p>
+                                    
+                                    <p>When I'm not coding, I enjoy hiking, playing chess, and experimenting with IoT projects for home automation.</p>
+                                </div>
+                                
+                                <div class="stat-cards">
+                                    <div class="stat-card">
+                                        <h3>12</h3>
+                                        <p>Hackathons</p>
+                                    </div>
+                                    <div class="stat-card">
+                                        <h3>8</h3>
+                                        <p>Projects</p>
+                                    </div>
+                                    <div class="stat-card">
+                                        <h3>5</h3>
+                                        <p>Awards</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-card">
+                                <h3 class="profile-card__title">Experience</h3>
+                                
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker current"></div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <img src="https://logo.clearbit.com/techcorp.com" alt="TechCorp" class="company-logo">
+                                                <div>
+                                                    <h4>Software Engineer</h4>
+                                                    <p>TechCorp</p>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-period">Jan 2021 - Present</div>
+                                            <div class="timeline-description">
+                                                <p>Lead developer for customer-facing web applications using React, Node.js, and AWS. Implemented CI/CD pipelines and reduced deployment time by 70%. Mentored junior developers and conducted code reviews.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <img src="https://logo.clearbit.com/innovateapps.com" alt="InnovateApps" class="company-logo">
+                                                <div>
+                                                    <h4>Frontend Developer</h4>
+                                                    <p>InnovateApps</p>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-period">Mar 2019 - Dec 2020</div>
+                                            <div class="timeline-description">
+                                                <p>Developed responsive web applications with React and Redux. Collaborated with design team to implement pixel-perfect UIs. Increased application performance by 40% through code optimization.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <img src="https://logo.clearbit.com/webstart.io" alt="WebStart" class="company-logo">
+                                                <div>
+                                                    <h4>Junior Developer</h4>
+                                                    <p>WebStart</p>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-period">Jul 2017 - Feb 2019</div>
+                                            <div class="timeline-description">
+                                                <p>Worked on website development projects for clients across various industries. Responsible for HTML, CSS, JavaScript implementation and bug fixing.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-card">
+                                <h3 class="profile-card__title">Education</h3>
+                                
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <img src="https://logo.clearbit.com/mit.edu" alt="MIT" class="company-logo">
+                                                <div>
+                                                    <h4>Master of Science in Computer Science</h4>
+                                                    <p>Massachusetts Institute of Technology</p>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-period">2015 - 2017</div>
+                                            <div class="timeline-description">
+                                                <p>Specialized in Advanced Algorithms and Machine Learning. Thesis on "Optimizing Neural Networks for Real-time Applications".</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <img src="https://logo.clearbit.com/stanford.edu" alt="Stanford" class="company-logo">
+                                                <div>
+                                                    <h4>Bachelor of Science in Computer Science</h4>
+                                                    <p>Stanford University</p>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-period">2011 - 2015</div>
+                                            <div class="timeline-description">
+                                                <p>Graduated with Honors. Member of the Computer Science Society and Hackathon Club.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="skills" class="profile-section">
+                            <h2 class="profile-section__title">Skills & Expertise</h2>
+                            
+                            <div class="profile-card">
+                                <h3 class="profile-card__title">Technical Skills</h3>
+                                
+                                <div class="skills-grid">
+                                    <div class="skill-category">
+                                        <h4 class="skill-category__title">
+                                            <i class="fas fa-code"></i>
+                                            Frontend
+                                        </h4>
+                                        <div class="skill-bars">
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">React</span>
+                                                    <span class="skill-level">95%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 95%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">JavaScript</span>
+                                                    <span class="skill-level">90%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 90%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">CSS/SCSS</span>
+                                                    <span class="skill-level">85%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 85%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">TypeScript</span>
+                                                    <span class="skill-level">80%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="skill-category">
+                                        <h4 class="skill-category__title">
+                                            <i class="fas fa-server"></i>
+                                            Backend
+                                        </h4>
+                                        <div class="skill-bars">
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">Node.js</span>
+                                                    <span class="skill-level">90%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 90%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">Express</span>
+                                                    <span class="skill-level">85%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 85%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">MongoDB</span>
+                                                    <span class="skill-level">80%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">PostgreSQL</span>
+                                                    <span class="skill-level">75%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 75%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="skill-category">
+                                        <h4 class="skill-category__title">
+                                            <i class="fas fa-cloud"></i>
+                                            Cloud & DevOps
+                                        </h4>
+                                        <div class="skill-bars">
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">AWS</span>
+                                                    <span class="skill-level">85%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 85%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">Docker</span>
+                                                    <span class="skill-level">80%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">CI/CD</span>
+                                                    <span class="skill-level">75%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 75%;"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="skill-bar">
+                                                <div class="skill-bar__info">
+                                                    <span class="skill-name">Kubernetes</span>
+                                                    <span class="skill-level">70%</span>
+                                                </div>
+                                                <div class="skill-bar__progress">
+                                                    <div class="skill-bar__fill" style="width: 70%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-card">
+                                <h3 class="profile-card__title">Languages & Frameworks</h3>
+                                
+                                <div class="skill-chips">
+                                    <span class="skill-chip">JavaScript</span>
+                                    <span class="skill-chip">TypeScript</span>
+                                    <span class="skill-chip">Python</span>
+                                    <span class="skill-chip">HTML/CSS</span>
+                                    <span class="skill-chip">React</span>
+                                    <span class="skill-chip">Next.js</span>
+                                    <span class="skill-chip">Node.js</span>
+                                    <span class="skill-chip">Express</span>
+                                    <span class="skill-chip">GraphQL</span>
+                                    <span class="skill-chip">REST API</span>
+                                    <span class="skill-chip">MongoDB</span>
+                                    <span class="skill-chip">PostgreSQL</span>
+                                    <span class="skill-chip">AWS</span>
+                                    <span class="skill-chip">Docker</span>
+                                    <span class="skill-chip">Git</span>
+                                    <span class="skill-chip">Jest</span>
+                                    <span class="skill-chip">React Testing Library</span>
+                                    <span class="skill-chip">CI/CD</span>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="hackathons" class="profile-section">
+                            <div class="hackathon-history">
+                                <div class="hackathon-entry">
+                                    <div class="hackathon-entry__logo">
+                                        <img src="../assets/images/hackathon-sustainability.jpg" alt="Sustainable Tech Challenge">
+                                    </div>
+                                    <div class="hackathon-entry__details">
+                                        <h4>Sustainable Tech Challenge</h4>
+                                        <p class="hackathon-entry__date">May 5 - May 12, 2023</p>
+                                        <div class="hackathon-entry__info">
+                                            <span class="hackathon-entry__badge success">Winner</span>
+                                            <span class="hackathon-entry__project">Project: <strong>EcoTrack</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-entry__actions">
+                                        <a href="#" class="btn btn--outline btn--small">View Details</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="hackathon-entry">
+                                    <div class="hackathon-entry__logo">
+                                        <img src="../assets/images/hackathon-health.jpg" alt="HealthTech Innovation">
+                                    </div>
+                                    <div class="hackathon-entry__details">
+                                        <h4>HealthTech Innovation</h4>
+                                        <p class="hackathon-entry__date">Apr 10 - Apr 15, 2023</p>
+                                        <div class="hackathon-entry__info">
+                                            <span class="hackathon-entry__badge info">Finalist</span>
+                                            <span class="hackathon-entry__project">Project: <strong>MediSync</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-entry__actions">
+                                        <a href="#" class="btn btn--outline btn--small">View Details</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="hackathon-entry">
+                                    <div class="hackathon-entry__logo">
+                                        <img src="../assets/images/hackathon-social.jpg" alt="Social Impact Challenge">
+                                    </div>
+                                    <div class="hackathon-entry__details">
+                                        <h4>Social Impact Challenge</h4>
+                                        <p class="hackathon-entry__date">Mar 1 - Mar 5, 2023</p>
+                                        <div class="hackathon-entry__info">
+                                            <span class="hackathon-entry__badge">Participant</span>
+                                            <span class="hackathon-entry__project">Project: <strong>CommunityConnect</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-entry__actions">
+                                        <a href="#" class="btn btn--outline btn--small">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="projects" class="profile-section">
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <div class="project-card__image">
+                                        <img src="../assets/images/project-ecotrack.jpg" alt="EcoTrack">
+                                    </div>
+                                    <div class="project-card__content">
+                                        <h4 class="project-card__title">EcoTrack</h4>
+                                        <div class="project-card__meta">
+                                            <span class="project-card__date">May 2023</span>
+                                            <span class="project-card__badge">Winner</span>
+                                        </div>
+                                        <p class="project-card__description">IoT-connected platform for tracking environmental metrics with real-time analysis and predictive AI models.</p>
+                                        <div class="project-card__tech">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">Node.js</span>
+                                            <span class="tech-tag">IoT</span>
+                                            <span class="tech-tag">TensorFlow</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fas fa-link"></i>
+                                            Demo
+                                        </a>
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fab fa-github"></i>
+                                            Code
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card">
+                                    <div class="project-card__image">
+                                        <img src="../assets/images/project-medisync.jpg" alt="MediSync">
+                                    </div>
+                                    <div class="project-card__content">
+                                        <h4 class="project-card__title">MediSync</h4>
+                                        <div class="project-card__meta">
+                                            <span class="project-card__date">April 2023</span>
+                                            <span class="project-card__badge">Finalist</span>
+                                        </div>
+                                        <p class="project-card__description">Mobile health platform for medication management with smart reminders and healthcare provider integration.</p>
+                                        <div class="project-card__tech">
+                                            <span class="tech-tag">React Native</span>
+                                            <span class="tech-tag">Firebase</span>
+                                            <span class="tech-tag">Express</span>
+                                            <span class="tech-tag">MongoDB</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fas fa-link"></i>
+                                            Demo
+                                        </a>
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fab fa-github"></i>
+                                            Code
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card">
+                                    <div class="project-card__image">
+                                        <img src="../assets/images/project-community.jpg" alt="CommunityConnect">
+                                    </div>
+                                    <div class="project-card__content">
+                                        <h4 class="project-card__title">CommunityConnect</h4>
+                                        <div class="project-card__meta">
+                                            <span class="project-card__date">March 2023</span>
+                                        </div>
+                                        <p class="project-card__description">Platform connecting volunteers with local community service opportunities and tracking social impact metrics.</p>
+                                        <div class="project-card__tech">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">GraphQL</span>
+                                            <span class="tech-tag">PostgreSQL</span>
+                                            <span class="tech-tag">Auth0</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fas fa-link"></i>
+                                            Demo
+                                        </a>
+                                        <a href="#" class="btn btn--text btn--icon">
+                                            <i class="fab fa-github"></i>
+                                            Code
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="achievements" class="profile-section">
+                            <div class="profile-card">
+                                <h3 class="profile-card__title">Badges & Achievements</h3>
                                 <div class="badges-grid">
                                     <div class="badge-item">
                                         <div class="badge-item__icon">
@@ -254,291 +791,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="profile-main">
-                        <div class="profile-tab-container">
-                            <div class="profile-tabs">
-                                <button class="profile-tabs__btn active" data-tab="projects">Projects</button>
-                                <button class="profile-tabs__btn" data-tab="hackathons">Hackathons</button>
-                                <button class="profile-tabs__btn" data-tab="teams">Teams</button>
-                                <button class="profile-tabs__btn" data-tab="certifications">Certifications</button>
-                            </div>
-                            
-                            <div class="profile-tab-content">
-                                <div class="profile-tab-pane active" id="projects">
-                                    <div class="projects-grid">
-                                        <div class="project-card">
-                                            <div class="project-card__image">
-                                                <img src="../assets/images/project-ecotrack.jpg" alt="EcoTrack">
-                                            </div>
-                                            <div class="project-card__content">
-                                                <h4 class="project-card__title">EcoTrack</h4>
-                                                <div class="project-card__meta">
-                                                    <span class="project-card__date">May 2023</span>
-                                                    <span class="project-card__badge">Winner</span>
-                                                </div>
-                                                <p class="project-card__description">IoT-connected platform for tracking environmental metrics with real-time analysis and predictive AI models.</p>
-                                                <div class="project-card__tech">
-                                                    <span class="tech-tag">React</span>
-                                                    <span class="tech-tag">Node.js</span>
-                                                    <span class="tech-tag">IoT</span>
-                                                    <span class="tech-tag">TensorFlow</span>
-                                                </div>
-                                            </div>
-                                            <div class="project-card__footer">
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fas fa-link"></i>
-                                                    Demo
-                                                </a>
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fab fa-github"></i>
-                                                    Code
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="project-card">
-                                            <div class="project-card__image">
-                                                <img src="../assets/images/project-medisync.jpg" alt="MediSync">
-                                            </div>
-                                            <div class="project-card__content">
-                                                <h4 class="project-card__title">MediSync</h4>
-                                                <div class="project-card__meta">
-                                                    <span class="project-card__date">April 2023</span>
-                                                    <span class="project-card__badge">Finalist</span>
-                                                </div>
-                                                <p class="project-card__description">Mobile health platform for medication management with smart reminders and healthcare provider integration.</p>
-                                                <div class="project-card__tech">
-                                                    <span class="tech-tag">React Native</span>
-                                                    <span class="tech-tag">Firebase</span>
-                                                    <span class="tech-tag">Express</span>
-                                                    <span class="tech-tag">MongoDB</span>
-                                                </div>
-                                            </div>
-                                            <div class="project-card__footer">
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fas fa-link"></i>
-                                                    Demo
-                                                </a>
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fab fa-github"></i>
-                                                    Code
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="project-card">
-                                            <div class="project-card__image">
-                                                <img src="../assets/images/project-community.jpg" alt="CommunityConnect">
-                                            </div>
-                                            <div class="project-card__content">
-                                                <h4 class="project-card__title">CommunityConnect</h4>
-                                                <div class="project-card__meta">
-                                                    <span class="project-card__date">March 2023</span>
-                                                </div>
-                                                <p class="project-card__description">Platform connecting volunteers with local community service opportunities and tracking social impact metrics.</p>
-                                                <div class="project-card__tech">
-                                                    <span class="tech-tag">React</span>
-                                                    <span class="tech-tag">GraphQL</span>
-                                                    <span class="tech-tag">PostgreSQL</span>
-                                                    <span class="tech-tag">Auth0</span>
-                                                </div>
-                                            </div>
-                                            <div class="project-card__footer">
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fas fa-link"></i>
-                                                    Demo
-                                                </a>
-                                                <a href="#" class="btn btn--text btn--icon">
-                                                    <i class="fab fa-github"></i>
-                                                    Code
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profile-tab-pane" id="hackathons">
-                                    <div class="hackathon-history">
-                                        <div class="hackathon-entry">
-                                            <div class="hackathon-entry__logo">
-                                                <img src="../assets/images/hackathon-sustainability.jpg" alt="Sustainable Tech Challenge">
-                                            </div>
-                                            <div class="hackathon-entry__details">
-                                                <h4>Sustainable Tech Challenge</h4>
-                                                <p class="hackathon-entry__date">May 5 - May 12, 2023</p>
-                                                <div class="hackathon-entry__info">
-                                                    <span class="hackathon-entry__badge success">Winner</span>
-                                                    <span class="hackathon-entry__project">Project: <strong>EcoTrack</strong></span>
-                                                </div>
-                                            </div>
-                                            <div class="hackathon-entry__actions">
-                                                <a href="#" class="btn btn--outline btn--small">View Details</a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="hackathon-entry">
-                                            <div class="hackathon-entry__logo">
-                                                <img src="../assets/images/hackathon-health.jpg" alt="HealthTech Innovation">
-                                            </div>
-                                            <div class="hackathon-entry__details">
-                                                <h4>HealthTech Innovation</h4>
-                                                <p class="hackathon-entry__date">Apr 10 - Apr 15, 2023</p>
-                                                <div class="hackathon-entry__info">
-                                                    <span class="hackathon-entry__badge info">Finalist</span>
-                                                    <span class="hackathon-entry__project">Project: <strong>MediSync</strong></span>
-                                                </div>
-                                            </div>
-                                            <div class="hackathon-entry__actions">
-                                                <a href="#" class="btn btn--outline btn--small">View Details</a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="hackathon-entry">
-                                            <div class="hackathon-entry__logo">
-                                                <img src="../assets/images/hackathon-social.jpg" alt="Social Impact Challenge">
-                                            </div>
-                                            <div class="hackathon-entry__details">
-                                                <h4>Social Impact Challenge</h4>
-                                                <p class="hackathon-entry__date">Mar 1 - Mar 5, 2023</p>
-                                                <div class="hackathon-entry__info">
-                                                    <span class="hackathon-entry__badge">Participant</span>
-                                                    <span class="hackathon-entry__project">Project: <strong>CommunityConnect</strong></span>
-                                                </div>
-                                            </div>
-                                            <div class="hackathon-entry__actions">
-                                                <a href="#" class="btn btn--outline btn--small">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profile-tab-pane" id="teams">
-                                    <!-- Team content will go here -->
-                                </div>
-                                
-                                <div class="profile-tab-pane" id="certifications">
-                                    <!-- Certifications content will go here -->
-                                </div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </main>
-            
-            <!-- Edit Profile Modal -->
-            <div class="modal" id="editProfileModal">
-                <div class="modal__content modal__content--lg">
-                    <button class="modal__close" id="closeProfileModalBtn">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    
-                    <div class="edit-profile">
-                        <div class="edit-profile__header">
-                            <h2>Edit Your Profile</h2>
-                            <p>Update your personal information and skills</p>
-                        </div>
-                        
-                        <div class="edit-profile__form">
-                            <form class="form">
-                                <div class="form__section">
-                                    <h3 class="form__section-title">Basic Information</h3>
-                                    
-                                    <div class="form__row">
-                                        <div class="form__group">
-                                            <label for="firstName">First Name</label>
-                                            <input type="text" id="firstName" value="John" required>
-                                        </div>
-                                        
-                                        <div class="form__group">
-                                            <label for="lastName">Last Name</label>
-                                            <input type="text" id="lastName" value="Doe" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form__group">
-                                        <label for="headline">Professional Headline</label>
-                                        <input type="text" id="headline" value="Full Stack Developer at TechCorp">
-                                        <div class="form__hint">A brief phrase that describes what you do</div>
-                                    </div>
-                                    
-                                    <div class="form__group">
-                                        <label for="location">Location</label>
-                                        <input type="text" id="location" value="San Francisco, CA">
-                                    </div>
-                                    
-                                    <div class="form__group">
-                                        <label for="about">About Me</label>
-                                        <textarea id="about" rows="4">Full stack developer with 5+ years of experience building web applications. Passionate about hackathons, innovative tech, and solving real-world problems through code. Currently focusing on AI/ML integration with web platforms.</textarea>
-                                    </div>
-                                </div>
-                                
-                                <div class="form__section">
-                                    <h3 class="form__section-title">Skills</h3>
-                                    
-                                    <div class="form__group">
-                                        <label for="skills">Skills & Expertise</label>
-                                        <div class="tag-input">
-                                            <div class="tag-input__container">
-                                                <span class="tag-input__tag">JavaScript <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">React <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">Node.js <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">Python <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">Docker <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">AWS <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">GraphQL <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">MongoDB <i class="fas fa-times"></i></span>
-                                                <span class="tag-input__tag">UI/UX <i class="fas fa-times"></i></span>
-                                                <input type="text" class="tag-input__input" placeholder="Add skill">
-                                            </div>
-                                        </div>
-                                        <div class="form__hint">Press Enter or comma to add a skill</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form__section">
-                                    <h3 class="form__section-title">Social Links</h3>
-                                    
-                                    <div class="form__group">
-                                        <label for="githubUrl">GitHub URL</label>
-                                        <div class="input-with-icon">
-                                            <i class="fab fa-github"></i>
-                                            <input type="url" id="githubUrl" value="https://github.com/johndoe">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form__group">
-                                        <label for="linkedinUrl">LinkedIn URL</label>
-                                        <div class="input-with-icon">
-                                            <i class="fab fa-linkedin"></i>
-                                            <input type="url" id="linkedinUrl" value="https://linkedin.com/in/johndoe">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form__group">
-                                        <label for="websiteUrl">Personal Website</label>
-                                        <div class="input-with-icon">
-                                            <i class="fas fa-globe"></i>
-                                            <input type="url" id="websiteUrl" value="https://johndoe.dev">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form__actions">
-                                    <button type="button" class="btn btn--text" id="cancelProfileEdit">Cancel</button>
-                                    <button type="submit" class="btn btn--primary">Save Changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     
-    <script src="../main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Toggle sidebar
@@ -558,89 +817,33 @@
                 });
             }
             
-            // Profile tabs functionality
-            const profileTabButtons = document.querySelectorAll('.profile-tabs__btn');
-            const profileTabPanes = document.querySelectorAll('.profile-tab-pane');
+            // Profile navigation
+            const profileNavLinks = document.querySelectorAll('.profile-nav__link');
+            const profileSections = document.querySelectorAll('.profile-section');
             
-            profileTabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons and panes
-                    profileTabButtons.forEach(btn => btn.classList.remove('active'));
-                    profileTabPanes.forEach(pane => pane.classList.remove('active'));
+            profileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
                     
-                    // Add active class to clicked button
-                    button.classList.add('active');
+                    const targetId = this.getAttribute('href').substring(1);
                     
-                    // Show corresponding pane
-                    const paneId = button.getAttribute('data-tab');
-                    document.getElementById(paneId).classList.add('active');
-                });
-            });
-            
-            // Edit profile modal
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const closeProfileModalBtn = document.getElementById('closeProfileModalBtn');
-            const cancelProfileEdit = document.getElementById('cancelProfileEdit');
-            const editProfileModal = document.getElementById('editProfileModal');
-            
-            if (editProfileBtn && editProfileModal) {
-                editProfileBtn.addEventListener('click', () => {
-                    editProfileModal.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-            
-            if (closeProfileModalBtn && editProfileModal) {
-                closeProfileModalBtn.addEventListener('click', () => {
-                    editProfileModal.classList.remove('show');
-                    document.body.style.overflow = '';
-                });
-            }
-            
-            if (cancelProfileEdit && editProfileModal) {
-                cancelProfileEdit.addEventListener('click', () => {
-                    editProfileModal.classList.remove('show');
-                    document.body.style.overflow = '';
-                });
-            }
-            
-            // Tag input functionality for skills
-            const tagInput = document.querySelector('.tag-input__input');
-            if (tagInput) {
-                tagInput.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ',') {
-                        e.preventDefault();
-                        const skillText = this.value.trim();
-                        
-                        if (skillText) {
-                            const tagContainer = this.parentElement;
-                            
-                            // Create new tag
-                            const tag = document.createElement('span');
-                            tag.className = 'tag-input__tag';
-                            tag.innerHTML = `${skillText} <i class="fas fa-times"></i>`;
-                            
-                            // Add delete functionality to tag
-                            tag.querySelector('i').addEventListener('click', function() {
-                                tag.remove();
-                            });
-                            
-                            // Insert tag before input
-                            tagContainer.insertBefore(tag, this);
-                            
-                            // Clear input
-                            this.value = '';
-                        }
+                    // Update active nav link
+                    profileNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected section
+                    profileSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Scroll to top of section on mobile
+                    if (window.innerWidth < 768) {
+                        window.scrollTo({
+                            top: document.getElementById(targetId).offsetTop - 70,
+                            behavior: 'smooth'
+                        });
                     }
                 });
-                
-                // Add delete functionality to existing tags
-                document.querySelectorAll('.tag-input__tag i').forEach(closeIcon => {
-                    closeIcon.addEventListener('click', function() {
-                        this.parentElement.remove();
-                    });
-                });
-            }
+            });
         });
     </script>
 </body>

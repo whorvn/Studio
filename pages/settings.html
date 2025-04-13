@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | HackConnect</title>
+    <meta name="description" content="Manage your HackConnect account settings and preferences">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/settings.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="mentor-booking.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Settings</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <!-- Search, notifications, user menu components -->
+                </div>
+            </header>
+            
+            <main class="settings-page">
+                <div class="settings-container">
+                    <div class="settings-sidebar">
+                        <div class="settings-nav">
+                            <a href="#account" class="settings-nav-item active">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Account</span>
+                            </a>
+                            <a href="#security" class="settings-nav-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security</span>
+                            </a>
+                            <a href="#notifications" class="settings-nav-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#privacy" class="settings-nav-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Privacy</span>
+                            </a>
+                            <a href="#integrations" class="settings-nav-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Integrations</span>
+                            </a>
+                            <a href="#billing" class="settings-nav-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Billing</span>
+                            </a>
+                        </div>
+                        
+                        <div class="settings-danger-zone">
+                            <h4>Danger Zone</h4>
+                            <button class="btn btn--sm btn--error-outline">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Delete Account</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <section id="account" class="settings-section active">
+                            <header class="settings-section__header">
+                                <h2>Account Settings</h2>
+                                <p>Manage your account information and preferences</p>
+                            </header>
+                            
+                            <div class="settings-card">
+                                <div class="settings-card__header">
+                                    <h3>Profile Information</h3>
+                                    <p>Update your personal information</p>
+                                </div>
+                                
+                                <form class="form">
+                                    <div class="form__group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" name="name" value="John Doe" required>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="username">Username</label>
+                                        <input type="text" id="username" name="username" value="johndoe" required>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" value="john.doe@example.com" required>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="location">Location</label>
+                                        <input type="text" id="location" name="location" value="New York, USA">
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="bio">Bio</label>
+                                        <textarea id="bio" name="bio" rows="4">Full stack developer with expertise in React, Node.js, and cloud technologies. Passionate about creating innovative solutions and participating in hackathons.</textarea>
+                                    </div>
+                                    
+                                    <div class="form__actions">
+                                        <button type="submit" class="btn btn--primary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="settings-card">
+                                <div class="settings-card__header">
+                                    <h3>Profile Picture</h3>
+                                    <p>Upload or change your profile picture</p>
+                                </div>
+                                
+                                <div class="profile-picture-settings">
+                                    <div class="profile-picture-preview">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=200" alt="John Doe" class="avatar avatar--xl">
+                                    </div>
+                                    
+                                    <div class="profile-picture-actions">
+                                        <p>Upload a new profile picture. PNG, JPG or GIF, 1MB max.</p>
+                                        <div class="profile-picture-buttons">
+                                            <button class="btn btn--primary">Upload New Picture</button>
+                                            <button class="btn btn--text">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-card">
+                                <div class="settings-card__header">
+                                    <h3>Skills & Expertise</h3>
+                                    <p>Add skills to showcase your expertise</p>
+                                </div>
+                                
+                                <div class="skills-settings">
+                                    <div class="form__group">
+                                        <label for="skill-input">Add Skill</label>
+                                        <div class="skill-input">
+                                            <input type="text" id="skill-input" placeholder="Type a skill and press Enter">
+                                            <button type="button" class="btn btn--primary btn--sm">Add</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="skills-list">
+                                        <div class="skill-tag">
+                                            JavaScript
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="skill-tag">
+                                            React
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="skill-tag">
+                                            Node.js
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="skill-tag">
+                                            Python
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="skill-tag">
+                                            AWS
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="skill-tag">
+                                            Docker
+                                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-card">
+                                <div class="settings-card__header">
+                                    <h3>Social Profiles</h3>
+                                    <p>Link your social media accounts</p>
+                                </div>
+                                
+                                <div class="social-profiles">
+                                    <div class="social-profile-item">
+                                        <div class="social-profile-icon github">
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="social-profile-input">
+                                            <label for="github">GitHub</label>
+                                            <input type="text" id="github" name="github" value="github.com/johndoe" placeholder="github.com/username">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="social-profile-item">
+                                        <div class="social-profile-icon linkedin">
+                                            <i class="fab fa-linkedin"></i>
+                                        </div>
+                                        <div class="social-profile-input">
+                                            <label for="linkedin">LinkedIn</label>
+                                            <input type="text" id="linkedin" name="linkedin" value="linkedin.com/in/johndoe" placeholder="linkedin.com/in/username">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="social-profile-item">
+                                        <div class="social-profile-icon twitter">
+                                            <i class="fab fa-twitter"></i>
+                                        </div>
+                                        <div class="social-profile-input">
+                                            <label for="twitter">Twitter</label>
+                                            <input type="text" id="twitter" name="twitter" value="twitter.com/johndoe" placeholder="twitter.com/username">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="social-profile-item">
+                                        <div class="social-profile-icon portfolio">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div class="social-profile-input">
+                                            <label for="website">Website/Portfolio</label>
+                                            <input type="text" id="website" name="website" value="johndoe.dev" placeholder="yoursite.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form__actions">
+                                    <button type="button" class="btn btn--primary">Save Changes</button>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="security" class="settings-section">
+                            <!-- Security settings content -->
+                            <h2>Security Settings</h2>
+                        </section>
+                        
+                        <section id="notifications" class="settings-section">
+                            <!-- Notification settings content -->
+                            <h2>Notification Settings</h2>
+                        </section>
+                        
+                        <section id="privacy" class="settings-section">
+                            <!-- Privacy settings content -->
+                            <h2>Privacy Settings</h2>
+                        </section>
+                        
+                        <section id="integrations" class="settings-section">
+                            <!-- Integrations settings content -->
+                            <h2>Integration Settings</h2>
+                        </section>
+                        
+                        <section id="billing" class="settings-section">
+                            <!-- Billing settings content -->
+                            <h2>Billing Settings</h2>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Settings navigation
+            const navItems = document.querySelectorAll('.settings-nav-item');
+            const sections = document.querySelectorAll('.settings-section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Update active nav item
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected section
+                    sections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Scroll to top of section on mobile
+                    if (window.innerWidth < 768) {
+                        window.scrollTo({
+                            top: document.getElementById(targetId).offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Skills management
+            const skillInput = document.getElementById('skill-input');
+            const addSkillBtn = skillInput?.nextElementSibling;
+            const skillsList = document.querySelector('.skills-list');
+            const skillRemoveBtns = document.querySelectorAll('.skill-remove');
+            
+            if (addSkillBtn && skillInput && skillsList) {
+                addSkillBtn.addEventListener('click', () => {
+                    addSkill();
+                });
+                
+                skillInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addSkill();
+                    }
+                });
+                
+                function addSkill() {
+                    const skillValue = skillInput.value.trim();
+                    
+                    if (skillValue) {
+                        const skillTag = document.createElement('div');
+                        skillTag.className = 'skill-tag';
+                        skillTag.innerHTML = `
+                            ${skillValue}
+                            <button class="skill-remove"><i class="fas fa-times"></i></button>
+                        `;
+                        
+                        skillsList.appendChild(skillTag);
+                        skillInput.value = '';
+                        
+                        // Add remove event to the new skill tag
+                        const newRemoveBtn = skillTag.querySelector('.skill-remove');
+                        newRemoveBtn.addEventListener('click', () => {
+                            skillTag.remove();
+                        });
+                    }
+                }
+                
+                // Add remove event to existing skill tags
+                skillRemoveBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btn.closest('.skill-tag').remove();
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
