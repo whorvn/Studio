@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global FinTech Challenge | HackConnect</title>
+    <meta name="description" content="Join the Global FinTech Challenge and build innovative solutions for the future of finance.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/hackathon-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="mentors.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Hackathon Details</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="3">
+                            <i class="far fa-bell"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="user-menu">
+                        <button class="user-menu__toggle">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                            <span>John</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="hackathon-hero">
+                <div class="hackathon-hero__bg" style="background-image: url('../assets/images/hackathon-finance.jpg');">
+                    <div class="hackathon-hero__overlay"></div>
+                </div>
+                <div class="hackathon-hero__content">
+                    <div class="hackathon-header">
+                        <div class="hackathon-header__info">
+                            <div class="hackathon-header__logo">
+                                <img src="../assets/images/fintech-logo.png" alt="FinTech Association">
+                            </div>
+                            <div class="hackathon-header__title">
+                                <h1>Global FinTech Challenge</h1>
+                                <div class="hackathon-header__meta">
+                                    <div class="meta-item">
+                                        <i class="far fa-calendar"></i>
+                                        <span>Jul 25 - Aug 10, 2023</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Virtual</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Teams of 2-4</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hackathon-header__actions">
+                            <button class="btn btn--icon">
+                                <i class="far fa-bookmark"></i>
+                                <span>Bookmark</span>
+                            </button>
+                            <button class="btn btn--icon">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="btn btn--primary btn--large">Register Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <main class="hackathon-detail">
+                <div class="hackathon-detail__container">
+                    <div class="hackathon-content">
+                        <div class="hackathon-nav">
+                            <ul class="hackathon-nav__tabs">
+                                <li class="hackathon-nav__item active"><a href="#overview">Overview</a></li>
+                                <li class="hackathon-nav__item"><a href="#rules">Rules</a></li>
+                                <li class="hackathon-nav__item"><a href="#prizes">Prizes</a></li>
+                                <li class="hackathon-nav__item"><a href="#schedule">Schedule</a></li>
+                                <li class="hackathon-nav__item"><a href="#sponsors">Sponsors</a></li>
+                                <li class="hackathon-nav__item"><a href="#faq">FAQ</a></li>
+                                <li class="hackathon-nav__item"><a href="#mentors">Mentors</a></li>
+                            </ul>
+                        </div>
+                        
+                        <section id="overview" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Overview</h2>
+                            </div>
+                            
+                            <div class="hackathon-description">
+                                <p class="lead">Join us for a 17-day virtual hackathon focused on building innovative solutions for the future of finance.</p>
+                                
+                                <p>The Global FinTech Challenge invites developers, designers, and entrepreneurs to tackle pressing challenges in the financial technology space. From building more inclusive banking solutions to creating secure blockchain applications, this hackathon offers a platform to showcase your skills and potentially transform the industry.</p>
+                                
+                                <p>Participants will have access to exclusive APIs from leading financial institutions, mentorship from industry experts, and opportunities to network with venture capital firms looking to invest in promising FinTech solutions.</p>
+                                
+                                <h3>Challenge Themes</h3>
+                                
+                                <div class="challenge-themes">
+                                    <div class="theme-card">
+                                        <div class="theme-card__icon">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <h4 class="theme-card__title">Security & Fraud Prevention</h4>
+                                        <p class="theme-card__description">Develop solutions to enhance security in financial transactions and prevent fraud in digital banking.</p>
+                                    </div>
+                                    
+                                    <div class="theme-card">
+                                        <div class="theme-card__icon">
+                                            <i class="fas fa-hand-holding-usd"></i>
+                                        </div>
+                                        <h4 class="theme-card__title">Financial Inclusion</h4>
+                                        <p class="theme-card__description">Create tools that make financial services accessible to underbanked and underserved populations.</p>
+                                    </div>
+                                    
+                                    <div class="theme-card">
+                                        <div class="theme-card__icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <h4 class="theme-card__title">Wealth Management</h4>
+                                        <p class="theme-card__description">Build innovative platforms for investment management, financial planning, and wealth building.</p>
+                                    </div>
+                                    
+                                    <div class="theme-card">
+                                        <div class="theme-card__icon">
+                                            <i class="fas fa-link"></i>
+                                        </div>
+                                        <h4 class="theme-card__title">Blockchain & Crypto</h4>
+                                        <p class="theme-card__description">Develop decentralized applications or infrastructure for digital assets and blockchain technology.</p>
+                                    </div>
+                                </div>
+                                
+                                <h3>Tech Stack</h3>
+                                <p>Participants are free to use any technology stack they prefer. However, we'll provide special support and resources for projects using:</p>
+                                
+                                <div class="tech-pills">
+                                    <span class="tech-pill">Python</span>
+                                    <span class="tech-pill">Node.js</span>
+                                    <span class="tech-pill">React</span>
+                                    <span class="tech-pill">AWS</span>
+                                    <span class="tech-pill">Solidity</span>
+                                    <span class="tech-pill">TensorFlow</span>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="rules" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Rules</h2>
+                            </div>
+                            
+                            <div class="rules-content">
+                                <ul class="rule-list">
+                                    <li class="rule-list__item">
+                                        <h4>Eligibility</h4>
+                                        <p>Open to individual participants worldwide who are at least 18 years of age. Participants can form teams of 2-4 members.</p>
+                                    </li>
+                                    <li class="rule-list__item">
+                                        <h4>Project Requirements</h4>
+                                        <p>All code must be written during the hackathon period. You may use open-source libraries and frameworks, but the core solution must be original.</p>
+                                    </li>
+                                    <li class="rule-list__item">
+                                        <h4>Intellectual Property</h4>
+                                        <p>Teams retain ownership of their projects. By participating, you grant the organizers a non-exclusive license to showcase your project for promotional purposes.</p>
+                                    </li>
+                                    <li class="rule-list__item">
+                                        <h4>Submissions</h4>
+                                        <p>Projects must be submitted through the hackathon platform by August 10, 2023, at 11:59 PM UTC. Late submissions will not be accepted.</p>
+                                    </li>
+                                    <li class="rule-list__item">
+                                        <h4>Judging Criteria</h4>
+                                        <p>Projects will be evaluated based on innovation (25%), technical complexity (25%), business potential (25%), and presentation quality (25%).</p>
+                                    </li>
+                                    <li class="rule-list__item">
+                                        <h4>Code of Conduct</h4>
+                                        <p>All participants are expected to adhere to our <a href="#">Code of Conduct</a>. Any violations may result in disqualification.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        
+                        <section id="prizes" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Prizes</h2>
+                            </div>
+                            
+                            <div class="prizes-content">
+                                <div class="prizes-grid">
+                                    <div class="prize-card grand">
+                                        <div class="prize-card__badge">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>Grand Prize</span>
+                                        </div>
+                                        <h3 class="prize-card__title">$15,000</h3>
+                                        <p class="prize-card__description">The winning team will receive $15,000 in cash, plus an opportunity to pitch to venture capital firms with a combined $500M in investment capital.</p>
+                                    </div>
+                                    
+                                    <div class="prize-card second">
+                                        <div class="prize-card__badge">
+                                            <i class="fas fa-medal"></i>
+                                            <span>2nd Place</span>
+                                        </div>
+                                        <h3 class="prize-card__title">$7,000</h3>
+                                        <p class="prize-card__description">The second-place team will receive $7,000 in cash and AWS credits worth $10,000.</p>
+                                    </div>
+                                    
+                                    <div class="prize-card third">
+                                        <div class="prize-card__badge">
+                                            <i class="fas fa-award"></i>
+                                            <span>3rd Place</span>
+                                        </div>
+                                        <h3 class="prize-card__title">$3,000</h3>
+                                        <p class="prize-card__description">The third-place team will receive $3,000 in cash and AWS credits worth $5,000.</p>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="category-prizes-title">Category Prizes</h3>
+                                
+                                <div class="category-prizes">
+                                    <div class="category-prize">
+                                        <h4>Best Security Solution</h4>
+                                        <p class="category-prize__amount">$2,000</p>
+                                    </div>
+                                    <div class="category-prize">
+                                        <h4>Best Inclusion Solution</h4>
+                                        <p class="category-prize__amount">$2,000</p>
+                                    </div>
+                                    <div class="category-prize">
+                                        <h4>Best Wealth Management Solution</h4>
+                                        <p class="category-prize__amount">$2,000</p>
+                                    </div>
+                                    <div class="category-prize">
+                                        <h4>Best Blockchain Solution</h4>
+                                        <p class="category-prize__amount">$2,000</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="prize-note">
+                                    <h4>Additional Benefits</h4>
+                                    <ul>
+                                        <li>All participants will receive a digital certificate of participation</li>
+                                        <li>Top 10 teams will get 1-year premium subscriptions to FinTech Pro</li>
+                                        <li>All finalists will be featured in our global FinTech publication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="schedule" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Schedule</h2>
+                            </div>
+                            
+                            <div class="schedule-content">
+                                <div class="timeline">
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-flag"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Registration Opens</h4>
+                                            <p class="timeline__date">July 1, 2023</p>
+                                            <p class="timeline__description">Sign up on the hackathon platform and start forming your team.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-rocket"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Hackathon Kickoff</h4>
+                                            <p class="timeline__date">July 25, 2023 - 10:00 AM UTC</p>
+                                            <p class="timeline__description">Join the virtual kickoff event to learn about the challenges, meet mentors, and get inspired.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Coding Period</h4>
+                                            <p class="timeline__date">July 25 - August 8, 2023</p>
+                                            <p class="timeline__description">Two weeks dedicated to building your solution. Daily mentor office hours available.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Mid-Hackathon Check-in</h4>
+                                            <p class="timeline__date">August 1, 2023 - 2:00 PM UTC</p>
+                                            <p class="timeline__description">Progress updates, troubleshooting session, and additional resources announcement.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Submission Deadline</h4>
+                                            <p class="timeline__date">August 8, 2023 - 11:59 PM UTC</p>
+                                            <p class="timeline__description">Final code submission, demo video, and project documentation due.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Judging Period</h4>
+                                            <p class="timeline__date">August 9 - August 10, 2023</p>
+                                            <p class="timeline__description">Judges review submissions and select finalists.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Final Presentations</h4>
+                                            <p class="timeline__date">August 10, 2023 - 3:00 PM UTC</p>
+                                            <p class="timeline__description">Finalist teams present their projects live to judges and participants.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline__item">
+                                        <div class="timeline__icon">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div class="timeline__content">
+                                            <h4 class="timeline__title">Winners Announcement</h4>
+                                            <p class="timeline__date">August 10, 2023 - 6:00 PM UTC</p>
+                                            <p class="timeline__description">Live ceremony announcing winners and prizes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="sponsors" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Sponsors & Partners</h2>
+                            </div>
+                            
+                            <div class="sponsors-content">
+                                <h3>Platinum Sponsors</h3>
+                                <div class="sponsors-grid platinum">
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-bank.png" alt="Global Bank">
+                                        <h4>Global Bank</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-aws.png" alt="Amazon Web Services">
+                                        <h4>Amazon Web Services</h4>
+                                    </div>
+                                </div>
+                                
+                                <h3>Gold Sponsors</h3>
+                                <div class="sponsors-grid gold">
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-pay.png" alt="PayTech">
+                                        <h4>PayTech</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-invest.png" alt="InvestCap">
+                                        <h4>InvestCap</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-block.png" alt="BlockChain Labs">
+                                        <h4>BlockChain Labs</h4>
+                                    </div>
+                                </div>
+                                
+                                <h3>Partners</h3>
+                                <div class="sponsors-grid partners">
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-uni.png" alt="University of Finance">
+                                        <h4>University of Finance</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-vc.png" alt="Venture Partners">
+                                        <h4>Venture Partners</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-tech.png" alt="TechHub">
+                                        <h4>TechHub</h4>
+                                    </div>
+                                    <div class="sponsor-card">
+                                        <img src="../assets/images/sponsor-media.png" alt="Media Group">
+                                        <h4>Media Group</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="faq" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Frequently Asked Questions</h2>
+                            </div>
+                            
+                            <div class="faq-content">
+                                <div class="accordion">
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>Do I need a team to participate?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>You can register individually, but we encourage forming teams of 2-4 members for the best experience. We'll provide team formation tools on our platform to help solo participants find teammates with complementary skills.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>What skill level is required?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>Participants of all skill levels are welcome! While having some technical knowledge will be helpful, we'll provide resources, workshops, and mentorship to support beginners. Teams with diverse skill sets often perform the best.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>Do I need fintech experience?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>No prior fintech experience is required. We'll provide resources to help you understand the domain challenges. What's most important is your creativity, technical skills, and willingness to learn.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>Is there a registration fee?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>No, participation is completely free thanks to our generous sponsors.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>How will projects be judged?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>Projects will be evaluated based on innovation (25%), technical complexity (25%), business potential (25%), and presentation quality (25%). Our panel of judges includes industry experts, tech leaders, and venture capitalists.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>What should my final submission include?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>Your final submission should include your project code (via GitHub repository), a 3-5 minute demo video, a presentation deck explaining your solution, and a written description of your project including its features, technical architecture, and business impact.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion__item">
+                                        <button class="accordion__header">
+                                            <span>Can I use pre-existing code?</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                        <div class="accordion__content">
+                                            <p>You may use open-source libraries, frameworks, and APIs, but the core solution should be developed during the hackathon period. Any pre-existing code you want to use must be clearly indicated in your submission.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="mentors" class="hackathon-section">
+                            <div class="section-header">
+                                <h2>Hackathon Mentors</h2>
+                                <p>Book a session with one of our expert mentors to get guidance specific to this hackathon</p>
+                            </div>
+                            
+                            <div class="mentor-filter">
+                                <div class="filter-group">
+                                    <label for="expertiseFilter">Filter by expertise:</label>
+                                    <select id="expertiseFilter">
+                                        <option value="">All Expertise</option>
+                                        <option value="ai">AI/ML</option>
+                                        <option value="frontend">Frontend</option>
+                                        <option value="backend">Backend</option>
+                                        <option value="design">UX/UI Design</option>
+                                        <option value="data">Data Science</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label for="availabilityFilter">Availability:</label>
+                                    <select id="availabilityFilter">
+                                        <option value="">Any Time</option>
+                                        <option value="today">Available Today</option>
+                                        <option value="tomorrow">Available Tomorrow</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mentor-grid">
+                                <!-- Mentor Card 1 -->
+                                <div class="mentor-card">
+                                    <div class="mentor-card__header">
+                                        <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=200" alt="Sarah Johnson" class="mentor-avatar">
+                                        <h4 class="mentor-name">Sarah Johnson</h4>
+                                        <p class="mentor-title">Senior ML Engineer @ Google</p>
+                                        <div class="mentor-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <span>4.5 (28 sessions)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__body">
+                                        <div class="mentor-expertise">
+                                            <h5>Expertise</h5>
+                                            <div class="expertise-tags">
+                                                <span class="expertise-tag">Machine Learning</span>
+                                                <span class="expertise-tag">NLP</span>
+                                                <span class="expertise-tag">GPT Models</span>
+                                                <span class="expertise-tag">Python</span>
+                                                <span class="expertise-tag">TensorFlow</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mentor-availability">
+                                            <h5>Available Slots (OpenAI Hackathon)</h5>
+                                            <div class="time-slots">
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Today</div>
+                                                    <div class="time-slot__time">3:00 PM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Today</div>
+                                                    <div class="time-slot__time">5:00 PM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Tomorrow</div>
+                                                    <div class="time-slot__time">10:00 AM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Tomorrow</div>
+                                                    <div class="time-slot__time">2:00 PM</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__footer">
+                                        <button class="btn btn--outline btn--sm" data-modal="mentorProfileModal" data-mentor="sarah-johnson">
+                                            <i class="fas fa-user"></i>
+                                            View Profile
+                                        </button>
+                                        <button class="btn btn--primary btn--sm" data-modal="bookingModal" data-mentor="sarah-johnson">
+                                            <i class="fas fa-calendar-plus"></i>
+                                            Book Session
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mentor Card 2 -->
+                                <div class="mentor-card">
+                                    <div class="mentor-card__header">
+                                        <img src="https://ui-avatars.com/api/?name=Alex+Wong&background=3b82f6&color=fff&size=200" alt="Alex Wong" class="mentor-avatar">
+                                        <h4 class="mentor-name">Alex Wong</h4>
+                                        <p class="mentor-title">Principal Engineer @ OpenAI</p>
+                                        <div class="mentor-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>5.0 (42 sessions)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__body">
+                                        <div class="mentor-expertise">
+                                            <h5>Expertise</h5>
+                                            <div class="expertise-tags">
+                                                <span class="expertise-tag">OpenAI API</span>
+                                                <span class="expertise-tag">GPT-4</span>
+                                                <span class="expertise-tag">LLMs</span>
+                                                <span class="expertise-tag">API Integration</span>
+                                                <span class="expertise-tag">System Design</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mentor-availability">
+                                            <h5>Available Slots (OpenAI Hackathon)</h5>
+                                            <div class="time-slots">
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Tomorrow</div>
+                                                    <div class="time-slot__time">9:00 AM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Tomorrow</div>
+                                                    <div class="time-slot__time">11:00 AM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Jun 17</div>
+                                                    <div class="time-slot__time">10:00 AM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Jun 17</div>
+                                                    <div class="time-slot__time">2:00 PM</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__footer">
+                                        <button class="btn btn--outline btn--sm" data-modal="mentorProfileModal" data-mentor="alex-wong">
+                                            <i class="fas fa-user"></i>
+                                            View Profile
+                                        </button>
+                                        <button class="btn btn--primary btn--sm" data-modal="bookingModal" data-mentor="alex-wong">
+                                            <i class="fas fa-calendar-plus"></i>
+                                            Book Session
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mentor Card 3 -->
+                                <div class="mentor-card">
+                                    <div class="mentor-card__header">
+                                        <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=200" alt="Priya Sharma" class="mentor-avatar">
+                                        <h4 class="mentor-name">Priya Sharma</h4>
+                                        <p class="mentor-title">Lead UX Designer @ Adobe</p>
+                                        <div class="mentor-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>5.0 (36 sessions)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__body">
+                                        <div class="mentor-expertise">
+                                            <h5>Expertise</h5>
+                                            <div class="expertise-tags">
+                                                <span class="expertise-tag">UI Design</span>
+                                                <span class="expertise-tag">UX Research</span>
+                                                <span class="expertise-tag">Design Systems</span>
+                                                <span class="expertise-tag">Figma</span>
+                                                <span class="expertise-tag">AI Interfaces</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mentor-availability">
+                                            <h5>Available Slots (OpenAI Hackathon)</h5>
+                                            <div class="time-slots">
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Today</div>
+                                                    <div class="time-slot__time">6:00 PM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Tomorrow</div>
+                                                    <div class="time-slot__time">4:00 PM</div>
+                                                </button>
+                                                <button class="time-slot">
+                                                    <div class="time-slot__day">Jun 17</div>
+                                                    <div class="time-slot__time">12:00 PM</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__footer">
+                                        <button class="btn btn--outline btn--sm" data-modal="mentorProfileModal" data-mentor="priya-sharma">
+                                            <i class="fas fa-user"></i>
+                                            View Profile
+                                        </button>
+                                        <button class="btn btn--primary btn--sm" data-modal="bookingModal" data-mentor="priya-sharma">
+                                            <i class="fas fa-calendar-plus"></i>
+                                            Book Session
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- More mentor cards would go here -->
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <div class="registration-cta">
+                        <div class="registration-cta__content">
+                            <h2>Ready to join the Global FinTech Challenge?</h2>
+                            <p>Register now and start building the future of finance!</p>
+                            <div class="registration-cta__actions">
+                                <button class="btn btn--primary btn--large">Register Now</button>
+                                <button class="btn btn--outline btn--large">Form a Team</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="../main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar on mobile
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Bookmark button toggle
+            const bookmarkBtn = document.querySelector('.hackathon-header__actions .btn--icon:first-child');
+            
+            if (bookmarkBtn) {
+                bookmarkBtn.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.querySelector('span').textContent = 'Bookmarked';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.querySelector('span').textContent = 'Bookmark';
+                    }
+                });
+            }
+            
+            // Smooth scroll to sections
+            document.querySelectorAll('.hackathon-nav__item a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active tab
+                    document.querySelectorAll('.hackathon-nav__item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                    
+                    // Smooth scroll to target section
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Accordion functionality for FAQs
+            const accordionItems = document.querySelectorAll('.accordion__header');
+            
+            accordionItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const parent = item.parentElement;
+                    const content = item.nextElementSibling;
+                    const icon = item.querySelector('i');
+                    
+                    // Toggle current item
+                    parent.classList.toggle('active');
+                    
+                    // Toggle icon
+                    if (parent.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Hackathons | HackConnect</title>
+    <meta name="description" content="Discover hackathons that match your skills and interests.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/browse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="mentors.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Browse Hackathons</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search hackathons...">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="3">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <div class="notifications__dropdown">
+                            <!-- Notification dropdown content goes here -->
+                        </div>
+                    </div>
+                    
+                    <div class="user-menu">
+                        <button class="user-menu__toggle">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                            <span>John</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown">
+                            <!-- User dropdown content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="browse">
+                <div class="browse__container">
+                    <aside class="filters-sidebar">
+                        <div class="filters-header">
+                            <h2>Filters</h2>
+                            <button class="btn btn--text btn--small">Clear All</button>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h3 class="filter-section__title">Format</h3>
+                            <div class="checkbox">
+                                <input type="checkbox" id="virtualFormat" checked>
+                                <label for="virtualFormat">Virtual (36)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="inPersonFormat">
+                                <label for="inPersonFormat">In-person (18)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="hybridFormat">
+                                <label for="hybridFormat">Hybrid (8)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h3 class="filter-section__title">Date</h3>
+                            <div class="radio-group">
+                                <div class="radio">
+                                    <input type="radio" name="date" id="dateAll" checked>
+                                    <label for="dateAll">All time</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="date" id="dateToday">
+                                    <label for="dateToday">Today</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="date" id="dateWeek">
+                                    <label for="dateWeek">This week</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="date" id="dateMonth">
+                                    <label for="dateMonth">This month</label>
+                                </div>
+                            </div>
+                            <div class="date-range">
+                                <p>Custom range</p>
+                                <div class="date-inputs">
+                                    <input type="date" class="date-input" placeholder="From">
+                                    <input type="date" class="date-input" placeholder="To">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h3 class="filter-section__title">Prize Pool</h3>
+                            <div class="range-slider">
+                                <div class="range-slider__values">
+                                    <span>$0</span>
+                                    <span>$50,000+</span>
+                                </div>
+                                <input type="range" min="0" max="50000" value="25000" class="range-slider__input">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h3 class="filter-section__title">Team Size</h3>
+                            <div class="checkbox">
+                                <input type="checkbox" id="teamSizeSolo">
+                                <label for="teamSizeSolo">Solo (12)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="teamSize2to4" checked>
+                                <label for="teamSize2to4">2-4 members (42)</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="teamSize5plus">
+                                <label for="teamSize5plus">5+ members (8)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-section">
+                            <h3 class="filter-section__title">Technology Focus</h3>
+                            <div class="tag-selector">
+                                <div class="tag-selector__selected">
+                                    <span class="tag active">AI/ML <i class="fas fa-times"></i></span>
+                                    <span class="tag active">Web Dev <i class="fas fa-times"></i></span>
+                                </div>
+                                <input type="text" class="tag-selector__input" placeholder="Search technologies...">
+                                <div class="tag-selector__suggestions">
+                                    <span class="tag">Mobile</span>
+                                    <span class="tag">Blockchain</span>
+                                    <span class="tag">IoT</span>
+                                    <span class="tag">Cloud</span>
+                                    <span class="tag">AR/VR</span>
+                                    <span class="tag">Game Dev</span>
+                                    <span class="tag">Cybersecurity</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filters-actions">
+                            <button class="btn btn--primary btn--full">Apply Filters</button>
+                        </div>
+                    </aside>
+                    
+                    <div class="browse-content">
+                        <div class="browse-header">
+                            <div class="browse-tabs">
+                                <button class="browse-tabs__btn active" data-tab="upcoming">Upcoming</button>
+                                <button class="browse-tabs__btn" data-tab="ongoing">Ongoing</button>
+                                <button class="browse-tabs__btn" data-tab="completed">Completed</button>
+                            </div>
+                            
+                            <div class="browse-controls">
+                                <div class="view-toggle">
+                                    <button class="view-toggle__btn active" data-view="grid" aria-label="Grid view">
+                                        <i class="fas fa-th-large"></i>
+                                    </button>
+                                    <button class="view-toggle__btn" data-view="list" aria-label="List view">
+                                        <i class="fas fa-list"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="sort-dropdown">
+                                    <button class="sort-dropdown__toggle">
+                                        <span>Sort by: Relevance</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                    <div class="sort-dropdown__menu">
+                                        <button class="sort-dropdown__item active">Relevance</button>
+                                        <button class="sort-dropdown__item">Date (Newest)</button>
+                                        <button class="sort-dropdown__item">Date (Oldest)</button>
+                                        <button class="sort-dropdown__item">Prize Pool (High to Low)</button>
+                                        <button class="sort-dropdown__item">Prize Pool (Low to High)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hackathons-grid grid-3">
+                            <!-- Hackathon Card 1 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-finance.jpg" alt="Global FinTech Challenge">
+                                    <div class="hackathon-card__bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-globe"></i> Virtual
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Global FinTech Challenge</h3>
+                                    <p class="hackathon-card__dates">Jul 25 - Aug 10, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$25,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 2-4</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="far fa-clock"></i>
+                                            <span>Starts in 14 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/fintech-logo.png" alt="FinTech Association" class="organizer-logo">
+                                        <span>FinTech Association</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">Banking</span>
+                                        <span class="tag">AI/ML</span>
+                                        <span class="tag">Blockchain</span>
+                                        <span class="tag">API</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 92%;"></div>
+                                        </div>
+                                        <span class="match-percent">92% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=fintech-challenge" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Hackathon Card 2 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-ai.jpg" alt="Future of AI Hackathon">
+                                    <div class="hackathon-card__bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-map-marker-alt"></i> In-person
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Future of AI Hackathon</h3>
+                                    <p class="hackathon-card__dates">Aug 5 - Aug 7, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$15,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 3-5</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>San Francisco</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/techcorp-logo.png" alt="TechCorp Inc." class="organizer-logo">
+                                        <span>TechCorp Inc.</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">AI/ML</span>
+                                        <span class="tag">NLP</span>
+                                        <span class="tag">Computer Vision</span>
+                                        <span class="tag">Ethics</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 87%;"></div>
+                                        </div>
+                                        <span class="match-percent">87% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=ai-hackathon" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Hackathon Card 3 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-health.jpg" alt="Health Innovation Challenge">
+                                    <div class="hackathon-card__bookmark active">
+                                        <i class="fas fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-globe"></i> Virtual
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Health Innovation Challenge</h3>
+                                    <p class="hackathon-card__dates">Jul 20 - Jul 30, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$30,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 2-4</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="far fa-clock"></i>
+                                            <span>Starts in 9 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/health-logo.png" alt="Global Health Foundation" class="organizer-logo">
+                                        <span>Global Health Foundation</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">Healthcare</span>
+                                        <span class="tag">IoT</span>
+                                        <span class="tag">Mobile</span>
+                                        <span class="tag">Data</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 78%;"></div>
+                                        </div>
+                                        <span class="match-percent">78% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=health-challenge" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Continue with more hackathon cards -->
+                            
+                            <!-- Hackathon Card 4 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-gaming.jpg" alt="Game Dev Jam">
+                                    <div class="hackathon-card__bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-globe"></i> Virtual
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Game Dev Jam</h3>
+                                    <p class="hackathon-card__dates">Aug 12 - Aug 14, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$10,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 1-5</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="far fa-clock"></i>
+                                            <span>Starts in 22 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/unity-logo.png" alt="Unity Technologies" class="organizer-logo">
+                                        <span>Unity Technologies</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">Gaming</span>
+                                        <span class="tag">Unity</span>
+                                        <span class="tag">3D</span>
+                                        <span class="tag">Animation</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 65%;"></div>
+                                        </div>
+                                        <span class="match-percent">65% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=game-jam" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Hackathon Card 5 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-cloud.jpg" alt="Cloud Innovation Challenge">
+                                    <div class="hackathon-card__bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-globe"></i> Virtual
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Cloud Innovation Challenge</h3>
+                                    <p class="hackathon-card__dates">Aug 18 - Aug 25, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$20,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 2-4</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="far fa-clock"></i>
+                                            <span>Starts in 28 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/aws-logo.png" alt="Amazon Web Services" class="organizer-logo">
+                                        <span>Amazon Web Services</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">AWS</span>
+                                        <span class="tag">Cloud</span>
+                                        <span class="tag">Serverless</span>
+                                        <span class="tag">DevOps</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 81%;"></div>
+                                        </div>
+                                        <span class="match-percent">81% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=cloud-challenge" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Hackathon Card 6 -->
+                            <div class="hackathon-card">
+                                <div class="hackathon-card__banner">
+                                    <img src="../assets/images/hackathon-social.jpg" alt="Social Impact Hackathon">
+                                    <div class="hackathon-card__bookmark">
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
+                                    <div class="hackathon-card__format">
+                                        <i class="fas fa-sync-alt"></i> Hybrid
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__content">
+                                    <h3 class="hackathon-card__title">Social Impact Hackathon</h3>
+                                    <p class="hackathon-card__dates">Sep 1 - Sep 10, 2023</p>
+                                    <div class="hackathon-card__details">
+                                        <div class="detail">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>$18,000 Prize</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="fas fa-users"></i>
+                                            <span>Teams of 3-5</span>
+                                        </div>
+                                        <div class="detail">
+                                            <i class="far fa-clock"></i>
+                                            <span>Starts in 42 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="hackathon-card__organizer">
+                                        <img src="../assets/images/un-logo.png" alt="United Nations Development" class="organizer-logo">
+                                        <span>United Nations Development</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="tag">Social Impact</span>
+                                        <span class="tag">Sustainability</span>
+                                        <span class="tag">Education</span>
+                                        <span class="tag">Web</span>
+                                    </div>
+                                    <div class="match-bar">
+                                        <div class="match-bar__progress">
+                                            <div class="match-bar__fill" style="width: 73%;"></div>
+                                        </div>
+                                        <span class="match-percent">73% match</span>
+                                    </div>
+                                </div>
+                                <div class="hackathon-card__footer">
+                                    <a href="hackathon-detail.html?id=social-impact" class="btn btn--primary btn--full">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pagination">
+                            <button class="pagination__btn active">1</button>
+                            <button class="pagination__btn">2</button>
+                            <button class="pagination__btn">3</button>
+                            <span class="pagination__ellipsis">...</span>
+                            <button class="pagination__btn">8</button>
+                            <button class="pagination__btn pagination__btn--next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="../main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar on mobile
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle && sidebar) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Browse tab functionality
+            const tabButtons = document.querySelectorAll('.browse-tabs__btn');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Deactivate all tabs
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Activate clicked tab
+                    button.classList.add('active');
+                });
+            });
+            
+            // View toggle functionality
+            const viewButtons = document.querySelectorAll('.view-toggle__btn');
+            const hackathonsGrid = document.querySelector('.hackathons-grid');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const viewType = button.getAttribute('data-view');
+                    hackathonsGrid.className = `hackathons-${viewType}`;
+                    
+                    if (viewType === 'list') {
+                        hackathonsGrid.classList.add('list-view');
+                    } else {
+                        hackathonsGrid.classList.add('grid-3');
+                    }
+                });
+            });
+            
+            // Bookmark functionality
+            const bookmarkButtons = document.querySelectorAll('.hackathon-card__bookmark');
+            
+            bookmarkButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const icon = button.querySelector('i');
+                    
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        button.classList.add('active');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        button.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Sort dropdown functionality
+            const sortDropdownToggle = document.querySelector('.sort-dropdown__toggle');
+            const sortDropdownMenu = document.querySelector('.sort-dropdown__menu');
+            const sortDropdownItems = document.querySelectorAll('.sort-dropdown__item');
+            
+            if (sortDropdownToggle && sortDropdownMenu) {
+                sortDropdownToggle.addEventListener('click', () => {
+                    sortDropdownMenu.classList.toggle('show');
+                    
+                    document.addEventListener('click', function closeSort(e) {
+                        if (!sortDropdownToggle.contains(e.target) && !sortDropdownMenu.contains(e.target)) {
+                            sortDropdownMenu.classList.remove('show');
+                            document.removeEventListener('click', closeSort);
+                        }
+                    });
+                });
+                
+                sortDropdownItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        sortDropdownItems.forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+                        
+                        const sortText = item.textContent;
+                        sortDropdownToggle.querySelector('span').textContent = `Sort by: ${sortText}`;
+                        sortDropdownMenu.classList.remove('show');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile | HackConnect</title>
+    <meta name="description" content="Set up your HackConnect profile to get personalized hackathon recommendations.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/auth.css">
+    <link rel="stylesheet" href="../components/onboarding.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="onboarding">
+        <header class="onboarding-header">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                    <span>HackConnect</span>
+                </a>
+            </div>
+            <div class="onboarding-progress">
+                <div class="onboarding-steps">
+                    <div class="step completed" data-step="1">
+                        <div class="step__circle"></div>
+                        <div class="step__label">Account</div>
+                    </div>
+                    <div class="step active" data-step="2">
+                        <div class="step__circle"></div>
+                        <div class="step__label">Profile</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step__circle"></div>
+                        <div class="step__label">Skills</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step__circle"></div>
+                        <div class="step__label">Interests</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step__circle"></div>
+                        <div class="step__label">Complete</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 30%"></div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="onboarding-content">
+            <div class="step-container active" id="step2">
+                <div class="step-header">
+                    <h1>Set Up Your Profile</h1>
+                    <p>Tell us more about yourself so we can personalize your experience.</p>
+                </div>
+                
+                <div class="onboarding-form">
+                    <form class="form">
+                        <div class="avatar-upload">
+                            <div class="avatar-upload__preview">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=200" alt="Profile Picture">
+                            </div>
+                            <div class="avatar-upload__options">
+                                <h3>Profile Picture</h3>
+                                <p>Upload a clear photo of yourself to help team members recognize you.</p>
+                                <div class="avatar-upload__actions">
+                                    <label for="avatarUpload" class="btn btn--outline">
+                                        <i class="fas fa-upload"></i>
+                                        Upload Photo
+                                    </label>
+                                    <input type="file" id="avatarUpload" class="visually-hidden">
+                                    <button type="button" class="btn btn--text">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2 class="form-section__title">Personal Information</h2>
+                            
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" value="John" required>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" value="Doe" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="headline">Professional Headline</label>
+                                <input type="text" id="headline" name="headline" placeholder="e.g. Full Stack Developer, UX Designer, Data Scientist" required>
+                                <div class="form__hint">A brief description of what you do</div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="bio">About Me</label>
+                                <textarea id="bio" name="bio" rows="4" placeholder="Share a bit about your background, interests, and what you're looking to achieve."></textarea>
+                                <div class="character-count">0/250 characters</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2 class="form-section__title">Contact & Location</h2>
+                            
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location" placeholder="City, Country">
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone" name="timezone">
+                                        <option value="" disabled selected>Select your timezone</option>
+                                        <option value="GMT-8">Pacific Time (GMT-8)</option>
+                                        <option value="GMT-5">Eastern Time (GMT-5)</option>
+                                        <option value="GMT+0">GMT</option>
+                                        <option value="GMT+1">Central European Time (GMT+1)</option>
+                                        <option value="GMT+5:30">Indian Standard Time (GMT+5:30)</option>
+                                        <option value="GMT+8">China Standard Time (GMT+8)</option>
+                                        <option value="GMT+9">Japan Standard Time (GMT+9)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2 class="form-section__title">Experience & Education</h2>
+                            
+                            <div class="form__group">
+                                <label for="currentRole">Current Role</label>
+                                <input type="text" id="currentRole" name="currentRole" placeholder="e.g. Software Engineer at Tech Company">
+                            </div>
+                            
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <label for="yearsOfExperience">Years of Experience</label>
+                                    <select id="yearsOfExperience" name="yearsOfExperience">
+                                        <option value="" disabled selected>Select experience level</option>
+                                        <option value="0">Student/Learning</option>
+                                        <option value="1">0-1 years</option>
+                                        <option value="2">1-3 years</option>
+                                        <option value="5">3-5 years</option>
+                                        <option value="8">5-10 years</option>
+                                        <option value="10">10+ years</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="education">Highest Education</label>
+                                    <select id="education" name="education">
+                                        <option value="" disabled selected>Select education level</option>
+                                        <option value="high-school">High School</option>
+                                        <option value="bootcamp">Coding Bootcamp</option>
+                                        <option value="associate">Associate Degree</option>
+                                        <option value="bachelor">Bachelor's Degree</option>
+                                        <option value="master">Master's Degree</option>
+                                        <option value="phd">PhD or Doctorate</option>
+                                        <option value="self-taught">Self Taught</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--text btn--lg" id="skipButton">Skip for now</button>
+                            <button type="button" class="btn btn--primary btn--lg" id="nextButton">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="step-container" id="step3">
+                <div class="step-header">
+                    <h1>Your Skills & Expertise</h1>
+                    <p>Help us match you with the right hackathons and team members.</p>
+                </div>
+                
+                <div class="onboarding-form">
+                    <form class="form">
+                        <div class="form-section">
+                            <h2 class="form-section__title">Technical Skills</h2>
+                            
+                            <div class="form__group">
+                                <label for="skills">Add your skills</label>
+                                <div class="tag-input">
+                                    <div class="tag-input__container">
+                                        <input type="text" class="tag-input__input" placeholder="Type a skill and press Enter (e.g. JavaScript, React, Python)">
+                                    </div>
+                                </div>
+                                <div class="form__hint">Press Enter or comma to add a skill</div>
+                            </div>
+                            
+                            <div class="suggested-skills">
+                                <h3 class="suggested-skills__title">Popular skills in your field</h3>
+                                <div class="suggested-skills__list">
+                                    <button type="button" class="skill-pill">JavaScript</button>
+                                    <button type="button" class="skill-pill">React</button>
+                                    <button type="button" class="skill-pill">Node.js</button>
+                                    <button type="button" class="skill-pill">Python</button>
+                                    <button type="button" class="skill-pill">AWS</button>
+                                    <button type="button" class="skill-pill">UI/UX</button>
+                                    <button type="button" class="skill-pill">Git</button>
+                                    <button type="button" class="skill-pill">GraphQL</button>
+                                    <button type="button" class="skill-pill">Docker</button>
+                                    <button type="button" class="skill-pill">MongoDB</button>
+                                    <button type="button" class="skill-pill">SQL</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h2 class="form-section__title">Primary Development Areas</h2>
+                            <p class="form-section__description">Select up to 3 areas you're most proficient in.</p>
+                            
+                            <div class="expertise-areas">
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-frontend" name="areas" value="frontend">
+                                    <label for="area-frontend">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Frontend</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-backend" name="areas" value="backend">
+                                    <label for="area-backend">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Backend</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-fullstack" name="areas" value="fullstack">
+                                    <label for="area-fullstack">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Full Stack</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-mobile" name="areas" value="mobile">
+                                    <label for="area-mobile">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Mobile Dev</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-devops" name="areas" value="devops">
+                                    <label for="area-devops">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <div class="expertise-card__title">DevOps</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-ai" name="areas" value="ai">
+                                    <label for="area-ai">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div class="expertise-card__title">AI/ML</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-data" name="areas" value="data">
+                                    <label for="area-data">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Data Science</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-design" name="areas" value="design">
+                                    <label for="area-design">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-pen-nib"></i>
+                                        </div>
+                                        <div class="expertise-card__title">UI/UX Design</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="expertise-card">
+                                    <input type="checkbox" id="area-blockchain" name="areas" value="blockchain">
+                                    <label for="area-blockchain">
+                                        <div class="expertise-card__icon">
+                                            <i class="fas fa-link"></i>
+                                        </div>
+                                        <div class="expertise-card__title">Blockchain</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--text btn--lg" id="backToProfileButton">Back</button>
+                            <button type="button" class="btn btn--primary btn--lg" id="goToInterestsButton">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Additional step containers would be added here -->
+        </main>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Character counter for bio
+            const bioTextarea = document.getElementById('bio');
+            const charCount = document.querySelector('.character-count');
+            
+            if (bioTextarea && charCount) {
+                bioTextarea.addEventListener('input', function() {
+                    const count = this.value.length;
+                    charCount.textContent = `${count}/250 characters`;
+                    
+                    if (count > 250) {
+                        charCount.classList.add('error');
+                    } else {
+                        charCount.classList.remove('error');
+                    }
+                });
+            }
+            
+            // Step navigation
+            const nextButton = document.getElementById('nextButton');
+            const skipButton = document.getElementById('skipButton');
+            const backToProfileButton = document.getElementById('backToProfileButton');
+            const goToInterestsButton = document.getElementById('goToInterestsButton');
+            
+            if (nextButton) {
+                nextButton.addEventListener('click', function() {
+                    goToStep(3);
+                });
+            }
+            
+            if (skipButton) {
+                skipButton.addEventListener('click', function() {
+                    goToStep(3);
+                });
+            }
+            
+            if (backToProfileButton) {
+                backToProfileButton.addEventListener('click', function() {
+                    goToStep(2);
+                });
+            }
+            
+            if (goToInterestsButton) {
+                goToInterestsButton.addEventListener('click', function() {
+                    goToStep(4);
+                    // Since we don't have step 4 created yet, we'll simulate going to dashboard
+                    window.location.href = 'dashboard.html';
+                });
+            }
+            
+            function goToStep(step) {
+                // Update progress bar
+                const progressPercent = (step - 1) * 25;
+                document.querySelector('.progress').style.width = `${progressPercent}%`;
+                
+                // Update steps
+                document.querySelectorAll('.step').forEach((el) => {
+                    const stepNum = parseInt(el.getAttribute('data-step'));
+                    el.classList.remove('active', 'completed');
+                    
+                    if (stepNum < step) {
+                        el.classList.add('completed');
+                    } else if (stepNum === step) {
+                        el.classList.add('active');
+                    }
+                });
+                
+                // Show correct step container
+                document.querySelectorAll('.step-container').forEach((container) => {
+                    container.classList.remove('active');
+                });
+                
+                const activeContainer = document.getElementById(`step${step}`);
+                if (activeContainer) {
+                    activeContainer.classList.add('active');
+                }
+            }
+            
+            // Skill tag functionality
+            const tagInput = document.querySelector('.tag-input__input');
+            if (tagInput) {
+                tagInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ',') {
+                        e.preventDefault();
+                        const skillText = this.value.trim();
+                        
+                        if (skillText) {
+                            addSkillTag(skillText, this.parentElement);
+                            this.value = '';
+                        }
+                    }
+                });
+            }
+            
+            // Suggested skills buttons
+            const skillPills = document.querySelectorAll('.skill-pill');
+            const tagContainer = document.querySelector('.tag-input__container');
+            
+            if (skillPills && tagContainer) {
+                skillPills.forEach(pill => {
+                    pill.addEventListener('click', function() {
+                        const skillText = this.textContent;
+                        addSkillTag(skillText, tagContainer);
+                        this.disabled = true;
+                        this.classList.add('selected');
+                    });
+                });
+            }
+            
+            function addSkillTag(text, container) {
+                const tag = document.createElement('span');
+                tag.className = 'tag-input__tag';
+                tag.innerHTML = `${text}<i class="fas fa-times"></i>`;
+                
+                // Add delete functionality to tag
+                tag.querySelector('i').addEventListener('click', function() {
+                    // Re-enable the related skill pill if it exists
+                    const relatedPill = document.querySelector(`.skill-pill:disabled[textContent="${text}"]`);
+                    if (relatedPill) {
+                        relatedPill.disabled = false;
+                        relatedPill.classList.remove('selected');
+                    }
+                    tag.remove();
+                });
+                
+                // Insert tag before input if it exists
+                const input = container.querySelector('.tag-input__input');
+                if (input) {
+                    container.insertBefore(tag, input);
+                } else {
+                    container.appendChild(tag);
+                }
+            }
+            
+            // Limit expertise area selection to max 3
+            const expertiseCheckboxes = document.querySelectorAll('[name="areas"]');
+            if (expertiseCheckboxes) {
+                expertiseCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const checkedBoxes = document.querySelectorAll('[name="areas"]:checked');
+                        
+                        if (checkedBoxes.length > 3) {
+                            this.checked = false;
+                        }
+                    });
+                });
+            }
+            
+            // Avatar upload preview
+            const avatarUpload = document.getElementById('avatarUpload');
+            const avatarPreview = document.querySelector('.avatar-upload__preview img');
+            
+            if (avatarUpload && avatarPreview) {
+                avatarUpload.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            avatarPreview.src = e.target.result;
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

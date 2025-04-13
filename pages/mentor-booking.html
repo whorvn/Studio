@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Mentors | HackConnect</title>
+    <meta name="description" content="Book sessions with expert mentors for your current hackathons.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/dashboard.css">
+    <link rel="stylesheet" href="../components/mentor-booking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Sidebar navigation -->
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="projects.html">
+                            <i class="fas fa-rocket"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="mentor-booking.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Sidebar footer with user info -->
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <div class="user-card__info">
+                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="topbar__title">Book Mentors</h1>
+                </div>
+                
+                <div class="topbar__right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    
+                    <!-- Notifications dropdown -->
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="3">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        
+                        <div class="notifications__dropdown">
+                            <!-- Notifications content -->
+                        </div>
+                    </div>
+                    
+                    <!-- User menu dropdown -->
+                    <div class="user-menu">
+                        <button class="user-menu__toggle">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                            <span>John</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="user-menu__dropdown">
+                            <!-- User menu content -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="mentor-booking">
+                <div class="mentor-booking__header">
+                    <div class="mentor-booking__intro">
+                        <h2>Hackathon Mentors</h2>
+                        <p>Book sessions with expert mentors for your active hackathons. Get personalized guidance, technical help, and feedback on your projects from industry professionals.</p>
+                    </div>
+                    
+                    <div class="select-hackathon">
+                        <h3>Select Hackathon</h3>
+                        <div class="hackathon-tabs">
+                            <button class="hackathon-tab active" data-hackathon="openai">
+                                <div class="hackathon-tab__media">
+                                    <img src="../assets/images/hackathon-ai.jpg" alt="OpenAI Hackathon">
+                                </div>
+                                <div class="hackathon-tab__info">
+                                    <h4>OpenAI Hackathon</h4>
+                                    <p>Jun 15 - Jun 18, 2023 <span class="badge badge--success">Active</span></p>
+                                </div>
+                            </button>
+                            
+                            <button class="hackathon-tab" data-hackathon="aws">
+                                <div class="hackathon-tab__media">
+                                    <img src="../assets/images/hackathon-cloud.jpg" alt="AWS Cloud Innovation">
+                                </div>
+                                <div class="hackathon-tab__info">
+                                    <h4>AWS Cloud Innovation</h4>
+                                    <p>Jun 10 - Jun 20, 2023 <span class="badge badge--success">Active</span></p>
+                                </div>
+                            </button>
+                            
+                            <button class="hackathon-tab" data-hackathon="health">
+                                <div class="hackathon-tab__media">
+                                    <img src="../assets/images/hackathon-health.jpg" alt="Health Innovation Challenge">
+                                </div>
+                                <div class="hackathon-tab__info">
+                                    <h4>Health Innovation Challenge</h4>
+                                    <p>Sep 20 - Sep 25, 2023 <span class="badge badge--warning">Upcoming</span></p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mentor-booking__filters">
+                        <div class="mentor-booking__search">
+                            <div class="search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search mentors by name or expertise...">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <button class="filter-dropdown__toggle">
+                                <span>Expertise</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown__menu">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="expertise-ai" name="expertise" value="ai">
+                                    <label for="expertise-ai">AI/ML</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="expertise-frontend" name="expertise" value="frontend">
+                                    <label for="expertise-frontend">Frontend Development</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="expertise-backend" name="expertise" value="backend">
+                                    <label for="expertise-backend">Backend Development</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="expertise-design" name="expertise" value="design">
+                                    <label for="expertise-design">UX/UI Design</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="expertise-cloud" name="expertise" value="cloud">
+                                    <label for="expertise-cloud">Cloud Architecture</label>
+                                </div>
+                                <button class="btn btn--primary btn--sm filter-apply-btn">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <button class="filter-dropdown__toggle">
+                                <span>Availability</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown__menu">
+                                <div class="radio">
+                                    <input type="radio" id="availability-any" name="availability" value="any" checked>
+                                    <label for="availability-any">Any Time</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="availability-today" name="availability" value="today">
+                                    <label for="availability-today">Available Today</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="availability-tomorrow" name="availability" value="tomorrow">
+                                    <label for="availability-tomorrow">Available Tomorrow</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="availability-weekend" name="availability" value="weekend">
+                                    <label for="availability-weekend">Available This Weekend</label>
+                                </div>
+                                <button class="btn btn--primary btn--sm filter-apply-btn">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <button class="filter-dropdown__toggle">
+                                <span>Rating</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown__menu">
+                                <div class="radio">
+                                    <input type="radio" id="rating-any" name="rating" value="any" checked>
+                                    <label for="rating-any">Any Rating</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="rating-4plus" name="rating" value="4plus">
+                                    <label for="rating-4plus">4+ Stars</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="rating-45plus" name="rating" value="45plus">
+                                    <label for="rating-45plus">4.5+ Stars</label>
+                                </div>
+                                <button class="btn btn--primary btn--sm filter-apply-btn">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mentor-booking__content">
+                    <div class="your-bookings">
+                        <h3>Your Upcoming Mentor Sessions</h3>
+                        <div class="booking-list">
+                            <div class="booking-card">
+                                <div class="booking-card__mentor">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=0ea5e9&color=fff&size=200" alt="Sarah Johnson" class="avatar">
+                                    <div class="booking-card__mentor-info">
+                                        <h4>Sarah Johnson</h4>
+                                        <p>Senior ML Engineer @ Google</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-card__details">
+                                    <div class="booking-detail">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Today, 10:00 AM</span>
+                                    </div>
+                                    <div class="booking-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>45 minutes</span>
+                                    </div>
+                                    <div class="booking-detail">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <span>OpenAI Hackathon</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-card__actions">
+                                    <button class="btn btn--text btn--icon">
+                                        <i class="fas fa-edit"></i>
+                                        Reschedule
+                                    </button>
+                                    <button class="btn btn--primary btn--icon">
+                                        <i class="fas fa-video"></i>
+                                        Join Now
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="booking-card">
+                                <div class="booking-card__mentor">
+                                    <img src="https://ui-avatars.com/api/?name=David+Lee&background=10b981&color=fff&size=200" alt="David Lee" class="avatar">
+                                    <div class="booking-card__mentor-info">
+                                        <h4>David Lee</h4>
+                                        <p>Senior DevOps Engineer @ AWS</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-card__details">
+                                    <div class="booking-detail">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Tomorrow, 2:00 PM</span>
+                                    </div>
+                                    <div class="booking-detail">
+                                        <i class="fas fa-clock"></i>
+                                        <span>60 minutes</span>
+                                    </div>
+                                    <div class="booking-detail">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <span>AWS Cloud Innovation</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-card__actions">
+                                    <button class="btn btn--text btn--icon">
+                                        <i class="fas fa-edit"></i>
+                                        Reschedule
+                                    </button>
+                                    <button class="btn btn--outline btn--icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Add to Calendar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mentor-directory">
+                        <h3>Available Mentors for OpenAI Hackathon</h3>
+                        <div class="mentor-grid">
+                            <!-- Mentor Card 1 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=10b981&color=fff&size=200" alt="Michael Chen" class="mentor-avatar">
+                                    <div class="mentor-card__name">
+                                        <h4>Michael Chen</h4>
+                                        <p>Senior Software Engineer @ Microsoft</p>
+                                    </div>
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span>4.1 (23 sessions)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <div class="mentor-card__expertise">
+                                        <h5>Expertise</h5>
+                                        <div class="expertise-tags">
+                                            <span class="expertise-tag">Backend</span>
+                                            <span class="expertise-tag">Azure</span>
+                                            <span class="expertise-tag">AI Integration</span>
+                                            <span class="expertise-tag">API Design</span>
+                                            <span class="expertise-tag">System Architecture</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__bio">
+                                        <p>Experienced backend engineer with expertise in integrating AI services into scalable applications. Can help with architecture design, API optimization, and Azure deployment strategies.</p>
+                                    </div>
+                                    
+                                    <div class="mentor-card__availability">
+                                        <h5>Available Slots for OpenAI Hackathon</h5>
+                                        <div class="time-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">4:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Thu</div>
+                                                <div class="time-slot__time">10:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Thu</div>
+                                                <div class="time-slot__time">2:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">11:00 AM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--icon">
+                                        <i class="fas fa-user-plus"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--icon book-session-btn" data-mentor="michael-chen">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 2 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff&size=200" alt="Priya Sharma" class="mentor-avatar">
+                                    <div class="mentor-card__name">
+                                        <h4>Priya Sharma</h4>
+                                        <p>Lead UX Designer @ Adobe</p>
+                                    </div>
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>5.0 (42 sessions)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <div class="mentor-card__expertise">
+                                        <h5>Expertise</h5>
+                                        <div class="expertise-tags">
+                                            <span class="expertise-tag">UI/UX Design</span>
+                                            <span class="expertise-tag">Product Design</span>
+                                            <span class="expertise-tag">AI Interfaces</span>
+                                            <span class="expertise-tag">Figma</span>
+                                            <span class="expertise-tag">Design Systems</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__bio">
+                                        <p>Design leader with a passion for creating beautiful, usable AI products. Experienced in mentoring teams on how to create effective interfaces for complex AI applications and ML systems.</p>
+                                    </div>
+                                    
+                                    <div class="mentor-card__availability">
+                                        <h5>Available Slots for OpenAI Hackathon</h5>
+                                        <div class="time-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Wed</div>
+                                                <div class="time-slot__time">6:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">3:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sat</div>
+                                                <div class="time-slot__time">11:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sat</div>
+                                                <div class="time-slot__time">2:00 PM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--icon">
+                                        <i class="fas fa-user-plus"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--icon book-session-btn" data-mentor="priya-sharma">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 3 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff&size=200" alt="Marcus Wilson" class="mentor-avatar">
+                                    <div class="mentor-card__name">
+                                        <h4>Marcus Wilson</h4>
+                                        <p>AI Research Scientist @ DeepMind</p>
+                                    </div>
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span>4.1 (15 sessions)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <div class="mentor-card__expertise">
+                                        <h5>Expertise</h5>
+                                        <div class="expertise-tags">
+                                            <span class="expertise-tag">Machine Learning</span>
+                                            <span class="expertise-tag">NLP</span>
+                                            <span class="expertise-tag">GPT Models</span>
+                                            <span class="expertise-tag">TensorFlow</span>
+                                            <span class="expertise-tag">PyTorch</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__bio">
+                                        <p>Specialized in deep learning and natural language processing. Published researcher with expertise in GPT models, prompt engineering, and optimizing AI model performance for production use.</p>
+                                    </div>
+                                    
+                                    <div class="mentor-card__availability">
+                                        <h5>Available Slots for OpenAI Hackathon</h5>
+                                        <div class="time-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Today</div>
+                                                <div class="time-slot__time">7:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Thu</div>
+                                                <div class="time-slot__time">5:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sun</div>
+                                                <div class="time-slot__time">1:00 PM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--icon">
+                                        <i class="fas fa-user-plus"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--icon book-session-btn" data-mentor="marcus-wilson">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mentor Card 4 -->
+                            <div class="mentor-card">
+                                <div class="mentor-card__header">
+                                    <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=8b5cf6&color=fff&size=200" alt="Elena Rodriguez" class="mentor-avatar">
+                                    <div class="mentor-card__name">
+                                        <h4>Elena Rodriguez</h4>
+                                        <p>Fullstack Developer @ Netflix</p>
+                                    </div>
+                                    <div class="mentor-card__rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span>4.6 (31 sessions)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__body">
+                                    <div class="mentor-card__expertise">
+                                        <h5>Expertise</h5>
+                                        <div class="expertise-tags">
+                                            <span class="expertise-tag">React</span>
+                                            <span class="expertise-tag">Node.js</span>
+                                            <span class="expertise-tag">OpenAI API</span>
+                                            <span class="expertise-tag">AWS</span>
+                                            <span class="expertise-tag">Performance</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mentor-card__bio">
+                                        <p>Fullstack engineer focused on building high-performance web applications. Experienced in modern JavaScript frameworks, serverless architectures, and integrating AI services into web apps.</p>
+                                    </div>
+                                    
+                                    <div class="mentor-card__availability">
+                                        <h5>Available Slots for OpenAI Hackathon</h5>
+                                        <div class="time-slots">
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Thu</div>
+                                                <div class="time-slot__time">8:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Fri</div>
+                                                <div class="time-slot__time">7:00 PM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sat</div>
+                                                <div class="time-slot__time">9:00 AM</div>
+                                            </button>
+                                            <button class="time-slot">
+                                                <div class="time-slot__day">Sat</div>
+                                                <div class="time-slot__time">4:00 PM</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mentor-card__footer">
+                                    <button class="btn btn--outline btn--icon">
+                                        <i class="fas fa-user-plus"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="btn btn--primary btn--icon book-session-btn" data-mentor="elena-rodriguez">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        Book Session
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="load-more-container">
+                        <button class="btn btn--outline btn--icon">
+                            <i class="fas fa-sync"></i>
+                            Load More Mentors
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Booking Modal -->
+                <div class="modal" id="bookingModal">
+                    <div class="modal__content">
+                        <button class="modal__close" id="closeBookingModalBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
+                        <div class="booking-session">
+                            <div class="booking-session__header">
+                                <h2>Book a Session</h2>
+                                <div class="hackathon-badge">
+                                    <img src="../assets/images/hackathon-ai.jpg" alt="OpenAI Hackathon" class="hackathon-badge__image">
+                                    <span>OpenAI Hackathon</span>
+                                </div>
+                                <div class="booking-session__mentor">
+                                    <img src="" alt="" class="avatar avatar--md" id="bookingMentorAvatar">
+                                    <div>
+                                        <h3 id="bookingMentorName"></h3>
+                                        <p id="bookingMentorTitle"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="booking-session__form">
+                                <form class="form">
+                                    <div class="form__group">
+                                        <label for="sessionDate">Select Date</label>
+                                        <div class="date-picker">
+                                            <div class="date-picker__header">
+                                                <button type="button" class="date-picker__nav date-picker__prev">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </button>
+                                                <h4 class="date-picker__month">June 2023</h4>
+                                                <button type="button" class="date-picker__nav date-picker__next">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="date-picker__calendar">
+                                                <div class="date-picker__weekdays">
+                                                    <span>Sun</span>
+                                                    <span>Mon</span>
+                                                    <span>Tue</span>
+                                                    <span>Wed</span>
+                                                    <span>Thu</span>
+                                                    <span>Fri</span>
+                                                    <span>Sat</span>
+                                                </div>
+                                                <div class="date-picker__days">
+                                                    <!-- Calendar days will be generated by JavaScript -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="sessionTime">Select Time</label>
+                                        <div class="time-slots time-slots--selection">
+                                            <button type="button" class="time-slot">9:00 AM</button>
+                                            <button type="button" class="time-slot">10:00 AM</button>
+                                            <button type="button" class="time-slot">11:00 AM</button>
+                                            <button type="button" class="time-slot">1:00 PM</button>
+                                            <button type="button" class="time-slot">2:00 PM</button>
+                                            <button type="button" class="time-slot">3:00 PM</button>
+                                            <button type="button" class="time-slot">4:00 PM</button>
+                                            <button type="button" class="time-slot">5:00 PM</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="sessionDuration">Session Duration</label>
+                                        <select id="sessionDuration" required>
+                                            <option value="30">30 minutes</option>
+                                            <option value="45" selected>45 minutes</option>
+                                            <option value="60">60 minutes</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="sessionTopic">What would you like to discuss?</label>
+                                        <textarea id="sessionTopic" rows="3" placeholder="Briefly describe what you need help with for your hackathon project..." required></textarea>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <label for="sessionTeam">Team for this Hackathon</label>
+                                        <select id="sessionTeam" required>
+                                            <option value="codecrusaders" selected>CodeCrusaders (OpenAI Hackathon)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form__group">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="inviteTeam">
+                                            <label for="inviteTeam">Invite my entire team to this session</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="session-summary">
+                                        <h4>Session Summary</h4>
+                                        <div class="session-summary__details">
+                                            <div class="summary-item">
+                                                <span class="summary-item__label">Mentor:</span>
+                                                <span class="summary-item__value" id="summaryMentor">Marcus Wilson</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="summary-item__label">Date:</span>
+                                                <span class="summary-item__value" id="summaryDate">June 14, 2023</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="summary-item__label">Time:</span>
+                                                <span class="summary-item__value" id="summaryTime">3:00 PM</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="summary-item__label">Duration:</span>
+                                                <span class="summary-item__value" id="summaryDuration">45 minutes</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="summary-item__label">Hackathon:</span>
+                                                <span class="summary-item__value">OpenAI Hackathon</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form__actions">
+                                        <button type="button" class="btn btn--text" id="cancelBooking">Cancel</button>
+                                        <button type="submit" class="btn btn--primary">Confirm Booking</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-mobile');
+                });
+            }
+            
+            // Hackathon tabs
+            const hackathonTabs = document.querySelectorAll('.hackathon-tab');
+            hackathonTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    hackathonTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Update mentor directory heading to show selected hackathon
+                    const hackathonName = this.querySelector('h4').textContent;
+                    document.querySelector('.mentor-directory h3').textContent = `Available Mentors for ${hackathonName}`;
+                    
+                    // Change the hackathon badge in the booking modal
+                    const hackathonId = this.getAttribute('data-hackathon');
+                    const hackathonImage = this.querySelector('img').src;
+                    const bookingBadgeImg = document.querySelector('.hackathon-badge__image');
+                    const bookingBadgeText = document.querySelector('.hackathon-badge span');
+                    
+                    bookingBadgeImg.src = hackathonImage;
+                    bookingBadgeImg.alt = hackathonName;
+                    bookingBadgeText.textContent = hackathonName;
+                    
+                    // In a real app, we would load mentors specific to this hackathon
+                    // For demo purposes, we'll just show a loading state briefly
+                    const mentorGrid = document.querySelector('.mentor-grid');
+                    mentorGrid.classList.add('loading');
+                    
+                    setTimeout(() => {
+                        mentorGrid.classList.remove('loading');
+                    }, 500);
+                });
+            });
+            
+            // Filter dropdown functionality
+            const filterDropdownToggles = document.querySelectorAll('.filter-dropdown__toggle');
+            const filterDropdownMenus = document.querySelectorAll('.filter-dropdown__menu');
+            
+            filterDropdownToggles.forEach((toggle, index) => {
+                toggle.addEventListener('click', () => {
+                    filterDropdownMenus[index].classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    filterDropdownMenus.forEach((menu, menuIndex) => {
+                        if (menuIndex !== index) {
+                            menu.classList.remove('show');
+                        }
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function closeDropdown(e) {
+                        if (!toggle.contains(e.target) && !filterDropdownMenus[index].contains(e.target)) {
+                            filterDropdownMenus[index].classList.remove('show');
+                            document.removeEventListener('click', closeDropdown);
+                        }
+                    });
+                });
+            });
+            
+            // Time slot selection
+            const timeSlots = document.querySelectorAll('.time-slots--selection .time-slot');
+            
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', () => {
+                    timeSlots.forEach(s => s.classList.remove('selected'));
+                    slot.classList.add('selected');
+                    document.getElementById('summaryTime').textContent = slot.textContent;
+                });
+            });
+            
+            // Session duration change
+            const sessionDuration = document.getElementById('sessionDuration');
+            
+            if (sessionDuration) {
+                sessionDuration.addEventListener('change', function() {
+                    document.getElementById('summaryDuration').textContent = this.options[this.selectedIndex].text;
+                });
+            }
+            
+            // Booking modal functionality
+            const bookSessionBtns = document.querySelectorAll('.book-session-btn');
+            const bookingModal = document.getElementById('bookingModal');
+            const closeBookingModalBtn = document.getElementById('closeBookingModalBtn');
+            const cancelBooking = document.getElementById('cancelBooking');
+            
+            const mentors = {
+                'michael-chen': {
+                    name: 'Michael Chen',
+                    title: 'Senior Software Engineer @ Microsoft',
+                    avatar: 'https://ui-avatars.com/api/?name=Michael+Chen&background=10b981&color=fff'
+                },
+                'priya-sharma': {
+                    name: 'Priya Sharma',
+                    title: 'Lead UX Designer @ Adobe',
+                    avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff'
+                },
+                'marcus-wilson': {
+                    name: 'Marcus Wilson',
+                    title: 'AI Research Scientist @ DeepMind',
+                    avatar: 'https://ui-avatars.com/api/?name=Marcus+Wilson&background=f59e0b&color=fff'
+                },
+                'elena-rodriguez': {
+                    name: 'Elena Rodriguez',
+                    title: 'Fullstack Developer @ Netflix',
+                    avatar: 'https://ui-avatars.com/api/?name=Elena+Rodriguez&background=8b5cf6&color=fff'
+                }
+            };
+            
+            bookSessionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mentorId = btn.getAttribute('data-mentor');
+                    const mentor = mentors[mentorId];
+                    
+                    document.getElementById('bookingMentorName').textContent = mentor.name;
+                    document.getElementById('bookingMentorTitle').textContent = mentor.title;
+                    document.getElementById('bookingMentorAvatar').src = mentor.avatar;
+                    document.getElementById('summaryMentor').textContent = mentor.name;
+                    
+                    bookingModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            if (closeBookingModalBtn) {
+                closeBookingModalBtn.addEventListener('click', () => {
+                    bookingModal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            if (cancelBooking) {
+                cancelBooking.addEventListener('click', () => {
+                    bookingModal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Simple date picker functionality (minimal implementation)
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+            const currentYear = currentDate.getFullYear();
+            
+            function generateCalendar(month, year) {
+                const daysContainer = document.querySelector('.date-picker__days');
+                const monthLabel = document.querySelector('.date-picker__month');
+                
+                if (!daysContainer || !monthLabel) return;
+                
+                // Update month label
+                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                monthLabel.textContent = `${monthNames[month]} ${year}`;
+                
+                // Clear existing days
+                daysContainer.innerHTML = '';
+                
+                // Get first day and total days of the month
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                
+                // Add blank spaces for days before the first day of month
+                for (let i = 0; i < firstDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'date-picker__day empty';
+                    daysContainer.appendChild(emptyDay);
+                }
+                
+                // Add days of the month
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const day = document.createElement('button');
+                    day.className = 'date-picker__day';
+                    day.textContent = i;
+                    
+                    // Disable past dates
+                    const dateToCheck = new Date(year, month, i);
+                    if (dateToCheck < new Date().setHours(0,0,0,0)) {
+                        day.disabled = true;
+                        day.classList.add('disabled');
+                    }
+                    
+                    // Mark today's date
+                    if (i === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
+                        day.classList.add('today');
+                    }
+                    
+                    day.addEventListener('click', function() {
+                        // Remove selected class from all days
+                        document.querySelectorAll('.date-picker__day').forEach(d => d.classList.remove('selected'));
+                        
+                        // Add selected class to clicked day
+                        this.classList.add('selected');
+                        
+                        // Update summary
+                        const selectedDate = new Date(year, month, i);
+                        const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+                        document.getElementById('summaryDate').textContent = selectedDate.toLocaleDateString('en-US', options);
+                    });
+                    
+                    daysContainer.appendChild(day);
+                }
+            }
+            
+            generateCalendar(currentMonth, currentYear);
+            
+            // Navigation for date picker
+            const prevMonthBtn = document.querySelector('.date-picker__prev');
+            const nextMonthBtn = document.querySelector('.date-picker__next');
+            
+            let displayMonth = currentMonth;
+            let displayYear = currentYear;
+            
+            if (prevMonthBtn) {
+                prevMonthBtn.addEventListener('click', () => {
+                    displayMonth--;
+                    if (displayMonth < 0) {
+                        displayMonth = 11;
+                        displayYear--;
+                    }
+                    generateCalendar(displayMonth, displayYear);
+                });
+            }
+            
+            if (nextMonthBtn) {
+                nextMonthBtn.addEventListener('click', () => {
+                    displayMonth++;
+                    if (displayMonth > 11) {
+                        displayMonth = 0;
+                        displayYear++;
+                    }
+                    generateCalendar(displayMonth, displayYear);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

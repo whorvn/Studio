@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackConnect | Find, Join, and Win Hackathons</title>
+    <meta name="description" content="Connect with teams, join hackathons, and showcase your skills on the premier hackathon platform.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="pages/browse.html">Browse</a></li>
+                        <li class="nav__item"><a href="#">How it works</a></li>
+                        <li class="nav__item"><a href="#">For organizers</a></li>
+                    </ul>
+                </nav>
+                <div class="header__actions">
+                    <button class="btn btn--text" id="loginBtn">Log in</button>
+                    <button class="btn btn--primary" id="signupBtn">Sign up</button>
+                    <button class="btn btn--icon-only menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Discover and join the best <span class="text-gradient">hackathons</span> worldwide</h1>
+                    <p class="hero__subtitle">Connect with like-minded innovators, build amazing projects, and accelerate your tech career through hackathons that match your skills.</p>
+                    <div class="hero__cta">
+                        <button class="btn btn--primary btn--large">Get started</button>
+                        <button class="btn btn--outline btn--large">For organizers</button>
+                    </div>
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">750+</span>
+                            <span class="stat__label">Hackathons</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">25K+</span>
+                            <span class="stat__label">Developers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">$1.2M</span>
+                            <span class="stat__label">Prize pools</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="assets/images/hero-illustration.svg" alt="Developers collaborating at hackathon">
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Modals -->
+        <div class="modal" id="loginModal">
+            <div class="modal__content">
+                <button class="modal__close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="auth">
+                    <div class="auth__header">
+                        <h2>Welcome back</h2>
+                        <p>Log in to your HackConnect account</p>
+                    </div>
+                    <form class="form">
+                        <div class="form__group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required placeholder="your@email.com">
+                        </div>
+                        <div class="form__group">
+                            <label for="loginPassword">Password</label>
+                            <div class="password-field">
+                                <input type="password" id="loginPassword" required placeholder="Enter your password">
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form__options">
+                            <div class="checkbox">
+                                <input type="checkbox" id="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="link">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Log in</button>
+                        <div class="auth__divider">
+                            <span>or continue with</span>
+                        </div>
+                        <div class="oauth-buttons">
+                            <button type="button" class="btn btn--oauth btn--google">
+                                <img src="assets/images/google-icon.svg" alt="Google">
+                                Google
+                            </button>
+                            <button type="button" class="btn btn--oauth btn--github">
+                                <img src="assets/images/github-icon.svg" alt="GitHub">
+                                GitHub
+                            </button>
+                        </div>
+                    </form>
+                    <div class="auth__footer">
+                        <p>Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="signupModal">
+            <div class="modal__content">
+                <button class="modal__close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="auth">
+                    <div class="auth__header">
+                        <h2>Create an account</h2>
+                        <p>Join the HackConnect community</p>
+                    </div>
+                    <form class="form">
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="firstName">First name</label>
+                                <input type="text" id="firstName" required placeholder="John">
+                            </div>
+                            <div class="form__group">
+                                <label for="lastName">Last name</label>
+                                <input type="text" id="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" required placeholder="your@email.com">
+                        </div>
+                        <div class="form__group">
+                            <label for="signupPassword">Password</label>
+                            <div class="password-field">
+                                <input type="password" id="signupPassword" required placeholder="Create a password">
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="password-strength__bar">
+                                    <div class="password-strength__progress" style="width: 60%;"></div>
+                                </div>
+                                <span class="password-strength__label">Medium</span>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="confirmPassword">Confirm password</label>
+                            <div class="password-field">
+                                <input type="password" id="confirmPassword" required placeholder="Confirm your password">
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="termsAgree" required>
+                            <label for="termsAgree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Create account</button>
+                        <div class="auth__divider">
+                            <span>or continue with</span>
+                        </div>
+                        <div class="oauth-buttons">
+                            <button type="button" class="btn btn--oauth btn--google">
+                                <img src="assets/images/google-icon.svg" alt="Google">
+                                Google
+                            </button>
+                            <button type="button" class="btn btn--oauth btn--github">
+                                <img src="assets/images/github-icon.svg" alt="GitHub">
+                                GitHub
+                            </button>
+                        </div>
+                    </form>
+                    <div class="auth__footer">
+                        <p>Already have an account? <a href="#" id="switchToLogin">Log in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <img src="assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </div>
+                    <p>The premier platform for hackathon discovery, team building, and project showcasing.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="#">Browse Hackathons</a></li>
+                            <li><a href="#">Team Formation</a></li>
+                            <li><a href="#">For Organizers</a></li>
+                            <li><a href="#">For Judges</a></li>
+                            <li><a href="#">For Mentors</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Guides</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                            <li><a href="#">Community Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2023 HackConnect. All rights reserved.</p>
+                <div class="footer__bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
+<p class="author-name">Marcus Johnson</p>
+                                    <p class="author-title">Frontend Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-dots">
+                    <button class="dot active" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Got questions? We've got answers.</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is a hackathon?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A hackathon is a collaborative event where programmers, designers, and other tech enthusiasts come together to build innovative solutions within a limited timeframe, typically 24-48 hours. Participants work in teams to solve challenges, create projects, and compete for prizes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do I need to have a team to participate?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, you can register for hackathons individually and use HackConnect's team formation feature to find teammates with complementary skills. You can also participate as a solo competitor if the hackathon allows it.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What skill level do I need to join a hackathon?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Hackathons are for everyone! There are events appropriate for all skill levels, from beginners to experienced professionals. Many hackathons specifically welcome newcomers and provide mentors to help you along the way.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I book a mentor session?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Once you've created an account on HackConnect, navigate to the Mentors section where you can browse available mentors, view their expertise and schedule, and book a session that fits your needs. Some sessions may be free, while others may require HackConnect credits.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Are hackathons only for coders?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Not at all! Hackathons need diverse skills including design, project management, domain expertise, and business acumen. The best teams often combine members with different backgrounds and abilities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I win a hackathon?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Success in hackathons typically comes from a combination of innovation, good execution, and effective presentation. Focus on solving a real problem, create a working prototype, and make sure you can clearly explain your solution's value and technical implementation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-more">
+                <p>Still have questions?</p>
+                <a href="contact.html" class="btn btn--outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Hackathon Journey?</h2>
+                <p>Join HackConnect today to discover hackathons, find teammates, and showcase your skills to the community.</p>
+                <div class="cta-actions">
+                    <a href="pages/registration.html" class="btn btn--primary btn--lg">Sign Up for Free</a>
+                    <a href="pages/browse.html" class="btn btn--outline btn--lg">Browse Hackathons</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="HackConnect Logo">
+                        <span>HackConnect</span>
+                    </div>
+                    <p class="footer-tagline">Your gateway to hackathon success</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Platform</h3>
+                    <ul>
+                        <li><a href="pages/browse.html">Browse Hackathons</a></li>
+                        <li><a href="pages/team-management.html">Team Formation</a></li>
+                        <li><a href="pages/mentor-booking.html">Book Mentors</a></li>
+                        <li><a href="pages/projects.html">Project Showcase</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3 class="footer-heading">Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest hackathons and features</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn--primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 HackConnect. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            if (mobileMenuClose && mobileMenu) {
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // FAQ accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+            
+            // Testimonial slider
+            const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            
+            testimonialDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    
+                    // Update active dot
+                    document.querySelector('.dot.active').classList.remove('active');
+                    dot.classList.add('active');
+                    
+                    // Update active slide
+                    document.querySelector('.testimonial-slide.active').classList.remove('active');
+                    testimonialSlides[index].classList.add('active');
+                });
+            });
+            
+            // Mentor slider
+            const mentorCards = document.querySelector('.mentor-cards');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            
+            if (mentorCards && prevBtn && nextBtn) {
+                let scrollAmount = 0;
+                const cardWidth = 280; // Width of one mentor card + margin
+                
+                prevBtn.addEventListener('click', () => {
+                    scrollAmount = Math.max(scrollAmount - cardWidth, 0);
+                    mentorCards.scroll({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    const maxScroll = mentorCards.scrollWidth - mentorCards.clientWidth;
+                    scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll);
+                    mentorCards.scroll({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu && mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.remove('show');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === "#") return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
