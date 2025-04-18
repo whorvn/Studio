@@ -1206,3 +1206,329 @@
     transform: translateY(0);
   }
 }
+
+/* Team Detail Styles */
+
+.team-detail {
+    padding: var(--space-6);
+}
+
+/* Team Detail Header */
+.team-detail__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.team-detail__avatar {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.team-detail__info {
+    flex: 1;
+}
+
+.team-detail__info h2 {
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.team-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.team-detail__meta i {
+    margin-right: var(--space-1);
+}
+
+.team-detail__actions {
+    margin-left: auto;
+}
+
+/* Team Tabs */
+.team-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-6);
+}
+
+.team-tab {
+    padding: var(--space-3) var(--space-4);
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.team-tab:hover {
+    color: var(--color-text-primary);
+}
+
+.team-tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.team-tab i {
+    margin-right: var(--space-2);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.tab-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Members List */
+.members-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+}
+
+.member-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background-color: var(--color-surface-alt);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.member-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-info h4 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.member-role {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var (--space-2);
+}
+
+.member-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.skill-tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.badge {
+    font-size: 0.6875rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.badge--primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+/* Hackathon List */
+.hackathon-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.hackathon-entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--color-surface-alt);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.hackathon-entry.active {
+    border-color: var(--color-success);
+    background-color: rgba(var(--color-success-rgb), 0.05);
+}
+
+.hackathon-entry__status {
+    display: flex;
+    align-items: center;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.status-badge.active {
+    background-color: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.status-badge.past {
+    background-color: var(--color-gray-light);
+    color: var(--color-gray);
+}
+
+.hackathon-entry__image {
+    width: 80px;
+    height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.hackathon-entry__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hackathon-entry__details {
+    flex: 1;
+}
+
+.hackathon-entry__details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+}
+
+.hackathon-entry__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.hackathon-entry__meta i {
+    margin-right: var(--space-1);
+}
+
+.hackathon-entry__result {
+    margin-top: var(--space-2);
+}
+
+.result-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.result-badge.finalist {
+    background-color: rgba(var(--color-warning-rgb), 0.1);
+    color: var(--color-warning);
+}
+
+.progress-section {
+    margin-top: var(--space-2);
+    width: 100%;
+    max-width: 300px;
+}
+
+.progress-section__header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-bottom: var(--space-1);
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--color-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .team-detail {
+        padding: var(--space-4);
+    }
+    
+    .hackathon-entry {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hackathon-entry__image {
+        width: 100%;
+        height: 120px;
+    }
+    
+    .hackathon-entry__actions {
+        width: 100%;
+        margin-top: var(--space-3);
+    }
+    
+    .hackathon-entry__actions .btn {
+        width: 100%;
+    }
+}

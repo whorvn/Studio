@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Teams | HackConnect</title>
-    <meta name="description" content="Manage your teams, view team members, and track project progress.">
+    <meta name="description" content="Manage your hackathon teams">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../components/dashboard.css">
-    <link rel="stylesheet" href="../components/teams.css">
+    <link rel="stylesheet" href="../components/team-management.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -101,328 +101,91 @@
                 </div>
                 
                 <div class="topbar__right">
-                    <!-- Search, notifications, user menu components -->
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search teams...">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="2">
+                            <i class="far fa-bell"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="user-menu">
+                        <button class="user-menu__toggle">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
+                            <span>John</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
                 </div>
             </header>
             
             <main class="team-management">
                 <div class="team-management__header">
-                    <div class="team-management__actions">
-                        <button class="btn btn--primary btn--lg btn--icon" data-modal="createTeamModal">
-                            <i class="fas fa-plus"></i>
-                            Create New Team
-                        </button>
-                        <div class="tabs">
-                            <button class="tab active" data-filter="all">All Teams</button>
-                            <button class="tab" data-filter="active">Active</button>
-                            <button class="tab" data-filter="past">Completed</button>
-                            <button class="tab" data-filter="upcoming">Forming</button>
-                        </div>
-                    </div>
-                    
-                    <div class="team-management__search">
-                        <div class="search-input">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search teams...">
-                        </div>
-                    </div>
+                    <h2>Your Teams</h2>
+                    <button class="btn btn--primary" id="createTeamBtn">
+                        <i class="fas fa-plus"></i> Create New Team
+                    </button>
                 </div>
                 
-                <div class="teams-list">
-                    <!-- Team 1: Active -->
-                    <div class="team-item" data-type="active">
-                        <div class="team-item__logo">
-                            <img src="https://ui-avatars.com/api/?name=Code+Crusaders&background=4f46e5&color=fff&size=64" alt="CodeCrusaders">
+                <div class="teams-container">
+                    <!-- Team card -->
+                    <div class="team-card">
+                        <div class="team-card__header">
+                            <div class="team-card__avatar">
+                                <span>CC</span>
+                            </div>
+                            <div class="team-card__info">
+                                <h3 class="team-card__name">CodeCrusaders</h3>
+                                <p class="team-card__meta">
+                                    <span><i class="fas fa-user"></i> 4 Members</span>
+                                    <span><i class="fas fa-trophy"></i> 2 Hackathons</span>
+                                </p>
+                            </div>
                         </div>
                         
-                        <div class="team-item__info">
-                            <h3 class="team-name">CodeCrusaders</h3>
-                            <div class="team-meta">
-                                <span class="team-meta__item">
-                                    <i class="fas fa-user-friends"></i> 4 Members
-                                </span>
-                                <span class="team-meta__item">
-                                    <i class="fas fa-trophy"></i> Project: AI Content Generator
-                                </span>
-                                <span class="team-meta__tag active">Active</span>
+                        <div class="team-card__active-hackathon">
+                            <div class="active-hackathon-badge">
+                                <span class="dot"></span> Active Hackathon
                             </div>
-                            <p class="team-description">
-                                Building an AI-powered content generation platform for marketing teams. Using OpenAI's GPT-4, React, and Node.js.
-                            </p>
-                            
-                            <div class="team-progress">
-                                <div class="progress-info">
-                                    <span>Project Progress</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 75%;"></div>
+                            <div class="active-hackathon-info">
+                                <img src="../assets/images/banner1.jpg" alt="OpenAI Hackathon">
+                                <div>
+                                    <h4>OpenAI Hackathon</h4>
+                                    <p>Jun 15 - Jun 18, 2023</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="team-item__members">
-                            <div class="member-avatars-stacked">
-                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=64" alt="John Doe" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=10b981&color=fff&size=64" alt="Jane Smith" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ef4444&color=fff&size=64" alt="Mike Johnson" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Lisa+Chen&background=f59e0b&color=fff&size=64" alt="Lisa Chen" class="avatar avatar--xs">
-                            </div>
-                        </div>
-                        
-                        <div class="team-item__actions">
-                            <button class="btn btn--sm btn--text">
-                                <i class="fas fa-comment"></i>
-                                Chat
-                            </button>
-                            <a href="team-detail.html?id=codecrusaders" class="btn btn--sm btn--primary">
-                                <i class="fas fa-users"></i>
-                                Team Space
-                            </a>
+                        <div class="team-card__footer">
+                            <a href="team-detail.html" class="btn btn--primary btn--full">Manage Team</a>
                         </div>
                     </div>
                     
-                    <!-- Team 2: Active -->
-                    <div class="team-item" data-type="active">
-                        <div class="team-item__logo">
-                            <img src="https://ui-avatars.com/api/?name=Cloud+Ninjas&background=10b981&color=fff&size=64" alt="CloudNinjas">
-                        </div>
-                        
-                        <div class="team-item__info">
-                            <h3 class="team-name">CloudNinjas</h3>
-                            <div class="team-meta">
-                                <span class="team-meta__item">
-                                    <i class="fas fa-user-friends"></i> 3 Members
-                                </span>
-                                <span class="team-meta__item">
-                                    <i class="fas fa-trophy"></i> Project: Serverless Analytics Platform
-                                </span>
-                                <span class="team-meta__tag active">Active</span>
+                    <!-- Team card -->
+                    <div class="team-card">
+                        <div class="team-card__header">
+                            <div class="team-card__avatar">
+                                <span>CN</span>
                             </div>
-                            <p class="team-description">
-                                Developing a serverless analytics platform for real-time data processing using AWS Lambda, Kinesis, and S3.
-                            </p>
-                            
-                            <div class="team-progress">
-                                <div class="progress-info">
-                                    <span>Project Progress</span>
-                                    <span>40%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 40%;"></div>
-                                </div>
+                            <div class="team-card__info">
+                                <h3 class="team-card__name">CloudNinjas</h3>
+                                <p class="team-card__meta">
+                                    <span><i class="fas fa-user"></i> 3 Members</span>
+                                    <span><i class="fas fa-trophy"></i> 1 Hackathon</span>
+                                </p>
                             </div>
                         </div>
                         
-                        <div class="team-item__members">
-                            <div class="member-avatars-stacked">
-                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=64" alt="John Doe" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Lee&background=8b5cf6&color=fff&size=64" alt="Sarah Lee" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=David+Kim&background=3b82f6&color=fff&size=64" alt="David Kim" class="avatar avatar--xs">
-                            </div>
+                        <div class="team-card__no-hackathon">
+                            <i class="fas fa-calendar-plus"></i>
+                            <p>No active hackathons</p>
                         </div>
                         
-                        <div class="team-item__actions">
-                            <button class="btn btn--sm btn--text">
-                                <i class="fas fa-comment"></i>
-                                Chat
-                            </button>
-                            <a href="team-detail.html?id=cloudninjas" class="btn btn--sm btn--primary">
-                                <i class="fas fa-users"></i>
-                                Team Space
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Team 3: Forming -->
-                    <div class="team-item" data-type="upcoming">
-                        <div class="team-item__logo">
-                            <img src="https://ui-avatars.com/api/?name=Health+Tech+Heroes&background=ec4899&color=fff&size=64" alt="HealthTech Heroes">
-                        </div>
-                        
-                        <div class="team-item__info">
-                            <h3 class="team-name">HealthTech Heroes</h3>
-                            <div class="team-meta">
-                                <span class="team-meta__item">
-                                    <i class="fas fa-user-friends"></i> 2 Members (Recruiting)
-                                </span>
-                                <span class="team-meta__item">
-                                    <i class="fas fa-lightbulb"></i> Idea: Health Monitoring App
-                                </span>
-                                <span class="team-meta__tag forming">Forming</span>
-                            </div>
-                            <p class="team-description">
-                                Looking to build a health monitoring app with ML-driven insights. Seeking developers with experience in mobile development and AI.
-                            </p>
-                            
-                            <div class="team-roles-needed">
-                                <span class="role-tag">Mobile Developer</span>
-                                <span class="role-tag">ML Engineer</span>
-                                <span class="role-tag">UI Designer</span>
-                            </div>
-                        </div>
-                        
-                        <div class="team-item__members">
-                            <div class="member-avatars-stacked">
-                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=64" alt="John Doe" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Emma+Garcia&background=ec4899&color=fff&size=64" alt="Emma Garcia" class="avatar avatar--xs">
-                                <div class="avatar-plus">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="team-item__actions">
-                            <button class="btn btn--sm btn--text">
-                                <i class="fas fa-edit"></i>
-                                Edit
-                            </button>
-                            <button class="btn btn--sm btn--primary">
-                                <i class="fas fa-user-plus"></i>
-                                Recruit
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Team 4: Completed -->
-                    <div class="team-item" data-type="past">
-                        <div class="team-item__logo">
-                            <img src="https://ui-avatars.com/api/?name=Block+Masters&background=f59e0b&color=fff&size=64" alt="BlockMasters">
-                        </div>
-                        
-                        <div class="team-item__info">
-                            <h3 class="team-name">BlockMasters</h3>
-                            <div class="team-meta">
-                                <span class="team-meta__item">
-                                    <i class="fas fa-user-friends"></i> 3 Members
-                                </span>
-                                <span class="team-meta__item">
-                                    <i class="fas fa-trophy"></i> Project: Blockchain Payment Platform
-                                </span>
-                                <span class="team-meta__tag completed">Completed</span>
-                            </div>
-                            <p class="team-description">
-                                Built a blockchain-based payment platform for cross-border transactions with low fees and instant settlements.
-                            </p>
-                            
-                            <div class="team-achievement">
-                                <div class="achievement-badge">
-                                    <i class="fas fa-medal"></i>
-                                    <span>3rd Place</span>
-                                </div>
-                                <span class="achievement-event">FinTech Innovation Hackathon</span>
-                            </div>
-                        </div>
-                        
-                        <div class="team-item__members">
-                            <div class="member-avatars-stacked">
-                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff&size=64" alt="John Doe" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Alex+Wong&background=3b82f6&color=fff&size=64" alt="Alex Wong" class="avatar avatar--xs">
-                                <img src="https://ui-avatars.com/api/?name=Jessica+Park&background=8b5cf6&color=fff&size=64" alt="Jessica Park" class="avatar avatar--xs">
-                            </div>
-                        </div>
-                        
-                        <div class="team-item__actions">
-                            <a href="#" class="btn btn--sm btn--text">
-                                <i class="fas fa-folder-open"></i>
-                                View Project
-                            </a>
-                            <a href="team-detail.html?id=blockmasters" class="btn btn--sm btn--primary">
-                                <i class="fas fa-users"></i>
-                                Team Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="empty-state" style="display: none;">
-                    <div class="empty-state__icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>No teams found</h3>
-                    <p>You haven't created or joined any teams matching your filter criteria.</p>
-                    <button class="btn btn--primary" data-modal="createTeamModal">Create a New Team</button>
-                </div>
-                
-                <!-- Create Team Modal -->
-                <div class="modal" id="createTeamModal">
-                    <div class="modal__content">
-                        <button class="modal__close" id="closeCreateTeamModalBtn">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        
-                        <div class="create-team-form">
-                            <h2>Create a New Team</h2>
-                            <p>Start a team for your next project or hackathon</p>
-                            
-                            <form class="form">
-                                <div class="form__group">
-                                    <label for="teamName">Team Name</label>
-                                    <input type="text" id="teamName" placeholder="Choose a creative team name" required>
-                                </div>
-                                
-                                <div class="form__group">
-                                    <label for="projectName">Project Name</label>
-                                    <input type="text" id="projectName" placeholder="What are you building?">
-                                </div>
-                                
-                                <div class="form__group">
-                                    <label for="teamDescription">Team Description</label>
-                                    <textarea id="teamDescription" rows="3" placeholder="Briefly describe your team and project idea" required></textarea>
-                                </div>
-                                
-                                <div class="form__group">
-                                    <label>Team Roles Needed</label>
-                                    <div class="role-chips">
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-frontend" name="roles[]" value="frontend">
-                                            <label for="role-frontend">Frontend Developer</label>
-                                        </div>
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-backend" name="roles[]" value="backend">
-                                            <label for="role-backend">Backend Developer</label>
-                                        </div>
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-designer" name="roles[]" value="designer">
-                                            <label for="role-designer">UI/UX Designer</label>
-                                        </div>
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-datascience" name="roles[]" value="datascience">
-                                            <label for="role-datascience">Data Scientist</label>
-                                        </div>
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-ai" name="roles[]" value="ai">
-                                            <label for="role-ai">AI/ML Engineer</label>
-                                        </div>
-                                        <div class="role-chip">
-                                            <input type="checkbox" id="role-pm" name="roles[]" value="pm">
-                                            <label for="role-pm">Project Manager</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form__group">
-                                    <label for="maxMembers">Maximum Team Size</label>
-                                    <select id="maxMembers" required>
-                                        <option value="2">2 Members</option>
-                                        <option value="3">3 Members</option>
-                                        <option value="4" selected>4 Members</option>
-                                        <option value="5">5 Members</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form__group">
-                                    <div class="checkbox">
-                                        <input type="checkbox" id="openRecruitment" name="openRecruitment">
-                                        <label for="openRecruitment">Open recruitment (allow others to request to join your team)</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="form__actions">
-                                    <button type="button" class="btn btn--text" id="cancelCreateTeam">Cancel</button>
-                                    <button type="submit" class="btn btn--primary">Create Team</button>
-                                </div>
-                            </form>
+                        <div class="team-card__footer">
+                            <a href="team-detail.html" class="btn btn--primary btn--full">Manage Team</a>
                         </div>
                     </div>
                 </div>
@@ -430,11 +193,32 @@
         </div>
     </div>
     
+    <!-- Create Team Modal -->
+    <div class="modal" id="createTeamModal">
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Create a New Team</h2>
+            <form class="form">
+                <div class="form__group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" id="teamName" required placeholder="Enter team name...">
+                </div>
+                
+                <div class="form__actions">
+                    <button type="button" class="btn btn--text" id="cancelCreateTeam">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Create Team</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle sidebar
+            // Sidebar toggle
             const sidebarToggle = document.getElementById('sidebarToggle');
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
             const sidebar = document.querySelector('.sidebar');
             
             if (sidebarToggle) {
@@ -443,101 +227,33 @@
                 });
             }
             
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', () => {
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
                     sidebar.classList.toggle('show-mobile');
                 });
             }
             
-            // Team filtering
-            const filterTabs = document.querySelectorAll('.tab');
-            const teamItems = document.querySelectorAll('.team-item');
-            const emptyState = document.querySelector('.empty-state');
-            
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
-                    // Update active tab
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Filter team items
-                    let visibleItems = 0;
-                    
-                    teamItems.forEach(item => {
-                        const itemType = item.getAttribute('data-type');
-                        
-                        if (filter === 'all' || filter === itemType) {
-                            item.style.display = 'flex';
-                            visibleItems++;
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                    
-                    // Show/hide empty state
-                    if (visibleItems === 0) {
-                        emptyState.style.display = 'flex';
-                    } else {
-                        emptyState.style.display = 'none';
-                    }
-                });
-            });
-            
-            // Create Team Modal
-            const createTeamBtn = document.querySelector('[data-modal="createTeamModal"]');
+            // Modal handling
+            const createTeamBtn = document.getElementById('createTeamBtn');
             const createTeamModal = document.getElementById('createTeamModal');
-            const closeCreateTeamModalBtn = document.getElementById('closeCreateTeamModalBtn');
             const cancelCreateTeam = document.getElementById('cancelCreateTeam');
+            const modalCloseBtn = document.querySelector('.modal__close');
             
             if (createTeamBtn && createTeamModal) {
                 createTeamBtn.addEventListener('click', () => {
                     createTeamModal.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-            
-            if (closeCreateTeamModalBtn) {
-                closeCreateTeamModalBtn.addEventListener('click', () => {
-                    createTeamModal.classList.remove('show');
-                    document.body.style.overflow = '';
                 });
             }
             
             if (cancelCreateTeam) {
                 cancelCreateTeam.addEventListener('click', () => {
                     createTeamModal.classList.remove('show');
-                    document.body.style.overflow = '';
                 });
             }
             
-            // Search functionality
-            const searchInput = document.querySelector('.team-management__search input');
-            
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    const searchValue = this.value.toLowerCase();
-                    let visibleItems = 0;
-                    
-                    teamItems.forEach(item => {
-                        const teamName = item.querySelector('.team-name').textContent.toLowerCase();
-                        const teamDescription = item.querySelector('.team-description').textContent.toLowerCase();
-                        
-                        if (teamName.includes(searchValue) || teamDescription.includes(searchValue)) {
-                            item.style.display = 'flex';
-                            visibleItems++;
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                    
-                    // Show/hide empty state
-                    if (visibleItems === 0) {
-                        emptyState.style.display = 'flex';
-                    } else {
-                        emptyState.style.display = 'none';
-                    }
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', () => {
+                    createTeamModal.classList.remove('show');
                 });
             }
         });

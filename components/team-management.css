@@ -13,6 +13,8 @@
 
 .team-management__header h2 {
   margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 /* Team Tabs */
@@ -518,6 +520,137 @@
   z-index: var(--z-tooltip);
 }
 
+/* Team Cards */
+.teams-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-5);
+}
+
+.team-card {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.team-card__header {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-3);
+}
+
+.team-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.team-card__info {
+  flex: 1;
+}
+
+.team-card__name {
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+  font-size: 1.125rem;
+}
+
+.team-card__meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.team-card__meta i {
+  margin-right: var(--space-1);
+}
+
+.team-card__active-hackathon {
+  padding: var(--space-4);
+  background-color: rgba(var(--color-success-rgb), 0.05);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.active-hackathon-badge {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-success);
+}
+
+.active-hackathon-badge .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-success);
+  border-radius: 50%;
+  margin-right: var(--space-2);
+}
+
+.active-hackathon-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.active-hackathon-info img {
+  width: 60px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.active-hackathon-info h4 {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-1);
+}
+
+.active-hackathon-info p {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.team-card__no-hackathon {
+  padding: var(--space-4);
+  background-color: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.team-card__no-hackathon i {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.team-card__no-hackathon p {
+  font-size: 0.875rem;
+}
+
+.team-card__footer {
+  padding: var(--space-4);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .team-details-card__header,
@@ -548,5 +681,24 @@
   
   .step {
     min-width: 80px;
+  }
+
+  .team-management {
+    padding: var(--space-4);
+  }
+  
+  .team-management__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  
+  .team-management__header button {
+    width: 100%;
+  }
+  
+  .teams-container {
+    grid-template-columns: 1fr;
   }
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse Hackathons | HackConnect</title>
-    <meta name="description" content="Discover hackathons that match your skills and interests.">
+    <meta name="description" content="Discover upcoming hackathons to participate in">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../components/dashboard.css">
     <link rel="stylesheet" href="../components/browse.css">
@@ -134,111 +134,43 @@
                 </div>
             </header>
             
-            <main class="browse">
-                <div class="browse__container">
-                    <aside class="filters-sidebar">
-                        <div class="filters-header">
-                            <h2>Filters</h2>
-                            <button class="btn btn--text btn--small">Clear All</button>
+            <main class="browse-main">
+                <div class="browse-header">
+                    <h2>Browse Hackathons</h2>
+                    <p>Find the perfect hackathon to showcase your skills</p>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-bar">
+                        <div class="search-filter">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search hackathons...">
                         </div>
                         
-                        <div class="filter-section">
-                            <h3 class="filter-section__title">Format</h3>
-                            <div class="checkbox">
-                                <input type="checkbox" id="virtualFormat" checked>
-                                <label for="virtualFormat">Virtual (36)</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" id="inPersonFormat">
-                                <label for="inPersonFormat">In-person (18)</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" id="hybridFormat">
-                                <label for="hybridFormat">Hybrid (8)</label>
-                            </div>
+                        <div class="filter-group">
+                            <label for="formatFilter">Format</label>
+                            <select id="formatFilter">
+                                <option value="all">All Formats</option>
+                                <option value="online">Online</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="offline">Offline</option>
+                            </select>
                         </div>
                         
-                        <div class="filter-section">
-                            <h3 class="filter-section__title">Date</h3>
-                            <div class="radio-group">
-                                <div class="radio">
-                                    <input type="radio" name="date" id="dateAll" checked>
-                                    <label for="dateAll">All time</label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" name="date" id="dateToday">
-                                    <label for="dateToday">Today</label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" name="date" id="dateWeek">
-                                    <label for="dateWeek">This week</label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" name="date" id="dateMonth">
-                                    <label for="dateMonth">This month</label>
-                                </div>
-                            </div>
+                        <div class="filter-group">
+                            <label for="dateFrom">Date Range</label>
                             <div class="date-range">
-                                <p>Custom range</p>
-                                <div class="date-inputs">
-                                    <input type="date" class="date-input" placeholder="From">
-                                    <input type="date" class="date-input" placeholder="To">
-                                </div>
+                                <input type="date" id="dateFrom" placeholder="From">
+                                <span class="date-separator">to</span>
+                                <input type="date" id="dateTo" placeholder="To">
                             </div>
                         </div>
                         
-                        <div class="filter-section">
-                            <h3 class="filter-section__title">Prize Pool</h3>
-                            <div class="range-slider">
-                                <div class="range-slider__values">
-                                    <span>$0</span>
-                                    <span>$50,000+</span>
-                                </div>
-                                <input type="range" min="0" max="50000" value="25000" class="range-slider__input">
-                            </div>
-                        </div>
-                        
-                        <div class="filter-section">
-                            <h3 class="filter-section__title">Team Size</h3>
-                            <div class="checkbox">
-                                <input type="checkbox" id="teamSizeSolo">
-                                <label for="teamSizeSolo">Solo (12)</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" id="teamSize2to4" checked>
-                                <label for="teamSize2to4">2-4 members (42)</label>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" id="teamSize5plus">
-                                <label for="teamSize5plus">5+ members (8)</label>
-                            </div>
-                        </div>
-                        
-                        <div class="filter-section">
-                            <h3 class="filter-section__title">Technology Focus</h3>
-                            <div class="tag-selector">
-                                <div class="tag-selector__selected">
-                                    <span class="tag active">AI/ML <i class="fas fa-times"></i></span>
-                                    <span class="tag active">Web Dev <i class="fas fa-times"></i></span>
-                                </div>
-                                <input type="text" class="tag-selector__input" placeholder="Search technologies...">
-                                <div class="tag-selector__suggestions">
-                                    <span class="tag">Mobile</span>
-                                    <span class="tag">Blockchain</span>
-                                    <span class="tag">IoT</span>
-                                    <span class="tag">Cloud</span>
-                                    <span class="tag">AR/VR</span>
-                                    <span class="tag">Game Dev</span>
-                                    <span class="tag">Cybersecurity</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="filters-actions">
-                            <button class="btn btn--primary btn--full">Apply Filters</button>
-                        </div>
-                    </aside>
-                    
+                        <button class="btn btn--primary">Apply Filters</button>
+                    </div>
+                </div>
+                
+                <div class="browse__container">
                     <div class="browse-content">
                         <div class="browse-header">
                             <div class="browse-tabs">
