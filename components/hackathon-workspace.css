@@ -103,198 +103,6 @@
     margin-bottom: var(--space-6);
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-6);
-}
-
-.section-header h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Project Overview */
-.project-overview {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
-    margin-bottom: var(--space-6);
-}
-
-.project-description h3,
-.project-tech h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: var(--space-3);
-}
-
-.project-description p {
-    line-height: 1.6;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-}
-
-.tech-tag {
-    font-size: 0.75rem;
-    padding: var(--space-1) var(--space-2);
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-}
-
-/* Progress Tracker */
-.project-progress {
-    margin-bottom: var(--space-6);
-}
-
-.project-progress h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: var(--space-4);
-}
-
-.progress-overview {
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    margin-bottom: var(--space-5);
-}
-
-.progress-stat {
-    text-align: center;
-}
-
-.progress-percentage {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    display: block;
-}
-
-.progress-label {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-}
-
-.progress-bar-large {
-    flex: 1;
-    height: 10px;
-    background-color: var(--color-border);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-/* Milestones */
-.milestones {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-}
-
-.milestone {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    padding: var(--space-3);
-    border-radius: 6px;
-    background-color: var(--color-surface-alt);
-    border: 1px solid var(--color-border);
-}
-
-.milestone.completed {
-    border-color: var(--color-success);
-    background-color: rgba(var(--color-success-rgb), 0.05);
-}
-
-.milestone.active {
-    border-color: var(--color-primary);
-    background-color: rgba(var(--color-primary-rgb), 0.05);
-}
-
-.milestone__check {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: white;
-    font-size: 0.75rem;
-}
-
-.milestone.completed .milestone__check {
-    background-color: var(--color-success);
-}
-
-.milestone.active .milestone__check {
-    background-color: var(--color-primary);
-}
-
-.milestone:not(.completed):not(.active) .milestone__check {
-    background-color: var(--color-border);
-    color: var(--color-text-secondary);
-}
-
-.milestone__content {
-    flex: 1;
-}
-
-.milestone__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-}
-
-.milestone__header h4 {
-    font-weight: 600;
-    font-size: 0.9375rem;
-}
-
-.milestone__date {
-    font-size: 0.8125rem;
-    color: var(--color-text-secondary);
-}
-
-/* Project Links */
-.links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: var(--space-4);
-}
-
-.link-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-4);
-    background-color: var(--color-surface-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--color-text-primary);
-    transition: all 0.2s ease;
-}
-
-.link-card:hover {
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.link-card i {
-    font-size: 1.75rem;
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
-}
-
 /* Resources Tab */
 .resources-grid {
     display: grid;
@@ -664,20 +472,16 @@
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
-    .project-overview {
+    .submission-container {
         grid-template-columns: 1fr;
     }
     
-    .submission-container {
-        grid-template-columns: 1fr;
+    .hackathon-workspace {
+        padding: var(--space-4);
     }
 }
 
 @media (max-width: 768px) {
-    .hackathon-workspace {
-        padding: var(--space-4);
-    }
-    
     .team-chat {
         grid-template-columns: 1fr;
         height: 700px;

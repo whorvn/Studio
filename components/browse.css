@@ -432,7 +432,7 @@
 .pagination__btn.active {
   background-color: var(--color-primary);
   color: white;
-  border-color: var(--color-primary);
+  border-color: var (--color-primary);
 }
 
 .pagination__btn--next {
@@ -481,4 +481,561 @@
     width: 100%;
     justify-content: space-between;
   }
+}
+
+/* Browse Hackathons Page Styles */
+.browse-main {
+    padding: var(--space-6);
+}
+
+.browse-header {
+    margin-bottom: var(--space-6);
+    text-align: center;
+}
+
+.browse-header h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2);
+}
+
+.browse-header p {
+    color: var(--color-gray-600);
+}
+
+/* Filter Section */
+.filter-section {
+    margin-bottom: var(--space-6);
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: flex-end;
+    background-color: var(--color-gray-50);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+}
+
+.search-filter {
+    flex: 1 1 300px;
+    position: relative;
+}
+
+.search-filter i {
+    position: absolute;
+    left: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-gray-500);
+}
+
+.search-filter input {
+    width: 100%;
+    padding: var(--space-3) var(--space-3) var(--space-3) var(--space-8);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background);
+    font-size: var(--font-size-base);
+}
+
+.filter-group {
+    flex: 0 1 auto;
+}
+
+.filter-group label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-2);
+}
+
+.filter-group select {
+    padding: var(--space-3);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background);
+    min-width: 150px;
+    font-size: var(--font-size-base);
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.date-range input {
+    padding: var(--space-3);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background);
+    font-size: var(--font-size-base);
+    min-width: 140px;
+}
+
+.date-separator {
+    color: var(--color-gray-600);
+}
+
+/* Browse Navigation */
+.browse__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.browse-content .browse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-5);
+    text-align: left;
+}
+
+.browse-tabs {
+    display: flex;
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-1);
+}
+
+.browse-tabs__btn {
+    border: none;
+    background: transparent;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-600);
+    transition: var(--transition-base);
+}
+
+.browse-tabs__btn.active {
+    background-color: var(--color-background);
+    color: var(--color-gray-900);
+    box-shadow: var(--shadow-sm);
+}
+
+.browse-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.view-toggle {
+    display: flex;
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-1);
+}
+
+.view-toggle__btn {
+    border: none;
+    background: transparent;
+    padding: var(--space-2) var(--space-2);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    color: var(--color-gray-600);
+    transition: var(--transition-base);
+}
+
+.view-toggle__btn.active {
+    background-color: var(--color-background);
+    color: var(--color-gray-900);
+    box-shadow: var(--shadow-sm);
+}
+
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-dropdown__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: transparent;
+    border: none;
+    padding: var(--space-2);
+    cursor: pointer;
+    color: var (--color-gray-600);
+}
+
+.sort-dropdown__menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 220px;
+    z-index: 10;
+    display: none;
+}
+
+.sort-dropdown__menu.show {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.sort-dropdown__item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray-700);
+    transition: var(--transition-base);
+}
+
+.sort-dropdown__item:hover {
+    background-color: var(--color-gray-100);
+}
+
+.sort-dropdown__item.active {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Hackathon Cards Grid */
+.hackathons-grid {
+    display: grid;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.list-view {
+    grid-template-columns: 1fr;
+}
+
+.hackathon-card {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.hackathon-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.hackathon-card__banner {
+    position: relative;
+    height: 180px;
+}
+
+.hackathon-card__banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hackathon-card__bookmark {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.hackathon-card__bookmark:hover {
+    background-color: white;
+}
+
+.hackathon-card__bookmark.active i {
+    color: var(--color-warning);
+}
+
+.hackathon-card__format {
+    position: absolute;
+    top: var(--space-3);
+    left: var(--space-3);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.hackathon-card__content {
+    padding: var(--space-4);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hackathon-card__title {
+    margin-bottom: var(--space-1);
+    font-size: var(--font-size-lg);
+}
+
+.hackathon-card__dates {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-sm);
+}
+
+.hackathon-card__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.hackathon-card__details .detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+}
+
+.hackathon-card__organizer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+}
+
+.organizer-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--border-radius-full);
+    object-fit: cover;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: auto;
+    margin-bottom: var(--space-3);
+}
+
+.tag {
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-700);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+}
+
+.match-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.match-bar__progress {
+    flex-grow: 1;
+    height: 6px;
+    background-color: var(--color-gray-200);
+    border-radius: var(--border-radius-full);
+    overflow: hidden;
+}
+
+.match-bar__fill {
+    height: 100%;
+    background-color: var(--color-success);
+    border-radius: var(--border-radius-full);
+}
+
+.match-percent {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-success);
+}
+
+.hackathon-card__footer {
+    padding: var(--space-4);
+    border-top: 1px solid var(--color-gray-100);
+}
+
+/* List View Cards */
+.list-view .hackathon-card {
+    flex-direction: row;
+    height: auto;
+}
+
+.list-view .hackathon-card__banner {
+    width: 240px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.list-view .hackathon-card__content {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: 
+      "title organizer"
+      "dates details"
+      "tags match";
+    column-gap: var(--space-4);
+}
+
+.list-view .hackathon-card__title {
+    grid-area: title;
+}
+
+.list-view .hackathon-card__dates {
+    grid-area: dates;
+}
+
+.list-view .hackathon-card__organizer {
+    grid-area: organizer;
+    justify-content: flex-end;
+}
+
+.list-view .hackathon-card__details {
+    grid-area: details;
+}
+
+.list-view .tags {
+    grid-area: tags;
+    align-self: end;
+}
+
+.list-view .match-bar {
+    grid-area: match;
+    align-self: end;
+    margin-left: auto;
+}
+
+.list-view .hackathon-card__footer {
+    width: 160px;
+    padding: var(--space-4);
+    border-top: none;
+    border-left: 1px solid var(--color-gray-100);
+    display: flex;
+    align-items: center;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.pagination__btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    color: var(--color-gray-700);
+    transition: var(--transition-base);
+}
+
+.pagination__btn:hover {
+    background-color: var(--color-gray-100);
+}
+
+.pagination__btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.pagination__ellipsis {
+    color: var(--color-gray-500);
+}
+
+.pagination__btn--next {
+    color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .browse-content .browse-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+    
+    .list-view .hackathon-card {
+        flex-direction: column;
+    }
+    
+    .list-view .hackathon-card__banner {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .list-view .hackathon-card__content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .list-view .hackathon-card__footer {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--color-gray-100);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sort-dropdown__menu {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

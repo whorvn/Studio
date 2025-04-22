@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="light-theme">
     <div class="dashboard-layout">
         <aside class="sidebar">
             <div class="sidebar__header">
@@ -42,16 +42,16 @@
                             <span>Browse Hackathons</span>
                         </a>
                     </li>
-                    <li class="sidebar__item active">
+                    <li class="sidebar__item">
                         <a href="team-management.html">
                             <i class="fas fa-users"></i>
                             <span>My Teams</span>
                         </a>
                     </li>
                     <li class="sidebar__item">
-                        <a href="projects.html">
-                            <i class="fas fa-rocket"></i>
-                            <span>Projects</span>
+                        <a href="mentors.html">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Book Mentors</span>
                         </a>
                     </li>
                 </ul>
@@ -151,16 +151,13 @@
                 
                 <!-- Hackathon Workspace Tabs -->
                 <div class="workspace-tabs">
-                    <button class="workspace-tab active" data-tab="project">
-                        <i class="fas fa-rocket"></i> Project
-                    </button>
                     <button class="workspace-tab" data-tab="resources">
                         <i class="fas fa-book"></i> Resources
                     </button>
                     <button class="workspace-tab" data-tab="submission">
                         <i class="fas fa-upload"></i> Submission
                     </button>
-                    <button class="workspace-tab" data-tab="team-chat">
+                    <button class="workspace-tab active" data-tab="team-chat">
                         <i class="fas fa-comments"></i> Team Chat
                     </button>
                 </div>
