@@ -1,0 +1,379 @@
+/* Registration Page Specific Styles */
+
+.registration-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.registration-sidebar {
+    flex: 0 0 45%;
+    background-color: #4f46e5;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: none; /* Hidden on mobile */
+}
+
+.registration-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../assets/images/registration-bg.svg');
+    background-size: cover;
+    opacity: 0.1;
+}
+
+.registration-sidebar__content {
+    position: relative;
+    padding: 4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-sidebar .logo {
+    margin-bottom: 4rem;
+}
+
+.registration-sidebar .logo a {
+    color: white;
+}
+
+.registration-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration-info h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.registration-info p {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.registration-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.feature__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.feature__content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature__content p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.testimonials {
+    margin-top: auto;
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.testimonial__quote {
+    margin-bottom: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.testimonial__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial__author .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.testimonial__name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.testimonial__title {
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.registration-container {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.registration-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.registration-header__account {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.registration-header__account a {
+    color: #4f46e5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.registration-header__account a:hover {
+    text-decoration: underline;
+}
+
+.registration-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.registration-form h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.form-description {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.social-auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn--social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn--github {
+    background-color: #24292e;
+    color: white;
+}
+
+.btn--github:hover {
+    background-color: #1a1e22;
+}
+
+.btn--google {
+    background-color: white;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+}
+
+.btn--google:hover {
+    background-color: #f9fafb;
+}
+
+.form-divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.form-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.form-divider span {
+    position: relative;
+    display: inline-block;
+    padding: 0 1rem;
+    background-color: white;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+.form__group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form__group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form__group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.password-meter {
+    margin-top: 0.5rem;
+}
+
+.password-meter__bar {
+    height: 4px;
+    background-color: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.password-meter__progress {
+    height: 100%;
+    width: 0;
+    background-color: #e5e7eb;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.password-meter__label {
+    display: block;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.checkbox input {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.25rem;
+}
+
+.checkbox label {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.checkbox label a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.checkbox label a:hover {
+    text-decoration: underline;
+}
+
+.form__actions {
+    margin-top: 2rem;
+}
+
+.btn--full {
+    width: 100%;
+}
+
+.btn--large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Add margin to main form on large screens */
+@media (min-width: 768px) {
+    .registration-form {
+        padding: 0 4rem;
+    }
+}
+
+/* Show sidebar on larger screens */
+@media (min-width: 1024px) {
+    .registration-sidebar {
+        display: block;
+    }
+    
+    .registration-container {
+        flex: 0 0 55%;
+    }
+}

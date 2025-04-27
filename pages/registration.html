@@ -7,6 +7,7 @@
     <meta name="description" content="Join the HackConnect community and participate in hackathons, connect with teams, and showcase your projects.">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../components/auth.css">
+    <link rel="stylesheet" href="../components/registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -79,7 +80,7 @@
         
         <div class="registration-container">
             <div class="registration-header">
-                <p class="registration-header__account">Already have an account? <a href="login.html">Sign in</a></p>
+                <p class="registration-header__account">Already have an account? <a href="../index.html" id="loginLink">Sign in</a></p>
             </div>
             
             <div class="registration-form">
@@ -105,40 +106,43 @@
                     <div class="form__row">
                         <div class="form__group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
                         </div>
                         
                         <div class="form__group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
                         </div>
                     </div>
                     
                     <div class="form__group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
                     </div>
                     
-                    <div class="form__row">
-                        <div class="form__group">
-                            <label for="password">Password</label>
-                            <div class="password-field">
-                                <input type="password" id="password" name="password" required>
-                                <button type="button" class="password-toggle">
-                                    <i class="far fa-eye"></i>
-                                </button>
-                            </div>
-                            <div class="form__hint">Must be at least 8 characters with 1 uppercase letter and 1 number</div>
+                    <div class="form__group">
+                        <label for="password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" required placeholder="Create a strong password">
+                            <button type="button" class="password-toggle">
+                                <i class="far fa-eye"></i>
+                            </button>
                         </div>
-                        
-                        <div class="form__group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <div class="password-field">
-                                <input type="password" id="confirmPassword" name="confirmPassword" required>
-                                <button type="button" class="password-toggle">
-                                    <i class="far fa-eye"></i>
-                                </button>
+                        <div class="password-meter">
+                            <div class="password-meter__bar">
+                                <div class="password-meter__progress"></div>
                             </div>
+                            <span class="password-meter__label">Password strength</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-field">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                            <button type="button" class="password-toggle">
+                                <i class="far fa-eye"></i>
+                            </button>
                         </div>
                     </div>
                     
@@ -188,7 +192,7 @@
                         <div class="checkbox">
                             <input type="checkbox" id="termsAgree" name="termsAgree" required>
                             <label for="termsAgree">
-                                I agree to HackConnect's <a href="../terms.html">Terms of Service</a> and <a href="../privacy.html">Privacy Policy</a>
+                                I agree to the <a href="../terms.html">Terms of Service</a> and <a href="../privacy.html">Privacy Policy</a>
                             </label>
                         </div>
                     </div>
@@ -241,6 +245,50 @@
                     }
                 });
             });
+            
+            // Password strength meter
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.querySelector('.password-meter__progress');
+            const strengthLabel = document.querySelector('.password-meter__label');
+            
+            passwordInput.addEventListener('input', function() {
+                const strength = calculatePasswordStrength(this.value);
+                
+                let width = '0%';
+                let color = '#e5e7eb';
+                let text = 'Password strength';
+                
+                if (strength === 1) {
+                    width = '25%';
+                    color = '#ef4444';
+                    text = 'Weak';
+                } else if (strength === 2) {
+                    width = '50%';
+                    color = '#f59e0b';
+                    text = 'Fair';
+                } else if (strength === 3) {
+                    width = '75%';
+                    color = '#10b981';
+                    text = 'Good';
+                } else if (strength === 4) {
+                    width = '100%';
+                    color = '#4f46e5';
+                    text = 'Strong';
+                }
+                
+                strengthBar.style.width = width;
+                strengthBar.style.backgroundColor = color;
+                strengthLabel.textContent = text;
+            });
+            
+            function calculatePasswordStrength(password) {
+                let strength = 0;
+                if (password.length >= 8) strength++;
+                if (password.match(/[A-Z]/)) strength++;
+                if (password.match(/[0-9]/)) strength++;
+                if (password.match(/[^A-Za-z0-9]/)) strength++;
+                return strength;
+            }
             
             // Form validation
             const form = document.getElementById('registrationForm');
@@ -335,6 +383,15 @@
                 const form = document.getElementById('registrationForm');
                 form.parentNode.insertBefore(successMessage, form);
                 form.style.display = 'none';
+            }
+            
+            // The loginLink redirects to index.html and opens the login modal
+            const loginLink = document.getElementById('loginLink');
+            if (loginLink) {
+                loginLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = '../index.html?login=true';
+                });
             }
         });
     </script>

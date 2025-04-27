@@ -171,4 +171,67 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // FAQ Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+});
+
+// Handle login modal from URL parameter
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a login parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const showLogin = urlParams.get('login');
+    
+    if (showLogin === 'true') {
+        // Show login modal if redirected from registration page
+        const loginModal = document.getElementById('loginModal');
+        if (loginModal) {
+            loginModal.classList.add('show');
+            // Clean the URL
+            history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+    
+    // Existing login modal functionality
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.querySelector('.modal__close');
+    
+    if (loginBtn && loginModal) {
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (closeModal && loginModal) {
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
 });
