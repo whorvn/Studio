@@ -198,12 +198,10 @@
                 <p class="mb-3">Add skills that represent your technical abilities and expertise</p>
                 
                 <div class="form-group">
-                    <label for="skill-search">Technical Skills 
-                        <span class="tooltip">
-                            <i class="fas fa-info-circle"></i>
-                            <span class="tooltip-text">Add programming languages, frameworks, tools you are familiar with</span>
-                        </span>
-                    </label>
+                    <div class="skill-tabs">
+                        <button type="button" class="skill-tab active" data-skill-type="technical">Technical Skills</button>
+                        <button type="button" class="skill-tab" data-skill-type="soft">Soft Skills</button>
+                    </div>
                     <div class="skill-search-container">
                         <div class="skill-search-wrapper">
                             <i class="fas fa-search"></i>
@@ -215,19 +213,19 @@
                     </div>
                 </div>
                 
-                <div class="skills-content">
+                <div class="skills-content" id="technical-skills-content">
                     <div class="skills-selected">
-                        <h4>Your Skills <span id="skillCount" class="skill-count">(0)</span></h4>
-                        <div class="empty-state" id="emptySkillsState">
+                        <h4>Your Technical Skills <span id="techSkillCount" class="skill-count">(0)</span></h4>
+                        <div class="empty-state" id="emptyTechSkillsState">
                             <i class="fas fa-lightbulb"></i>
                             <p>Select skills from suggestions below or search for more</p>
                         </div>
-                        <div class="skill-chips" id="selectedSkills"></div>
+                        <div class="skill-chips" id="selectedTechSkills"></div>
                     </div>
                     
                     <div class="skills-suggestions">
-                        <h4>Popular Skills</h4>
-                        <div class="skill-chips" id="suggestedSkills">
+                        <h4>Popular Technical Skills</h4>
+                        <div class="skill-chips" id="suggestedTechSkills">
                             <span class="skill-chip">JavaScript</span>
                             <span class="skill-chip">React</span>
                             <span class="skill-chip">Node.js</span>
@@ -242,27 +240,49 @@
                     </div>
                 </div>
                 
+                <div class="skills-content" id="soft-skills-content" style="display: none;">
+                    <div class="skills-selected">
+                        <h4>Your Soft Skills <span id="softSkillCount" class="skill-count">(0)</span></h4>
+                        <div class="empty-state" id="emptySoftSkillsState">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Select soft skills from suggestions below or search for more</p>
+                        </div>
+                        <div class="skill-chips" id="selectedSoftSkills"></div>
+                    </div>
+                    
+                    <div class="skills-suggestions">
+                        <h4>Popular Soft Skills</h4>
+                        <div class="skill-chips" id="suggestedSoftSkills">
+                            <span class="skill-chip">Teamwork</span>
+                            <span class="skill-chip">Communication</span>
+                            <span class="skill-chip">Leadership</span>
+                            <span class="skill-chip">Problem-solving</span>
+                            <span class="skill-chip">Time Management</span>
+                            <span class="skill-chip">Adaptability</span>
+                            <span class="skill-chip">Creativity</span>
+                            <span class="skill-chip">Critical Thinking</span>
+                            <span class="skill-chip">Emotional Intelligence</span>
+                            <span class="skill-chip">Conflict Resolution</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="form-group">
-                    <label>Soft Skills</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="teamwork"> Teamwork
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="communication"> Communication
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="leadership"> Leadership
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="problem-solving"> Problem-solving
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="time-management"> Time Management
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="soft-skills" value="adaptability"> Adaptability
-                        </label>
+                    <label class="checkbox skill-level-toggle">
+                        <input type="checkbox" id="enable-skill-levels">
+                        <span>I want to specify my proficiency levels for skills</span>
+                    </label>
+                </div>
+                
+                <div id="skill-levels-container" class="skill-levels" style="display: none;">
+                    <h4>Skill Proficiency Levels</h4>
+                    <p class="small text-muted">Drag sliders to indicate your proficiency level for each skill</p>
+                    <div id="skill-level-items" class="skill-level-items">
+                        <!-- Will be populated dynamically with JavaScript -->
+                        <div class="empty-state">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Add skills above to set proficiency levels</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -467,15 +487,53 @@
             // Skills functionality
             const skillSearch = document.getElementById('skill-search');
             const addCustomSkill = document.getElementById('add-custom-skill');
-            const suggestedSkills = document.querySelectorAll('#suggestedSkills .skill-chip');
-            const selectedSkills = document.getElementById('selectedSkills');
-            const emptySkillsState = document.getElementById('emptySkillsState');
-            const skillCount = document.getElementById('skillCount');
+            const skillTabs = document.querySelectorAll('.skill-tab');
             
-            // Click on suggested skills to select them
-            suggestedSkills.forEach(skill => {
+            // Technical skills
+            const suggestedTechSkills = document.querySelectorAll('#suggestedTechSkills .skill-chip');
+            const selectedTechSkills = document.getElementById('selectedTechSkills');
+            const emptyTechSkillsState = document.getElementById('emptyTechSkillsState');
+            const techSkillCount = document.getElementById('techSkillCount');
+            
+            // Soft skills
+            const suggestedSoftSkills = document.querySelectorAll('#suggestedSoftSkills .skill-chip');
+            const selectedSoftSkills = document.getElementById('selectedSoftSkills');
+            const emptySoftSkillsState = document.getElementById('emptySoftSkillsState');
+            const softSkillCount = document.getElementById('softSkillCount');
+            
+            // Toggle between technical and soft skills
+            let currentSkillType = 'technical';
+            
+            skillTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    skillTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentSkillType = this.getAttribute('data-skill-type');
+                    
+                    // Show/hide appropriate content
+                    if (currentSkillType === 'technical') {
+                        document.getElementById('technical-skills-content').style.display = 'flex';
+                        document.getElementById('soft-skills-content').style.display = 'none';
+                        skillSearch.placeholder = 'Search for technical skills or add your own';
+                    } else {
+                        document.getElementById('technical-skills-content').style.display = 'none';
+                        document.getElementById('soft-skills-content').style.display = 'flex';
+                        skillSearch.placeholder = 'Search for soft skills or add your own';
+                    }
+                });
+            });
+            
+            // Click on suggested technical skills to select them
+            suggestedTechSkills.forEach(skill => {
                 skill.addEventListener('click', function() {
-                    addSkill(this.textContent);
+                    addSkill(this.textContent, 'technical');
+                });
+            });
+            
+            // Click on suggested soft skills to select them
+            suggestedSoftSkills.forEach(skill => {
+                skill.addEventListener('click', function() {
+                    addSkill(this.textContent, 'soft');
                 });
             });
             
@@ -483,7 +541,7 @@
             if (addCustomSkill && skillSearch) {
                 addCustomSkill.addEventListener('click', function() {
                     if (skillSearch.value.trim()) {
-                        addSkill(skillSearch.value.trim());
+                        addSkill(skillSearch.value.trim(), currentSkillType);
                         skillSearch.value = '';
                     }
                 });
@@ -492,13 +550,16 @@
                 skillSearch.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' && this.value.trim()) {
                         e.preventDefault();
-                        addSkill(this.value.trim());
+                        addSkill(this.value.trim(), currentSkillType);
                         this.value = '';
                     }
                 });
             }
             
-            function addSkill(skillText) {
+            function addSkill(skillText, skillType) {
+                const selectedSkills = skillType === 'technical' ? selectedTechSkills : selectedSoftSkills;
+                const emptySkillsState = skillType === 'technical' ? emptyTechSkillsState : emptySoftSkillsState;
+                
                 // Check if skill already exists
                 const existingSkills = Array.from(selectedSkills.children).map(chip => 
                     chip.textContent.trim().toLowerCase()
@@ -516,27 +577,99 @@
                 // Create new skill chip
                 const skillChip = document.createElement('span');
                 skillChip.className = 'skill-chip selected';
+                skillChip.dataset.skillType = skillType;
                 skillChip.innerHTML = skillText + ' <i class="fas fa-times"></i>';
                 
                 // Add delete handler
                 skillChip.querySelector('i').addEventListener('click', function() {
                     selectedSkills.removeChild(skillChip);
-                    updateSkillCount();
+                    updateSkillCount(skillType);
                     
                     // Show empty state if no skills left
                     if (selectedSkills.children.length === 0 && emptySkillsState) {
                         emptySkillsState.style.display = 'flex';
                     }
+                    
+                    // Update skill levels
+                    if (document.getElementById('enable-skill-levels').checked) {
+                        updateSkillLevels();
+                    }
                 });
                 
                 selectedSkills.appendChild(skillChip);
-                updateSkillCount();
+                updateSkillCount(skillType);
+                
+                // Update skill levels if enabled
+                if (document.getElementById('enable-skill-levels').checked) {
+                    updateSkillLevels();
+                }
             }
             
-            function updateSkillCount() {
+            function updateSkillCount(skillType) {
+                const skillCount = skillType === 'technical' ? techSkillCount : softSkillCount;
+                const selectedSkills = skillType === 'technical' ? selectedTechSkills : selectedSoftSkills;
+                
                 if (skillCount) {
                     skillCount.textContent = `(${selectedSkills.children.length})`;
                 }
+            }
+            
+            // Skill levels functionality
+            const enableSkillLevels = document.getElementById('enable-skill-levels');
+            const skillLevelsContainer = document.getElementById('skill-levels-container');
+            const skillLevelItems = document.getElementById('skill-level-items');
+            
+            if (enableSkillLevels) {
+                enableSkillLevels.addEventListener('change', function() {
+                    if (this.checked) {
+                        skillLevelsContainer.style.display = 'block';
+                        updateSkillLevels();
+                    } else {
+                        skillLevelsContainer.style.display = 'none';
+                    }
+                });
+            }
+            
+            function updateSkillLevels() {
+                // Clear existing skill level items
+                skillLevelItems.innerHTML = '';
+                
+                // Get all selected skills from both technical and soft skills
+                const techSkills = Array.from(selectedTechSkills.children);
+                const softSkills = Array.from(selectedSoftSkills.children);
+                const allSkills = [...techSkills, ...softSkills];
+                
+                if (allSkills.length === 0) {
+                    skillLevelItems.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Add skills above to set proficiency levels</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Create a skill level item for each skill
+                allSkills.forEach((skill, index) => {
+                    const skillText = skill.textContent.replace(/\s*×\s*$/, '').trim();
+                    const skillType = skill.dataset.skillType;
+                    const skillClass = skillType === 'technical' ? 'technical-skill' : 'soft-skill';
+                    
+                    const skillLevelItem = document.createElement('div');
+                    skillLevelItem.className = `skill-level-item ${skillClass}`;
+                    skillLevelItem.innerHTML = `
+                        <div class="skill-level-name">${skillText}</div>
+                        <div class="skill-level-slider-container">
+                            <input type="range" min="1" max="5" value="3" class="skill-level-slider" id="skill-level-${index}">
+                            <div class="skill-level-labels">
+                                <span>Beginner</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    skillLevelItems.appendChild(skillLevelItem);
+                });
             }
         });
         
