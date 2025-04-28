@@ -51,8 +51,7 @@
 
 .page-header-actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
     margin-bottom: var(--space-lg);
 }
 
@@ -1008,6 +1007,17 @@
     }
 }
 
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive styles */
 @media (max-width: 992px) {
     .team-card-body {
@@ -1060,6 +1070,14 @@
         margin-left: 0;
         margin-top: var(--space-sm);
     }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section {
+        padding: 50px 20px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1094,6 +1112,14 @@
     .radio-icon {
         margin-right: 0;
         margin-bottom: var(--space-sm);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
 }
 
@@ -1291,3 +1317,48 @@
         z-index: 999;
     }
 }
+
+/* Hero Section */
+.hero-section {
+    background-color: #f7f8fa;
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+    border-radius: var(--radius-lg);
+    animation: fadeSlideUp 450ms ease-out;
+}
+
+.hero-title {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    background: linear-gradient(to right, #6366F1, #C084FC, #FF6CAB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.gradient-bar {
+    width: 80px;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #6366F1, #C084FC, #FF6CAB);
+    margin: 0 auto 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: #4B5563;
+    max-width: 760px;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+/* Add Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
