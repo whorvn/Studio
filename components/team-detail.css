@@ -1210,31 +1210,40 @@
 /* Team Detail Styles */
 
 .team-detail {
-    padding: var(--space-6);
+    padding: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Team Detail Header */
+/* Team Detail Header - Modern Minimal Design */
 .team-detail__header {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: 2rem;
     align-items: center;
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-4);
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--color-border);
+    position: relative;
 }
 
 .team-detail__avatar {
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-primary);
-    border-radius: 12px;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.75rem;
     font-weight: 600;
+    box-shadow: 0 10px 25px -5px rgba(99, 91, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.team-detail__avatar:hover {
+    transform: scale(1.05);
 }
 
 .team-detail__info {
@@ -1242,44 +1251,62 @@
 }
 
 .team-detail__info h2 {
-    margin-bottom: var(--space-2);
-    font-size: 1.5rem;
-    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
 }
 
 .team-detail__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
-    font-size: 0.875rem;
+    gap: 1.5rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
 }
 
 .team-detail__meta i {
     margin-right: var(--space-1);
+    color: var(--color-primary);
 }
 
 .team-detail__actions {
     margin-left: auto;
 }
 
-/* Team Tabs */
+.team-detail__actions .btn {
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-detail__actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(99, 91, 255, 0.3);
+}
+
+/* Team Tabs - Modern Style */
 .team-tabs {
     display: flex;
     border-bottom: 1px solid var(--color-border);
-    margin-bottom: var(--space-6);
+    margin-bottom: 2rem;
+    gap: 0.5rem;
 }
 
 .team-tab {
-    padding: var(--space-3) var(--space-4);
+    padding: 1rem 1.5rem;
     background: none;
     border: none;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--color-text-secondary);
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease;
+    position: relative;
 }
 
 .team-tab:hover {
@@ -1292,12 +1319,14 @@
 }
 
 .team-tab i {
-    margin-right: var(--space-2);
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
 }
 
 /* Tab Content */
 .tab-content {
     display: none;
+    animation: fadeSlideUp 0.4s ease-out;
 }
 
 .tab-content.active {
@@ -1308,35 +1337,66 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-4);
+    margin-bottom: 2rem;
 }
 
 .tab-header h3 {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--color-text-primary);
 }
 
-/* Members List */
+.tab-header .btn {
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.tab-header .btn i {
+    font-size: 0.9rem;
+}
+
+.tab-header .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Members List - Improved Layout */
 .members-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .member-card {
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    padding: var(--space-4);
-    background-color: var(--color-surface-alt);
-    border-radius: 8px;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background-color: var(--color-surface);
+    border-radius: 12px;
     border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+    border-color: rgba(99, 91, 255, 0.3);
 }
 
 .member-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-avatar {
+    transform: scale(1.05);
 }
 
 .member-info {
@@ -1344,39 +1404,70 @@
 }
 
 .member-info h4 {
-    font-size: 0.9375rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: var(--space-1);
+    margin-bottom: 0.3rem;
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: 0.5rem;
+    color: var(--color-text-primary);
 }
 
 .member-role {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    margin-bottom: var (--space-2);
+    margin-bottom: 0.75rem;
 }
 
 .member-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: 0.5rem;
+    max-width: 100%;
 }
 
 .skill-tag {
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.member-actions {
+    display: flex;
+    align-items: center;
+}
+
+.member-actions .btn--icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-surface-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: all 0.2s ease;
+}
+
+.member-actions .btn--icon:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
 }
 
 .badge {
-    font-size: 0.6875rem;
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
     font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .badge--primary {
@@ -1384,27 +1475,37 @@
     color: var(--color-primary);
 }
 
-/* Hackathon List */
+/* Hackathon List - Enhanced Style */
 .hackathon-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: 1.5rem;
 }
 
 .hackathon-entry {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-4);
-    padding: var(--space-4);
-    background-color: var(--color-surface-alt);
-    border-radius: 8px;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--color-surface);
+    border-radius: 12px;
     border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.hackathon-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.1);
 }
 
 .hackathon-entry.active {
+    background-color: rgba(18, 183, 106, 0.05);
     border-color: var(--color-success);
-    background-color: rgba(var(--color-success-rgb), 0.05);
+}
+
+.hackathon-entry.past {
+    opacity: 0.8;
 }
 
 .hackathon-entry__status {
@@ -1415,8 +1516,8 @@
 .status-badge {
     font-size: 0.75rem;
     font-weight: 500;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
 }
 
 .status-badge.active {
@@ -1426,13 +1527,13 @@
 
 .status-badge.past {
     background-color: var(--color-gray-light);
-    color: var(--color-gray);
+    color: var(--color-text-tertiary);
 }
 
 .hackathon-entry__image {
-    width: 80px;
-    height: 50px;
-    border-radius: 4px;
+    width: 100px;
+    height: 60px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -1440,95 +1541,186 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hackathon-entry:hover .hackathon-entry__image img {
+    transform: scale(1.1);
 }
 
 .hackathon-entry__details {
     flex: 1;
+    min-width: 250px;
 }
 
 .hackathon-entry__details h4 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: var(--space-2);
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
 }
 
 .hackathon-entry__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    font-size: 0.8125rem;
+    gap: 1rem;
+    font-size: 0.9rem;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-2);
+    margin-bottom: 1rem;
 }
 
 .hackathon-entry__meta i {
-    margin-right: var(--space-1);
+    margin-right: 0.4rem;
+    color: var(--color-primary);
 }
 
 .hackathon-entry__result {
-    margin-top: var(--space-2);
+    margin-top: 0.75rem;
 }
 
 .result-badge {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
 }
 
 .result-badge.finalist {
-    background-color: rgba(var(--color-warning-rgb), 0.1);
+    background-color: rgba(245, 158, 11, 0.1);
     color: var(--color-warning);
 }
 
 .progress-section {
-    margin-top: var(--space-2);
+    margin-top: 1rem;
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
 }
 
 .progress-section__header {
     display: flex;
     justify-content: space-between;
-    font-size: 0.75rem;
-    margin-bottom: var(--space-1);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-secondary);
 }
 
 .progress-bar {
-    height: 6px;
-    background-color: var(--color-border);
-    border-radius: 3px;
+    height: 8px;
+    background-color: var(--color-surface-alt);
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .progress {
     height: 100%;
-    background-color: var(--color-primary);
-    border-radius: 3px;
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    border-radius: 4px;
+    transition: width 0.5s ease;
 }
 
+.hackathon-entry__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.hackathon-entry__actions .btn {
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hackathon-entry__actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Keyframes */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .team-detail {
-        padding: var(--space-4);
+        padding: 1.5rem;
+    }
+    
+    .team-detail__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .team-detail__actions {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .team-detail__actions .btn {
+        width: 100%;
     }
     
     .hackathon-entry {
         flex-direction: column;
-        align-items: flex-start;
     }
     
     .hackathon-entry__image {
         width: 100%;
-        height: 120px;
+        height: 150px;
     }
     
     .hackathon-entry__actions {
         width: 100%;
-        margin-top: var(--space-3);
+        justify-content: center;
     }
     
     .hackathon-entry__actions .btn {
         width: 100%;
     }
+    
+    .member-card {
+        flex-wrap: wrap;
+    }
+    
+    .member-actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 1rem;
+    }
 }
+
+/* Dark Mode Support */
+.dark-theme {
+    --color-surface: #1f2937;
+    --color-surface-alt: #2d3748;
+    --color-border: #374151;
+    --color-text-primary: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-text-tertiary: #9ca3af;
+    
+    .team-detail__header {
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .skill-tag {
+        background-color: rgba(99, 91, 255, 0.2);
+    }
+    
+    .hackathon-entry.active {
+        background-color: rgba(18, 183, 106, 0.1);
+    }
+}
+
+/* Ensure this remains at the end to maintain proper cascading */
