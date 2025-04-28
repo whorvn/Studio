@@ -1429,10 +1429,11 @@
 .skill-tag {
     font-size: 0.8rem;
     padding: 0.25rem 0.75rem;
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
+    background-color: rgba(99, 91, 255, 0.1);
+    color: var(--color-primary-dark);
     border-radius: 8px;
     transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .skill-tag:hover {
@@ -1471,8 +1472,8 @@
 }
 
 .badge--primary {
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
+    background-color: rgba(99, 91, 255, 0.15);
+    color: var(--color-primary-dark);
 }
 
 /* Hackathon List - Enhanced Style */
@@ -1485,13 +1486,14 @@
 .hackathon-entry {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 1.5rem;
     padding: 1.5rem;
     background-color: var(--color-surface);
     border-radius: 12px;
     border: 1px solid var(--color-border);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .hackathon-entry:hover {
@@ -1500,15 +1502,17 @@
 }
 
 .hackathon-entry.active {
-    background-color: rgba(18, 183, 106, 0.05);
-    border-color: var(--color-success);
+    border-left: 4px solid var(--color-success);
 }
 
 .hackathon-entry.past {
-    opacity: 0.8;
+    border-left: 4px solid var(--color-gray-400);
 }
 
 .hackathon-entry__status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     display: flex;
     align-items: center;
 }
@@ -1521,20 +1525,21 @@
 }
 
 .status-badge.active {
-    background-color: var(--color-success-light);
+    background-color: rgba(18, 183, 106, 0.15);
     color: var(--color-success);
 }
 
 .status-badge.past {
-    background-color: var(--color-gray-light);
-    color: var(--color-text-tertiary);
+    background-color: rgba(107, 114, 128, 0.15);
+    color: var(--color-gray-700);
 }
 
 .hackathon-entry__image {
-    width: 100px;
-    height: 60px;
-    border-radius: 8px;
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hackathon-entry__image img {
@@ -1551,6 +1556,7 @@
 .hackathon-entry__details {
     flex: 1;
     min-width: 250px;
+    padding-right: 2rem; /* Add space for status badge */
 }
 
 .hackathon-entry__details h4 {
@@ -1563,7 +1569,7 @@
 .hackathon-entry__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.25rem;
     font-size: 0.9rem;
     color: var(--color-text-secondary);
     margin-bottom: 1rem;
@@ -1575,7 +1581,7 @@
 }
 
 .hackathon-entry__result {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
 }
 
 .result-badge {
@@ -1587,12 +1593,17 @@
 }
 
 .result-badge.finalist {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: var(--color-warning);
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #b45309; /* Darker warning color for better contrast */
+}
+
+.result-badge.winner {
+    background-color: rgba(99, 91, 255, 0.15);
+    color: var(--color-primary-dark);
 }
 
 .progress-section {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     width: 100%;
     max-width: 350px;
 }
@@ -1601,13 +1612,14 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     color: var(--color-text-secondary);
+    font-weight: 500;
 }
 
 .progress-bar {
     height: 8px;
-    background-color: var(--color-surface-alt);
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -1621,9 +1633,22 @@
 
 .hackathon-entry__actions {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
-    margin-top: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .hackathon-entry {
+        flex-wrap: nowrap;
+    }
+    
+    .hackathon-entry__actions {
+        width: auto;
+        align-self: flex-end;
+        margin-left: auto;
+    }
 }
 
 .hackathon-entry__actions .btn {
@@ -1632,11 +1657,50 @@
     padding: 0.75rem 1.25rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hackathon-entry__actions .btn i {
+    font-size: 0.9rem;
 }
 
 .hackathon-entry__actions .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty state for hackathons tab */
+.empty-hackathons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--color-surface-alt);
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.empty-hackathons__icon {
+    font-size: 3rem;
+    color: var(--color-gray-300);
+    margin-bottom: 1.5rem;
+}
+
+.empty-hackathons h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.empty-hackathons p {
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin-bottom: 1.5rem;
 }
 
 /* Animation Keyframes */
