@@ -394,7 +394,7 @@
 .match-bar__fill {
   height: 100%;
   background-color: var(--color-primary);
-  border-radius: var(--border-radius-full);
+  border-radius: var (--border-radius-full);
 }
 
 .match-percent {
@@ -833,7 +833,7 @@
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: var (--space-2);
     margin-top: auto;
     margin-bottom: var(--space-3);
 }
@@ -2677,5 +2677,186 @@ select:focus-visible {
   .date-field:first-child {
     border-right: none;
     border-bottom: 1px solid var(--color-gray-200);
+  }
+}
+
+/* Date Range - Clean Modern Design */
+.date-range-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: white;
+  transition: var(--transition-base);
+  height: 44px; /* Match height with other form elements */
+}
+
+.date-range-wrapper:hover {
+  border-color: var(--color-gray-400);
+}
+
+.date-range-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+.date-field {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-field-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  padding: 4px 0 0 12px;
+}
+
+.date-input-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.date-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--color-gray-800);
+  outline: none;
+  cursor: pointer;
+  padding: 0 0 0 12px;
+  /* Hide default calendar icon */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Use our custom icon instead */
+.date-icon {
+  position: absolute;
+  right: 12px;
+  color: var(--color-gray-500);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.date-separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-gray-200);
+  align-self: center;
+}
+
+/* Responsive Styles for Date Range */
+@media (max-width: 768px) {
+  .date-range-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .date-field {
+    width: 100%;
+    padding: 8px 0;
+  }
+  
+  .date-separator {
+    width: calc(100% - 24px);
+    height: 1px;
+    margin: 0 12px;
+  }
+}
+
+/* Clean Date Range Component */
+.date-range-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: white;
+  transition: var(--transition-base);
+  height: 44px;
+}
+
+.date-range-wrapper:hover {
+  border-color: var(--color-gray-400);
+}
+
+.date-range-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+.date-field {
+  flex: 1;
+  position: relative;
+  padding: 0 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date-field-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+/* Clean date input styling - Hide default widgets */
+.clean-date {
+  border: none;
+  background: transparent;
+  color: var(--color-gray-800);
+  font-size: 14px;
+  padding: 0;
+  height: 20px;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  /* Hide the default calendar picker */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add custom arrow for interaction indication */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 12px;
+  padding-right: 18px;
+}
+
+.date-separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-gray-200);
+}
+
+/* Responsive styles for date range */
+@media (max-width: 768px) {
+  .date-range-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .date-field {
+    width: 100%;
+    padding: 8px 12px;
+  }
+  
+  .date-separator {
+    width: calc(100% - 24px);
+    height: 1px;
+    margin: 0 12px;
   }
 }
