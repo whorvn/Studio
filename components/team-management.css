@@ -38,29 +38,103 @@
   padding: 2rem;
 }
 
-/* Teams Header */
+/* Teams Header - Enhanced Design */
 .teams-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 3rem 0 1rem;
+}
+
+.teams-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  height: 180px;
+  background: linear-gradient(135deg, var(--color-primary-light), rgba(99, 91, 255, 0.1));
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  z-index: -1;
+}
+
+.teams-header__text {
+  max-width: 600px;
 }
 
 .teams-header__text h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-primary), #8075FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
 }
 
 .teams-header__text p {
   color: var(--color-text-secondary);
-  font-size: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .teams-header__actions {
   display: flex;
   gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Responsive adjustments for the header */
+@media (max-width: 992px) {
+  .teams-header {
+    padding-top: 2.5rem;
+  }
+  
+  .teams-header::before {
+    height: 160px;
+  }
+  
+  .teams-header__text h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .teams-header {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .teams-header::before {
+    height: 200px;
+  }
+  
+  .teams-header__text {
+    max-width: 100%;
+  }
+  
+  .teams-header__text h2 {
+    font-size: 1.75rem;
+  }
+  
+  .teams-header__text p {
+    font-size: 1.125rem;
+  }
+  
+  .teams-header__actions {
+    width: 100%;
+  }
 }
 
 /* Filter Bar */
