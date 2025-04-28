@@ -43,6 +43,12 @@
                             <span>Browse Hackathons</span>
                         </a>
                     </li>
+                    <li class="sidebar__item">
+                        <a href="my-hackathons.html">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>My Hackathons</span>
+                        </a>
+                    </li>
                     <li class="sidebar__item active">
                         <a href="team-management3.html">
                             <i class="fas fa-users"></i>
@@ -818,7 +824,7 @@
         });
         
         document.getElementById('sidebarToggle').addEventListener('click', function() {
-            document.querySelector('.dashboard-layout').classList.remove('sidebar-open');
+            document.querySelector('.dashboard-layout').classList.toggle('sidebar-collapsed');
         });
     </script>
 </body>
