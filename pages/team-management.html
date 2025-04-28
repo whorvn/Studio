@@ -15,6 +15,7 @@
 </head>
 <body class="light-theme">
     <div class="dashboard-layout">
+        <!-- Sidebar navigation -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <div class="logo">
@@ -43,7 +44,7 @@
                         </a>
                     </li>
                     <li class="sidebar__item active">
-                        <a href="team-management.html">
+                        <a href="team-management3.html">
                             <i class="fas fa-users"></i>
                             <span>My Teams</span>
                         </a>
@@ -76,9 +77,9 @@
             
             <div class="sidebar__footer">
                 <div class="user-card">
-                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="avatar">
                     <div class="user-card__info">
-                        <p class="user-card__name">John Doe</p>
+                        <p class="user-card__name">Alex Johnson</p>
                         <p class="user-card__status online">Online</p>
                     </div>
                 </div>
@@ -86,6 +87,7 @@
         </aside>
         
         <div class="main-content">
+            <!-- Top header -->
             <header class="topbar">
                 <div class="topbar__left">
                     <button class="menu-toggle" id="mobileMenuToggle">
@@ -108,218 +110,395 @@
                     
                     <div class="user-menu">
                         <button class="user-menu__toggle">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="avatar avatar--sm">
-                            <span>John</span>
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="avatar avatar--sm">
+                            <span>Alex</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                     </div>
                 </div>
             </header>
             
+            <!-- Team Management content -->
             <main class="teams-container">
-                <div class="teams-header">
-                    <div class="teams-header__text">
-                        <h2>Your Teams</h2>
-                        <p>Create and manage your teams for hackathons</p>
+                <div class="page-header-actions">
+                    <h1>My Teams</h1>
+                    <button class="btn btn-primary" id="createTeamBtn">
+                        <i class="fas fa-plus"></i> Create Team
+                    </button>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="active">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Active Teams</span>
+                        </button>
+                        <button class="tab-btn" data-tab="invitations">
+                            <i class="fas fa-envelope"></i>
+                            <span>Invitations</span>
+                            <span class="badge invitations-badge">2</span>
+                        </button>
+                        <button class="tab-btn" data-tab="past">
+                            <i class="fas fa-history"></i>
+                            <span>Past Teams</span>
+                        </button>
                     </div>
                 </div>
                 
-                <div class="teams-filter">
-                    <div class="teams-filter__actions">
-                        <button class="btn btn--outline" id="joinTeamBtn">
-                            <i class="fas fa-user-plus"></i> Join Team
-                        </button>
-                        <button class="btn btn--primary" id="createTeamBtn">
-                            <i class="fas fa-plus"></i> Create New Team
-                        </button>
+                <!-- Active Teams Tab -->
+                <div class="tab-content active" id="active-tab">
+                    <div class="team-cards">
+                        <!-- Team 1: Code Wizards -->
+                        <div class="team-card">
+                            <div class="team-card-header">
+                                <div class="team-logo">CW</div>
+                                <div class="team-info">
+                                    <h2>Code Wizards</h2>
+                                    <p>AI Innovation Challenge</p>
+                                </div>
+                                <div class="team-status active">
+                                    <i class="fas fa-circle"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-body">
+                                <div class="team-members">
+                                    <h3>Team Members</h3>
+                                    <div class="member-list">
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                            <div class="member-info">
+                                                <h4>Alex Johnson</h4>
+                                                <p>Full Stack Developer</p>
+                                            </div>
+                                            <span class="member-tag">Lead</span>
+                                        </div>
+                                        
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                            <div class="member-info">
+                                                <h4>Sarah Chen</h4>
+                                                <p>UX Designer</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                            <div class="member-info">
+                                                <h4>Mike Rodriguez</h4>
+                                                <p>Backend Developer</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                            <div class="member-info">
+                                                <h4>Emma Wilson</h4>
+                                                <p>Data Scientist</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="member-item empty">
+                                            <div class="add-member">
+                                                <i class="fas fa-plus"></i>
+                                                <span>Add Member</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-details">
+                                    <h3>Team Details</h3>
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <h4>Creation Date</h4>
+                                            <p>July 25, 2023</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-code-branch"></i>
+                                        <div>
+                                            <h4>Repository</h4>
+                                            <a href="#" target="_blank">github.com/code-wizards/ai-project</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <div>
+                                            <h4>Team Skill Focus</h4>
+                                            <p>Machine Learning, React, Node.js</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-trophy"></i>
+                                        <div>
+                                            <h4>Participated Hackathons</h4>
+                                            <p>AI Innovation Challenge, DataFest 2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-footer">
+                                <a href="team-detail.html" class="btn btn-primary full-width">
+                                    <i class="fas fa-cog"></i> Manage Team
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Team 2: Blockchain Bros -->
+                        <div class="team-card">
+                            <div class="team-card-header">
+                                <div class="team-logo">BB</div>
+                                <div class="team-info">
+                                    <h2>Blockchain Bros</h2>
+                                    <p>Web3 Development Challenge</p>
+                                </div>
+                                <div class="team-status pending">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Pending</span>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-body">
+                                <div class="team-members">
+                                    <h3>Team Members</h3>
+                                    <div class="member-list">
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Wilson">
+                                            <div class="member-info">
+                                                <h4>James Wilson</h4>
+                                                <p>Blockchain Developer</p>
+                                            </div>
+                                            <span class="member-tag">Lead</span>
+                                        </div>
+                                        
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                            <div class="member-info">
+                                                <h4>Alex Johnson</h4>
+                                                <p>Full Stack Developer</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="member-item">
+                                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Lisa Chang">
+                                            <div class="member-info">
+                                                <h4>Lisa Chang</h4>
+                                                <p>Frontend Developer</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="member-item empty">
+                                            <div class="add-member">
+                                                <i class="fas fa-plus"></i>
+                                                <span>Add Member</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-details">
+                                    <h3>Team Details</h3>
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <h4>Creation Date</h4>
+                                            <p>August 15, 2023</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-code-branch"></i>
+                                        <div>
+                                            <h4>Repository</h4>
+                                            <a href="#" target="_blank">github.com/blockchain-bros/defi-project</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <div>
+                                            <h4>Team Skill Focus</h4>
+                                            <p>Solidity, Web3.js, React</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-trophy"></i>
+                                        <div>
+                                            <h4>Participated Hackathons</h4>
+                                            <p>Web3 Development Challenge</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-footer">
+                                <a href="team-detail.html" class="btn btn-primary full-width">
+                                    <i class="fas fa-cog"></i> Manage Team
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Teams Grid -->
-                <div class="teams-grid">
-                    <!-- Team Card 1 - Code Crusaders -->
-                    <div class="team-card" data-team-status="active">
-                        <div class="team-card__header">
-                            <div class="team-card__avatar">
-                                <img src="https://ui-avatars.com/api/?name=Code+Crusaders&background=635BFF&color=fff" alt="Code Crusaders">
-                            </div>
-                            <div class="team-card__info">
-                                <h3 class="team-card__name">Code Crusaders</h3>
-                                <div class="team-card__meta">
-                                    <span><i class="fas fa-users"></i> 4 Members</span>
-                                    <span><i class="fas fa-calendar"></i> Created May 2023</span>
+                <!-- Invitations Tab -->
+                <div class="tab-content" id="invitations-tab">
+                    <div class="invitation-cards">
+                        <div class="invitation-card">
+                            <div class="invitation-header">
+                                <div class="team-logo">DT</div>
+                                <div class="invitation-info">
+                                    <h3>Data Titans</h3>
+                                    <p>AI Innovation Challenge</p>
+                                    <span class="invitation-time">Invited 1 day ago by Emily Adams</span>
                                 </div>
                             </div>
-                            <div class="team-card__menu">
-                                <button class="btn--icon" aria-label="More options">
-                                    <i class="fas fa-ellipsis-v"></i>
+                            
+                            <div class="invitation-body">
+                                <p class="invitation-message">
+                                    Hi Alex, we'd love to have you join our team for the AI Innovation Challenge! We're looking for a Full Stack Developer with experience in AI applications. Let me know if you're interested!
+                                </p>
+                                
+                                <div class="team-roles">
+                                    <div class="role-tag">Full Stack Developer</div>
+                                    <div class="role-tag">AI Specialist</div>
+                                </div>
+                            </div>
+                            
+                            <div class="invitation-footer">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-times"></i> Decline
                                 </button>
-                                <div class="team-card__dropdown">
-                                    <a href="#" class="team-card__dropdown-item" data-action="edit">
-                                        <i class="fas fa-edit"></i> Edit Team
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item" data-action="invite">
-                                        <i class="fas fa-user-plus"></i> Invite Members
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item text-danger" data-action="delete">
-                                        <i class="fas fa-trash"></i> Delete Team
-                                    </a>
-                                </div>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-check"></i> Accept Invitation
+                                </button>
                             </div>
                         </div>
                         
-                        <div class="team-card__body">
-                            <div class="team-card__section">
-                                <h4>Team Members</h4>
-                                <div class="team-members">
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">John Doe</p>
-                                            <p class="member__role">Team Lead</p>
-                                        </div>
-                                    </div>
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=10b981&color=fff" alt="Sarah Johnson" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">Sarah Johnson</p>
-                                            <p class="member__role">UI Designer</p>
-                                        </div>
-                                    </div>
-                                    <div class="team-members__more">
-                                        <span>+2 more</span>
-                                    </div>
+                        <div class="invitation-card">
+                            <div class="invitation-header">
+                                <div class="team-logo">QD</div>
+                                <div class="invitation-info">
+                                    <h3>Quantum Developers</h3>
+                                    <p>Future Tech Hackathon</p>
+                                    <span class="invitation-time">Invited 3 days ago by Michael Chang</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="team-card__footer">
-                            <a href="team-detail.html?id=1" class="btn btn--primary btn--full">
-                                Manage Team
-                            </a>
+                            
+                            <div class="invitation-body">
+                                <p class="invitation-message">
+                                    Hey Alex! I saw your profile and think you'd be a great addition to our team for the upcoming Future Tech Hackathon. We're working on a quantum computing project and could use your expertise in full stack development. Hope you can join us!
+                                </p>
+                                
+                                <div class="team-roles">
+                                    <div class="role-tag">Frontend Developer</div>
+                                    <div class="role-tag">API Integration</div>
+                                </div>
+                            </div>
+                            
+                            <div class="invitation-footer">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-times"></i> Decline
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-check"></i> Accept Invitation
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Team Card 2 - Tech Titans -->
-                    <div class="team-card" data-team-status="inactive">
-                        <div class="team-card__header">
-                            <div class="team-card__avatar">
-                                <img src="https://ui-avatars.com/api/?name=Tech+Titans&background=FF6B6B&color=fff" alt="Tech Titans">
-                            </div>
-                            <div class="team-card__info">
-                                <h3 class="team-card__name">Tech Titans</h3>
-                                <div class="team-card__meta">
-                                    <span><i class="fas fa-users"></i> 3 Members</span>
-                                    <span><i class="fas fa-calendar"></i> Created April 2023</span>
+                </div>
+                
+                <!-- Past Teams Tab -->
+                <div class="tab-content" id="past-tab">
+                    <div class="team-cards">
+                        <div class="team-card past">
+                            <div class="team-card-header">
+                                <div class="team-logo">TD</div>
+                                <div class="team-info">
+                                    <h2>Tech Dragons</h2>
+                                    <p>Sustainability Hackathon 2023</p>
+                                </div>
+                                <div class="team-status completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Completed</span>
                                 </div>
                             </div>
-                            <div class="team-card__menu">
-                                <button class="btn--icon" aria-label="More options">
-                                    <i class="fas fa-ellipsis-v"></i>
+                            
+                            <div class="team-card-body">
+                                <div class="achievement">
+                                    <div class="achievement-badge">
+                                        <i class="fas fa-medal"></i>
+                                    </div>
+                                    <div class="achievement-info">
+                                        <h3>2nd Place Winner</h3>
+                                        <p>Congratulations! Your team secured the 2nd place in the Sustainability Hackathon with the EcoTrack project.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="member-avatars">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Team Member">
+                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Team Member">
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-footer">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-file-alt"></i> View Project
                                 </button>
-                                <div class="team-card__dropdown">
-                                    <a href="#" class="team-card__dropdown-item" data-action="edit">
-                                        <i class="fas fa-edit"></i> Edit Team
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item" data-action="invite">
-                                        <i class="fas fa-user-plus"></i> Invite Members
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item text-danger" data-action="delete">
-                                        <i class="fas fa-trash"></i> Delete Team
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="team-card__body">
-                            <div class="team-card__section">
-                                <h4>Team Members</h4>
-                                <div class="team-members">
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">John Doe</p>
-                                            <p class="member__role">Backend Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=Mike+Chen&background=8b5cf6&color=fff" alt="Mike Chen" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">Mike Chen</p>
-                                            <p class="member__role">Frontend Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=Alex+Wong&background=ec4899&color=fff" alt="Alex Wong" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">Alex Wong</p>
-                                            <p class="member__role">UX Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="team-card__footer">
-                            <a href="team-detail.html?id=2" class="btn btn--primary btn--full">
-                                Manage Team
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Card 3 - Innovators -->
-                    <div class="team-card" data-team-status="completed">
-                        <div class="team-card__header">
-                            <div class="team-card__avatar">
-                                <img src="https://ui-avatars.com/api/?name=Innovators&background=0EA5E9&color=fff" alt="Innovators">
-                            </div>
-                            <div class="team-card__info">
-                                <h3 class="team-card__name">Innovators</h3>
-                                <div class="team-card__meta">
-                                    <span><i class="fas fa-users"></i> 4 Members</span>
-                                    <span><i class="fas fa-calendar"></i> Created January 2023</span>
-                                </div>
-                            </div>
-                            <div class="team-card__menu">
-                                <button class="btn--icon" aria-label="More options">
-                                    <i class="fas fa-ellipsis-v"></i>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-certificate"></i> View Certificate
                                 </button>
-                                <div class="team-card__dropdown">
-                                    <a href="#" class="team-card__dropdown-item" data-action="edit">
-                                        <i class="fas fa-edit"></i> Edit Team
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item" data-action="invite">
-                                        <i class="fas fa-user-plus"></i> Invite Members
-                                    </a>
-                                    <a href="#" class="team-card__dropdown-item text-danger" data-action="delete">
-                                        <i class="fas fa-trash"></i> Delete Team
-                                    </a>
-                                </div>
                             </div>
                         </div>
                         
-                        <div class="team-card__body">
-                            <div class="team-card__section">
-                                <h4>Team Members</h4>
-                                <div class="team-members">
-                                    <div class="member">
-                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" alt="John Doe" class="member__avatar">
-                                        <div class="member__info">
-                                            <p class="member__name">John Doe</p>
-                                            <p class="member__role">Project Manager</p>
-                                        </div>
-                                    </div>
-                                    <div class="team-members__more">
-                                        <span>+3 more</span>
-                                    </div>
+                        <div class="team-card past">
+                            <div class="team-card-header">
+                                <div class="team-logo">DP</div>
+                                <div class="team-info">
+                                    <h2>Design Pros</h2>
+                                    <p>WebDev Challenge 2022</p>
+                                </div>
+                                <div class="team-status completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Completed</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="team-card__footer">
-                            <a href="team-detail.html?id=3" class="btn btn--primary btn--full">
-                                View History
-                            </a>
+                            
+                            <div class="team-card-body">
+                                <div class="achievement">
+                                    <div class="achievement-badge">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="achievement-info">
+                                        <h3>Best UI/UX Design Award</h3>
+                                        <p>Your team received the special award for Best UI/UX Design in the WebDev Challenge for the Portfolio Pro project.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="member-avatars">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Team Member">
+                                </div>
+                            </div>
+                            
+                            <div class="team-card-footer">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-file-alt"></i> View Project
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-certificate"></i> View Certificate
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -332,10 +511,10 @@
                     <h3>No teams yet</h3>
                     <p>Create a new team or join an existing one to collaborate with other developers on hackathons.</p>
                     <div class="empty-state-actions">
-                        <button class="btn btn--outline" id="emptyJoinTeamBtn">
+                        <button class="btn btn-outline" id="emptyJoinTeamBtn">
                             <i class="fas fa-user-plus"></i> Join Team
                         </button>
-                        <button class="btn btn--primary" id="emptyCreateTeamBtn">
+                        <button class="btn btn-primary" id="emptyCreateTeamBtn">
                             <i class="fas fa-plus"></i> Create Team
                         </button>
                     </div>
@@ -346,75 +525,113 @@
     
     <!-- Create Team Modal -->
     <div class="modal" id="createTeamModal">
-        <div class="modal__content modal__content--md">
-            <button class="modal__close" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal__header">
-                <h2>Create a New Team</h2>
-                <p>Set up your team for hackathon collaborations</p>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Team</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="modal__body">
-                <form id="createTeamForm">
-                    <div class="form__group">
-                        <label for="teamName">Team Name*</label>
-                        <input type="text" id="teamName" name="teamName" required placeholder="Enter a name for your team">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="team-name">Team Name*</label>
+                    <div class="input-field">
+                        <i class="fas fa-users"></i>
+                        <input type="text" id="team-name" placeholder="Enter a name for your team" required>
                     </div>
-                    
-                    <div class="form__group">
-                        <label>Team Avatar</label>
-                        <div class="avatar-upload">
-                            <div class="avatar-preview">
-                                <div id="teamAvatarPreview">
-                                    <i class="fas fa-users"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hackathon">Hackathon*</label>
+                    <div class="input-field">
+                        <i class="fas fa-laptop-code"></i>
+                        <select id="hackathon" required>
+                            <option value="">Select a hackathon</option>
+                            <option value="ai-challenge">AI Innovation Challenge</option>
+                            <option value="web3-challenge">Web3 Development Challenge</option>
+                            <option value="future-tech">Future Tech Hackathon</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="team-description">Team Description</label>
+                    <div class="input-field">
+                        <i class="fas fa-align-left"></i>
+                        <textarea id="team-description" placeholder="Briefly describe your team and project idea"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Looking For</label>
+                    <p class="hint">Select roles you're looking to fill in your team</p>
+                    <div class="role-selector">
+                        <div class="role-chip">
+                            <i class="fas fa-code"></i> Frontend Developer
+                        </div>
+                        <div class="role-chip selected">
+                            <i class="fas fa-database"></i> Backend Developer
+                        </div>
+                        <div class="role-chip">
+                            <i class="fas fa-paint-brush"></i> UI/UX Designer
+                        </div>
+                        <div class="role-chip selected">
+                            <i class="fas fa-brain"></i> Data Scientist
+                        </div>
+                        <div class="role-chip">
+                            <i class="fas fa-project-diagram"></i> DevOps
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Team Privacy</label>
+                    <div class="radio-options">
+                        <label class="radio-option">
+                            <input type="radio" name="team-privacy" value="public" checked>
+                            <div class="radio-content">
+                                <div class="radio-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h4>Public Team</h4>
+                                    <p>Anyone can view and request to join your team</p>
                                 </div>
                             </div>
-                            <div class="avatar-edit">
-                                <input type="file" id="teamAvatarUpload" accept=".png, .jpg, .jpeg">
-                                <label for="teamAvatarUpload">Choose Image</label>
-                                <p class="form__hint">Recommended: 200x200px JPG or PNG</p>
+                        </label>
+                        
+                        <label class="radio-option">
+                            <input type="radio" name="team-privacy" value="private">
+                            <div class="radio-content">
+                                <div class="radio-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div>
+                                    <h4>Private Team</h4>
+                                    <p>Only people you invite can join your team</p>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                     </div>
-                    
-                    <div class="form__group">
-                        <label for="teamDescription">Team Description</label>
-                        <textarea id="teamDescription" name="teamDescription" rows="3" placeholder="Describe your team's skills and interests..."></textarea>
-                    </div>
-                    
-                    <div class="form__group">
-                        <label>Team Visibility</label>
-                        <div class="radio-group">
-                            <div class="radio">
-                                <input type="radio" id="visibilityPublic" name="visibility" value="public" checked>
-                                <label for="visibilityPublic">Public - Anyone can find and request to join</label>
-                            </div>
-                            <div class="radio">
-                                <input type="radio" id="visibilityPrivate" name="visibility" value="private">
-                                <label for="visibilityPrivate">Private - Only invited members can join</label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
-            <div class="modal__footer">
-                <button class="btn btn--outline" data-dismiss="modal">Cancel</button>
-                <button class="btn btn--primary" id="createTeamSubmit">Create Team</button>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary">Create Team</button>
             </div>
         </div>
     </div>
     
     <!-- Join Team Modal -->
     <div class="modal" id="joinTeamModal">
-        <div class="modal__content modal__content--md">
-            <button class="modal__close" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal__header">
-                <h2>Join a Team</h2>
-                <p>Enter an invite code or search for teams to join</p>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join a Team</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="modal__body">
+            <div class="modal-body">
                 <div class="tabs">
                     <button class="tab active" data-tab="inviteCode">Invite Code</button>
                     <button class="tab" data-tab="searchTeams">Search Teams</button>
@@ -422,16 +639,19 @@
                 
                 <div class="tab-content">
                     <div class="tab-pane active" id="inviteCodeTab">
-                        <div class="form__group">
+                        <div class="form-group">
                             <label for="inviteCode">Enter Invite Code</label>
-                            <input type="text" id="inviteCode" name="inviteCode" placeholder="e.g., TEAM-123456">
+                            <div class="input-field">
+                                <i class="fas fa-key"></i>
+                                <input type="text" id="inviteCode" name="inviteCode" placeholder="e.g., TEAM-123456">
+                            </div>
                         </div>
                     </div>
                     
                     <div class="tab-pane" id="searchTeamsTab">
-                        <div class="form__group">
+                        <div class="form-group">
                             <label for="teamSearch">Search Teams</label>
-                            <div class="search-input">
+                            <div class="input-field search-input">
                                 <i class="fas fa-search"></i>
                                 <input type="text" id="teamSearch" name="teamSearch" placeholder="Search by team name...">
                             </div>
@@ -439,186 +659,111 @@
                         
                         <div class="search-results">
                             <div class="search-result">
-                                <div class="search-result__avatar">
-                                    <img src="https://ui-avatars.com/api/?name=Byte+Brigade&background=8B5CF6&color=fff" alt="Byte Brigade">
-                                </div>
+                                <div class="team-logo">BB</div>
                                 <div class="search-result__info">
                                     <h4>Byte Brigade</h4>
                                     <p>4 members · Looking for Frontend Developer</p>
                                 </div>
-                                <button class="btn btn--outline btn--sm">Request to Join</button>
+                                <button class="btn btn-outline btn-sm">Request to Join</button>
                             </div>
                             <div class="search-result">
-                                <div class="search-result__avatar">
-                                    <img src="https://ui-avatars.com/api/?name=Dev+Dynasty&background=10B981&color=fff" alt="Dev Dynasty">
-                                </div>
+                                <div class="team-logo">DD</div>
                                 <div class="search-result__info">
                                     <h4>Dev Dynasty</h4>
                                     <p>3 members · Looking for UX Designer</p>
                                 </div>
-                                <button class="btn btn--outline btn--sm">Request to Join</button>
+                                <button class="btn btn-outline btn-sm">Request to Join</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal__footer">
-                <button class="btn btn--outline" data-dismiss="modal">Cancel</button>
-                <button class="btn btn--primary" id="joinTeamSubmit">Join Team</button>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" id="joinTeamSubmit">Join Team</button>
             </div>
         </div>
     </div>
     
-    <script src="../main.js"></script>
     <script>
-        // Team management related JavaScript will go here
-        document.addEventListener('DOMContentLoaded', function() {
-            // Open create team modal
-            const createTeamBtn = document.getElementById('createTeamBtn');
-            const emptyCreateTeamBtn = document.getElementById('emptyCreateTeamBtn');
-            const createTeamModal = document.getElementById('createTeamModal');
-            
-            if(createTeamBtn) {
-                createTeamBtn.addEventListener('click', function() {
-                    createTeamModal.classList.add('show');
-                });
-            }
-            
-            if(emptyCreateTeamBtn) {
-                emptyCreateTeamBtn.addEventListener('click', function() {
-                    createTeamModal.classList.add('show');
-                });
-            }
-            
-            // Open join team modal
-            const joinTeamBtn = document.getElementById('joinTeamBtn');
-            const emptyJoinTeamBtn = document.getElementById('emptyJoinTeamBtn');
-            const joinTeamModal = document.getElementById('joinTeamModal');
-            
-            if(joinTeamBtn) {
-                joinTeamBtn.addEventListener('click', function() {
-                    joinTeamModal.classList.add('show');
-                });
-            }
-            
-            if(emptyJoinTeamBtn) {
-                emptyJoinTeamBtn.addEventListener('click', function() {
-                    joinTeamModal.classList.add('show');
-                });
-            }
-            
-            // Close modals
-            const modalCloseButtons = document.querySelectorAll('.modal__close, [data-dismiss="modal"]');
-            modalCloseButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if(modal) {
-                        modal.classList.remove('show');
-                    }
-                });
-            });
-            
-            // Tab functionality in join team modal
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Show the corresponding tab content
-                    const tabId = this.getAttribute('data-tab');
-                    document.querySelectorAll('.tab-pane').forEach(pane => {
-                        pane.classList.remove('active');
-                    });
-                    document.getElementById(`${tabId}Tab`).classList.add('active');
-                });
-            });
-            
-            // Filter team cards
-            const filterTabs = document.querySelectorAll('.filter-tab');
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Filter teams
-                    const filter = this.getAttribute('data-filter');
-                    const teamCards = document.querySelectorAll('.team-card');
-                    
-                    teamCards.forEach(card => {
-                        if(filter === 'all' || card.getAttribute('data-team-status') === filter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                    // Reset any hover states
+                    content.querySelectorAll('.team-card, .invitation-card').forEach(card => {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
                     });
                 });
+                
+                // Show selected tab content
+                const tabId = this.getAttribute('data-tab') + '-tab';
+                const activeTab = document.getElementById(tabId);
+                activeTab.classList.add('active');
+                
+                // Small delay to ensure proper rendering after tab switch
+                setTimeout(() => {
+                    // Force browser to recalculate styles
+                    activeTab.style.display = 'none';
+                    activeTab.offsetHeight; // Force a reflow
+                    activeTab.style.display = 'block';
+                }, 10);
             });
-            
-            // Team card dropdown menu
-            const menuButtons = document.querySelectorAll('.team-card__menu .btn--icon');
-            menuButtons.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const dropdown = this.nextElementSibling;
-                    dropdown.classList.toggle('show');
-                    
-                    // Close other dropdowns
-                    document.querySelectorAll('.team-card__dropdown.show').forEach(dd => {
-                        if(dd !== dropdown) {
-                            dd.classList.remove('show');
-                        }
-                    });
-                });
+        });
+        
+        // Create team modal
+        document.getElementById('createTeamBtn').addEventListener('click', function() {
+            document.getElementById('createTeamModal').classList.add('show');
+        });
+        
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('createTeamModal').classList.remove('show');
+        });
+        
+        // Join team tab switching
+        document.querySelectorAll('.tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hide all tab panes
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Show selected tab pane
+                const tabId = this.getAttribute('data-tab') + 'Tab';
+                document.getElementById(tabId).classList.add('active');
             });
-            
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function() {
-                document.querySelectorAll('.team-card__dropdown.show').forEach(dd => {
-                    dd.classList.remove('show');
-                });
+        });
+        
+        // Close modals
+        document.querySelectorAll('.close-modal, [data-dismiss="modal"]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('show'));
             });
-            
-            // Search functionality
-            const teamSearchInput = document.getElementById('teamSearchInput');
-            if(teamSearchInput) {
-                teamSearchInput.addEventListener('input', function() {
-                    const searchText = this.value.toLowerCase();
-                    const teamCards = document.querySelectorAll('.team-card');
-                    
-                    teamCards.forEach(card => {
-                        const teamName = card.querySelector('.team-card__name').textContent.toLowerCase();
-                        if(teamName.includes(searchText)) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            }
-            
-            // Team avatar upload preview
-            const teamAvatarUpload = document.getElementById('teamAvatarUpload');
-            const teamAvatarPreview = document.getElementById('teamAvatarPreview');
-            
-            if(teamAvatarUpload && teamAvatarPreview) {
-                teamAvatarUpload.addEventListener('change', function() {
-                    const file = this.files[0];
-                    if(file) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            teamAvatarPreview.innerHTML = `<img src="${e.target.result}" alt="Team Avatar">`;
-                        }
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
+        });
+        
+        // Role chips selection
+        document.querySelectorAll('.role-chip').forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                this.classList.toggle('selected');
+            });
+        });
+        
+        // Mobile sidebar toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-layout').classList.add('sidebar-open');
+        });
+        
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-layout').classList.remove('sidebar-open');
         });
     </script>
 </body>
