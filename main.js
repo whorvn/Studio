@@ -235,3 +235,91 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Add this script to handle modern interactions and fix the header on scroll
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Login modal functionality
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeModalBtn = document.querySelector('.modal__close');
+    
+    if (loginBtn && loginModal) {
+        loginBtn.addEventListener('click', function() {
+            loginModal.classList.add('show');
+            document.body.classList.add('modal-open');
+        });
+        
+        closeModalBtn.addEventListener('click', function() {
+            loginModal.classList.remove('show');
+            document.body.classList.remove('modal-open');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === loginModal) {
+                loginModal.classList.remove('show');
+                document.body.classList.remove('modal-open');
+            }
+        });
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.querySelector('.nav');
+    
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
+    
+    // Search functionality
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-button');
+    const popularTags = document.querySelectorAll('.tag');
+    
+    if (searchInput && popularTags) {
+        // Focus search input when clicking on the search container
+        document.querySelector('.search-wrapper').addEventListener('click', function() {
+            searchInput.focus();
+        });
+        
+        // Handle popular tag clicks
+        popularTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                searchInput.value = this.textContent;
+                searchInput.focus();
+            });
+        });
+        
+        // Search button click
+        if (searchButton) {
+            searchButton.addEventListener('click', function() {
+                if (searchInput.value.trim()) {
+                    // Redirect to search results page
+                    window.location.href = `pages/browse.html?q=${encodeURIComponent(searchInput.value.trim())}`;
+                }
+            });
+            
+            // Enter key in search field
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && this.value.trim()) {
+                    window.location.href = `pages/browse.html?q=${encodeURIComponent(this.value.trim())}`;
+                }
+            });
+        }
+    }
+});

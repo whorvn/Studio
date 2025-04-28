@@ -173,54 +173,59 @@
             <!-- Step 3: Skills -->
             <div class="step-container" id="step-3">
                 <div class="step-header">
-                    <h1>Your Technical Skills</h1>
-                    <p>Add the skills you have so we can connect you with relevant hackathons and teammates.</p>
+                    <h1>Your Skills</h1>
+                    <p>Select the skills you have to help us match you with relevant hackathons and teammates.</p>
                 </div>
                 
                 <div class="onboarding-form">
                     <form class="form">
                         <div class="form-card">
-                            <div class="skills-manager">
-                                <div class="skills-search">
-                                    <div class="input-with-icon">
-                                        <i class="fas fa-search"></i>
-                                        <input type="text" id="skillSearch" placeholder="Search for skills or type to add your own">
-                                    </div>
-                                    <button type="button" class="btn btn--primary btn--sm skill-add-btn" id="addCustomSkill">
-                                        <i class="fas fa-plus"></i> Add Skill
+                            <div class="skill-search-container">
+                                <div class="skill-search-wrapper">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="skillSearch" placeholder="Search for skills or add your own">
+                                    <button type="button" id="addCustomSkill" class="btn btn--primary btn--sm">
+                                        Add
                                     </button>
+                                </div>
+                            </div>
+                            
+                            <div class="skills-content">
+                                <div class="skills-selected">
+                                    <h3>Your Skills <span id="skillCount" class="skill-count">(0)</span></h3>
+                                    <div class="empty-state" id="emptySkillsState">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <p>Select skills from suggestions below or search for more.</p>
+                                    </div>
+                                    <div class="skill-chips" id="selectedSkills"></div>
                                 </div>
                                 
                                 <div class="skills-suggestions">
-                                    <h3>Suggested Skills</h3>
-                                    <div class="skill-tags" id="suggestedSkills">
-                                        <!-- Popular skills will be shown here -->
-                                    </div>
-                                </div>
-                                
-                                <div class="skills-selected">
-                                    <h3>Your Selected Skills <span id="skillCount">(0)</span></h3>
-                                    <div class="skill-tags" id="selectedSkills">
-                                        <!-- Selected skills will appear here -->
-                                    </div>
-                                    <p class="empty-message" id="emptySkillsMessage">You haven't added any skills yet. Search above or choose from suggestions.</p>
+                                    <h3>Popular Skills</h3>
+                                    <div class="skill-chips" id="suggestedSkills"></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-card">
                             <h2 class="form-card__title">Skill Proficiency</h2>
-                            <p class="form-card__description">For your top skills, specify your proficiency level to help with better matching.</p>
+                            <p class="form-card__description">How would you rate your proficiency in your top skills?</p>
                             
-                            <div class="proficiency-container" id="skillProficiency">
-                                <!-- Proficiency levels for top skills will be shown here -->
-                                <p class="empty-message">Select some skills above to set proficiency levels.</p>
+                            <div id="skillProficiency" class="skill-proficiency">
+                                <div class="empty-state">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <p>Add skills above to rate your proficiency level.</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-navigation">
-                            <button type="button" class="btn btn--text" data-direction="prev">Back to Profile</button>
-                            <button type="button" class="btn btn--primary" data-direction="next">Continue to Interests</button>
+                            <button type="button" class="btn btn--outline" data-direction="prev">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn--primary" data-direction="next">
+                                Continue <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -639,5 +644,6 @@
             }
         });
     </script>
+    <script src="../assets/js/onboarding.js"></script>
 </body>
 </html>

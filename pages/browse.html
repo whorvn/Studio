@@ -138,21 +138,21 @@
                     <div class="filter-bar">
                         <div class="search-filter">
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search hackathons...">
+                            <input type="text" placeholder="Search hackathons by name, technology or theme...">
                         </div>
                         
                         <div class="filter-group">
                             <label for="formatFilter">Format</label>
                             <select id="formatFilter">
                                 <option value="all">All Formats</option>
-                                <option value="online">Online</option>
+                                <option value="online">Virtual</option>
                                 <option value="hybrid">Hybrid</option>
-                                <option value="offline">Offline</option>
+                                <option value="offline">In-person</option>
                             </select>
                         </div>
                         
                         <div class="filter-group">
-                            <label for="dateFrom">Date Range</label>
+                            <label for="dateFilter">Date Range</label>
                             <div class="date-range">
                                 <input type="date" id="dateFrom" placeholder="From">
                                 <span class="date-separator">to</span>
@@ -166,14 +166,14 @@
                 
                 <div class="browse__container">
                     <div class="browse-content">
-                        <div class="browse-header">
+                        <div class="browse-controls">
                             <div class="browse-tabs">
                                 <button class="browse-tabs__btn active" data-tab="upcoming">Upcoming</button>
                                 <button class="browse-tabs__btn" data-tab="ongoing">Ongoing</button>
                                 <button class="browse-tabs__btn" data-tab="completed">Completed</button>
                             </div>
                             
-                            <div class="browse-controls">
+                            <div class="browse-display-options">
                                 <div class="view-toggle">
                                     <button class="view-toggle__btn active" data-view="grid" aria-label="Grid view">
                                         <i class="fas fa-th-large"></i>

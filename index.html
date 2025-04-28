@@ -33,7 +33,7 @@
                 </nav>
                 <div class="header__actions">
                     <button class="btn btn--text" id="loginBtn">Log in</button>
-                    <a href="pages/registration.html" class="btn btn--primary">Sign up</a>
+                    <a href="pages/registration.html" class="btn btn--primary btn--rounded">Sign up</a>
                     <button class="btn btn--icon-only menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -43,33 +43,48 @@
     </header>
 
     <main>
-        <section class="hero hero--gradient">
-            <div class="container">
+        <section class="hero">
+            <div class="container hero__container">
                 <div class="hero__content">
-                    <h1 class="hero__title">Discover and join the best <span class="text-gradient">hackathons</span> worldwide</h1>
-                    <p class="hero__subtitle">Connect with like-minded innovators, build amazing projects, and accelerate your tech career through hackathons that match your skills.</p>
-                    <div class="hero__cta">
-                        <button class="btn btn--primary btn--large">Get started</button>
-                        <button class="btn btn--outline btn--large">For organizers</button>
+                    <h1 class="hero__title">Find & join <span class="text-accent">hackathons</span> that match your skills</h1>
+                    <p class="hero__subtitle">Connect with innovators, build amazing projects, and accelerate your tech career.</p>
+                    
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" class="search-input" placeholder="Search for hackathons or skills..." />
+                            <button class="search-button">
+                                <span>Search</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="popular-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
                     </div>
+                    
                     <div class="hero__stats">
-                        <div class="stat">
+                        <div class="stat-card">
                             <span class="stat__number">750+</span>
                             <span class="stat__label">Hackathons</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat-card">
                             <span class="stat__number">25K+</span>
                             <span class="stat__label">Developers</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat-card">
                             <span class="stat__number">$1.2M</span>
                             <span class="stat__label">Prize pools</span>
                         </div>
                     </div>
                 </div>
-                <div class="hero__image hero__image--floating">
-                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team building innovative solutions at HackConnect">
-                    <div class="hero-image__overlay"></div>
+                
+                <div class="hero__image">
+                    <img src="assets/images/hero-illustration.svg" alt="Team building solutions at hackathons" class="floating-image">
+                    <div class="hero__backdrop"></div>
                 </div>
             </div>
         </section>
