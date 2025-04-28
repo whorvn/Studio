@@ -47,57 +47,39 @@
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
-  padding: 3rem 0 1rem;
-  animation: fadeInDown 0.8s ease-out;
+  padding: 3rem 1rem 2rem;
+  overflow: hidden;
 }
 
 .teams-header::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -2rem;
-  right: -2rem;
-  height: 180px;
-  background: linear-gradient(135deg, var(--color-primary-light), rgba(99, 91, 255, 0.1));
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  left: -50%;
+  right: -50%;
+  height: 100%;
+  width: 200%;
+  background: linear-gradient(135deg, rgba(99, 91, 255, 0.08), rgba(99, 91, 255, 0.03));
   z-index: -1;
-  opacity: 0.9; /* Reduce opacity to avoid flash */
-  animation: fadeIn 0.3s ease-out; /* Smoother fade-in to prevent flash */
+  border-radius: 0 0 50% 50%;
+  transform: translateY(-20%);
 }
 
 .teams-header__text {
   max-width: 700px;
   position: relative;
-  z-index: 1; /* Ensure text remains above background */
+  z-index: 2;
 }
 
 .teams-header__text h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--color-primary), #8075FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: -0.5px;
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-primary);
   line-height: 1.1;
   position: relative;
   display: inline-block;
-  animation: gradientShift 8s ease infinite;
-}
-
-.teams-header__text h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background-color: var(--color-primary);
-  border-radius: var(--radius-full);
-  animation: widthPulse 3s ease-in-out infinite;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .teams-header__text p {
@@ -107,16 +89,22 @@
   opacity: 0.9;
   margin: 0 auto;
   max-width: 600px;
+  animation: fadeIn 0.7s ease-out;
 }
 
-.teams-header__actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center; 
-  position: relative;
-  bottom: auto;
-  right: auto;
-  margin-left: auto;
+/* Remove potentially problematic animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Remove problematic animated decorative elements */
+.teams-header__text h2::after {
+  display: none;
 }
 
 /* Responsive adjustments for the header */
