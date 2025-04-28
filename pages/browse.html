@@ -152,25 +152,33 @@
                                 </div>
                             </div>
                             
-                            <!-- Clean Date Range - No label, no calendar icons -->
+                            <!-- Clean Date Range - No placeholder text -->
                             <div class="filter-item filter-item--lg">
                                 <div class="date-range-wrapper">
                                     <div class="date-field">
                                         <div class="date-field-label">From</div>
-                                        <input type="date" class="date-input clean-date">
+                                        <input type="text" onfocus="(this.type='date')" class="date-input clean-date" placeholder=" ">
                                     </div>
                                     <div class="date-separator"></div>
                                     <div class="date-field">
                                         <div class="date-field-label">To</div>
-                                        <input type="date" class="date-input clean-date">
+                                        <input type="text" onfocus="(this.type='date')" class="date-input clean-date" placeholder=" ">
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="prize-filter">
-                                <span class="prize-label">Prize Pool</span>
-                                <input type="range" min="0" max="100000" value="25000" class="range-slider" id="prizeRange">
-                                <div class="prize-value">Up to $<span id="prizeValue">25,000</span></div>
+                            <!-- Prize Pool - Same height as date range -->
+                            <div class="filter-item">
+                                <div class="select-wrapper fixed-height">
+                                    <select class="form-select">
+                                        <option value="all">Any Amount</option>
+                                        <option value="5000+">$5,000+</option>
+                                        <option value="10000+">$10,000+</option>
+                                        <option value="25000+">$25,000+</option>
+                                        <option value="50000+">$50,000+</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down select-icon"></i>
+                                </div>
                             </div>
                             
                             <div class="filter-button">
