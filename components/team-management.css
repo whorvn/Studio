@@ -47,7 +47,7 @@
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
-  padding: 3rem 1rem 2rem;
+  padding: 5rem 1rem 3rem; /* Increased vertical padding to 80px equivalent */
   overflow: hidden;
 }
 
@@ -66,30 +66,46 @@
 }
 
 .teams-header__text {
-  max-width: 700px;
+  max-width: 760px;
   position: relative;
   z-index: 2;
+  opacity: 0;
+  animation: fadeSlideUp 450ms ease-out forwards;
 }
 
 .teams-header__text h2 {
-  font-size: 2.75rem;
-  font-weight: 700;
+  font-size: 4rem; /* ~64px */
+  font-weight: 800; /* ExtraBold */
   margin-bottom: 1.25rem;
-  color: var(--color-text-primary);
+  background: linear-gradient(90deg, #6366F1, #C084FC, #FF6CAB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   line-height: 1.1;
   position: relative;
-  display: inline-block;
-  animation: fadeIn 0.5s ease-out;
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+.teams-header__text h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6366F1, #C084FC, #FF6CAB);
+  margin: 1rem auto 1.5rem;
+  border-radius: 3px;
+  animation: widthPulse 3s ease-in-out infinite;
 }
 
 .teams-header__text p {
-  color: var(--color-text-secondary);
-  font-size: 1.25rem;
+  color: #4B5563; /* slate-gray */
+  font-size: 1.25rem; /* 20px */
   line-height: 1.6;
-  opacity: 0.9;
   margin: 0 auto;
-  max-width: 600px;
-  animation: fadeIn 0.7s ease-out;
+  max-width: 760px;
+  opacity: 0;
+  animation: fadeSlideUp 450ms ease-out 150ms forwards;
 }
 
 /* Remove potentially problematic animations */
@@ -803,6 +819,18 @@
   from {
     opacity: 0;
     transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Updated animation keyframes */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
