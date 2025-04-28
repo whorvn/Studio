@@ -134,7 +134,7 @@
                     <p class="page-subtitle">Find the perfect opportunity to showcase your skills, collaborate with innovative teams, and build groundbreaking projects</p>
                 </div>
                 
-                <!-- Redesigned Compact Filter Section -->
+                <!-- Redesigned Modern Filter Section -->
                 <div class="filter-card">
                     <div class="filter-grid">
                         <div class="search-input">
@@ -144,28 +144,37 @@
                         
                         <div class="filter-controls">
                             <div class="format-filter">
-                                <select class="form-select" id="formatFilter">
-                                    <option value="all">All Formats</option>
-                                    <option value="virtual">Virtual</option>
-                                    <option value="in-person">In-person</option>
-                                    <option value="hybrid">Hybrid</option>
-                                </select>
-                                <i class="fas fa-chevron-down select-icon"></i>
+                                <div class="format-selector">
+                                    <button class="format-option active" data-format="all">All</button>
+                                    <button class="format-option" data-format="virtual">Virtual</button>
+                                    <button class="format-option" data-format="in-person">In-person</button>
+                                    <button class="format-option" data-format="hybrid">Hybrid</button>
+                                </div>
                             </div>
                             
                             <div class="date-range-picker">
-                                <span class="date-label">Date Range</span>
-                                <div class="date-input">
-                                    <input type="date" id="dateFrom" placeholder="From">
-                                </div>
-                                <span class="date-separator"></span>
-                                <div class="date-input">
-                                    <input type="date" id="dateTo" placeholder="To">
+                                <span class="date-picker-label">Date Range</span>
+                                <div class="date-inputs-container">
+                                    <div class="date-input">
+                                        <span class="date-input-label">From</span>
+                                        <input type="date" id="dateFrom" placeholder="Start Date">
+                                    </div>
+                                    <span class="date-separator"></span>
+                                    <div class="date-input">
+                                        <span class="date-input-label">To</span>
+                                        <input type="date" id="dateTo" placeholder="End Date">
+                                    </div>
                                 </div>
                             </div>
                             
+                            <div class="prize-filter">
+                                <span class="prize-label">Prize Pool</span>
+                                <input type="range" min="0" max="100000" value="25000" class="range-slider" id="prizeRange">
+                                <div class="prize-value">Up to $<span id="prizeValue">25,000</span></div>
+                            </div>
+                            
                             <div class="filter-button">
-                                <button class="btn-filter">
+                                <button class="btn-filter" data-tooltip="Apply all filters">
                                     <i class="fas fa-filter"></i>
                                     <span>Filter</span>
                                 </button>
@@ -408,6 +417,36 @@
                         sortDropdownMenu.classList.remove('show');
                     });
                 });
+            }
+            
+            // Format option selector
+            const formatOptions = document.querySelectorAll('.format-option');
+            
+            formatOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    formatOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                });
+            });
+            
+            // Prize range slider
+            const prizeRange = document.getElementById('prizeRange');
+            const prizeValue = document.getElementById('prizeValue');
+            
+            if (prizeRange && prizeValue) {
+                prizeRange.addEventListener('input', function() {
+                    // Format prize value with commas
+                    const formattedValue = parseInt(this.value).toLocaleString();
+                    prizeValue.textContent = formattedValue;
+                    
+                    // Update background gradient for the range slider
+                    const percentage = (this.value / this.max) * 100;
+                    this.style.background = `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${percentage}%, var(--color-gray-300) ${percentage}%, var(--color-gray-300) 100%)`;
+                });
+                
+                // Initialize the slider
+                const initialPercentage = (prizeRange.value / prizeRange.max) * 100;
+                prizeRange.style.background = `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${initialPercentage}%, var(--color-gray-300) ${initialPercentage}%, var(--color-gray-300) 100%)`;
             }
         });
     </script>

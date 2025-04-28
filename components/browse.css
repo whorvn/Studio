@@ -2281,3 +2281,301 @@ select:focus-visible {
     width: 100%;
   }
 }
+
+/* Enhanced Format Selector Styling */
+.format-filter {
+  position: relative;
+  min-width: 180px;
+  flex-grow: 1;
+}
+
+.format-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-gray-50);
+  border-radius: 10px;
+  padding: 0.25rem;
+  border: 1px solid var(--color-gray-200);
+}
+
+.format-option {
+  flex: 1;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-gray-600);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.format-option.active {
+  background-color: white;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.format-option:hover:not(.active) {
+  color: var(--color-gray-900);
+}
+
+/* Improved Date Range Picker */
+.date-range-picker {
+  flex: 1 1 280px;
+  position: relative;
+  background: var(--color-gray-50);
+  border-radius: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-gray-200);
+  transition: all 0.2s ease;
+}
+
+.date-range-picker:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+  background-color: white;
+}
+
+.date-picker-label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: white;
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.date-inputs-container {
+  display: flex;
+  align-items: center;
+}
+
+.date-input {
+  position: relative;
+  flex: 1;
+}
+
+.date-input-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  margin-bottom: 0.25rem;
+}
+
+.date-input input {
+  width: 100%;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--color-gray-800);
+  cursor: pointer;
+  outline: none;
+}
+
+.date-input input::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+.date-input input::-webkit-calendar-picker-indicator:hover {
+  opacity: 0.8;
+}
+
+.date-separator {
+  width: 12px;
+  height: 1px;
+  background-color: var(--color-gray-300);
+  margin: 0 8px;
+  margin-top: 20px;
+}
+
+/* Prize Pool Slider */
+.prize-filter {
+  flex: 1;
+  position: relative;
+  background: var(--color-gray-50);
+  border-radius: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-gray-200);
+  transition: all 0.2s ease;
+}
+
+.prize-filter:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+  background-color: white;
+}
+
+.prize-label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: white;
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.prize-range {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.range-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-gray-300) 50%, var(--color-gray-300) 100%);
+  border-radius: 3px;
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  background-color: var(--color-primary-light);
+}
+
+.prize-value {
+  font-size: 0.75rem;
+  color: var(--color-gray-700);
+  font-weight: 500;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* Modern Filter Button */
+.filter-button {
+  flex: 0 0 auto;
+}
+
+.btn-filter {
+  height: 38px;
+  padding: 0 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(99, 91, 255, 0.15);
+}
+
+.btn-filter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 91, 255, 0.2);
+}
+
+.btn-filter:active {
+  transform: translateY(0);
+}
+
+.btn-filter i {
+  font-size: 0.75rem;
+}
+
+/* Search Input Enhancement */
+.search-input input {
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.search-input input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+  background-color: white;
+  transform: translateY(-1px);
+}
+
+/* Custom Tooltip */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: var(--color-gray-900);
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+[data-tooltip]:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 768px) {
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .format-selector {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .format-option {
+    flex: 1 1 calc(50% - 0.25rem);
+  }
+  
+  .date-inputs-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .date-separator {
+    display: none;
+  }
+}
