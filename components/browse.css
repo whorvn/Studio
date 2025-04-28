@@ -943,7 +943,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--space-1);
+    gap: var (--space-1);
 }
 
 .pagination__btn {
@@ -1164,7 +1164,7 @@
 
 .date-range input[type="date"]:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: var (--color-primary);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
   background-color: white;
 }
@@ -2326,17 +2326,10 @@ select:focus-visible {
 .date-range-picker {
   flex: 1 1 280px;
   position: relative;
-  background: var(--color-gray-50);
+  background: white;
   border-radius: 10px;
-  padding: 8px 12px;
   border: 1px solid var(--color-gray-200);
   transition: all 0.2s ease;
-}
-
-.date-range-picker:focus-within {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
-  background-color: white;
 }
 
 .date-picker-label {
@@ -2354,6 +2347,7 @@ select:focus-visible {
 .date-inputs-container {
   display: flex;
   align-items: center;
+  padding: 6px 12px;
 }
 
 .date-input {
@@ -2383,7 +2377,12 @@ select:focus-visible {
 
 .date-input input::-webkit-calendar-picker-indicator {
   opacity: 0.6;
-  filter: invert(0.5);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  height: 100%;
   cursor: pointer;
 }
 
@@ -2395,8 +2394,24 @@ select:focus-visible {
   width: 12px;
   height: 1px;
   background-color: var(--color-gray-300);
-  margin: 0 8px;
-  margin-top: 20px;
+  margin: 0 12px;
+  margin-top: 14px; /* Adjust to align with inputs */
+}
+
+/* Focus State for the Date Range Picker */
+.date-range-picker:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(99, 91, 255, 0.1);
+}
+
+/* Empty Date Input Styling */
+.date-input input:not(:valid) {
+  color: var(--color-gray-400);
+}
+
+/* Date Range Picker Hover State */
+.date-range-picker:hover:not(:focus-within) {
+  border-color: var(--color-gray-400);
 }
 
 /* Prize Pool Slider */
@@ -2577,5 +2592,90 @@ select:focus-visible {
   
   .date-separator {
     display: none;
+  }
+}
+
+/* Completely Redesigned Date Range Picker */
+.date-range-picker {
+  flex: 1 1 280px;
+  position: relative;
+}
+
+.date-range-container {
+  display: flex;
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.date-field {
+  flex: 1;
+  position: relative;
+  padding: 8px 12px;
+}
+
+.date-field:first-child {
+  border-right: 1px solid var(--color-gray-200);
+}
+
+.date-field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-gray-500);
+  display: block;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.date-field input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--color-gray-800);
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.date-field input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* Empty state styling */
+.date-field input:not(:valid) {
+  color: var(--color-gray-400);
+}
+
+/* Hover & Focus states */
+.date-range-container:hover {
+  border-color: var(--color-gray-400);
+}
+
+.date-field:focus-within input::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+.date-range-container:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+/* Responsive for the date picker */
+@media (max-width: 768px) {
+  .date-range-container {
+    flex-direction: column;
+  }
+  
+  .date-field:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-200);
   }
 }
