@@ -129,391 +129,183 @@
             </header>
             
             <main class="browse-main">
-                <div class="browse-header">
-                    <h2>Browse Hackathons</h2>
-                    <p>Find the perfect hackathon to showcase your skills</p>
+                <div class="page-header">
+                    <h1 class="page-title">Browse Hackathons</h1>
+                    <p class="page-subtitle">Find the perfect hackathon to showcase your skills and connect with like-minded developers</p>
                 </div>
                 
-                <div class="filter-section">
-                    <div class="filter-bar">
-                        <div class="search-filter">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search hackathons by name, technology or theme...">
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="formatFilter">Format</label>
-                            <select id="formatFilter">
-                                <option value="all">All Formats</option>
-                                <option value="online">Virtual</option>
-                                <option value="hybrid">Hybrid</option>
-                                <option value="offline">In-person</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="dateFilter">Date Range</label>
-                            <div class="date-range">
-                                <input type="date" id="dateFrom" placeholder="From">
-                                <span class="date-separator">to</span>
-                                <input type="date" id="dateTo" placeholder="To">
+                <!-- Redesigned Filter Section -->
+                <div class="filter-card">
+                    <div class="filter-grid">
+                        <div class="filter-item filter-item--full">
+                            <div class="search-input">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" placeholder="Search hackathons by name, technology or theme...">
                             </div>
                         </div>
                         
-                        <button class="btn btn--primary">Apply Filters</button>
+                        <div class="filter-item">
+                            <label class="filter-label">Format</label>
+                            <div class="select-wrapper">
+                                <select class="form-select" id="formatFilter">
+                                    <option value="all">All Formats</option>
+                                    <option value="virtual">Virtual</option>
+                                    <option value="in-person">In-person</option>
+                                    <option value="hybrid">Hybrid</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-item filter-item--lg">
+                            <label class="filter-label">Date Range</label>
+                            <div class="date-picker-group">
+                                <div class="date-input">
+                                    <input type="date" class="form-input" id="dateFrom">
+                                </div>
+                                <span class="date-separator">to</span>
+                                <div class="date-input">
+                                    <input type="date" class="form-input" id="dateTo">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-item filter-item--action">
+                            <button class="btn btn--outline" id="applyFilters">Apply Filters</button>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="browse__container">
-                    <div class="browse-content">
-                        <div class="browse-controls">
-                            <div class="browse-tabs">
-                                <button class="browse-tabs__btn active" data-tab="upcoming">Upcoming</button>
-                                <button class="browse-tabs__btn" data-tab="ongoing">Ongoing</button>
-                                <button class="browse-tabs__btn" data-tab="completed">Completed</button>
-                            </div>
-                            
-                            <div class="browse-display-options">
-                                <div class="view-toggle">
-                                    <button class="view-toggle__btn active" data-view="grid" aria-label="Grid view">
-                                        <i class="fas fa-th-large"></i>
-                                    </button>
-                                    <button class="view-toggle__btn" data-view="list" aria-label="List view">
-                                        <i class="fas fa-list"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="sort-dropdown">
-                                    <button class="sort-dropdown__toggle">
-                                        <span>Sort by: Relevance</span>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </button>
-                                    <div class="sort-dropdown__menu">
-                                        <button class="sort-dropdown__item active">Relevance</button>
-                                        <button class="sort-dropdown__item">Date (Newest)</button>
-                                        <button class="sort-dropdown__item">Date (Oldest)</button>
-                                        <button class="sort-dropdown__item">Prize Pool (High to Low)</button>
-                                        <button class="sort-dropdown__item">Prize Pool (Low to High)</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="hackathons-grid grid-3">
-                            <!-- Hackathon Card 1 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Global FinTech Challenge">
-                                    <div class="hackathon-card__bookmark">
-                                        <i class="far fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-globe"></i> Virtual
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Global FinTech Challenge</h3>
-                                    <p class="hackathon-card__dates">Jul 25 - Aug 10, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$25,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 2-4</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="far fa-clock"></i>
-                                            <span>Starts in 14 days</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/fintech-logo.png" alt="FinTech Association" class="organizer-logo">
-                                        <span>FinTech Association</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">Banking</span>
-                                        <span class="tag">AI/ML</span>
-                                        <span class="tag">Blockchain</span>
-                                        <span class="tag">API</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 92%;"></div>
-                                        </div>
-                                        <span class="match-percent">92% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=fintech-challenge" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Hackathon Card 2 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Future of AI Hackathon">
-                                    <div class="hackathon-card__bookmark">
-                                        <i class="far fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-map-marker-alt"></i> In-person
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Future of AI Hackathon</h3>
-                                    <p class="hackathon-card__dates">Aug 5 - Aug 7, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$15,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 3-5</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <span>San Francisco</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/techcorp-logo.png" alt="TechCorp Inc." class="organizer-logo">
-                                        <span>TechCorp Inc.</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">AI/ML</span>
-                                        <span class="tag">NLP</span>
-                                        <span class="tag">Computer Vision</span>
-                                        <span class="tag">Ethics</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 87%;"></div>
-                                        </div>
-                                        <span class="match-percent">87% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=ai-hackathon" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Hackathon Card 3 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Health Innovation Challenge">
-                                    <div class="hackathon-card__bookmark active">
-                                        <i class="fas fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-globe"></i> Virtual
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Health Innovation Challenge</h3>
-                                    <p class="hackathon-card__dates">Jul 20 - Jul 30, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$30,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 2-4</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="far fa-clock"></i>
-                                            <span>Starts in 9 days</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/health-logo.png" alt="Global Health Foundation" class="organizer-logo">
-                                        <span>Global Health Foundation</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">Healthcare</span>
-                                        <span class="tag">IoT</span>
-                                        <span class="tag">Mobile</span>
-                                        <span class="tag">Data</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 78%;"></div>
-                                        </div>
-                                        <span class="match-percent">78% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=health-challenge" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Continue with more hackathon cards -->
-                            
-                            <!-- Hackathon Card 4 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Game Dev Jam">
-                                    <div class="hackathon-card__bookmark">
-                                        <i class="far fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-globe"></i> Virtual
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Game Dev Jam</h3>
-                                    <p class="hackathon-card__dates">Aug 12 - Aug 14, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$10,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 1-5</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="far fa-clock"></i>
-                                            <span>Starts in 22 days</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/unity-logo.png" alt="Unity Technologies" class="organizer-logo">
-                                        <span>Unity Technologies</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">Gaming</span>
-                                        <span class="tag">Unity</span>
-                                        <span class="tag">3D</span>
-                                        <span class="tag">Animation</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 65%;"></div>
-                                        </div>
-                                        <span class="match-percent">65% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=game-jam" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Hackathon Card 5 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Cloud Innovation Challenge">
-                                    <div class="hackathon-card__bookmark">
-                                        <i class="far fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-globe"></i> Virtual
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Cloud Innovation Challenge</h3>
-                                    <p class="hackathon-card__dates">Aug 18 - Aug 25, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$20,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 2-4</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="far fa-clock"></i>
-                                            <span>Starts in 28 days</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/aws-logo.png" alt="Amazon Web Services" class="organizer-logo">
-                                        <span>Amazon Web Services</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">AWS</span>
-                                        <span class="tag">Cloud</span>
-                                        <span class="tag">Serverless</span>
-                                        <span class="tag">DevOps</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 81%;"></div>
-                                        </div>
-                                        <span class="match-percent">81% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=cloud-challenge" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Hackathon Card 6 -->
-                            <div class="hackathon-card">
-                                <div class="hackathon-card__banner">
-                                    <img src="../assets/images/banner1.jpg" alt="Social Impact Hackathon">
-                                    <div class="hackathon-card__bookmark">
-                                        <i class="far fa-bookmark"></i>
-                                    </div>
-                                    <div class="hackathon-card__format">
-                                        <i class="fas fa-sync-alt"></i> Hybrid
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__content">
-                                    <h3 class="hackathon-card__title">Social Impact Hackathon</h3>
-                                    <p class="hackathon-card__dates">Sep 1 - Sep 10, 2023</p>
-                                    <div class="hackathon-card__details">
-                                        <div class="detail">
-                                            <i class="fas fa-trophy"></i>
-                                            <span>$18,000 Prize</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="fas fa-users"></i>
-                                            <span>Teams of 3-5</span>
-                                        </div>
-                                        <div class="detail">
-                                            <i class="far fa-clock"></i>
-                                            <span>Starts in 42 days</span>
-                                        </div>
-                                    </div>
-                                    <div class="hackathon-card__organizer">
-                                        <img src="../assets/images/un-logo.png" alt="United Nations Development" class="organizer-logo">
-                                        <span>United Nations Development</span>
-                                    </div>
-                                    <div class="tags">
-                                        <span class="tag">Social Impact</span>
-                                        <span class="tag">Sustainability</span>
-                                        <span class="tag">Education</span>
-                                        <span class="tag">Web</span>
-                                    </div>
-                                    <div class="match-bar">
-                                        <div class="match-bar__progress">
-                                            <div class="match-bar__fill" style="width: 73%;"></div>
-                                        </div>
-                                        <span class="match-percent">73% match</span>
-                                    </div>
-                                </div>
-                                <div class="hackathon-card__footer">
-                                    <a href="hackathon-detail.html?id=social-impact" class="btn btn--primary btn--full">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="pagination">
-                            <button class="pagination__btn active">1</button>
-                            <button class="pagination__btn">2</button>
-                            <button class="pagination__btn">3</button>
-                            <span class="pagination__ellipsis">...</span>
-                            <button class="pagination__btn">8</button>
-                            <button class="pagination__btn pagination__btn--next">
-                                <i class="fas fa-chevron-right"></i>
+                <!-- Browse Controls Section -->
+                <div class="controls-row">
+                    <div class="tab-pills" role="tablist">
+                        <button class="tab-pill active" role="tab" aria-selected="true" data-tab="upcoming">
+                            Upcoming
+                        </button>
+                        <button class="tab-pill" role="tab" aria-selected="false" data-tab="ongoing">
+                            Ongoing
+                        </button>
+                        <button class="tab-pill" role="tab" aria-selected="false" data-tab="completed">
+                            Completed
+                        </button>
+                    </div>
+                    
+                    <div class="utility-controls">
+                        <div class="view-toggle" role="radiogroup" aria-label="Change view">
+                            <button class="view-toggle__btn active" aria-label="Grid view" data-view="grid">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-toggle__btn" aria-label="List view" data-view="list">
+                                <i class="fas fa-list"></i>
                             </button>
                         </div>
+                        
+                        <div class="sort-dropdown">
+                            <button class="sort-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
+                                <span>Sort by: Relevance</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="sort-dropdown__menu" aria-hidden="true">
+                                <button class="sort-dropdown__option active">Relevance</button>
+                                <button class="sort-dropdown__option">Date (Newest)</button>
+                                <button class="sort-dropdown__option">Date (Oldest)</button>
+                                <button class="sort-dropdown__option">Prize Pool (High to Low)</button>
+                                <button class="sort-dropdown__option">Prize Pool (Low to High)</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Hackathons Grid -->
+                <div class="hackathons-grid" id="hackathonsGrid">
+                    <!-- Hackathon Card 1 -->
+                    <div class="hackathon-card">
+                        <div class="hackathon-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="Global FinTech Challenge" class="hackathon-card__image">
+                            <div class="hackathon-card__overlay"></div>
+                            <span class="format-chip">Virtual</span>
+                        </div>
+                        <div class="hackathon-card__body">
+                            <h2 class="hackathon-card__title">Global FinTech Challenge</h2>
+                            <p class="hackathon-card__date">Jul 25 - Aug 10, 2023</p>
+                            <div class="hackathon-card__meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>$25,000 Prize</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Teams of 2-4</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--success btn--sm">Apply Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Hackathon Card 2 -->
+                    <div class="hackathon-card">
+                        <div class="hackathon-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="AI Innovation Hackathon" class="hackathon-card__image">
+                            <div class="hackathon-card__overlay"></div>
+                            <span class="format-chip">In-person</span>
+                        </div>
+                        <div class="hackathon-card__body">
+                            <h2 class="hackathon-card__title">AI Innovation Hackathon</h2>
+                            <p class="hackathon-card__date">Aug 5 - Aug 7, 2023</p>
+                            <div class="hackathon-card__meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>$15,000 Prize</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Teams of 3-5</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--success btn--sm">Apply Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Hackathon Card 3 -->
+                    <div class="hackathon-card">
+                        <div class="hackathon-card__header">
+                            <img src="../assets/images/banner1.jpg" alt="Health Innovation Challenge" class="hackathon-card__image">
+                            <div class="hackathon-card__overlay"></div>
+                            <span class="format-chip">Hybrid</span>
+                        </div>
+                        <div class="hackathon-card__body">
+                            <h2 class="hackathon-card__title">Health Innovation Challenge</h2>
+                            <p class="hackathon-card__date">Jul 20 - Jul 30, 2023</p>
+                            <div class="hackathon-card__meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>$30,000 Prize</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Teams of 2-4</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--success btn--sm">Apply Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- More hackathon cards would be here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination__btn pagination__btn--prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination__btn active">1</button>
+                    <button class="pagination__btn">2</button>
+                    <button class="pagination__btn">3</button>
+                    <span class="pagination__separator">...</span>
+                    <button class="pagination__btn">8</button>
+                    <button class="pagination__btn pagination__btn--next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </main>
         </div>
