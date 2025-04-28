@@ -134,19 +134,16 @@
                     <p class="page-subtitle">Find the perfect opportunity to showcase your skills, collaborate with innovative teams, and build groundbreaking projects</p>
                 </div>
                 
-                <!-- Redesigned Filter Section -->
+                <!-- Redesigned Compact Filter Section -->
                 <div class="filter-card">
                     <div class="filter-grid">
-                        <div class="filter-item filter-item--full">
-                            <div class="search-input">
-                                <i class="fas fa-search search-icon"></i>
-                                <input type="text" placeholder="Search hackathons by name, technology or theme...">
-                            </div>
+                        <div class="search-input">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Search by technology, theme, or keywords...">
                         </div>
                         
-                        <div class="filter-item">
-                            <label class="filter-label">Format</label>
-                            <div class="select-wrapper">
+                        <div class="filter-controls">
+                            <div class="format-filter">
                                 <select class="form-select" id="formatFilter">
                                     <option value="all">All Formats</option>
                                     <option value="virtual">Virtual</option>
@@ -155,23 +152,24 @@
                                 </select>
                                 <i class="fas fa-chevron-down select-icon"></i>
                             </div>
-                        </div>
-                        
-                        <div class="filter-item filter-item--lg">
-                            <label class="filter-label">Date Range</label>
-                            <div class="date-picker-group">
+                            
+                            <div class="date-range-picker">
+                                <span class="date-label">Date Range</span>
                                 <div class="date-input">
-                                    <input type="date" class="form-input" id="dateFrom">
+                                    <input type="date" id="dateFrom" placeholder="From">
                                 </div>
-                                <span class="date-separator">to</span>
+                                <span class="date-separator"></span>
                                 <div class="date-input">
-                                    <input type="date" class="form-input" id="dateTo">
+                                    <input type="date" id="dateTo" placeholder="To">
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="filter-item filter-item--action">
-                            <button class="btn btn--outline" id="applyFilters">Apply Filters</button>
+                            
+                            <div class="filter-button">
+                                <button class="btn-filter">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Filter</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
