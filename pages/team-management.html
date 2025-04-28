@@ -417,7 +417,7 @@
                 
                 <!-- Past Teams Tab -->
                 <div class="tab-content" id="past-tab">
-                    <div class="team-cards">
+                    <div class="past-team-cards">
                         <div class="team-card past">
                             <div class="team-card-header">
                                 <div class="team-logo">TD</div>
@@ -431,7 +431,7 @@
                                 </div>
                             </div>
                             
-                            <div class="team-card-body">
+                            <div class="team-card-body single-column">
                                 <div class="achievement">
                                     <div class="achievement-badge">
                                         <i class="fas fa-medal"></i>
@@ -442,21 +442,45 @@
                                     </div>
                                 </div>
                                 
-                                <div class="member-avatars">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member">
-                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member">
-                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Team Member">
-                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Team Member">
+                                <div class="past-team-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <h4>Participation Period</h4>
+                                            <p>March 5-12, 2023</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-users"></i>
+                                        <div>
+                                            <h4>Team Members</h4>
+                                            <div class="member-avatars">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" title="Alex Johnson">
+                                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member" title="Rebecca Liu">
+                                                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Team Member" title="David Park">
+                                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Team Member" title="Maria Rodriguez">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-code"></i>
+                                        <div>
+                                            <h4>Project</h4>
+                                            <p>EcoTrack - Sustainable Resource Monitoring Platform</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="team-card-footer">
-                                <button class="btn btn-outline">
+                                <a href="#" class="btn btn-outline">
                                     <i class="fas fa-file-alt"></i> View Project
-                                </button>
-                                <button class="btn btn-outline">
+                                </a>
+                                <a href="#" class="btn btn-outline">
                                     <i class="fas fa-certificate"></i> View Certificate
-                                </button>
+                                </a>
                             </div>
                         </div>
                         
@@ -473,7 +497,7 @@
                                 </div>
                             </div>
                             
-                            <div class="team-card-body">
+                            <div class="team-card-body single-column">
                                 <div class="achievement">
                                     <div class="achievement-badge">
                                         <i class="fas fa-award"></i>
@@ -484,20 +508,44 @@
                                     </div>
                                 </div>
                                 
-                                <div class="member-avatars">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member">
-                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Team Member">
+                                <div class="past-team-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <h4>Participation Period</h4>
+                                            <p>November 10-17, 2022</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-users"></i>
+                                        <div>
+                                            <h4>Team Members</h4>
+                                            <div class="member-avatars">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" title="Alex Johnson">
+                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" title="Sarah Chen">
+                                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Team Member" title="Jason Lee">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-item">
+                                        <i class="fas fa-code"></i>
+                                        <div>
+                                            <h4>Project</h4>
+                                            <p>Portfolio Pro - Interactive Portfolio Builder for Designers</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="team-card-footer">
-                                <button class="btn btn-outline">
+                                <a href="#" class="btn btn-outline">
                                     <i class="fas fa-file-alt"></i> View Project
-                                </button>
-                                <button class="btn btn-outline">
+                                </a>
+                                <a href="#" class="btn btn-outline">
                                     <i class="fas fa-certificate"></i> View Certificate
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -696,25 +744,32 @@
                 // Hide all tab content
                 document.querySelectorAll('.tab-content').forEach(content => {
                     content.classList.remove('active');
-                    // Reset any hover states
-                    content.querySelectorAll('.team-card, .invitation-card').forEach(card => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    });
                 });
                 
                 // Show selected tab content
                 const tabId = this.getAttribute('data-tab') + '-tab';
-                const activeTab = document.getElementById(tabId);
-                activeTab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
                 
-                // Small delay to ensure proper rendering after tab switch
-                setTimeout(() => {
-                    // Force browser to recalculate styles
-                    activeTab.style.display = 'none';
-                    activeTab.offsetHeight; // Force a reflow
-                    activeTab.style.display = 'block';
-                }, 10);
+                // Ensure proper rendering after tab switch
+                const activeTab = document.getElementById(tabId);
+                
+                // Reset any hover states on cards
+                if (tabId === 'active-tab') {
+                    activeTab.querySelectorAll('.team-card').forEach(card => {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                    });
+                } else if (tabId === 'invitations-tab') {
+                    activeTab.querySelectorAll('.invitation-card').forEach(card => {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                    });
+                } else if (tabId === 'past-tab') {
+                    activeTab.querySelectorAll('.team-card.past').forEach(card => {
+                        card.style.transform = '';
+                        card.style.boxShadow = '';
+                    });
+                }
             });
         });
         

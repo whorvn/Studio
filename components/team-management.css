@@ -144,7 +144,8 @@
 }
 
 /* Team Cards */
-.team-cards {
+.team-cards,
+.past-team-cards {
     display: grid;
     gap: var(--space-xl);
     margin-top: var(--space-lg);
@@ -165,6 +166,7 @@
 
 .team-card.past {
     background-color: var(--bg-light);
+    border-left: 4px solid var(--gray-400);
 }
 
 .team-card-header {
@@ -246,6 +248,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
+}
+
+.team-card-body.single-column {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
 .team-members h3,
@@ -565,6 +572,7 @@
 .member-avatars {
     display: flex;
     align-items: center;
+    margin-top: var(--space-xs);
 }
 
 .member-avatars img {
@@ -574,6 +582,13 @@
     border: 2px solid white;
     margin-right: -10px;
     object-fit: cover;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+}
+
+.member-avatars img:hover {
+    transform: translateY(-3px) scale(1.1);
+    z-index: 5;
 }
 
 /* Empty State */
@@ -907,7 +922,7 @@
 .search-result__info p {
     margin: 0.25rem 0 0;
     font-size: 0.8rem;
-    color: var(--gray-600);
+    color: var (--gray-600);
 }
 
 /* Badge styling for invitation count */
@@ -1154,4 +1169,50 @@
     .team-card:hover {
         transform: none;
     }
+}
+
+/* Past team styles */
+.past-team-cards {
+    display: grid;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.team-card.past {
+    background-color: var(--bg-light);
+    border-left: 4px solid var(--gray-400);
+}
+
+.team-card-body.single-column {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.past-team-details {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-md);
+}
+
+.member-avatars {
+    display: flex;
+    align-items: center;
+    margin-top: var(--space-xs);
+}
+
+.member-avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-circle);
+    border: 2px solid white;
+    margin-right: -10px;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+}
+
+.member-avatars img:hover {
+    transform: translateY(-3px) scale(1.1);
+    z-index: 5;
 }
