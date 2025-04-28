@@ -61,10 +61,14 @@
   background: linear-gradient(135deg, var(--color-primary-light), rgba(99, 91, 255, 0.1));
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   z-index: -1;
+  opacity: 0.9; /* Reduce opacity to avoid flash */
+  animation: fadeIn 0.3s ease-out; /* Smoother fade-in to prevent flash */
 }
 
 .teams-header__text {
   max-width: 700px;
+  position: relative;
+  z-index: 1; /* Ensure text remains above background */
 }
 
 .teams-header__text h2 {
