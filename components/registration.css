@@ -1,234 +1,190 @@
 /* Registration Page Specific Styles */
 
-.registration-layout {
+/* Use split layout like in index.html */
+.split-layout {
     display: flex;
     min-height: 100vh;
+    overflow: hidden;
 }
 
-.registration-sidebar {
-    flex: 0 0 45%;
-    background-color: #4f46e5;
+/* Info panel (left side) */
+.info-panel {
+    display: none;
+    flex: 1;
+    background: linear-gradient(135deg, #4f46e5 0%, #7e22ce 100%);
     color: white;
     position: relative;
     overflow: hidden;
-    display: none; /* Hidden on mobile */
 }
 
-.registration-sidebar::before {
-    content: '';
+.info-panel::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../assets/images/registration-bg.svg');
+    background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
     background-size: cover;
-    opacity: 0.1;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
 }
 
-.registration-sidebar__content {
+.info-content {
     position: relative;
-    padding: 4rem;
+    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
 }
 
-.registration-sidebar .logo {
-    margin-bottom: 4rem;
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-.registration-sidebar .logo a {
+.logo i {
+    font-size: 2rem;
+    margin-right: 0.75rem;
+}
+
+.info-panel h1 {
     color: white;
+    margin: 0;
+    font-size: 1.75rem;
 }
 
-.registration-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.info-text {
+    max-width: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.registration-info h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
+.info-panel h2 {
+    color: white;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
+    text-align: left;
 }
 
-.registration-info p {
+.info-panel p {
     font-size: 1.125rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
+    max-width: 90%;
+    text-align: left;
 }
 
-.registration-features {
+.features {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 1.25rem;
 }
 
 .feature {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center;
 }
 
-.feature__icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+.feature i {
+    font-size: 1.125rem;
+    margin-right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
 }
 
-.feature__content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.feature__content p {
+.feature span {
     font-size: 1rem;
-    margin-bottom: 0;
-    opacity: 0.8;
+    font-weight: 500;
 }
 
-.testimonials {
-    margin-top: auto;
-}
-
-.testimonial {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
+/* Auth panel (right side) */
+.auth-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1.5rem;
 }
 
-.testimonial__quote {
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.auth-header {
+    text-align: center;
     margin-bottom: 1rem;
-    font-style: italic;
-    opacity: 0.9;
 }
 
-.testimonial__author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.testimonial__author .avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-}
-
-.testimonial__name {
-    font-weight: 600;
-    margin: 0;
-}
-
-.testimonial__title {
-    font-size: 0.875rem;
-    margin: 0;
-    opacity: 0.8;
-}
-
-.registration-container {
-    flex: 1;
-    padding: 2rem;
-    overflow-y: auto;
-    max-width: 768px;
-    margin: 0 auto;
-}
-
-.registration-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-}
-
-.registration-header__account {
-    font-size: 0.875rem;
-    color: #6b7280;
-}
-
-.registration-header__account a {
-    color: #4f46e5;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.registration-header__account a:hover {
-    text-decoration: underline;
-}
-
-.registration-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.registration-form h1 {
-    font-size: 2rem;
+.auth-header h2 {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: #111827;
+    margin-bottom: 0.25rem;
 }
 
-.form-description {
+.auth-header p {
     color: #6b7280;
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
 }
 
-.social-auth {
+.oauth-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 
-.btn--social {
+.btn-oauth {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    width: 100%;
-    padding: 0.75rem 1.5rem;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.2s;
+    border: 1px solid #e5e7eb;
+    font-size: 0.85rem;
 }
 
-.btn--github {
+.btn-github {
     background-color: #24292e;
     color: white;
 }
 
-.btn--github:hover {
+.btn-github:hover {
     background-color: #1a1e22;
 }
 
-.btn--google {
+.btn-google {
     background-color: white;
     color: #111827;
-    border: 1px solid #e5e7eb;
 }
 
-.btn--google:hover {
+.btn-google:hover {
     background-color: #f9fafb;
 }
 
-.form-divider {
-    position: relative;
+.divider {
     text-align: center;
-    margin: 2rem 0;
+    margin: 0.75rem 0;
+    position: relative;
 }
 
-.form-divider::before {
+.divider::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -238,7 +194,7 @@
     background-color: #e5e7eb;
 }
 
-.form-divider span {
+.divider span {
     position: relative;
     display: inline-block;
     padding: 0 1rem;
@@ -247,37 +203,67 @@
     font-size: 0.875rem;
 }
 
-.form__row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+.auth-form {
+    display: none;
 }
 
-.form__group {
-    margin-bottom: 1.5rem;
-}
-
-.form__group label {
+.auth-form.active {
     display: block;
-    margin-bottom: 0.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 0.75rem;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
     font-weight: 500;
     color: #374151;
+    font-size: 0.85rem;
 }
 
-.form__group input {
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field i {
+    position: absolute;
+    left: 0.75rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.input-field input,
+.input-field select,
+.input-field textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.65rem;
+    padding-left: 2.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #111827;
+    background-color: white;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: border-color 0.2s;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form__group input:focus {
-    outline: none;
+.input-field input:focus,
+.input-field select:focus,
+.input-field textarea:focus {
     border-color: #4f46e5;
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .password-field {
@@ -287,93 +273,216 @@
 .password-toggle {
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 0.75rem;
     transform: translateY(-50%);
     background: none;
     border: none;
     color: #6b7280;
     cursor: pointer;
+    z-index: 2;
 }
 
 .password-meter {
-    margin-top: 0.5rem;
+    margin: 0.15rem 0 0.75rem;
 }
 
-.password-meter__bar {
+.password-meter-bar {
     height: 4px;
     background-color: #e5e7eb;
     border-radius: 2px;
     overflow: hidden;
 }
 
-.password-meter__progress {
+.password-meter-fill {
     height: 100%;
     width: 0;
     background-color: #e5e7eb;
     transition: width 0.3s, background-color 0.3s;
 }
 
-.password-meter__label {
+.password-meter-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #6b7280;
-    margin-top: 0.25rem;
+    margin-top: 0.15rem;
+}
+
+.role-section {
+    margin-bottom: 0.75rem;
+}
+
+.role-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.85rem;
+}
+
+.role-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.role-option {
+    position: relative;
+}
+
+.role-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.role-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0.25rem;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    height: 100%;
+    font-size: 0.75rem;
+}
+
+.role-option input[type="radio"]:checked + label {
+    background-color: #eff6ff;
+    border-color: #4f46e5;
+}
+
+.role-option label i {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #6b7280;
+}
+
+.role-option input[type="radio"]:checked + label i {
+    color: #4f46e5;
+}
+
+.terms-section, 
+.marketing-section {
+    margin-bottom: 0.75rem;
 }
 
 .checkbox {
     display: flex;
-    align-items: start;
-    gap: 0.75rem;
+    align-items: flex-start;
+    gap: 0.4rem;
+    cursor: pointer;
 }
 
-.checkbox input {
-    width: 1rem;
-    height: 1rem;
-    margin-top: 0.25rem;
+.checkbox input[type="checkbox"] {
+    margin-top: 0.2rem;
 }
 
-.checkbox label {
-    margin-bottom: 0;
-    font-size: 0.875rem;
-    line-height: 1.5;
+.checkbox span {
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
-.checkbox label a {
+.checkbox span a {
     color: #4f46e5;
     text-decoration: none;
 }
 
-.checkbox label a:hover {
+.checkbox span a:hover {
     text-decoration: underline;
 }
 
-.form__actions {
-    margin-top: 2rem;
-}
-
-.btn--full {
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
     width: 100%;
 }
 
-.btn--large {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+.btn-primary {
+    background-color: #4f46e5;
+    color: white;
 }
 
-/* Add margin to main form on large screens */
-@media (min-width: 768px) {
-    .registration-form {
-        padding: 0 4rem;
-    }
+.btn-primary:hover {
+    background-color: #4338ca;
 }
 
-/* Show sidebar on larger screens */
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.form-footer a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.has-error .input-field input,
+.has-error .input-field select,
+.has-error .input-field textarea {
+    border-color: #ef4444;
+}
+
+.alert {
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background-color: #ecfdf5;
+    color: #10b981;
+    border: 1px solid #a7f3d0;
+}
+
+.alert i {
+    font-size: 1.1rem;
+}
+
+/* Responsive styling */
 @media (min-width: 1024px) {
-    .registration-sidebar {
+    .info-panel {
         display: block;
     }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
     
-    .registration-container {
-        flex: 0 0 55%;
+    .role-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .oauth-buttons {
+        grid-template-columns: 1fr;
     }
 }

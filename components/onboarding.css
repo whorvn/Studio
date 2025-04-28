@@ -1,13 +1,13 @@
 /* Base styles */
 :root {
-  --primary: #3b82f6;
-  --primary-light: #93c5fd;
-  --primary-dark: #2563eb;
-  --secondary: #8b5cf6;
-  --accent: #10b981;
-  --success: #34d399;
-  --warning: #fbbf24;
-  --error: #f87171;
+  --primary: #4361ee;
+  --primary-light: #4895ef;
+  --primary-dark: #3a0ca3;
+  --secondary: #7209b7;
+  --accent: #f72585;
+  --success: #43aa8b;
+  --warning: #f9c74f;
+  --error: #f94144;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -709,11 +709,11 @@
 /* Responsive styles */
 @media (max-width: 768px) {
     .onboarding-steps {
-        display: none;
+        margin: 0 1rem;
     }
     
     .step__label {
-        display: none;
+        font-size: 0.7rem;
     }
     
     .form__row {
@@ -757,6 +757,14 @@
     
     .proficiency-levels {
         width: 100%;
+    }
+    
+    .social-links .form__group {
+        margin-bottom: 1rem;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }
 
@@ -1198,4 +1206,133 @@
 
 .skill-chip.new {
   animation: fadeIn 0.3s ease forwards;
+}
+
+/* Social links section */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social-links .input-with-icon {
+    margin-bottom: 0.5rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-top: 0.25rem;
+}
+
+/* Checkbox group from auth.css */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Tags input from auth.css */
+.tags-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    background-color: white;
+    min-height: 3.5rem;
+    align-items: center;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-light);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+.tag i {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.tag-input {
+    flex: 1;
+    min-width: 100px;
+    border: none;
+    outline: none;
+    padding: 0.5rem 0;
+    color: var(--gray-800);
+}
+
+/* Tooltip from auth.css */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 0.25rem;
+}
+
+.tooltip i {
+    color: var(--gray-500);
+    font-size: 0.875rem;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--gray-800);
+    color: white;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--gray-800) transparent transparent transparent;
 }

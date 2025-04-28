@@ -42,6 +42,10 @@
                     </div>
                     <div class="step" data-step="5">
                         <div class="step__circle"></div>
+                        <div class="step__label">Links</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step__circle"></div>
                         <div class="step__label">Complete</div>
                     </div>
                 </div>
@@ -202,7 +206,18 @@
                                 
                                 <div class="skills-suggestions">
                                     <h3>Popular Skills</h3>
-                                    <div class="skill-chips" id="suggestedSkills"></div>
+                                    <div class="skill-chips" id="suggestedSkills">
+                                        <span class="skill-chip">JavaScript</span>
+                                        <span class="skill-chip">React</span>
+                                        <span class="skill-chip">Node.js</span>
+                                        <span class="skill-chip">Python</span>
+                                        <span class="skill-chip">UI/UX</span>
+                                        <span class="skill-chip">Flutter</span>
+                                        <span class="skill-chip">AWS</span>
+                                        <span class="skill-chip">Docker</span>
+                                        <span class="skill-chip">Firebase</span>
+                                        <span class="skill-chip">TypeScript</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -216,6 +231,36 @@
                                     <i class="fas fa-chart-bar"></i>
                                     <p>Add skills above to rate your proficiency level.</p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-card">
+                            <h2 class="form-card__title">Soft Skills</h2>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="teamwork"> Teamwork
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="communication"> Communication
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="leadership"> Leadership
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="problem-solving"> Problem-solving
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="time-management"> Time Management
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="adaptability"> Adaptability
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="creativity"> Creativity
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="soft-skills" value="critical-thinking"> Critical Thinking
+                                </label>
                             </div>
                         </div>
 
@@ -458,8 +503,80 @@
                 </div>
             </div>
 
-            <!-- Step 5: Complete -->
+            <!-- Step 5: Social Links (New Section) -->
             <div class="step-container" id="step-5">
+                <div class="step-header">
+                    <h1>Social & Professional Links</h1>
+                    <p>Add links to your profiles so team members can learn more about you</p>
+                </div>
+                
+                <div class="onboarding-form">
+                    <form class="form">
+                        <div class="form-card">
+                            <div class="social-links">
+                                <div class="form__group">
+                                    <label for="github">GitHub Profile</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-github"></i>
+                                        <input type="text" id="github" name="github" placeholder="https://github.com/username">
+                                    </div>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="linkedin">LinkedIn Profile</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-linkedin"></i>
+                                        <input type="text" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                                    </div>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="portfolio">Portfolio/Personal Website</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-globe"></i>
+                                        <input type="text" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com">
+                                    </div>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="twitter">Twitter/X</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-twitter"></i>
+                                        <input type="text" id="twitter" name="twitter" placeholder="https://twitter.com/username">
+                                    </div>
+                                </div>
+                                
+                                <div class="form__group">
+                                    <label for="dribbble">Dribbble</label>
+                                    <div class="input-with-icon">
+                                        <i class="fab fa-dribbble"></i>
+                                        <input type="text" id="dribbble" name="dribbble" placeholder="https://dribbble.com/username">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="profile-visibility" checked>
+                                    <span>Make my profile visible to other hackathon participants</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn--outline" data-direction="prev">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn--primary" data-direction="next">
+                                Complete Profile <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 6: Complete (Updated) -->
+            <div class="step-container" id="step-6">
                 <div class="completion">
                     <div class="completion__icon">
                         <i class="fas fa-check-circle"></i>
@@ -491,18 +608,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Success Popup -->
-            <div class="success-popup" id="successPopup">
-                <div class="success-popup__content">
-                    <div class="success-popup__icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h2>Profile Complete!</h2>
-                    <p>Your profile has been successfully created and you're ready to start exploring hackathons.</p>
-                    <button class="btn btn--primary btn--full" id="successPopupBtn">Let's Get Started</button>
-                </div>
-            </div>
         </main>
     </div>
 
@@ -513,9 +618,8 @@
             const stepContainers = document.querySelectorAll('.step-container');
             const progressBar = document.querySelector('.progress');
             const navigationBtns = document.querySelectorAll('[data-direction]');
-            const successPopup = document.getElementById('successPopup');
-            const successPopupBtn = document.getElementById('successPopupBtn');
             let currentStep = 2; // Starting with Profile (step 2)
+            const totalSteps = 6; // Updated total steps
             
             // Character counter for bio
             const bioTextarea = document.getElementById('bio');
@@ -542,16 +646,9 @@
                     const direction = this.getAttribute('data-direction');
                     
                     if (direction === 'next') {
-                        if (currentStep < 5) {
+                        if (currentStep < totalSteps) {
                             currentStep++;
                             updateStepDisplay();
-                        }
-                        
-                        // Show success popup when completing the final step
-                        if (currentStep === 5) {
-                            setTimeout(() => {
-                                successPopup.classList.add('show');
-                            }, 1000);
                         }
                     } else if (direction === 'prev') {
                         if (currentStep > 1) {
@@ -561,13 +658,6 @@
                     }
                 });
             });
-            
-            // Success popup button
-            if (successPopupBtn) {
-                successPopupBtn.addEventListener('click', function() {
-                    window.location.href = 'dashboard.html';
-                });
-            }
             
             // Function to update the display based on current step
             function updateStepDisplay() {
@@ -588,7 +678,7 @@
                 });
                 
                 // Update progress bar
-                const progressPercent = ((currentStep - 1) / 4) * 100;
+                const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
                 progressBar.style.width = `${progressPercent}%`;
                 
                 // Show current step container, hide others
@@ -609,38 +699,142 @@
                 });
             }
             
-            // Additional UI functions for skills section
-            const addSkillBtn = document.querySelector('.add-skill-btn');
-            const otherSkillsInput = document.getElementById('otherSkills');
+            // Skills selection functionality
+            const suggestedSkills = document.querySelectorAll('#suggestedSkills .skill-chip');
+            const selectedSkills = document.getElementById('selectedSkills');
+            const emptySkillsState = document.getElementById('emptySkillsState');
+            const skillCount = document.getElementById('skillCount');
+            const skillProficiency = document.getElementById('skillProficiency');
+            const addCustomSkill = document.getElementById('addCustomSkill');
+            const skillSearch = document.getElementById('skillSearch');
             
-            if (addSkillBtn && otherSkillsInput) {
-                addSkillBtn.addEventListener('click', function() {
-                    const inputValue = otherSkillsInput.value.trim();
-                    if (inputValue) {
-                        const skills = inputValue.split(',').map(skill => skill.trim()).filter(skill => skill);
-                        
-                        const skillsSection = document.querySelector('.skills-section:last-child .skill-tags');
-                        if (skillsSection) {
-                            skills.forEach(skill => {
-                                const skillId = `skill-${skill.toLowerCase().replace(/\s+/g, '-')}`;
-                                
-                                // Check if skill already exists
-                                if (!document.getElementById(skillId)) {
-                                    const skillTag = document.createElement('div');
-                                    skillTag.className = 'skill-tag';
-                                    skillTag.innerHTML = `
-                                        <input type="checkbox" id="${skillId}" name="skills[]" value="${skill}" checked>
-                                        <label for="${skillId}">${skill}</label>
-                                    `;
-                                    skillsSection.appendChild(skillTag);
-                                }
-                            });
-                            
-                            // Clear input
-                            otherSkillsInput.value = '';
-                        }
-                    }
+            if (suggestedSkills && selectedSkills) {
+                // Click on suggested skills to select them
+                suggestedSkills.forEach(skill => {
+                    skill.addEventListener('click', function() {
+                        const skillText = this.textContent;
+                        addSkill(skillText);
+                    });
                 });
+                
+                // Add custom skill
+                if (addCustomSkill && skillSearch) {
+                    addCustomSkill.addEventListener('click', function() {
+                        const skillText = skillSearch.value.trim();
+                        if (skillText) {
+                            addSkill(skillText);
+                            skillSearch.value = '';
+                        }
+                    });
+                    
+                    // Add skill on enter key
+                    skillSearch.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            const skillText = this.value.trim();
+                            if (skillText) {
+                                addSkill(skillText);
+                                this.value = '';
+                            }
+                        }
+                    });
+                }
+                
+                function addSkill(skillText) {
+                    // Check if skill already exists
+                    const existingSkills = Array.from(selectedSkills.children).map(chip => 
+                        chip.textContent.trim().toLowerCase()
+                    );
+                    
+                    if (existingSkills.includes(skillText.toLowerCase())) {
+                        return;
+                    }
+                    
+                    // Hide empty state if it's the first skill
+                    if (existingSkills.length === 0 && emptySkillsState) {
+                        emptySkillsState.style.display = 'none';
+                    }
+                    
+                    // Create new skill chip
+                    const skillChip = document.createElement('span');
+                    skillChip.className = 'skill-chip selected new';
+                    skillChip.innerHTML = `${skillText} <i class="fas fa-times"></i>`;
+                    
+                    // Add delete handler
+                    skillChip.querySelector('i').addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        selectedSkills.removeChild(skillChip);
+                        updateSkillCount();
+                        updateProficiencySection();
+                        
+                        // Show empty state if no skills left
+                        if (selectedSkills.children.length === 0 && emptySkillsState) {
+                            emptySkillsState.style.display = 'block';
+                        }
+                    });
+                    
+                    selectedSkills.appendChild(skillChip);
+                    updateSkillCount();
+                    updateProficiencySection();
+                }
+                
+                function updateSkillCount() {
+                    if (skillCount) {
+                        const count = selectedSkills.children.length;
+                        skillCount.textContent = `(${count})`;
+                    }
+                }
+                
+                function updateProficiencySection() {
+                    if (!skillProficiency) return;
+                    
+                    const skills = Array.from(selectedSkills.children).map(chip => 
+                        chip.textContent.trim().replace(/\s*×\s*$/, '')
+                    );
+                    
+                    if (skills.length === 0) {
+                        skillProficiency.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Add skills above to rate your proficiency level.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    let html = '';
+                    
+                    // Limit to top 5 skills
+                    const topSkills = skills.slice(0, 5);
+                    
+                    topSkills.forEach((skill, index) => {
+                        html += `
+                            <div class="proficiency-item" data-skill="${skill}">
+                                <div class="proficiency-name">${skill}</div>
+                                <div class="proficiency-levels levels-4">
+                                    <div class="proficiency-level">
+                                        <input type="radio" name="proficiency-${index}" id="proficiency-${index}-1" value="1">
+                                        <label for="proficiency-${index}-1">Beginner</label>
+                                    </div>
+                                    <div class="proficiency-level">
+                                        <input type="radio" name="proficiency-${index}" id="proficiency-${index}-2" value="2" checked>
+                                        <label for="proficiency-${index}-2">Intermediate</label>
+                                    </div>
+                                    <div class="proficiency-level">
+                                        <input type="radio" name="proficiency-${index}" id="proficiency-${index}-3" value="3">
+                                        <label for="proficiency-${index}-3">Advanced</label>
+                                    </div>
+                                    <div class="proficiency-level">
+                                        <input type="radio" name="proficiency-${index}" id="proficiency-${index}-4" value="4">
+                                        <label for="proficiency-${index}-4">Expert</label>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    skillProficiency.innerHTML = html;
+                }
             }
         });
     </script>
