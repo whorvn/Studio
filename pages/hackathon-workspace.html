@@ -115,31 +115,62 @@
             </header>
             
             <div class="workspace-container">
-                <!-- Workspace Header Banner -->
-                <div class="workspace-header">
+                <!-- Workspace Header Banner - Enhanced Design -->
+                <div class="workspace-header workspace-header--modern">
                     <div class="workspace-header__bg"></div>
                     <div class="workspace-header__content">
                         <div class="workspace-header__info">
                             <div class="workspace-logo">
                                 <img src="https://source.unsplash.com/random/80x80/?tech,code" alt="AI Innovation Challenge" class="hackathon-logo">
+                                <span class="status-badge active"><i class="fas fa-circle"></i> Active</span>
                             </div>
                             <div class="workspace-title">
                                 <h1>AI Innovation Challenge</h1>
                                 <div class="workspace-meta">
-                                    <span class="status-badge active"><i class="fas fa-circle"></i> Active</span>
-                                    <span class="time-left"><i class="fas fa-clock"></i> <span id="countdown">38 hours left</span></span>
-                                    <span class="organization"><i class="fas fa-building"></i> Tech Future Foundation</span>
-                                    <span class="format"><i class="fas fa-map-marker-alt"></i> Hybrid</span>
+                                    <div class="meta-item-group">
+                                        <div class="meta-item priority">
+                                            <i class="fas fa-clock"></i>
+                                            <div>
+                                                <strong id="countdown">38 hours left</strong>
+                                                <span class="meta-item-label">Remaining</span>
+                                            </div>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-building"></i>
+                                            <div>
+                                                <strong>Tech Future Foundation</strong>
+                                                <span class="meta-item-label">Organizer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item-group">
+                                        <div class="meta-item">
+                                            <i class="fas fa-map-marker-alt"></i> 
+                                            <div>
+                                                <strong>Hybrid</strong>
+                                                <span class="meta-item-label">Format</span>
+                                            </div>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="fas fa-trophy"></i>
+                                            <div>
+                                                <strong>$50,000</strong>
+                                                <span class="meta-item-label">Prize Pool</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="workspace-progress">
-                            <div class="progress-label">
-                                <span>Hackathon Progress</span>
-                                <span id="progress-percent">65%</span>
-                            </div>
-                            <div class="progress-track">
-                                <div class="progress-fill" style="width: 65%;"></div>
+                        <div class="workspace-progress-container">
+                            <div class="workspace-progress">
+                                <div class="progress-label">
+                                    <span>Hackathon Progress</span>
+                                    <span id="progress-percent">65%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" style="width: 65%;"></div>
+                                </div>
                             </div>
                             <div class="hackathon-timeline">
                                 <div class="timeline-point start">
@@ -187,181 +218,252 @@
                 <div class="workspace-content">
                     <!-- Overview Tab Content -->
                     <div class="tab-content active" id="overview-tab">
-                        <div class="workspace-grid">
-                            <!-- Project Info Card -->
-                            <div class="workspace-card">
-                                <div class="workspace-card-header">
-                                    <h2>Project Information</h2>
-                                    <button class="btn-icon" title="Edit Project Info">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
+                        <div class="workspace-dashboard">
+                            <!-- Main Area -->
+                            <div class="dashboard-main">
+                                <!-- Project Info Card - Featured Card -->
+                                <div class="workspace-card featured-card">
+                                    <div class="workspace-card-header">
+                                        <h2>Project Information</h2>
+                                        <button class="btn-icon" title="Edit Project Info">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
+                                    <div class="workspace-card-body">
+                                        <div class="project-info">
+                                            <div class="info-item">
+                                                <h3>DESCRIPTION</h3>
+                                                <p>Create an innovative AI-powered solution that addresses a real-world problem in healthcare, education, or environmental sustainability.</p>
+                                            </div>
+                                            <div class="info-item">
+                                                <h3>OBJECTIVES</h3>
+                                                <ul>
+                                                    <li>Develop a working prototype integrating AI/ML capabilities</li>
+                                                    <li>Clearly demonstrate the potential impact of your solution</li>
+                                                    <li>Create a compelling presentation for the final demo</li>
+                                                </ul>
+                                            </div>
+                                            <div class="info-item">
+                                                <h3>TECHNOLOGIES</h3>
+                                                <div class="tag-list">
+                                                    <span class="tag">TensorFlow</span>
+                                                    <span class="tag">PyTorch</span>
+                                                    <span class="tag">OpenAI API</span>
+                                                    <span class="tag">React</span>
+                                                    <span class="tag">Node.js</span>
+                                                    <span class="tag">Flask</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="workspace-card-body">
-                                    <div class="project-info">
-                                        <div class="info-item">
-                                            <h3>DESCRIPTION</h3>
-                                            <p>Create an innovative AI-powered solution that addresses a real-world problem in healthcare, education, or environmental sustainability.</p>
+
+                                <!-- Stats Cards Row -->
+                                <div class="stats-row">
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-code-branch"></i>
                                         </div>
-                                        <div class="info-item">
-                                            <h3>OBJECTIVES</h3>
-                                            <ul>
-                                                <li>Develop a working prototype integrating AI/ML capabilities</li>
-                                                <li>Clearly demonstrate the potential impact of your solution</li>
-                                                <li>Create a compelling presentation for the final demo</li>
-                                            </ul>
+                                        <div class="stat-content">
+                                            <h4>42</h4>
+                                            <p>Commits</p>
                                         </div>
-                                        <div class="info-item">
-                                            <h3>TECHNOLOGIES</h3>
-                                            <div class="tag-list">
-                                                <span class="tag">TensorFlow</span>
-                                                <span class="tag">PyTorch</span>
-                                                <span class="tag">OpenAI API</span>
-                                                <span class="tag">React</span>
-                                                <span class="tag">Node.js</span>
-                                                <span class="tag">Flask</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h4>8/12</h4>
+                                            <p>Tasks</p>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h4>24</h4>
+                                            <p>Messages</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Recent Activity Card -->
+                                <div class="workspace-card">
+                                    <div class="workspace-card-header">
+                                        <h2>Recent Activity</h2>
+                                        <button class="btn-icon btn-refresh" title="Refresh">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                    <div class="workspace-card-body">
+                                        <div class="activity-list">
+                                            <div class="activity-item">
+                                                <div class="activity-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                </div>
+                                                <div class="activity-content">
+                                                    <p><strong>Sarah Chen</strong> uploaded the ML model documentation</p>
+                                                    <span class="activity-time">Just now</span>
+                                                </div>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
+                                                </div>
+                                                <div class="activity-content">
+                                                    <p><strong>Mike Peters</strong> updated the frontend repository</p>
+                                                    <span class="activity-time">2 hours ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                </div>
+                                                <div class="activity-content">
+                                                    <p><strong>Alex Johnson</strong> created a new milestone</p>
+                                                    <span class="activity-time">Yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="activity-item">
+                                                <div class="activity-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
+                                                </div>
+                                                <div class="activity-content">
+                                                    <p><strong>Emma Wilson</strong> shared UI design files</p>
+                                                    <span class="activity-time">2 days ago</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Team Overview Card -->
-                            <div class="workspace-card">
-                                <div class="workspace-card-header">
-                                    <h2>Team Members</h2>
-                                    <a href="#team" class="link-text">View All</a>
-                                </div>
-                                <div class="workspace-card-body">
-                                    <div class="member-grid">
-                                        <div class="member-card">
-                                            <div class="member-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+
+                            <!-- Sidebar Area -->
+                            <div class="dashboard-sidebar">
+                                <!-- Team Members Card -->
+                                <div class="workspace-card">
+                                    <div class="workspace-card-header">
+                                        <h2>Team Members</h2>
+                                        <a href="#team" class="link-text">View All</a>
+                                    </div>
+                                    <div class="workspace-card-body">
+                                        <div class="member-list">
+                                            <div class="member-card">
+                                                <div class="member-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                    <span class="status-dot online"></span>
+                                                </div>
+                                                <div class="member-info">
+                                                    <h4>Alex Johnson</h4>
+                                                    <p>Team Lead</p>
+                                                </div>
                                             </div>
-                                            <div class="member-info">
-                                                <h4>Alex Johnson</h4>
-                                                <p>Team Lead</p>
+                                            <div class="member-card">
+                                                <div class="member-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                    <span class="status-dot online"></span>
+                                                </div>
+                                                <div class="member-info">
+                                                    <h4>Sarah Chen</h4>
+                                                    <p>ML Engineer</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="member-card">
-                                            <div class="member-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                            <div class="member-card">
+                                                <div class="member-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
+                                                    <span class="status-dot offline"></span>
+                                                </div>
+                                                <div class="member-info">
+                                                    <h4>Mike Peters</h4>
+                                                    <p>Frontend Dev</p>
+                                                </div>
                                             </div>
-                                            <div class="member-info">
-                                                <h4>Sarah Chen</h4>
-                                                <p>ML Engineer</p>
-                                            </div>
-                                        </div>
-                                        <div class="member-card">
-                                            <div class="member-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
-                                            </div>
-                                            <div class="member-info">
-                                                <h4>Mike Peters</h4>
-                                                <p>Frontend Dev</p>
-                                            </div>
-                                        </div>
-                                        <div class="member-card">
-                                            <div class="member-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
-                                            </div>
-                                            <div class="member-info">
-                                                <h4>Emma Wilson</h4>
-                                                <p>UX Designer</p>
+                                            <div class="member-card">
+                                                <div class="member-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
+                                                    <span class="status-dot away"></span>
+                                                </div>
+                                                <div class="member-info">
+                                                    <h4>Emma Wilson</h4>
+                                                    <p>UX Designer</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- Upcoming Events Card -->
-                            <div class="workspace-card">
-                                <div class="workspace-card-header">
-                                    <h2>Upcoming Events</h2>
-                                    <button class="btn-icon" title="Add Event">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <div class="workspace-card-body">
-                                    <div class="events-list">
-                                        <div class="event-item">
-                                            <div class="event-time">
-                                                <span class="event-date">15</span>
-                                                <span class="event-month">Nov</span>
+                                
+                                <!-- Upcoming Events Card -->
+                                <div class="workspace-card">
+                                    <div class="workspace-card-header">
+                                        <h2>Upcoming Events</h2>
+                                        <button class="btn-icon" title="Add Event">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="workspace-card-body">
+                                        <div class="events-list">
+                                            <div class="event-item">
+                                                <div class="event-time">
+                                                    <span class="event-date">15</span>
+                                                    <span class="event-month">Nov</span>
+                                                </div>
+                                                <div class="event-info">
+                                                    <h4>Midpoint Check-in</h4>
+                                                    <p>Present your progress to mentors</p>
+                                                    <span class="event-time-detail">3:00 PM - 4:30 PM</span>
+                                                </div>
                                             </div>
-                                            <div class="event-info">
-                                                <h4>Midpoint Check-in</h4>
-                                                <p>Present your progress to mentors</p>
-                                                <span class="event-time-detail">3:00 PM - 4:30 PM</span>
+                                            <div class="event-item">
+                                                <div class="event-time">
+                                                    <span class="event-date">18</span>
+                                                    <span class="event-month">Nov</span>
+                                                </div>
+                                                <div class="event-info">
+                                                    <h4>Technical Workshop</h4>
+                                                    <p>AI Integration Best Practices</p>
+                                                    <span class="event-time-detail">1:00 PM - 3:00 PM</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="event-item">
-                                            <div class="event-time">
-                                                <span class="event-date">18</span>
-                                                <span class="event-month">Nov</span>
-                                            </div>
-                                            <div class="event-info">
-                                                <h4>Technical Workshop</h4>
-                                                <p>AI Integration Best Practices</p>
-                                                <span class="event-time-detail">1:00 PM - 3:00 PM</span>
-                                            </div>
-                                        </div>
-                                        <div class="event-item">
-                                            <div class="event-time">
-                                                <span class="event-date">22</span>
-                                                <span class="event-month">Nov</span>
-                                            </div>
-                                            <div class="event-info">
-                                                <h4>Final Submission Deadline</h4>
-                                                <p>Submit your project for judging</p>
-                                                <span class="event-time-detail">11:59 PM</span>
+                                            <div class="event-item next-priority">
+                                                <div class="event-time">
+                                                    <span class="event-date">22</span>
+                                                    <span class="event-month">Nov</span>
+                                                </div>
+                                                <div class="event-info">
+                                                    <h4>Final Submission Deadline</h4>
+                                                    <p>Submit your project for judging</p>
+                                                    <span class="event-time-detail">11:59 PM</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- Recent Activity Card -->
-                            <div class="workspace-card">
-                                <div class="workspace-card-header">
-                                    <h2>Recent Activity</h2>
-                                </div>
-                                <div class="workspace-card-body">
-                                    <div class="activity-list">
-                                        <div class="activity-item">
-                                            <div class="activity-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                            </div>
-                                            <div class="activity-content">
-                                                <p><strong>Sarah Chen</strong> uploaded the ML model documentation</p>
-                                                <span class="activity-time">Just now</span>
-                                            </div>
-                                        </div>
-                                        <div class="activity-item">
-                                            <div class="activity-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
-                                            </div>
-                                            <div class="activity-content">
-                                                <p><strong>Mike Peters</strong> updated the frontend repository</p>
-                                                <span class="activity-time">2 hours ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="activity-item">
-                                            <div class="activity-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                            </div>
-                                            <div class="activity-content">
-                                                <p><strong>Alex Johnson</strong> created a new milestone</p>
-                                                <span class="activity-time">Yesterday</span>
-                                            </div>
-                                        </div>
-                                        <div class="activity-item">
-                                            <div class="activity-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
-                                            </div>
-                                            <div class="activity-content">
-                                                <p><strong>Emma Wilson</strong> shared UI design files</p>
-                                                <span class="activity-time">2 days ago</span>
-                                            </div>
+
+                                <!-- Quick Actions Card -->
+                                <div class="workspace-card quick-actions">
+                                    <div class="workspace-card-header">
+                                        <h2>Quick Actions</h2>
+                                    </div>
+                                    <div class="workspace-card-body">
+                                        <div class="action-buttons">
+                                            <button class="action-btn">
+                                                <i class="fas fa-file-upload"></i>
+                                                <span>Upload Files</span>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i class="fas fa-tasks"></i>
+                                                <span>Add Tasks</span>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i class="fas fa-user-plus"></i>
+                                                <span>Invite Member</span>
+                                            </button>
+                                            <button class="action-btn">
+                                                <i class="fas fa-calendar-plus"></i>
+                                                <span>Schedule Meeting</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
