@@ -563,7 +563,7 @@
                                         
                                         <div class="team-member-section">
                                             <h4>Current Tasks</h4>
-                                            <div class="member-tasks">
+                                            <div class="member-ttasks">
                                                 <div class="task-item">
                                                     <div class="task-status completed"></div>
                                                     <div class="task-name">Setup project architecture</div>
@@ -879,397 +879,437 @@
                         </div>
                     </div>
                     
-                    <!-- Resources Tab Content - Improved Design -->
+                    <!-- Resources Tab Content -->
                     <div class="tab-content" id="resources-tab">
-                        <div class="resources-dashboard">
-                            <!-- Resources Header -->
-                            <div class="resources-header">
-                                <div class="resources-header-left">
-                                    <h2>Project Resources</h2>
-                                    <div class="search-container">
-                                        <i class="fas fa-search search-icon"></i>
-                                        <input type="text" class="search-input" placeholder="Search resources...">
-                                    </div>
-                                </div>
-                                <div class="resources-header-right">
-                                    <button class="btn btn-outline btn-with-icon" id="filterBtn">
-                                        <i class="fas fa-filter"></i>
-                                        <span>Filter</span>
+                        <div class="tab-header">
+                            <div class="tab-header-title">
+                                <h2>Project Resources</h2>
+                                <p class="tab-subtitle">Access and manage all project assets, documents, and links</p>
+                            </div>
+                            <div class="tab-actions">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline dropdown-toggle">
+                                        <i class="fas fa-sort"></i> Sort by
                                     </button>
-                                    <button class="btn btn-primary btn-with-icon" id="uploadBtn">
-                                        <i class="fas fa-upload"></i>
-                                        <span>Upload</span>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item">Recently Added</a>
+                                        <a href="#" class="dropdown-item">Name A-Z</a>
+                                        <a href="#" class="dropdown-item">Name Z-A</a>
+                                        <a href="#" class="dropdown-item">File Size</a>
+                                        <a href="#" class="dropdown-item">File Type</a>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-primary" id="uploadBtn">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="resources-categories">
+                            <button class="resource-category active">All Resources</button>
+                            <button class="resource-category">Designs</button>
+                            <button class="resource-category">Code</button>
+                            <button class="resource-category">Documents</button>
+                            <button class="resource-category">Links</button>
+                        </div>
+                        
+                        <div class="resources-container">
+                            <div class="resources-list">
+                                <div class="resource-category-header">
+                                    <h3><i class="fas fa-palette"></i> Design Files</h3>
+                                    <button class="btn-icon" title="Add Design File">
+                                        <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
+                                
+                                <div class="resource-grid">
+                                    <!-- Design resource items -->
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail design">
+                                            <div class="resource-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?ui,design')">
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-file-image"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">UI Wireframes.fig</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">5.2 MB</span>
+                                                    <span class="resource-date">Updated 2 days ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail design">
+                                            <div class="resource-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?mockup')">
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-file-image"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">App Mockups v2.psd</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">12.7 MB</span>
+                                                    <span class="resource-date">Updated yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-category-header">
+                                    <h3><i class="fas fa-code"></i> Code Resources</h3>
+                                    <button class="btn-icon" title="Add Code Resource">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="resource-grid">
+                                    <!-- Code resource items -->
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail code">
+                                            <div class="resource-preview code">
+                                                <pre><code>
+function initApp() {
+  const config = {
+    apiKey: "...",
+    authDomain: "..."
+  };
+  // Initialize the app
+  firebase.initializeApp(config);
+}
+                                                </code></pre>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-file-code"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">API Integration.js</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">24 KB</span>
+                                                    <span class="resource-date">Updated 4 hours ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail code">
+                                            <div class="resource-preview code">
+                                                <pre><code>
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+
+export default function App() {
+  const [data, setData] = useState([]);
+  // Component logic
+}
+                                                </code></pre>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fab fa-react"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">App.js</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">38 KB</span>
+                                                    <span class="resource-date">Updated today</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-category-header">
+                                    <h3><i class="fas fa-file-alt"></i> Documents</h3>
+                                    <button class="btn-icon" title="Add Document">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="resource-grid">
+                                    <!-- Document resource items -->
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail document">
+                                            <div class="resource-preview document">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">Project Brief.pdf</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">1.2 MB</span>
+                                                    <span class="resource-date">Added 3 days ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail document">
+                                            <div class="resource-preview document">
+                                                <i class="fas fa-file-word"></i>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Download">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Share">
+                                                        <i class="fas fa-share-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-file-word"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">Technical Documentation.docx</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-size">840 KB</span>
+                                                    <span class="resource-date">Updated 2 days ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="resource-category-header">
+                                    <h3><i class="fas fa-link"></i> Links & References</h3>
+                                    <button class="btn-icon" title="Add Link">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="resource-grid">
+                                    <!-- Link resource items -->
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail link">
+                                            <div class="resource-preview link">
+                                                <i class="fab fa-github"></i>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Open">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Copy">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fab fa-github"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">Project Repository</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-link">github.com/team/ai-innovation</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="resource-card">
+                                        <div class="resource-thumbnail link">
+                                            <div class="resource-preview link">
+                                                <i class="fas fa-cloud"></i>
+                                                <div class="resource-actions">
+                                                    <button class="resource-action-btn" title="Open">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="Copy">
+                                                        <i class="fas fa-copy"></i>
+                                                    </button>
+                                                    <button class="resource-action-btn" title="More">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-info">
+                                            <div class="resource-type-icon">
+                                                <i class="fas fa-cloud"></i>
+                                            </div>
+                                            <div class="resource-details">
+                                                <h4 class="resource-name">Cloud Deployment</h4>
+                                                <div class="resource-meta">
+                                                    <span class="resource-link">azure.com/team-project</span>
+                                                </div>
+                                            </div>
+                                            <div class="resource-owner">
+                                                <div class="owner-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Resources Categories -->
-                            <div class="resources-categories">
-                                <button class="resource-filter active" data-filter="all">
-                                    <i class="fas fa-layer-group"></i>
-                                    <span>All Resources</span>
-                                    <span class="resource-count">12</span>
-                                </button>
-                                <button class="resource-filter" data-filter="design">
-                                    <i class="fas fa-paint-brush"></i>
-                                    <span>Designs</span>
-                                    <span class="resource-count">4</span>
-                                </button>
-                                <button class="resource-filter" data-filter="code">
-                                    <i class="fas fa-code"></i>
-                                    <span>Code</span>
-                                    <span class="resource-count">3</span>
-                                </button>
-                                <button class="resource-filter" data-filter="document">
-                                    <i class="fas fa-file-alt"></i>
-                                    <span>Documents</span>
-                                    <span class="resource-count">3</span>
-                                </button>
-                                <button class="resource-filter" data-filter="link">
-                                    <i class="fas fa-link"></i>
-                                    <span>Links</span>
-                                    <span class="resource-count">2</span>
-                                </button>
-                            </div>
-
-                            <!-- Resources Grid View -->
-                            <div class="resources-grid">
-                                <!-- Design Resources -->
-                                <div class="resource-card design">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon design">
-                                            <i class="fas fa-file-image"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <!-- Upload Modal (initially hidden) -->
+                        <div class="modal" id="uploadModal">
+                            <div class="modal-overlay"></div>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Upload Resource</h3>
+                                    <button class="btn-icon close-modal">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="resource-name">Resource Name</label>
+                                        <input type="text" id="resource-name" placeholder="Enter a name for this resource">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resource-type">Resource Type</label>
+                                        <select id="resource-type">
+                                            <option value="design">Design File</option>
+                                            <option value="code">Code File</option>
+                                            <option value="document">Document</option>
+                                            <option value="link">Link</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resource-category">Category</label>
+                                        <select id="resource-category">
+                                            <option value="ui">UI/UX Design</option>
+                                            <option value="frontend">Frontend</option>
+                                            <option value="backend">Backend</option>
+                                            <option value="documentation">Documentation</option>
+                                            <option value="reference">Reference</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group file-upload-area">
+                                        <label>File</label>
+                                        <div class="drop-zone">
+                                            <span class="drop-zone-prompt">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <p>Drag & drop file here or click to browse</p>
+                                            </span>
+                                            <input type="file" name="fileUpload" class="drop-zone-input">
                                         </div>
                                     </div>
-                                    <div class="resource-card-body">
-                                        <h4>UI Wireframes v2</h4>
-                                        <p>Updated wireframes for voice assistant interface</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                <span>Sarah Chen</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 14, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag design">Figma</span>
-                                        </div>
+                                    <div id="link-input-group" class="form-group" style="display: none;">
+                                        <label for="resource-link">URL</label>
+                                        <input type="url" id="resource-link" placeholder="https://...">
                                     </div>
                                 </div>
-
-                                <div class="resource-card design">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon design">
-                                            <i class="fas fa-file-image"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>Brand Assets</h4>
-                                        <p>Logo, colors, and design system components</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                <span>Sarah Chen</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 10, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag design">Sketch</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Code Resources -->
-                                <div class="resource-card code">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon code">
-                                            <i class="fas fa-code"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <a href="#" class="btn-icon" title="Open Link"><i class="fas fa-external-link-alt"></i></a>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>Frontend Repository</h4>
-                                        <p>React application for the voice assistant UI</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                <span>Alex Johnson</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 13, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag code">GitHub</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="resource-card code">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon code">
-                                            <i class="fas fa-code"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>NLP Model</h4>
-                                        <p>TensorFlow implementation for natural language processing</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                <span>Mike Rodriguez</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 12, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag code">Python</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Document Resources -->
-                                <div class="resource-card document">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon document">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>Project Plan</h4>
-                                        <p>Detailed timeline, milestones, and deliverables</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                <span>Alex Johnson</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 8, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag document">PDF</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="resource-card document">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon document">
-                                            <i class="fas fa-file-word"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>Technical Documentation</h4>
-                                        <p>API specifications and integration guide</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                <span>Emma Wilson</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 11, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag document">DOCX</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Link Resources -->
-                                <div class="resource-card link">
-                                    <div class="resource-card-header">
-                                        <div class="resource-icon link">
-                                            <i class="fas fa-link"></i>
-                                        </div>
-                                        <div class="resource-actions">
-                                            <a href="#" class="btn-icon" title="Open Link"><i class="fas fa-external-link-alt"></i></a>
-                                            <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="resource-card-body">
-                                        <h4>Research Paper</h4>
-                                        <p>Latest research on voice recognition algorithms</p>
-                                    </div>
-                                    <div class="resource-card-footer">
-                                        <div class="resource-meta">
-                                            <div class="resource-owner">
-                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                <span>Mike Rodriguez</span>
-                                            </div>
-                                            <div class="resource-date">
-                                                <i class="far fa-clock"></i>
-                                                <span>Aug 9, 2023</span>
-                                            </div>
-                                        </div>
-                                        <div class="resource-type">
-                                            <span class="tag link">External Link</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Upload Modal (initially hidden) -->
-                            <div class="modal" id="uploadModal">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3>Upload Resource</h3>
-                                        <button class="btn-icon close-modal">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="resource-title">Resource Title</label>
-                                            <input type="text" id="resource-title" class="form-control" placeholder="Enter resource title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="resource-type">Resource Type</label>
-                                            <select id="resource-type" class="form-control">
-                                                <option value="design">Design File</option>
-                                                <option value="code">Code</option>
-                                                <option value="document">Document</option>
-                                                <option value="link">External Link</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="resource-description">Description</label>
-                                            <textarea id="resource-description" class="form-control" placeholder="Enter resource description"></textarea>
-                                        </div>
-                                        <div class="form-group file-upload-area">
-                                            <label>File</label>
-                                            <div class="drop-zone">
-                                                <span class="drop-zone-prompt">
-                                                    <i class="fas fa-cloud-upload-alt"></i>
-                                                    <p>Drop file here or click to browse</p>
-                                                </span>
-                                                <input type="file" id="resource-file" class="drop-zone-input">
-                                            </div>
-                                        </div>
-                                        <div id="link-input-group" class="form-group" style="display: none;">
-                                            <label for="resource-link">External Link</label>
-                                            <input type="url" id="resource-link" class="form-control" placeholder="https://example.com">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-ghost close-modal">Cancel</button>
-                                        <button class="btn btn-primary">Upload</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Filter Modal (initially hidden) -->
-                            <div class="modal" id="filterModal">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3>Filter Resources</h3>
-                                        <button class="btn-icon close-modal">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Resource Type</label>
-                                            <div class="checkbox-group">
-                                                <label class="checkbox-label">
-                                                    <input type="checkbox" checked name="filter-type" value="design">
-                                                    <span>Design Files</span>
-                                                </label>
-                                                <label class="checkbox-label">
-                                                    <input type="checkbox" checked name="filter-type" value="code">
-                                                    <span>Code</span>
-                                                </label>
-                                                <label class="checkbox-label">
-                                                    <input type="checkbox" checked name="filter-type" value="document">
-                                                    <span>Documents</span>
-                                                </label>
-                                                <label class="checkbox-label">
-                                                    <input type="checkbox" checked name="filter-type" value="link">
-                                                    <span>Links</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Date Added</label>
-                                            <div class="radio-group">
-                                                <label class="radio-label">
-                                                    <input type="radio" checked name="filter-date" value="any">
-                                                    <span>Any time</span>
-                                                </label>
-                                                <label class="radio-label">
-                                                    <input type="radio" name="filter-date" value="today">
-                                                    <span>Today</span>
-                                                </label>
-                                                <label class="radio-label">
-                                                    <input type="radio" name="filter-date" value="week">
-                                                    <span>This week</span>
-                                                </label>
-                                                <label class="radio-label">
-                                                    <input type="radio" name="filter-date" value="month">
-                                                    <span>This month</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Added By</label>
-                                            <select class="form-control">
-                                                <option value="any">Anyone</option>
-                                                <option value="me">Me</option>
-                                                <option value="team">Team members</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-ghost">Reset</button>
-                                        <button class="btn btn-primary">Apply Filters</button>
-                                    </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-ghost close-modal">Cancel</button>
+                                    <button class="btn btn-primary">Upload</button>
                                 </div>
                             </div>
                         </div>
@@ -1661,40 +1701,18 @@
                                 </div>
                                 <div class="progress-phases">
                                     <div class="phase-track">
-                                        <div class="phase completed" style="width: 20%">
-                                            <div class="phase-indicator">
-                                                <div class="phase-dot"></div>
-                                                <div class="phase-line"></div>
-                                            </div>
-                                            <div class="phase-label">Kickoff</div>
-                                        </div>
-                                        <div class="phase completed" style="width: 20%">
-                                            <div class="phase-indicator">
-                                                <div class="phase-dot"></div>
-                                                <div class="phase-line"></div>
-                                            </div>
-                                            <div class="phase-label">Planning</div>
-                                        </div>
-                                        <div class="phase completed" style="width: 25%">
-                                            <div class="phase-indicator">
-                                                <div class="phase-dot"></div>
-                                                <div class="phase-line"></div>
-                                            </div>
-                                            <div class="phase-label">Development</div>
-                                        </div>
-                                        <div class="phase active" style="width: 20%">
-                                            <div class="phase-indicator">
-                                                <div class="phase-dot"></div>
-                                                <div class="phase-line"></div>
-                                            </div>
-                                            <div class="phase-label">Testing</div>
-                                        </div>
-                                        <div class="phase" style="width: 15%">
-                                            <div class="phase-indicator">
-                                                <div class="phase-dot"></div>
-                                            </div>
-                                            <div class="phase-label">Submission</div>
-                                        </div>
+                                        <div class="phase completed" style="width: 20%"></div>
+                                        <div class="phase completed" style="width: 20%"></div>
+                                        <div class="phase completed" style="width: 25%"></div>
+                                        <div class="phase active" style="width: 20%"></div>
+                                        <div class="phase" style="width: 15%"></div>
+                                    </div>
+                                    <div class="phase-labels">
+                                        <div class="phase-label">Planning</div>
+                                        <div class="phase-label">Design</div>
+                                        <div class="phase-label">Development</div>
+                                        <div class="phase-label">Testing</div>
+                                        <div class="phase-label">Deployment</div>
                                     </div>
                                 </div>
                             </div>
@@ -1713,44 +1731,34 @@
                                     <div class="timeline-entries">
                                         <!-- Completed Events -->
                                         <div class="timeline-entry completed">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot"></div>
-                                                <div class="connector-line"></div>
-                                            </div>
-                                            <div class="entry-card">
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Aug 5, 2023</span>
-                                                        <span class="time">10:00 AM</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge completed">
-                                                            <i class="fas fa-check"></i>
-                                                            Completed
-                                                        </span>
+                                            <div class="timeline-entry-date-absolute">Aug 12, 2023</div>
+                                            <div class="timeline-entry-content">
+                                                <div class="timeline-entry-header">
+                                                    <h3 class="timeline-entry-title">Project Kickoff</h3>
+                                                    <div class="timeline-entry-date">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>2 days ago</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-body">
-                                                    <h4>Project Kickoff</h4>
-                                                    <p>Initial team meeting and hackathon registration</p>
+                                                <p class="timeline-entry-description">
+                                                    Initial team meeting to discuss project goals, roles, and the development timeline. Set up project management tools and version control repositories.
+                                                </p>
+                                                <div class="timeline-entry-tags">
+                                                    <span class="timeline-tag">Milestone</span>
+                                                    <span class="timeline-tag">Planning</span>
                                                 </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-map-marker-alt"></i>
-                                                            <span>Virtual Meeting</span>
+                                                <div class="timeline-entry-footer">
+                                                    <div class="timeline-entry-assignees">
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
                                                         </div>
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>All team members</span>
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
                                                         </div>
                                                     </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn-icon btn-sm" title="View Details">
-                                                            <i class="fas fa-external-link-alt"></i>
-                                                        </button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                                    <div class="timeline-entry-actions">
+                                                        <button class="btn-action-subtle">
+                                                            <i class="fas fa-check-circle"></i> Completed
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1758,46 +1766,30 @@
                                         </div>
                                         
                                         <div class="timeline-entry completed">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot"></div>
-                                                <div class="connector-line"></div>
-                                            </div>
-                                            <div class="entry-card">
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Aug 10, 2023</span>
-                                                        <span class="time">4:00 PM</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge completed">
-                                                            <i class="fas fa-check"></i>
-                                                            Completed
-                                                        </span>
+                                            <div class="timeline-entry-date-absolute">Aug 13, 2023</div>
+                                            <div class="timeline-entry-content">
+                                                <div class="timeline-entry-header">
+                                                    <h3 class="timeline-entry-title">Initial UI/UX Mockups</h3>
+                                                    <div class="timeline-entry-date">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Yesterday</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-body">
-                                                    <h4>Design Approval</h4>
-                                                    <p>Finalized UI designs and user flows</p>
-                                                    <div class="entry-attachments">
-                                                        <div class="attachment-item">
-                                                            <i class="fas fa-file-image"></i>
-                                                            <span>UI-Designs.fig</span>
-                                                        </div>
-                                                    </div>
+                                                <p class="timeline-entry-description">
+                                                    Created wireframes and high-fidelity mockups for the main user interfaces. Team reviewed and provided feedback on design direction.
+                                                </p>
+                                                <div class="timeline-entry-tags">
+                                                    <span class="timeline-tag design">Design</span>
                                                 </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>Sarah, Alex</span>
+                                                <div class="timeline-entry-footer">
+                                                    <div class="timeline-entry-assignees">
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
                                                         </div>
                                                     </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn-icon btn-sm" title="View Details">
-                                                            <i class="fas fa-external-link-alt"></i>
-                                                        </button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                                    <div class="timeline-entry-actions">
+                                                        <button class="btn-action-subtle">
+                                                            <i class="fas fa-check-circle"></i> Completed
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1806,59 +1798,43 @@
                                         
                                         <!-- Current Event -->
                                         <div class="timeline-entry current">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot"></div>
-                                                <div class="connector-line"></div>
-                                            </div>
-                                            <div class="entry-card">
-                                                <div class="entry-marker current">
-                                                    <span>Today</span>
-                                                </div>
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Aug 15, 2023</span>
-                                                        <span class="time">2:00 PM</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge in-progress">
-                                                            <i class="fas fa-clock"></i>
-                                                            In Progress
-                                                        </span>
+                                            <div class="timeline-entry-date-absolute">Aug 14, 2023</div>
+                                            <div class="timeline-entry-content">
+                                                <div class="timeline-entry-header">
+                                                    <h3 class="timeline-entry-title">Frontend Development</h3>
+                                                    <div class="timeline-entry-date">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Today</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-body">
-                                                    <h4>Development Check-in</h4>
-                                                    <p>Progress review and testing plan</p>
-                                                    <div class="entry-checklist">
-                                                        <div class="checklist-item completed">
-                                                            <i class="fas fa-check-circle"></i>
-                                                            <span>API Integration</span>
-                                                        </div>
-                                                        <div class="checklist-item completed">
-                                                            <i class="fas fa-check-circle"></i>
-                                                            <span>Frontend Development</span>
-                                                        </div>
-                                                        <div class="checklist-item">
-                                                            <i class="far fa-circle"></i>
-                                                            <span>Testing Setup</span>
-                                                        </div>
+                                                <p class="timeline-entry-description">
+                                                    Implementing the responsive user interface based on approved designs. Focus on core components and navigation structure.
+                                                </p>
+                                                <div class="timeline-entry-meta">
+                                                    <div class="timeline-entry-meta-item">
+                                                        <i class="fas fa-tasks"></i>
+                                                        <span>6/8 tasks completed</span>
+                                                    </div>
+                                                    <div class="timeline-entry-meta-item">
+                                                        <i class="fas fa-code-branch"></i>
+                                                        <span>12 commits</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-video"></i>
-                                                            <span>Zoom Meeting</span>
+                                                <div class="timeline-entry-tags">
+                                                    <span class="timeline-tag development">Development</span>
+                                                </div>
+                                                <div class="timeline-entry-footer">
+                                                    <div class="timeline-entry-assignees">
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
                                                         </div>
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>All team members</span>
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
                                                         </div>
                                                     </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn btn-sm btn-outline">Join Meeting</button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                                    <div class="timeline-entry-actions">
+                                                        <button class="btn-action-subtle">
+                                                            <i class="fas fa-spinner fa-spin"></i> In Progress
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1867,131 +1843,68 @@
                                         
                                         <!-- Upcoming Events -->
                                         <div class="timeline-entry upcoming">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot"></div>
-                                                <div class="connector-line"></div>
-                                            </div>
-                                            <div class="entry-card">
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Aug 20, 2023</span>
-                                                        <span class="time">All Day</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge upcoming">
-                                                            <i class="fas fa-calendar"></i>
-                                                            Upcoming
-                                                        </span>
+                                            <div class="timeline-entry-date-absolute">Aug 15, 2023</div>
+                                            <div class="timeline-entry-content">
+                                                <div class="timeline-entry-header">
+                                                    <h3 class="timeline-entry-title">Backend API Implementation</h3>
+                                                    <div class="timeline-entry-date">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Tomorrow</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-body">
-                                                    <h4>API Integration Complete</h4>
-                                                    <p>Backend and frontend systems connected</p>
+                                                <p class="timeline-entry-description">
+                                                    Develop REST API endpoints for user authentication, data retrieval, and processing. Set up database models and integrate with frontend.
+                                                </p>
+                                                <div class="timeline-entry-tags">
+                                                    <span class="timeline-tag development">Development</span>
                                                 </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>Mike, Emma</span>
+                                                <div class="timeline-entry-footer">
+                                                    <div class="timeline-entry-assignees">
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
                                                         </div>
                                                     </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn-icon btn-sm" title="Add to Calendar">
-                                                            <i class="fas fa-calendar-plus"></i>
-                                                        </button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                                    <div class="timeline-entry-actions">
+                                                        <button class="btn-action-subtle">
+                                                            <i class="fas fa-clock"></i> Scheduled
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        <div class="timeline-entry upcoming">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot"></div>
-                                                <div class="connector-line"></div>
-                                            </div>
-                                            <div class="entry-card">
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Aug 25, 2023</span>
-                                                        <span class="time">11:59 PM</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge upcoming">
-                                                            <i class="fas fa-calendar"></i>
-                                                            Upcoming
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-body">
-                                                    <h4>Feature Freeze</h4>
-                                                    <p>Final feature implementation deadline</p>
-                                                    <div class="entry-reminder active">
-                                                        <i class="fas fa-bell"></i>
-                                                        <span>Reminder set for Aug 24, 10:00 AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item priority">
-                                                            <i class="fas fa-exclamation-circle"></i>
-                                                            <span>High Priority</span>
-                                                        </div>
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>All team members</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn-icon btn-sm" title="Add to Calendar">
-                                                            <i class="fas fa-calendar-plus"></i>
-                                                        </button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+
                                         <div class="timeline-entry upcoming milestone">
-                                            <div class="entry-connector">
-                                                <div class="connector-dot milestone"></div>
-                                            </div>
-                                            <div class="entry-card milestone">
-                                                <div class="entry-header">
-                                                    <div class="entry-date">
-                                                        <span class="date">Sept 1, 2023</span>
-                                                        <span class="time">11:59 PM</span>
-                                                    </div>
-                                                    <div class="entry-status">
-                                                        <span class="status-badge milestone">
-                                                            <i class="fas fa-flag"></i>
-                                                            Final Milestone
-                                                        </span>
+                                            <div class="timeline-entry-date-absolute">Aug 17, 2023</div>
+                                            <div class="timeline-entry-content">
+                                                <div class="timeline-entry-header">
+                                                    <h3 class="timeline-entry-title">Project Demo & Presentation</h3>
+                                                    <div class="timeline-entry-date">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>In 3 days</span>
                                                     </div>
                                                 </div>
-                                                <div class="entry-body">
-                                                    <h4>Project Submission</h4>
-                                                    <p>Final project submission and demo video</p>
+                                                <p class="timeline-entry-description">
+                                                    Final project presentation to judges. Demonstrate the working application, explain technical challenges, and highlight innovative features.
+                                                </p>
+                                                <div class="timeline-entry-tags">
+                                                    <span class="timeline-tag">Milestone</span>
+                                                    <span class="timeline-tag deployment">Deployment</span>
                                                 </div>
-                                                <div class="entry-footer">
-                                                    <div class="entry-meta">
-                                                        <div class="meta-item priority">
-                                                            <i class="fas fa-star"></i>
-                                                            <span>Critical</span>
+                                                <div class="timeline-entry-footer">
+                                                    <div class="timeline-entry-assignees">
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
                                                         </div>
-                                                        <div class="meta-item">
-                                                            <i class="fas fa-user"></i>
-                                                            <span>All team members</span>
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                        </div>
+                                                        <div class="assignee-avatar">
+                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
                                                         </div>
                                                     </div>
-                                                    <div class="entry-actions">
-                                                        <button class="btn btn-sm btn-outline">Set Reminder</button>
-                                                        <button class="btn-icon btn-sm" title="More Options">
-                                                            <i class="fas fa-ellipsis-v"></i>
+                                                    <div class="timeline-entry-actions">
+                                                        <button class="btn-action-subtle">
+                                                            <i class="fas fa-flag"></i> Major Milestone
                                                         </button>
                                                     </div>
                                                 </div>
@@ -2017,36 +1930,32 @@
                                     </div>
                                     <div class="widget-body">
                                         <div class="upcoming-item">
-                                            <div class="upcoming-date">
-                                                <div class="date-box">
-                                                    <div class="date-month">AUG</div>
-                                                    <div class="date-day">20</div>
-                                                </div>
+                                            <div class="upcoming-date">Tomorrow, Aug 15</div>
+                                            <h4 class="upcoming-title">Backend API Implementation</h4>
+                                            <div class="time-remaining">
+                                                <i class="fas fa-clock"></i>
+                                                <span>23 hours remaining</span>
                                             </div>
-                                            <div class="upcoming-info">
-                                                <h4>API Integration Complete</h4>
-                                                <p>Backend and frontend systems connected</p>
-                                                <div class="upcoming-meta">
-                                                    <span><i class="far fa-clock"></i> All Day</span>
-                                                    <span><i class="fas fa-user-circle"></i> Mike, Emma</span>
+                                            <div class="upcoming-meta">
+                                                <div class="assignee-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
                                                 </div>
+                                                <span>Mike Rodriguez</span>
                                             </div>
                                         </div>
                                         
                                         <div class="upcoming-item">
-                                            <div class="upcoming-date">
-                                                <div class="date-box">
-                                                    <div class="date-month">AUG</div>
-                                                    <div class="date-day">25</div>
-                                                </div>
+                                            <div class="upcoming-date">Thursday, Aug 16</div>
+                                            <h4 class="upcoming-title">Unit Testing</h4>
+                                            <div class="time-remaining">
+                                                <i class="fas fa-clock"></i>
+                                                <span>47 hours remaining</span>
                                             </div>
-                                            <div class="upcoming-info">
-                                                <h4>Feature Freeze</h4>
-                                                <p>Final feature implementation deadline</p>
-                                                <div class="upcoming-meta">
-                                                    <span><i class="far fa-clock"></i> 11:59 PM</span>
-                                                    <span><i class="fas fa-exclamation-circle"></i> High Priority</span>
+                                            <div class="upcoming-meta">
+                                                <div class="assignee-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
                                                 </div>
+                                                <span>Emma Wilson</span>
                                             </div>
                                         </div>
                                     </div>
@@ -2058,71 +1967,55 @@
                                     </div>
                                     <div class="widget-body">
                                         <div class="availability-user">
-                                            <div class="user-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                <span class="status-indicator online"></span>
-                                            </div>
-                                            <div class="user-info">
-                                                <h4>Alex Johnson</h4>
-                                                <div class="availability-calendar">
-                                                    <div class="calendar-day busy"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day partial"></div>
-                                                    <div class="calendar-day busy"></div>
+                                            <div class="availability-user-info">
+                                                <div class="availability-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                </div>
+                                                <div>
+                                                    <h4 class="availability-user-name">Alex Johnson</h4>
+                                                    <div class="availability-user-role">Frontend Dev</div>
                                                 </div>
                                             </div>
+                                            <span class="availability-status available">Available</span>
                                         </div>
                                         
                                         <div class="availability-user">
-                                            <div class="user-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                <span class="status-indicator online"></span>
-                                            </div>
-                                            <div class="user-info">
-                                                <h4>Sarah Chen</h4>
-                                                <div class="availability-calendar">
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day busy"></div>
-                                                    <div class="calendar-day busy"></div>
-                                                    <div class="calendar-day available"></div>
+                                            <div class="availability-user-info">
+                                                <div class="availability-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                </div>
+                                                <div>
+                                                    <h4 class="availability-user-name">Sarah Chen</h4>
+                                                    <div class="availability-user-role">UI Designer</div>
                                                 </div>
                                             </div>
+                                            <span class="availability-status busy">In Meeting</span>
                                         </div>
                                         
                                         <div class="availability-user">
-                                            <div class="user-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                <span class="status-indicator offline"></span>
-                                            </div>
-                                            <div class="user-info">
-                                                <h4>Mike Rodriguez</h4>
-                                                <div class="availability-calendar">
-                                                    <div class="calendar-day busy"></div>
-                                                    <div class="calendar-day busy"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day available"></div>
+                                            <div class="availability-user-info">
+                                                <div class="availability-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                </div>
+                                                <div>
+                                                    <h4 class="availability-user-name">Mike Rodriguez</h4>
+                                                    <div class="availability-user-role">Backend Dev</div>
                                                 </div>
                                             </div>
+                                            <span class="availability-status busy">Coding</span>
                                         </div>
                                         
                                         <div class="availability-user">
-                                            <div class="user-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                <span class="status-indicator away"></span>
-                                            </div>
-                                            <div class="user-info">
-                                                <h4>Emma Wilson</h4>
-                                                <div class="availability-calendar">
-                                                    <div class="calendar-day partial"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day available"></div>
-                                                    <div class="calendar-day partial"></div>
-                                                    <div class="calendar-day busy"></div>
+                                            <div class="availability-user-info">
+                                                <div class="availability-avatar">
+                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                                </div>
+                                                <div>
+                                                    <h4 class="availability-user-name">Emma Wilson</h4>
+                                                    <div class="availability-user-role">QA Engineer</div>
                                                 </div>
                                             </div>
+                                            <span class="availability-status away">Away</span>
                                         </div>
                                         
                                         <div class="availability-legend">
@@ -2131,12 +2024,12 @@
                                                 <span>Available</span>
                                             </div>
                                             <div class="legend-item">
-                                                <div class="legend-color partial"></div>
-                                                <span>Partial</span>
-                                            </div>
-                                            <div class="legend-item">
                                                 <div class="legend-color busy"></div>
                                                 <span>Busy</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color away"></div>
+                                                <span>Away</span>
                                             </div>
                                         </div>
                                     </div>
