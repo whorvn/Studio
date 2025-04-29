@@ -995,6 +995,7 @@
                                     </div>
                                 </div>
                                 
+                                <!-- Code resources section -->
                                 <div class="resource-category-header">
                                     <h3><i class="fas fa-code"></i> Code Resources</h3>
                                     <button class="btn-icon" title="Add Code Resource">
@@ -1007,16 +1008,13 @@
                                     <div class="resource-card">
                                         <div class="resource-thumbnail code">
                                             <div class="resource-preview code">
-                                                <pre><code>
-function initApp() {
+                                                <pre><code>function initApp() {
   const config = {
     apiKey: "...",
     authDomain: "..."
   };
-  // Initialize the app
   firebase.initializeApp(config);
-}
-                                                </code></pre>
+}</code></pre>
                                                 <div class="resource-actions">
                                                     <button class="resource-action-btn" title="Download">
                                                         <i class="fas fa-download"></i>
@@ -1052,15 +1050,13 @@ function initApp() {
                                     <div class="resource-card">
                                         <div class="resource-thumbnail code">
                                             <div class="resource-preview code">
-                                                <pre><code>
-import React, { useState } from 'react';
+                                                <pre><code>import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 
 export default function App() {
   const [data, setData] = useState([]);
   // Component logic
-}
-                                                </code></pre>
+}</code></pre>
                                                 <div class="resource-actions">
                                                     <button class="resource-action-btn" title="Download">
                                                         <i class="fas fa-download"></i>
@@ -1094,6 +1090,7 @@ export default function App() {
                                     </div>
                                 </div>
                                 
+                                <!-- Document resources section -->
                                 <div class="resource-category-header">
                                     <h3><i class="fas fa-file-alt"></i> Documents</h3>
                                     <button class="btn-icon" title="Add Document">
@@ -1176,6 +1173,7 @@ export default function App() {
                                     </div>
                                 </div>
 
+                                <!-- Links section -->
                                 <div class="resource-category-header">
                                     <h3><i class="fas fa-link"></i> Links & References</h3>
                                     <button class="btn-icon" title="Add Link">
@@ -1315,343 +1313,154 @@ export default function App() {
                         </div>
                     </div>
                     
-                    <!-- Chat Tab Content - Modern Design -->
+                    <!-- Chat Tab Content - Simplified Design -->
                     <div class="tab-content" id="chat-tab">
-                        <div class="chat-container">
-                            <!-- Chat Sidebar -->
-                            <div class="chat-sidebar">
-                                <div class="chat-sidebar-header">
-                                    <h3>Team Chat</h3>
-                                    <button class="btn-icon" title="New Conversation">
-                                        <i class="fas fa-plus"></i>
+                        <div class="chat-container simple">
+                            <!-- Chat Header -->
+                            <div class="chat-header">
+                                <div class="chat-header-info">
+                                    <div class="channel-title">
+                                        <i class="fas fa-users"></i>
+                                        <h3>Team Chat</h3>
+                                    </div>
+                                    <p>4 team members online</p>
+                                </div>
+                                <div class="chat-header-actions">
+                                    <button class="btn-icon" title="Search in conversation">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Audio Call">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Video Call">
+                                        <i class="fas fa-video"></i>
                                     </button>
                                 </div>
-                                
-                                <div class="chat-search">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search conversations...">
+                            </div>
+                            
+                            <!-- Chat Messages -->
+                            <div class="chat-messages">
+                                <!-- Date Divider -->
+                                <div class="date-divider">
+                                    <span>Today</span>
                                 </div>
                                 
-                                <div class="chat-categories">
-                                    <button class="chat-category active">All</button>
-                                    <button class="chat-category">Channels</button>
-                                    <button class="chat-category">Direct</button>
-                                    <button class="chat-category">Mentions</button>
-                                </div>
-                                
-                                <div class="chat-channels-list">
-                                    <!-- Channels -->
-                                    <div class="channels-section">
-                                        <div class="section-header">
-                                            <h4>Channels</h4>
-                                            <button class="btn-icon-sm" title="Add Channel">
-                                                <i class="fas fa-plus"></i>
+                                <!-- Message from Mike -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                        <span class="status-dot online"></span>
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Mike Rodriguez</h4>
+                                            <span class="message-time">10:24 AM</span>
+                                        </div>
+                                        <div class="message-bubble">
+                                            <p>Hey team, I've updated the NLP model with the latest dataset. It's showing about 15% better accuracy now.</p>
+                                        </div>
+                                        <div class="message-actions">
+                                            <button class="btn-reaction">
+                                                <i class="fas fa-thumbs-up"></i>
+                                                <span>2</span>
                                             </button>
                                         </div>
-                                        
-                                        <div class="chat-channel active">
-                                            <div class="channel-icon">
-                                                <i class="fas fa-hashtag"></i>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>general</h5>
-                                                    <span class="time">11:15 AM</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Message from Sarah -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                        <span class="status-dot online"></span>
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Sarah Chen</h4>
+                                            <span class="message-time">10:30 AM</span>
+                                        </div>
+                                        <div class="message-bubble">
+                                            <p>That's awesome, Mike! I've also uploaded the latest UI designs to the resources section. Could you all take a look and provide feedback?</p>
+                                        </div>
+                                        <div class="message-attachments">
+                                            <div class="message-attachment">
+                                                <div class="attachment-icon">
+                                                    <i class="fas fa-file-image"></i>
                                                 </div>
-                                                <div class="channel-preview">
-                                                    <span class="author">You: </span>
-                                                    <span class="message-preview">Thanks for the updates...</span>
+                                                <div class="attachment-info">
+                                                    <p>UI-Mockups-v2.fig</p>
+                                                    <span>2.4 MB</span>
                                                 </div>
-                                            </div>
-                                            <div class="channel-indicator">
-                                                <span class="unread-badge">2</span>
+                                                <button class="btn-icon-sm">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
                                             </div>
                                         </div>
-                                        
-                                        <div class="chat-channel">
-                                            <div class="channel-icon">
-                                                <i class="fas fa-hashtag"></i>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>development</h5>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                                <div class="channel-preview">
-                                                    <span class="author">Mike: </span>
-                                                    <span class="message-preview">The API is ready for testing</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="chat-channel">
-                                            <div class="channel-icon">
-                                                <i class="fas fa-hashtag"></i>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>design</h5>
-                                                    <span class="time">Aug 14</span>
-                                                </div>
-                                                <div class="channel-preview">
-                                                    <span class="author">Sarah: </span>
-                                                    <span class="message-preview">Updated wireframes attached</span>
-                                                </div>
-                                            </div>
+                                        <div class="message-actions">
+                                            <button class="btn-reaction">
+                                                <i class="fas fa-heart"></i>
+                                                <span>3</span>
+                                            </button>
                                         </div>
                                     </div>
-                                    
-                                    <!-- Direct Messages -->
-                                    <div class="channels-section">
-                                        <div class="section-header">
-                                            <h4>Direct Messages</h4>
+                                </div>
+                                
+                                <!-- Message from Emma -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                        <span class="status-dot away"></span>
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Emma Wilson</h4>
+                                            <span class="message-time">11:02 AM</span>
                                         </div>
-                                        
-                                        <div class="chat-channel">
-                                            <div class="channel-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                <span class="status-indicator online"></span>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>Sarah Chen</h5>
-                                                    <span class="time">10:30 AM</span>
-                                                </div>
-                                                <div class="channel-preview">
-                                                    <span class="message-preview">Could you review the latest designs?</span>
-                                                </div>
-                                            </div>
-                                            <div class="channel-indicator">
-                                                <span class="unread-badge">1</span>
-                                            </div>
+                                        <div class="message-bubble">
+                                            <p>Morning everyone! I've deployed the latest backend changes to our staging environment. You can now test the improved response times with the updated API endpoints.</p>
                                         </div>
-                                        
-                                        <div class="chat-channel">
-                                            <div class="channel-avatar">
-                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                <span class="status-indicator offline"></span>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>Mike Rodriguez</h5>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                                <div class="channel-preview">
-                                                    <span class="message-preview">Let's discuss the model accuracy</span>
-                                                </div>
-                                            </div>
+                                        <div class="message-actions">
+                                            <button class="btn-reaction">
+                                                <i class="fas fa-rocket"></i>
+                                                <span>1</span>
+                                            </button>
                                         </div>
-                                        
-                                        <div class="chat-channel">
-                                            <div class="channel-avatar">
-                                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                <span class="status-indicator away"></span>
-                                            </div>
-                                            <div class="channel-info">
-                                                <div class="channel-name">
-                                                    <h5>Emma Wilson</h5>
-                                                    <span class="time">Aug 13</span>
-                                                </div>
-                                                <div class="channel-preview">
-                                                    <span class="message-preview">Backend deployment complete</span>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Your message -->
+                                <div class="message-group outgoing">
+                                    <div class="message-content">
+                                        <div class="message-bubble">
+                                            <p>Thanks for the updates. I'll check both the API performance and the new designs this afternoon.</p>
+                                        </div>
+                                        <div class="message-info">
+                                            <span class="message-status">
+                                                <i class="fas fa-check-double"></i> Seen
+                                            </span>
+                                            <span class="message-time">11:15 AM</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <!-- Chat Main Area -->
-                            <div class="chat-main">
-                                <div class="chat-header">
-                                    <div class="chat-header-info">
-                                        <div class="channel-title">
-                                            <i class="fas fa-hashtag"></i>
-                                            <h3>general</h3>
-                                        </div>
-                                        <p>4 members | Created on August 12, 2023</p>
-                                    </div>
-                                    <div class="chat-header-actions">
-                                        <button class="btn-icon" title="Search in conversation">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                        <button class="btn-icon" title="Audio Call">
-                                            <i class="fas fa-phone-alt"></i>
-                                        </button>
-                                        <button class="btn-icon" title="Video Call">
-                                            <i class="fas fa-video"></i>
-                                        </button>
-                                        <button class="btn-icon" title="More Options">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </button>
-                                    </div>
+                            <!-- Chat Input Area -->
+                            <div class="chat-composer">
+                                <div class="composer-toolbar">
+                                    <button class="btn-icon" title="Add Files">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Add Emoji">
+                                        <i class="far fa-smile"></i>
+                                    </button>
                                 </div>
                                 
-                                <div class="chat-messages">
-                                    <!-- Date Divider -->
-                                    <div class="date-divider">
-                                        <span>Today</span>
-                                    </div>
-                                    
-                                    <!-- Message from Mike -->
-                                    <div class="message-group">
-                                        <div class="message-avatar">
-                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                        </div>
-                                        <div class="message-content">
-                                            <div class="message-info">
-                                                <h4>Mike Rodriguez</h4>
-                                                <span class="message-time">10:24 AM</span>
-                                            </div>
-                                            <div class="message-bubble">
-                                                <p>Hey team, I've updated the NLP model with the latest dataset. It's showing about 15% better accuracy now.</p>
-                                            </div>
-                                            <div class="message-actions">
-                                                <button class="btn-reaction">
-                                                    <i class="fas fa-thumbs-up"></i>
-                                                    <span>2</span>
-                                                </button>
-                                                <button class="btn-action-subtle">
-                                                    <i class="fas fa-reply"></i>
-                                                    <span>Reply</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Message from Sarah -->
-                                    <div class="message-group">
-                                        <div class="message-avatar">
-                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                        </div>
-                                        <div class="message-content">
-                                            <div class="message-info">
-                                                <h4>Sarah Chen</h4>
-                                                <span class="message-time">10:30 AM</span>
-                                            </div>
-                                            <div class="message-bubble">
-                                                <p>That's awesome, Mike! I've also uploaded the latest UI designs to the resources section. Could you all take a look and provide feedback?</p>
-                                            </div>
-                                            <div class="message-attachments">
-                                                <div class="message-attachment">
-                                                    <div class="attachment-icon">
-                                                        <i class="fas fa-file-image"></i>
-                                                    </div>
-                                                    <div class="attachment-info">
-                                                        <p>UI-Mockups-v2.fig</p>
-                                                        <span>2.4 MB</span>
-                                                    </div>
-                                                    <button class="btn-icon-sm">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="message-actions">
-                                                <button class="btn-reaction">
-                                                    <i class="fas fa-heart"></i>
-                                                    <span>3</span>
-                                                </button>
-                                                <button class="btn-action-subtle">
-                                                    <i class="fas fa-reply"></i>
-                                                    <span>Reply</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Message from Emma -->
-                                    <div class="message-group">
-                                        <div class="message-avatar">
-                                            <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                        </div>
-                                        <div class="message-content">
-                                            <div class="message-info">
-                                                <h4>Emma Wilson</h4>
-                                                <span class="message-time">11:02 AM</span>
-                                            </div>
-                                            <div class="message-bubble">
-                                                <p>Morning everyone! I've deployed the latest backend changes to our staging environment. You can now test the improved response times with the updated API endpoints.</p>
-                                            </div>
-                                            <div class="message-actions">
-                                                <button class="btn-reaction">
-                                                    <i class="fas fa-rocket"></i>
-                                                    <span>1</span>
-                                                </button>
-                                                <button class="btn-action-subtle">
-                                                    <i class="fas fa-reply"></i>
-                                                    <span>Reply</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Your message -->
-                                    <div class="message-group outgoing">
-                                        <div class="message-content">
-                                            <div class="message-bubble">
-                                                <p>Thanks for the updates. I'll check both the API performance and the new designs this afternoon.</p>
-                                            </div>
-                                            <div class="message-info">
-                                                <span class="message-status">
-                                                    <i class="fas fa-check-double"></i> Seen
-                                                </span>
-                                                <span class="message-time">11:15 AM</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chat Input Area -->
-                                <div class="chat-composer">
-                                    <div class="composer-toolbar">
-                                        <button class="btn-icon" title="Add Files">
-                                            <i class="fas fa-paperclip"></i>
+                                <div class="composer-input-area">
+                                    <textarea class="composer-input" placeholder="Type a message..."></textarea>
+                                    <div class="composer-actions">
+                                        <button class="btn send-button" title="Send Message">
+                                            <i class="fas fa-paper-plane"></i>
                                         </button>
-                                        <button class="btn-icon" title="Add Emoji">
-                                            <i class="far fa-smile"></i>
-                                        </button>
-                                        <button class="btn-icon" title="Format Text">
-                                            <i class="fas fa-text-height"></i>
-                                        </button>
-                                        <button class="btn-icon" title="Add Code">
-                                            <i class="fas fa-code"></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <div class="composer-input-area">
-                                        <textarea class="composer-input" placeholder="Type a message..."></textarea>
-                                        <div class="composer-actions">
-                                            <button class="btn-icon" title="Voice Message">
-                                                <i class="fas fa-microphone"></i>
-                                            </button>
-                                            <button class="btn send-button" title="Send Message">
-                                                <i class="fas fa-paper-plane"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Thread Panel (hidden by default) -->
-                                <div class="thread-panel" style="display:none;">
-                                    <div class="thread-header">
-                                        <h3>Thread</h3>
-                                        <button class="btn-icon" title="Close Thread">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div class="thread-content">
-                                        <!-- Original message -->
-                                        <div class="thread-original">
-                                            <!-- Message content goes here -->
-                                        </div>
-                                        <!-- Replies -->
-                                        <div class="thread-replies">
-                                            <!-- Replies go here -->
-                                        </div>
-                                    </div>
-                                    <!-- Thread input -->
-                                    <div class="thread-composer">
-                                        <!-- Composer input goes here -->
                                     </div>
                                 </div>
                             </div>
