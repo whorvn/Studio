@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Innovation Challenge - HackHub</title>
+    <link rel="stylesheet" href="../components/hackathon-workspace.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="logo">
+                    <a href="../index.html">
+                        <i class="fas fa-code"></i>
+                        <span>HackHub</span>
+                    </a>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="browse.html">
+                            <i class="fas fa-search"></i>
+                            <span>Browse Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item active">
+                        <a href="my-hackathons.html">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>My Hackathons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="team-management.html">
+                            <i class="fas fa-users"></i>
+                            <span>My Teams</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar__divider"></div>
+                
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item">
+                        <a href="#" class="text-error">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar__footer">
+                <div class="user-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="avatar">
+                    <div class="user-info">
+                        <h4>Alex Johnson</h4>
+                        <p class="status online">Online</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <div class="main-content">
+            <!-- Top header -->
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <a href="my-hackathons.html">My Hackathons</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>AI Innovation Challenge</span>
+                    </div>
+                </div>
+                
+                <div class="topbar__right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search resources...">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notifications__toggle" data-count="3">
+                            <i class="far fa-bell"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="workspace-container">
+                <!-- Workspace Header Banner -->
+                <div class="workspace-header">
+                    <div class="workspace-header__bg"></div>
+                    <div class="workspace-header__content">
+                        <div class="workspace-header__info">
+                            <div class="workspace-logo">
+                                <img src="https://via.placeholder.com/80" alt="Hackathon Logo">
+                            </div>
+                            <div class="workspace-title">
+                                <h1>AI Innovation Challenge</h1>
+                                <div class="workspace-meta">
+                                    <span class="status-badge active"><i class="fas fa-circle"></i> Active</span>
+                                    <span class="time-left"><i class="fas fa-clock"></i> 6 days left</span>
+                                    <span class="organization"><i class="fas fa-building"></i> Tech Future Foundation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workspace-progress">
+                            <div class="progress-label">
+                                <span>Project Progress</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Workspace Tabs -->
+                <div class="workspace-tabs">
+                    <button class="workspace-tab active" data-tab="overview">
+                        <i class="fas fa-home"></i>
+                        <span>Overview</span>
+                    </button>
+                    <button class="workspace-tab" data-tab="team">
+                        <i class="fas fa-users"></i>
+                        <span>Team</span>
+                    </button>
+                    <button class="workspace-tab" data-tab="resources">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Resources</span>
+                    </button>
+                    <button class="workspace-tab" data-tab="chat">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                    </button>
+                    <button class="workspace-tab" data-tab="timeline">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Timeline</span>
+                    </button>
+                </div>
+                
+                <!-- Tab Content Container -->
+                <div class="workspace-content">
+                    <!-- Overview Tab Content -->
+                    <div class="tab-content active" id="overview-tab">
+                        <div class="workspace-grid">
+                            <!-- Project Info Card -->
+                            <div class="workspace-card">
+                                <div class="workspace-card-header">
+                                    <h2>Project Information</h2>
+                                    <button class="btn-icon" title="Edit Project Info">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                                <div class="workspace-card-body">
+                                    <div class="project-info">
+                                        <div class="info-item">
+                                            <h3>DESCRIPTION</h3>
+                                            <p>Create an innovative AI-powered solution that addresses a real-world problem in healthcare, education, or environmental sustainability.</p>
+                                        </div>
+                                        <div class="info-item">
+                                            <h3>OBJECTIVES</h3>
+                                            <ul>
+                                                <li>Develop a working prototype integrating AI/ML capabilities</li>
+                                                <li>Clearly demonstrate the potential impact of your solution</li>
+                                                <li>Create a compelling presentation for the final demo</li>
+                                            </ul>
+                                        </div>
+                                        <div class="info-item">
+                                            <h3>TECHNOLOGIES</h3>
+                                            <div class="tag-list">
+                                                <span class="tag">TensorFlow</span>
+                                                <span class="tag">PyTorch</span>
+                                                <span class="tag">OpenAI API</span>
+                                                <span class="tag">React</span>
+                                                <span class="tag">Node.js</span>
+                                                <span class="tag">Flask</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Team Overview Card -->
+                            <div class="workspace-card">
+                                <div class="workspace-card-header">
+                                    <h2>Team Members</h2>
+                                    <a href="#team" class="link-text">View All</a>
+                                </div>
+                                <div class="workspace-card-body">
+                                    <div class="member-grid">
+                                        <div class="member-card">
+                                            <div class="member-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                            </div>
+                                            <div class="member-info">
+                                                <h4>Alex Johnson</h4>
+                                                <p>Team Lead</p>
+                                            </div>
+                                        </div>
+                                        <div class="member-card">
+                                            <div class="member-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                            </div>
+                                            <div class="member-info">
+                                                <h4>Sarah Chen</h4>
+                                                <p>ML Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="member-card">
+                                            <div class="member-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
+                                            </div>
+                                            <div class="member-info">
+                                                <h4>Mike Peters</h4>
+                                                <p>Frontend Dev</p>
+                                            </div>
+                                        </div>
+                                        <div class="member-card">
+                                            <div class="member-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
+                                            </div>
+                                            <div class="member-info">
+                                                <h4>Emma Wilson</h4>
+                                                <p>UX Designer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Upcoming Events Card -->
+                            <div class="workspace-card">
+                                <div class="workspace-card-header">
+                                    <h2>Upcoming Events</h2>
+                                    <button class="btn-icon" title="Add Event">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="workspace-card-body">
+                                    <div class="events-list">
+                                        <div class="event-item">
+                                            <div class="event-time">
+                                                <span class="event-date">15</span>
+                                                <span class="event-month">Nov</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h4>Midpoint Check-in</h4>
+                                                <p>Present your progress to mentors</p>
+                                                <span class="event-time-detail">3:00 PM - 4:30 PM</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-item">
+                                            <div class="event-time">
+                                                <span class="event-date">18</span>
+                                                <span class="event-month">Nov</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h4>Technical Workshop</h4>
+                                                <p>AI Integration Best Practices</p>
+                                                <span class="event-time-detail">1:00 PM - 3:00 PM</span>
+                                            </div>
+                                        </div>
+                                        <div class="event-item">
+                                            <div class="event-time">
+                                                <span class="event-date">22</span>
+                                                <span class="event-month">Nov</span>
+                                            </div>
+                                            <div class="event-info">
+                                                <h4>Final Submission Deadline</h4>
+                                                <p>Submit your project for judging</p>
+                                                <span class="event-time-detail">11:59 PM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Activity Card -->
+                            <div class="workspace-card">
+                                <div class="workspace-card-header">
+                                    <h2>Recent Activity</h2>
+                                </div>
+                                <div class="workspace-card-body">
+                                    <div class="activity-list">
+                                        <div class="activity-item">
+                                            <div class="activity-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                            </div>
+                                            <div class="activity-content">
+                                                <p><strong>Sarah Chen</strong> uploaded the ML model documentation</p>
+                                                <span class="activity-time">Just now</span>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Peters">
+                                            </div>
+                                            <div class="activity-content">
+                                                <p><strong>Mike Peters</strong> updated the frontend repository</p>
+                                                <span class="activity-time">2 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                            </div>
+                                            <div class="activity-content">
+                                                <p><strong>Alex Johnson</strong> created a new milestone</p>
+                                                <span class="activity-time">Yesterday</span>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-avatar">
+                                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wilson">
+                                            </div>
+                                            <div class="activity-content">
+                                                <p><strong>Emma Wilson</strong> shared UI design files</p>
+                                                <span class="activity-time">2 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other tab contents remain the same -->
+                    <!-- Team Tab Content -->
+                <div class="tab-content" id="team-tab">
+                    <div class="tab-header">
+                        <h2>Team Members</h2>
+                        <button class="btn btn-sm btn-outline">
+                            <i class="fas fa-user-plus"></i> Invite Member
+                        </button>
+                    </div>
+                    
+                    <div class="team-members-list">
+                        <!-- Team Member Card 1 -->
+                        <div class="team-member-card">
+                            <div class="team-member-header">
+                                <div class="team-member-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                    <span class="status-indicator online" title="Online"></span>
+                                </div>
+                                <div class="team-member-info">
+                                    <h3>Alex Johnson</h3>
+                                    <span class="team-member-role">Project Lead</span>
+                                </div>
+                                <div class="team-member-controls">
+                                    <button class="btn-icon" title="Contact"><i class="fas fa-comment"></i></button>
+                                    <button class="btn-icon" title="View Profile"><i class="fas fa-user"></i></button>
+                                </div>
+                            </div>
+                            <div class="team-member-body">
+                                <div class="team-member-section">
+                                    <h4>Skills</h4>
+                                    <div class="tag-list">
+                                        <span class="tag">Full Stack Development</span>
+                                        <span class="tag">React</span>
+                                        <span class="tag">Node.js</span>
+                                        <span class="tag">Project Management</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Responsibilities</h4>
+                                    <p>Overall project coordination, frontend architecture, and deployment setup.</p>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Contact</h4>
+                                    <div class="contact-info">
+                                        <div><i class="fas fa-envelope"></i> alex.johnson@example.com</div>
+                                        <div><i class="fab fa-github"></i> @alexjohnson</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Member Card 2 -->
+                        <div class="team-member-card">
+                            <div class="team-member-header">
+                                <div class="team-member-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                    <span class="status-indicator online" title="Online"></span>
+                                </div>
+                                <div class="team-member-info">
+                                    <h3>Sarah Chen</h3>
+                                    <span class="team-member-role">UX Designer</span>
+                                </div>
+                                <div class="team-member-controls">
+                                    <button class="btn-icon" title="Contact"><i class="fas fa-comment"></i></button>
+                                    <button class="btn-icon" title="View Profile"><i class="fas fa-user"></i></button>
+                                </div>
+                            </div>
+                            <div class="team-member-body">
+                                <div class="team-member-section">
+                                    <h4>Skills</h4>
+                                    <div class="tag-list">
+                                        <span class="tag">UI/UX Design</span>
+                                        <span class="tag">Figma</span>
+                                        <span class="tag">User Research</span>
+                                        <span class="tag">Prototyping</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Responsibilities</h4>
+                                    <p>Interface design, user experience research, and creating wireframes and prototypes.</p>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Contact</h4>
+                                    <div class="contact-info">
+                                        <div><i class="fas fa-envelope"></i> sarah.chen@example.com</div>
+                                        <div><i class="fab fa-dribbble"></i> @sarahchen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Member Card 3 -->
+                        <div class="team-member-card">
+                            <div class="team-member-header">
+                                <div class="team-member-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                    <span class="status-indicator offline" title="Offline"></span>
+                                </div>
+                                <div class="team-member-info">
+                                    <h3>Mike Rodriguez</h3>
+                                    <span class="team-member-role">ML Engineer</span>
+                                </div>
+                                <div class="team-member-controls">
+                                    <button class="btn-icon" title="Contact"><i class="fas fa-comment"></i></button>
+                                    <button class="btn-icon" title="View Profile"><i class="fas fa-user"></i></button>
+                                </div>
+                            </div>
+                            <div class="team-member-body">
+                                <div class="team-member-section">
+                                    <h4>Skills</h4>
+                                    <div class="tag-list">
+                                        <span class="tag">Machine Learning</span>
+                                        <span class="tag">TensorFlow</span>
+                                        <span class="tag">Python</span>
+                                        <span class="tag">NLP</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Responsibilities</h4>
+                                    <p>Machine learning model development, natural language processing implementation, and data pipeline management.</p>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Contact</h4>
+                                    <div class="contact-info">
+                                        <div><i class="fas fa-envelope"></i> mike.rodriguez@example.com</div>
+                                        <div><i class="fab fa-github"></i> @mikerodriguez</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Member Card 4 -->
+                        <div class="team-member-card">
+                            <div class="team-member-header">
+                                <div class="team-member-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                    <span class="status-indicator away" title="Away"></span>
+                                </div>
+                                <div class="team-member-info">
+                                    <h3>Emma Wilson</h3>
+                                    <span class="team-member-role">Backend Developer</span>
+                                </div>
+                                <div class="team-member-controls">
+                                    <button class="btn-icon" title="Contact"><i class="fas fa-comment"></i></button>
+                                    <button class="btn-icon" title="View Profile"><i class="fas fa-user"></i></button>
+                                </div>
+                            </div>
+                            <div class="team-member-body">
+                                <div class="team-member-section">
+                                    <h4>Skills</h4>
+                                    <div class="tag-list">
+                                        <span class="tag">Node.js</span>
+                                        <span class="tag">MongoDB</span>
+                                        <span class="tag">Express</span>
+                                        <span class="tag">API Design</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Responsibilities</h4>
+                                    <p>Backend architecture, API development, database management, and integrations with third-party services.</p>
+                                </div>
+                                
+                                <div class="team-member-section">
+                                    <h4>Contact</h4>
+                                    <div class="contact-info">
+                                        <div><i class="fas fa-envelope"></i> emma.wilson@example.com</div>
+                                        <div><i class="fab fa-github"></i> @emmawilson</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources Tab Content -->
+                <div class="tab-content" id="resources-tab">
+                    <div class="tab-header">
+                        <h2>Project Resources</h2>
+                        <div class="tab-actions">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline dropdown-toggle">
+                                    <i class="fas fa-filter"></i> Filter
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <button class="btn btn-sm btn-primary" id="uploadBtn">
+                                <i class="fas fa-upload"></i> Upload
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-categories">
+                        <button class="resource-category active">All Resources</button>
+                        <button class="resource-category">Designs</button>
+                        <button class="resource-category">Code</button>
+                        <button class="resource-category">Documents</button>
+                        <button class="resource-category">Links</button>
+                    </div>
+                    
+                    <div class="resources-container">
+                        <div class="resources-list">
+                            <div class="resource-category-header">
+                                <h3>Design Files</h3>
+                                <button class="btn-icon" title="Add Design File">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="resource-items">
+                                <!-- Design resource items -->
+                                <div class="resource-item">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-image"></i>
+                                    </div>
+                                    <div class="resource-info">
+                                        <h4>UI Wireframes v2</h4>
+                                        <p>Updated wireframes for voice assistant interface</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Sarah Chen</span>
+                                            <span><i class="fas fa-calendar"></i> Aug 14, 2023</span>
+                                            <span><i class="fas fa-file"></i> figma</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-item">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-image"></i>
+                                    </div>
+                                    <div class="resource-info">
+                                        <h4>Brand Assets</h4>
+                                        <p>Logo, colors, and design system components</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Sarah Chen</span>
+                                            <span><i class="fas fa-calendar"></i> Aug 10, 2023</span>
+                                            <span><i class="fas fa-file"></i> sketch</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-category-header">
+                                <h3>Code Resources</h3>
+                                <button class="btn-icon" title="Add Code Resource">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="resource-items">
+                                <!-- Code resource items -->
+                                <div class="resource-item">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-code"></i>
+                                    </div>
+                                    <div class="resource-info">
+                                        <h4>Frontend Repository</h4>
+                                        <p>React application for the voice assistant UI</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Alex Johnson</span>
+                                            <span><i class="fas fa-calendar"></i> Aug 13, 2023</span>
+                                            <span><i class="fab fa-github"></i> Repository</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <a href="#" class="btn-icon" title="Open Link"><i class="fas fa-external-link-alt"></i></a>
+                                        <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-item">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-code"></i>
+                                    </div>
+                                    <div class="resource-info">
+                                        <h4>NLP Model</h4>
+                                        <p>TensorFlow implementation for natural language processing</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Mike Rodriguez</span>
+                                            <span><i class="fas fa-calendar"></i> Aug 12, 2023</span>
+                                            <span><i class="fab fa-python"></i> Python</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-category-header">
+                                <h3>Documents</h3>
+                                <button class="btn-icon" title="Add Document">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="resource-items">
+                                <!-- Document resource items -->
+                                <div class="resource-item">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="resource-info">
+                                        <h4>Project Plan</h4>
+                                        <p>Detailed timeline, milestones, and deliverables</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Alex Johnson</span>
+                                            <span><i class="fas fa-calendar"></i> Aug 8, 2023</span>
+                                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="btn-icon" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Upload Modal (initially hidden) -->
+                    <div class="modal" id="uploadModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Upload Resource</h3>
+                                <button class="btn-icon close-modal">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="resource-title">Resource Title</label>
+                                    <input type="text" id="resource-title" class="form-control" placeholder="Enter resource title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="resource-type">Resource Type</label>
+                                    <select id="resource-type" class="form-control">
+                                        <option value="design">Design File</option>
+                                        <option value="code">Code</option>
+                                        <option value="document">Document</option>
+                                        <option value="link">External Link</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resource-description">Description</label>
+                                    <textarea id="resource-description" class="form-control" placeholder="Enter resource description"></textarea>
+                                </div>
+                                <div class="form-group file-upload-area">
+                                    <label>File</label>
+                                    <div class="drop-zone">
+                                        <span class="drop-zone-prompt">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p>Drop file here or click to browse</p>
+                                        </span>
+                                        <input type="file" id="resource-file" class="drop-zone-input">
+                                    </div>
+                                </div>
+                                <div id="link-input-group" class="form-group" style="display: none;">
+                                    <label for="resource-link">External Link</label>
+                                    <input type="url" id="resource-link" class="form-control" placeholder="https://example.com">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-ghost close-modal">Cancel</button>
+                                <button class="btn btn-primary">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Tab Content -->
+                <div class="tab-content" id="chat-tab">
+                    <div class="chat-container">
+                        <!-- Chat Sidebar - Team Members -->
+                        <div class="chat-sidebar">
+                            <div class="chat-sidebar-header">
+                                <h3>Team Chat</h3>
+                                <button class="btn-icon" title="New Message">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="chat-channels">
+                                <div class="channel-type">
+                                    <h4>Channels</h4>
+                                    <button class="btn-icon btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="chat-channel active">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>general</h5>
+                                    </div>
+                                </div>
+                                <div class="chat-channel">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>development</h5>
+                                    </div>
+                                </div>
+                                <div class="chat-channel">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>design</h5>
+                                    </div>
+                                </div>
+                                
+                                <div class="channel-type">
+                                    <h4>Direct Messages</h4>
+                                </div>
+                                <div class="chat-channel">
+                                    <div class="channel-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                        <span class="status-indicator online"></span>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>Sarah Chen</h5>
+                                    </div>
+                                </div>
+                                <div class="chat-channel">
+                                    <div class="channel-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                        <span class="status-indicator offline"></span>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>Mike Rodriguez</h5>
+                                    </div>
+                                </div>
+                                <div class="chat-channel">
+                                    <div class="channel-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                        <span class="status-indicator away"></span>
+                                    </div>
+                                    <div class="channel-name">
+                                        <h5>Emma Wilson</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Main Area -->
+                        <div class="chat-main">
+                            <div class="chat-header">
+                                <div class="chat-header-info">
+                                    <h3><i class="fas fa-hashtag"></i> general</h3>
+                                    <p>4 members</p>
+                                </div>
+                                <div class="chat-header-actions">
+                                    <button class="btn-icon" title="Call">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Video">
+                                        <i class="fas fa-video"></i>
+                                    </button>
+                                    <button class="btn-icon" title="More">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-messages">
+                                <!-- Message from Mike -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Mike Rodriguez</h4>
+                                            <span class="message-time">10:24 AM</span>
+                                        </div>
+                                        <div class="message-text">
+                                            <p>Hey team, I've updated the NLP model with the latest dataset. It's showing about 15% better accuracy now.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Message from Sarah -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Sarah Chen</h4>
+                                            <span class="message-time">10:30 AM</span>
+                                        </div>
+                                        <div class="message-text">
+                                            <p>That's awesome, Mike! I've also uploaded the latest UI designs to the resources section. Could you all take a look and provide feedback?</p>
+                                        </div>
+                                        <div class="message-attachments">
+                                            <div class="message-attachment">
+                                                <div class="attachment-icon"><i class="fas fa-file-image"></i></div>
+                                                <div class="attachment-info">
+                                                    <p>UI-Mockups-v2.fig</p>
+                                                    <span>2.4 MB</span>
+                                                </div>
+                                                <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Message from Emma -->
+                                <div class="message-group">
+                                    <div class="message-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
+                                    </div>
+                                    <div class="message-content">
+                                        <div class="message-info">
+                                            <h4>Emma Wilson</h4>
+                                            <span class="message-time">11:02 AM</span>
+                                        </div>
+                                        <div class="message-text">
+                                            <p>Morning everyone! I've deployed the latest backend changes to our staging environment. You can now test the improved response times with the updated API endpoints.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Your message -->
+                                <div class="message-group outgoing">
+                                    <div class="message-content">
+                                        <div class="message-text">
+                                            <p>Thanks for the updates. I'll check both the API performance and the new designs this afternoon.</p>
+                                        </div>
+                                        <div class="message-info">
+                                            <span class="message-status"><i class="fas fa-check-double"></i></span>
+                                            <span class="message-time">11:15 AM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input-container">
+                                <div class="chat-input-toolbar">
+                                    <button class="btn-icon" title="Attach File">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Add Emoji">
+                                        <i class="far fa-smile"></i>
+                                    </button>
+                                </div>
+                                <div class="chat-input-wrapper">
+                                    <textarea class="chat-input" placeholder="Type a message..."></textarea>
+                                    <button class="btn-icon send-button">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Tab Content -->
+                <div class="tab-content" id="timeline-tab">
+                    <div class="tab-header">
+                        <h2>Project Timeline</h2>
+                        <button class="btn btn-sm btn-outline">
+                            <i class="fas fa-plus"></i> Add Milestone
+                        </button>
+                    </div>
+                    
+                    <div class="timeline-view">
+                        <!-- Timeline progress bar -->
+                        <div class="timeline-progress">
+                            <div class="progress-points">
+                                <div class="progress-point completed" style="left: 0%;">
+                                    <div class="point-dot"></div>
+                                    <div class="point-label">Start</div>
+                                </div>
+                                <div class="progress-point completed" style="left: 25%;">
+                                    <div class="point-dot"></div>
+                                    <div class="point-label">Planning</div>
+                                </div>
+                                <div class="progress-point completed" style="left: 50%;">
+                                    <div class="point-dot"></div>
+                                    <div class="point-label">Development</div>
+                                </div>
+                                <div class="progress-point active" style="left: 75%;">
+                                    <div class="point-dot"></div>
+                                    <div class="point-label">Testing</div>
+                                </div>
+                                <div class="progress-point" style="left: 100%;">
+                                    <div class="point-dot"></div>
+                                    <div class="point-label">Submission</div>
+                                </div>
+                                <div class="progress-line"></div>
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline events -->
+                        <div class="timeline-events">
+                            <div class="timeline-month">
+                                <h3>August 2023</h3>
+                                
+                                <div class="timeline-event-list">
+                                    <div class="timeline-event completed">
+                                        <div class="event-date">
+                                            <span class="event-day">05</span>
+                                            <span class="event-weekday">SAT</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">Project Kickoff</div>
+                                            <div class="event-description">Initial team meeting and hackathon registration</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> 10:00 AM</span>
+                                                <span><i class="fas fa-check"></i> Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event completed">
+                                        <div class="event-date">
+                                            <span class="event-day">10</span>
+                                            <span class="event-weekday">THU</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">Design Approval</div>
+                                            <div class="event-description">Finalized UI designs and user flows</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> 4:00 PM</span>
+                                                <span><i class="fas fa-check"></i> Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event active">
+                                        <div class="event-date">
+                                            <span class="event-day">15</span>
+                                            <span class="event-weekday">TUE</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">Development Check-in</div>
+                                            <div class="event-description">Progress review and testing plan</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> 2:00 PM</span>
+                                                <span class="status-current"><i class="fas fa-dot-circle"></i> Today</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event upcoming">
+                                        <div class="event-date">
+                                            <span class="event-day">20</span>
+                                            <span class="event-weekday">SUN</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">API Integration Complete</div>
+                                            <div class="event-description">Backend and frontend systems connected</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> All Day</span>
+                                                <span><i class="fas fa-calendar"></i> Upcoming</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event upcoming">
+                                        <div class="event-date">
+                                            <span class="event-day">25</span>
+                                            <span class="event-weekday">FRI</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">Feature Freeze</div>
+                                            <div class="event-description">Final feature implementation deadline</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> 11:59 PM</span>
+                                                <span><i class="fas fa-calendar"></i> Upcoming</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-month">
+                                <h3>September 2023</h3>
+                                
+                                <div class="timeline-event-list">
+                                    <div class="timeline-event upcoming">
+                                        <div class="event-date">
+                                            <span class="event-day">01</span>
+                                            <span class="event-weekday">FRI</span>
+                                        </div>
+                                        <div class="event-content">
+                                            <div class="event-title">Final Submission</div>
+                                            <div class="event-description">Project completion and submission deadline</div>
+                                            <div class="event-meta">
+                                                <span><i class="fas fa-clock"></i> 11:59 PM</span>
+                                                <span><i class="fas fa-calendar"></i> Upcoming</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.workspace-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.workspace-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show clicked tab content
+                const tabId = this.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Resource categories switching
+        document.querySelectorAll('.resource-category').forEach(category => {
+            category.addEventListener('click', function() {
+                document.querySelectorAll('.resource-category').forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Upload modal functionality
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadModal = document.getElementById('uploadModal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+        
+        if (uploadBtn && uploadModal) {
+            uploadBtn.addEventListener('click', function() {
+                uploadModal.classList.add('active');
+            });
+            
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    uploadModal.classList.remove('active');
+                });
+            });
+        }
+        
+        // Change form based on resource type
+        const resourceTypeSelect = document.getElementById('resource-type');
+        const linkInputGroup = document.getElementById('link-input-group');
+        const fileUploadArea = document.querySelector('.file-upload-area');
+        
+        if (resourceTypeSelect && linkInputGroup && fileUploadArea) {
+            resourceTypeSelect.addEventListener('change', function() {
+                if (this.value === 'link') {
+                    linkInputGroup.style.display = 'block';
+                    fileUploadArea.style.display = 'none';
+                } else {
+                    linkInputGroup.style.display = 'none';
+                    fileUploadArea.style.display = 'block';
+                }
+            });
+        }
+        
+        // File drop zone functionality
+        const dropZone = document.querySelector('.drop-zone');
+        const dropZoneInput = document.querySelector('.drop-zone-input');
+        
+        if (dropZone && dropZoneInput) {
+            dropZone.addEventListener('click', () => dropZoneInput.click());
+            
+            dropZoneInput.addEventListener('change', (e) => {
+                if (dropZoneInput.files.length) {
+                    updateDropZone(dropZone, dropZoneInput.files[0]);
+                }
+            });
+            
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drop-zone--over');
+            });
+            
+            ['dragleave', 'dragend'].forEach(type => {
+                dropZone.addEventListener(type, () => {
+                    dropZone.classList.remove('drop-zone--over');
+                });
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                
+                if (e.dataTransfer.files.length) {
+                    dropZoneInput.files = e.dataTransfer.files;
+                    updateDropZone(dropZone, e.dataTransfer.files[0]);
+                }
+                
+                dropZone.classList.remove('drop-zone--over');
+            });
+        }
+        
+        function updateDropZone(dropZone, file) {
+            const prompt = dropZone.querySelector('.drop-zone-prompt');
+            
+            if (prompt) {
+                prompt.innerHTML = `<i class="fas fa-file"></i><p>${file.name}</p>`;
+            }
+        }
+        
+        // Mobile sidebar toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-layout').classList.toggle('sidebar-open');
+        });
+        
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-layout').classList.toggle('sidebar-collapsed');
+        });
+    </script>
+</body>
+</html>
