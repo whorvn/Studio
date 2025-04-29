@@ -426,16 +426,17 @@ a:hover {
     border-radius: var(--radius-xl);
     overflow: hidden;
     margin-bottom: var(--sp-6);
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
 }
 
 .workspace-header__bg {
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-image: url('https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
+    z-index: 1;
 }
 
 .workspace-header__content {
@@ -444,7 +445,8 @@ a:hover {
     color: var(--light);
     display: flex;
     flex-direction: column;
-    gap: var(--sp-4);
+    gap: var(--sp-5);
+    z-index: 2;
 }
 
 .workspace-header__info {
@@ -454,8 +456,8 @@ a:hover {
 }
 
 .workspace-logo {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     border-radius: var(--radius-lg);
     background-color: var(--light);
     display: flex;
@@ -471,17 +473,23 @@ a:hover {
     max-height: 100%;
 }
 
+.workspace-logo img.hackathon-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .workspace-title h1 {
-    margin: 0;
-    font-size: 1.75rem;
+    margin: 0 0 var(--sp-2) 0;
+    font-size: 1.85rem;
     color: var(--light);
+    font-weight: 700;
 }
 
 .workspace-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--sp-4);
-    margin-top: var(--sp-2);
+    gap: var(--sp-3);
     font-size: 0.875rem;
 }
 
@@ -495,16 +503,27 @@ a:hover {
     gap: var(--sp-1);
 }
 
+.status-badge i {
+    font-size: 0.7rem;
+}
+
 .status-badge.active {
     background-color: rgba(67, 170, 139, 0.3);
 }
 
-.status-badge i, .time-left i, .organization i {
-    font-size: 0.875rem;
+.status-badge.active i {
+    color: var(--success);
+}
+
+.time-left, .organization, .format {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    opacity: 0.9;
 }
 
 .workspace-progress {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .progress-label {
@@ -518,8 +537,9 @@ a:hover {
 .progress-track {
     height: 6px;
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-full);
+    border-radius: var (--radius-full);
     overflow: hidden;
+    margin-bottom: var(--sp-3);
 }
 
 .progress-fill {
@@ -630,6 +650,9 @@ a:hover {
     border: 1px solid var(--gray-200);
     overflow: hidden;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .workspace-card:hover {
@@ -643,6 +666,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .workspace-card-header h2 {
@@ -653,6 +677,9 @@ a:hover {
 
 .workspace-card-body {
     padding: var(--sp-5);
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Buttons */
@@ -670,7 +697,7 @@ a:hover {
 }
 
 .btn-sm {
-    padding: var(--sp-1) var(--sp-3);
+    padding: var(--sp-1) var (--sp-3);
     font-size: 0.875rem;
 }
 
@@ -742,7 +769,8 @@ a:hover {
 .project-info {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-5);
+    gap: var (--sp-5);
+    width: 100%;
 }
 
 .info-item h3 {
@@ -1835,7 +1863,7 @@ a:hover {
 .event-title {
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: var(--sp-1);
+    margin-bottom: var (--sp-1);
     color: var(--gray-900);
 }
 
@@ -1861,6 +1889,71 @@ a:hover {
 
 .status-current {
     color: var(--primary);
+}
+
+/* New Timeline indicator for short hackathons */
+.hackathon-timeline {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--sp-2) 0;
+    margin-top: var(--sp-2);
+    position: relative;
+}
+
+.hackathon-timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%);
+}
+
+.timeline-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: var(--sp-1);
+    z-index: 1;
+}
+
+.timeline-point::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-full);
+    position: absolute;
+    top: -14px;
+}
+
+.timeline-point.start::before {
+    background-color: var(--success);
+}
+
+.timeline-point.current::before {
+    background-color: var(--primary);
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    top: -16px;
+}
+
+.timeline-point.end::before {
+    background-color: var(--warning);
+}
+
+.timeline-point .date {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.timeline-point .label {
+    font-size: 0.7rem;
+    opacity: 0.8;
 }
 
 /* Responsive styles */
@@ -1900,7 +1993,17 @@ a:hover {
     .workspace-header__info {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--sp-4);
+        gap: var(--sp-3);
+    }
+    
+    .workspace-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-2);
+    }
+    
+    .hackathon-timeline .label {
+        display: none;
     }
     
     .workspace-tabs {
