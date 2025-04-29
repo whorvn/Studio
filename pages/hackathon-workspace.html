@@ -121,7 +121,7 @@
                     <div class="workspace-header__content">
                         <div class="workspace-header__info">
                             <div class="workspace-logo">
-                                <img src="https://source.unsplash.com/random/80x80/?tech,code" alt="AI Innovation Challenge" class="hackathon-logo">
+                                <img src="https://ui-avatars.com/api/?name=AI+Innovation+Challenge&background=8b5cf6&color=fff&size=256&bold=true&format=svg" alt="AI Innovation Challenge" class="hackathon-logo">
                                 <span class="status-badge active"><i class="fas fa-circle"></i> Active</span>
                             </div>
                             <div class="workspace-title">
@@ -879,375 +879,437 @@
                         </div>
                     </div>
                     
-                    <!-- Resources Tab Content -->
+                    <!-- Resources Tab Content - Complete Redesign -->
                     <div class="tab-content" id="resources-tab">
-                        <div class="tab-header">
-                            <div class="tab-header-title">
-                                <h2>Project Resources</h2>
-                                <p class="tab-subtitle">Access and manage all project assets, documents, and links</p>
+                        <div class="resources-modern">
+                            <!-- Resources Header -->
+                            <div class="resources-header">
+                                <div class="resources-header-title">
+                                    <h2>Project Resources</h2>
+                                    <p>All your project files, documents, and assets in one place</p>
+                                </div>
+                                <div class="resources-header-actions">
+                                    <div class="search-container">
+                                        <input type="text" placeholder="Search resources..." class="resource-search">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <button class="btn btn-primary" id="uploadResourceBtn">
+                                        <i class="fas fa-plus"></i> Add Resource
+                                    </button>
+                                </div>
                             </div>
-                            <div class="tab-actions">
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline dropdown-toggle">
-                                        <i class="fas fa-sort"></i> Sort by
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Recently Added</a>
-                                        <a href="#" class="dropdown-item">Name A-Z</a>
-                                        <a href="#" class="dropdown-item">Name Z-A</a>
-                                        <a href="#" class="dropdown-item">File Size</a>
-                                        <a href="#" class="dropdown-item">File Type</a>
-                                    </div>
-                                </div>
-                                <button class="btn btn-sm btn-primary" id="uploadBtn">
-                                    <i class="fas fa-upload"></i> Upload
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="resources-categories">
-                            <button class="resource-category active">All Resources</button>
-                            <button class="resource-category">Designs</button>
-                            <button class="resource-category">Code</button>
-                            <button class="resource-category">Documents</button>
-                            <button class="resource-category">Links</button>
-                        </div>
-                        
-                        <div class="resources-container">
-                            <div class="resources-list">
-                                <div class="resource-category-header">
-                                    <h3><i class="fas fa-palette"></i> Design Files</h3>
-                                    <button class="btn-icon" title="Add Design File">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="resource-grid">
-                                    <!-- Design resource items -->
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail design">
-                                            <div class="resource-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?ui,design')">
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+
+                            <!-- Resources Main Content -->
+                            <div class="resources-main">
+                                <!-- Resources Sidebar -->
+                                <div class="resources-sidebar">
+                                    <div class="resources-nav">
+                                        <div class="resources-nav-header">
+                                            <h3>Browse</h3>
                                         </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-file-image"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">UI Wireframes.fig</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">5.2 MB</span>
-                                                    <span class="resource-date">Updated 2 days ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                </div>
-                                            </div>
+                                        <ul class="resources-nav-menu">
+                                            <li class="resources-nav-item active" data-filter="all">
+                                                <i class="fas fa-layer-group"></i>
+                                                <span>All Resources</span>
+                                                <span class="count">8</span>
+                                            </li>
+                                            <li class="resources-nav-item" data-filter="recent">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Recent</span>
+                                            </li>
+                                            <li class="resources-nav-item" data-filter="favorite">
+                                                <i class="fas fa-star"></i>
+                                                <span>Favorites</span>
+                                            </li>
+                                        </ul>
+
+                                        <div class="resources-nav-header">
+                                            <h3>Categories</h3>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail design">
-                                            <div class="resource-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?mockup')">
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
+                                        <ul class="resources-nav-menu">
+                                            <li class="resources-nav-item" data-filter="design">
+                                                <i class="fas fa-palette"></i>
+                                                <span>Design</span>
+                                                <span class="count">2</span>
+                                            </li>
+                                            <li class="resources-nav-item" data-filter="code">
+                                                <i class="fas fa-code"></i>
+                                                <span>Code</span>
+                                                <span class="count">2</span>
+                                            </li>
+                                            <li class="resources-nav-item" data-filter="document">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>Documents</span>
+                                                <span class="count">2</span>
+                                            </li>
+                                            <li class="resources-nav-item" data-filter="link">
+                                                <i class="fas fa-link"></i>
+                                                <span>Links</span>
+                                                <span class="count">2</span>
+                                            </li>
+                                        </ul>
+
+                                        <div class="resources-nav-header">
+                                            <h3>Storage</h3>
+                                            <div class="storage-usage">
+                                                <div class="storage-bar">
+                                                    <div class="storage-used" style="width: 45%"></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-file-image"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">App Mockups v2.psd</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">12.7 MB</span>
-                                                    <span class="resource-date">Updated yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                </div>
+                                                <p>45% used - 2.7 GB of 6 GB</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <!-- Code resources section -->
-                                <div class="resource-category-header">
-                                    <h3><i class="fas fa-code"></i> Code Resources</h3>
-                                    <button class="btn-icon" title="Add Code Resource">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="resource-grid">
-                                    <!-- Code resource items -->
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail code">
-                                            <div class="resource-preview code">
-                                                <pre><code>function initApp() {
+
+                                <!-- Resources Content -->
+                                <div class="resources-content">
+                                    <!-- View Controls -->
+                                    <div class="resources-view-controls">
+                                        <div class="view-selectors">
+                                            <button class="view-selector active" data-view="grid">
+                                                <i class="fas fa-th"></i>
+                                            </button>
+                                            <button class="view-selector" data-view="list">
+                                                <i class="fas fa-list"></i>
+                                            </button>
+                                        </div>
+                                        <div class="sort-control">
+                                            <label>Sort by:</label>
+                                            <select class="sort-selector">
+                                                <option value="recent">Recently Updated</option>
+                                                <option value="name-asc">Name (A-Z)</option>
+                                                <option value="name-desc">Name (Z-A)</option>
+                                                <option value="size">Size</option>
+                                                <option value="type">Type</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recently Added Section -->
+                                    <div class="resources-section">
+                                        <div class="resources-section-header">
+                                            <h3>Recently Added</h3>
+                                        </div>
+                                        <div class="resources-grid">
+                                            <!-- Design File -->
+                                            <div class="resource-tile" data-type="design">
+                                                <div class="resource-tile-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?ui,design')">
+                                                    <div class="resource-type design">
+                                                        <i class="fas fa-file-image"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">UI Wireframes.fig</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Updated 2 days ago</span>
+                                                        <span class="resource-size">5.2 MB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="owner-avatar">
+                                                        <span class="owner-name">Sarah Chen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Code File -->
+                                            <div class="resource-tile" data-type="code">
+                                                <div class="resource-tile-preview code">
+                                                    <div class="resource-type code">
+                                                        <i class="fas fa-file-code"></i>
+                                                    </div>
+                                                    <pre class="code-preview">function initApp() {
   const config = {
     apiKey: "...",
-    authDomain: "..."
+    // Config
   };
   firebase.initializeApp(config);
-}</code></pre>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
+}</pre>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">API Integration.js</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Updated 4 hours ago</span>
+                                                        <span class="resource-size">24 KB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez" class="owner-avatar">
+                                                        <span class="owner-name">Mike Rodriguez</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-file-code"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">API Integration.js</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">24 KB</span>
-                                                    <span class="resource-date">Updated 4 hours ago</span>
+
+                                            <!-- Document File -->
+                                            <div class="resource-tile" data-type="document">
+                                                <div class="resource-tile-preview document">
+                                                    <div class="resource-type document">
+                                                        <i class="fas fa-file-pdf"></i>
+                                                    </div>
+                                                    <div class="document-preview">
+                                                        <i class="fas fa-file-pdf"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">Project Brief.pdf</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="fas fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Added 3 days ago</span>
+                                                        <span class="resource-size">1.2 MB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="owner-avatar">
+                                                        <span class="owner-name">Sarah Chen</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail code">
-                                            <div class="resource-preview code">
-                                                <pre><code>import React, { useState } from 'react';
+
+                                    <!-- All Resources Section -->
+                                    <div class="resources-section">
+                                        <div class="resources-section-header">
+                                            <h3>All Resources</h3>
+                                        </div>
+                                        <div class="resources-grid">
+                                            <!-- Design File 2 -->
+                                            <div class="resource-tile" data-type="design">
+                                                <div class="resource-tile-preview" style="background-image: url('https://source.unsplash.com/random/600x400/?mockup')">
+                                                    <div class="resource-type design">
+                                                        <i class="fas fa-file-image"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">App Mockups v2.psd</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Updated yesterday</span>
+                                                        <span class="resource-size">12.7 MB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="owner-avatar">
+                                                        <span class="owner-name">Sarah Chen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Code File 2 -->
+                                            <div class="resource-tile" data-type="code">
+                                                <div class="resource-tile-preview code">
+                                                    <div class="resource-type code">
+                                                        <i class="fab fa-react"></i>
+                                                    </div>
+                                                    <pre class="code-preview">import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 
 export default function App() {
   const [data, setData] = useState([]);
   // Component logic
-}</code></pre>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
+}</pre>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">App.js</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Updated today</span>
+                                                        <span class="resource-size">38 KB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="owner-avatar">
+                                                        <span class="owner-name">Alex Johnson</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fab fa-react"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">App.js</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">38 KB</span>
-                                                    <span class="resource-date">Updated today</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Document resources section -->
-                                <div class="resource-category-header">
-                                    <h3><i class="fas fa-file-alt"></i> Documents</h3>
-                                    <button class="btn-icon" title="Add Document">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="resource-grid">
-                                    <!-- Document resource items -->
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail document">
-                                            <div class="resource-preview document">
-                                                <i class="fas fa-file-pdf"></i>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">Project Brief.pdf</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">1.2 MB</span>
-                                                    <span class="resource-date">Added 3 days ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail document">
-                                            <div class="resource-preview document">
-                                                <i class="fas fa-file-word"></i>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Download">
-                                                        <i class="fas fa-download"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Share">
-                                                        <i class="fas fa-share-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-file-word"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">Technical Documentation.docx</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-size">840 KB</span>
-                                                    <span class="resource-date">Updated 2 days ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Links section -->
-                                <div class="resource-category-header">
-                                    <h3><i class="fas fa-link"></i> Links & References</h3>
-                                    <button class="btn-icon" title="Add Link">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                
-                                <div class="resource-grid">
-                                    <!-- Link resource items -->
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail link">
-                                            <div class="resource-preview link">
-                                                <i class="fab fa-github"></i>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Open">
-                                                        <i class="fas fa-external-link-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Copy">
-                                                        <i class="fas fa-copy"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
+                                            <!-- Document File 2 -->
+                                            <div class="resource-tile" data-type="document">
+                                                <div class="resource-tile-preview document">
+                                                    <div class="resource-type document">
+                                                        <i class="fas fa-file-word"></i>
+                                                    </div>
+                                                    <div class="document-preview">
+                                                        <i class="fas fa-file-word"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Download">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Share">
+                                                            <i class="fas fa-share-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">Technical Documentation.docx</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Updated 2 days ago</span>
+                                                        <span class="resource-size">840 KB</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson" class="owner-avatar">
+                                                        <span class="owner-name">Emma Wilson</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fab fa-github"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">Project Repository</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-link">github.com/team/ai-innovation</span>
+
+                                            <!-- Link Resource 1 -->
+                                            <div class="resource-tile" data-type="link">
+                                                <div class="resource-tile-preview link">
+                                                    <div class="resource-type link">
+                                                        <i class="fab fa-github"></i>
+                                                    </div>
+                                                    <div class="link-preview">
+                                                        <i class="fab fa-github"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Open">
+                                                            <i class="fas fa-external-link-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Copy">
+                                                            <i class="fas fa-copy"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">Project Repository</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="far fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Added 5 days ago</span>
+                                                        <span class="resource-link">github.com/team/ai-innovation</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="owner-avatar">
+                                                        <span class="owner-name">Alex Johnson</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+
+                                            <!-- Link Resource 2 -->
+                                            <div class="resource-tile" data-type="link">
+                                                <div class="resource-tile-preview link">
+                                                    <div class="resource-type link">
+                                                        <i class="fas fa-cloud"></i>
+                                                    </div>
+                                                    <div class="link-preview">
+                                                        <i class="fas fa-cloud"></i>
+                                                    </div>
+                                                    <div class="resource-actions">
+                                                        <button class="resource-action-btn" title="Open">
+                                                            <i class="fas fa-external-link-alt"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn" title="Copy">
+                                                            <i class="fas fa-copy"></i>
+                                                        </button>
+                                                        <button class="resource-action-btn resource-menu-toggle" title="More">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="resource-card">
-                                        <div class="resource-thumbnail link">
-                                            <div class="resource-preview link">
-                                                <i class="fas fa-cloud"></i>
-                                                <div class="resource-actions">
-                                                    <button class="resource-action-btn" title="Open">
-                                                        <i class="fas fa-external-link-alt"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="Copy">
-                                                        <i class="fas fa-copy"></i>
-                                                    </button>
-                                                    <button class="resource-action-btn" title="More">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="resource-info">
-                                            <div class="resource-type-icon">
-                                                <i class="fas fa-cloud"></i>
-                                            </div>
-                                            <div class="resource-details">
-                                                <h4 class="resource-name">Cloud Deployment</h4>
-                                                <div class="resource-meta">
-                                                    <span class="resource-link">azure.com/team-project</span>
-                                                </div>
-                                            </div>
-                                            <div class="resource-owner">
-                                                <div class="owner-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                <div class="resource-tile-info">
+                                                    <div class="resource-name-wrapper">
+                                                        <h4 class="resource-name">Cloud Deployment</h4>
+                                                        <button class="resource-favorite">
+                                                            <i class="fas fa-star"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="resource-meta">
+                                                        <span class="resource-date">Added 1 day ago</span>
+                                                        <span class="resource-link">azure.com/team-project</span>
+                                                    </div>
+                                                    <div class="resource-owner">
+                                                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez" class="owner-avatar">
+                                                        <span class="owner-name">Mike Rodriguez</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1255,61 +1317,131 @@ export default function App() {
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Upload Modal (initially hidden) -->
-                        <div class="modal" id="uploadModal">
+
+                        <!-- Resource Upload Modal -->
+                        <div class="modal" id="resourceUploadModal">
                             <div class="modal-overlay"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h3>Upload Resource</h3>
+                                    <h3>Add New Resource</h3>
                                     <button class="btn-icon close-modal">
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="resource-name">Resource Name</label>
-                                        <input type="text" id="resource-name" placeholder="Enter a name for this resource">
+                                    <div class="resource-upload-tabs">
+                                        <button class="resource-upload-tab active" data-tab="file">
+                                            <i class="fas fa-file"></i> Upload File
+                                        </button>
+                                        <button class="resource-upload-tab" data-tab="link">
+                                            <i class="fas fa-link"></i> Add Link
+                                        </button>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="resource-type">Resource Type</label>
-                                        <select id="resource-type">
-                                            <option value="design">Design File</option>
-                                            <option value="code">Code File</option>
-                                            <option value="document">Document</option>
-                                            <option value="link">Link</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="resource-category">Category</label>
-                                        <select id="resource-category">
-                                            <option value="ui">UI/UX Design</option>
-                                            <option value="frontend">Frontend</option>
-                                            <option value="backend">Backend</option>
-                                            <option value="documentation">Documentation</option>
-                                            <option value="reference">Reference</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group file-upload-area">
-                                        <label>File</label>
-                                        <div class="drop-zone">
-                                            <span class="drop-zone-prompt">
-                                                <i class="fas fa-cloud-upload-alt"></i>
-                                                <p>Drag & drop file here or click to browse</p>
-                                            </span>
-                                            <input type="file" name="fileUpload" class="drop-zone-input">
+
+                                    <div class="resource-upload-content active" id="file-upload-content">
+                                        <div class="form-group">
+                                            <label for="resource-name">Name</label>
+                                            <input type="text" id="resource-name" placeholder="Enter resource name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="resource-category">Category</label>
+                                            <select id="resource-category">
+                                                <option value="design">Design</option>
+                                                <option value="code">Code</option>
+                                                <option value="document">Document</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Description (optional)</label>
+                                            <textarea placeholder="Add a short description of this resource"></textarea>
+                                        </div>
+
+                                        <div class="form-group file-upload-area">
+                                            <label>File</label>
+                                            <div class="drop-zone">
+                                                <span class="drop-zone-prompt">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                    <p>Drag & drop file here<br>or click to browse</p>
+                                                    <span class="drop-zone-hint">Max file size: 25MB</span>
+                                                </span>
+                                                <input type="file" name="fileUpload" class="drop-zone-input">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div id="link-input-group" class="form-group" style="display: none;">
-                                        <label for="resource-link">URL</label>
-                                        <input type="url" id="resource-link" placeholder="https://...">
+
+                                    <div class="resource-upload-content" id="link-upload-content" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="resource-link-name">Name</label>
+                                            <input type="text" id="resource-link-name" placeholder="Enter link name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="resource-link-url">URL</label>
+                                            <input type="url" id="resource-link-url" placeholder="https://..." required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="resource-link-icon">Icon</label>
+                                            <div class="icon-selector">
+                                                <button class="icon-option active">
+                                                    <i class="fas fa-link"></i>
+                                                </button>
+                                                <button class="icon-option">
+                                                    <i class="fab fa-github"></i>
+                                                </button>
+                                                <button class="icon-option">
+                                                    <i class="fas fa-cloud"></i>
+                                                </button>
+                                                <button class="icon-option">
+                                                    <i class="fab fa-figma"></i>
+                                                </button>
+                                                <button class="icon-option">
+                                                    <i class="fab fa-trello"></i>
+                                                </button>
+                                                <button class="icon-option">
+                                                    <i class="fab fa-slack"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Description (optional)</label>
+                                            <textarea placeholder="Add a short description of this link"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-ghost close-modal">Cancel</button>
-                                    <button class="btn btn-primary">Upload</button>
+                                    <button class="btn btn-primary">Add Resource</button>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <!-- Resource Context Menu (initially hidden) -->
+                        <div class="resource-context-menu" id="resourceContextMenu" style="display: none;">
+                            <ul class="context-menu-list">
+                                <li class="context-menu-item">
+                                    <i class="fas fa-eye"></i> View Details
+                                </li>
+                                <li class="context-menu-item">
+                                    <i class="fas fa-edit"></i> Rename
+                                </li>
+                                <li class="context-menu-item">
+                                    <i class="fas fa-download"></i> Download
+                                </li>
+                                <li class="context-menu-item">
+                                    <i class="fas fa-share-alt"></i> Share
+                                </li>
+                                <li class="context-menu-item">
+                                    <i class="fas fa-tag"></i> Add Tags
+                                </li>
+                                <li class="context-menu-item text-danger">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     
