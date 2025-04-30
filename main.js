@@ -685,3 +685,219 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize timeline
     console.log('Timeline functionality initialized');
 });
+
+/**
+ * Hackathon Workspace - Main JavaScript
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Timeline functionality
+    initializeTimeline();
+    
+    // Sidebar toggle functionality
+    initializeSidebar();
+    
+    // Tab navigation functionality
+    initializeTabNavigation();
+    
+    // Resource management functionality
+    initializeResourceManagement();
+});
+
+function initializeTimeline() {
+    // Day tabs functionality
+    const dayTabs = document.querySelectorAll('.day-tab');
+    const daySchedules = document.querySelectorAll('.day-schedule');
+    
+    dayTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetDay = this.getAttribute('data-day');
+            
+            // Update active tab
+            dayTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding schedule
+            daySchedules.forEach(schedule => {
+                schedule.classList.remove('active');
+                if (schedule.id === targetDay + '-schedule') {
+                    schedule.classList.add('active');
+                }
+            });
+        });
+    });
+    
+    // Previous and Next buttons
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    
+    if (prevDayBtn && nextDayBtn) {
+        prevDayBtn.addEventListener('click', function() {
+            const activeTab = document.querySelector('.day-tab.active');
+            const prevTab = activeTab.previousElementSibling;
+            
+            if (prevTab && prevTab.classList.contains('day-tab')) {
+                prevTab.click();
+            }
+        });
+        
+        nextDayBtn.addEventListener('click', function() {
+            const activeTab = document.querySelector('.day-tab.active');
+            const nextTab = activeTab.nextElementSibling;
+            
+            if (nextTab && nextTab.classList.contains('day-tab')) {
+                nextTab.click();
+            }
+        });
+    }
+    
+    // Timeline events expand/collapse functionality
+    const timelineEvents = document.querySelectorAll('.timeline-event');
+    timelineEvents.forEach(event => {
+        event.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+        });
+    });
+    
+    // Current time indicator
+    updateCurrentTimeIndicator();
+    // Update every minute
+    setInterval(updateCurrentTimeIndicator, 60000);
+}
+
+function updateCurrentTimeIndicator() {
+    const todayMarker = document.querySelector('.today-indicator');
+    if (todayMarker) {
+        // Get current time and position the marker accordingly
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        
+        // Calculate position based on time (8am-8pm range)
+        const dayStart = 8; // 8am
+        const dayEnd = 20; // 8pm
+        const totalMinutes = (dayEnd - dayStart) * 60;
+        const currentMinutes = (hours - dayStart) * 60 + minutes;
+        const percentage = Math.max(0, Math.min(100, (currentMinutes / totalMinutes) * 100));
+        
+        // Animate the indicator
+        todayMarker.style.animation = 'pulse 2s infinite';
+    }
+}
+
+function initializeSidebar() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+            document.querySelector('.dashboard-layout').classList.toggle('sidebar-collapsed');
+        });
+    }
+    
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+    }
+}
+
+function initializeTabNavigation() {
+    const workspaceTabs = document.querySelectorAll('.workspace-tab');
+    workspaceTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+            
+            // Update active tab
+            workspaceTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                if (content.id === targetTab + '-tab') {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+function initializeResourceManagement() {
+    // Resource upload button
+    const uploadBtn = document.getElementById('uploadResourceBtn');
+    if (uploadBtn) {
+        uploadBtn.addEventListener('click', function() {
+            const modal = document.getElementById('resourceUploadModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        });
+    }
+    
+    // Close modal buttons
+    const closeButtons = document.querySelectorAll('.close-modal');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        });
+    });
+    
+    // Resource upload tabs
+    const uploadTabs = document.querySelectorAll('.resource-upload-tab');
+    uploadTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const target = this.getAttribute('data-tab');
+            
+            // Update active tab
+            uploadTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding content
+            document.querySelectorAll('.resource-upload-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(`${target}-upload-content`).style.display = 'block';
+        });
+    });
+    
+    // File drop zone
+    const dropZone = document.querySelector('.drop-zone');
+    if (dropZone) {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropZone.classList.add('drop-zone--over');
+        }
+        
+        function unhighlight() {
+            dropZone.classList.remove('drop-zone--over');
+        }
+        
+        dropZone.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const files = e.dataTransfer.files;
+            // Handle the dropped files
+            console.log('Files dropped:', files);
+            // You would typically upload these files or process them
+        }
+    }
+}

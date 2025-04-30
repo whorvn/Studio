@@ -3002,7 +3002,7 @@ a:hover {
 .channel-badge {
     width: 18px;
     height: 18px;
-    border-radius: var(--radius-full);
+    border-radius: var (--radius-full);
     background-color: var(--primary);
     color: white;
     font-size: 0.7rem;
@@ -3536,7 +3536,7 @@ a:hover {
 .resource-card-actions {
     display: flex;
     justify-content: flex-end;
-    gap: var(--sp-1);
+    gap: var (--sp-1);
     padding: var(--sp-2) var(--sp-4);
     border-top: 1px solid var(--gray-200);
 }
@@ -5548,21 +5548,181 @@ textarea.form-control {
 
 .schedule-timeline {
     position: relative;
-    padding-left: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-3);
+    padding-left: 10px;
+    margin-top: var(--sp-4);
 }
 
 .schedule-timeline::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 6px;
+    left: 0;
     width: 2px;
     background-color: var(--gray-200);
+    border-radius: var(--radius-full);
 }
+
+.timeline-event {
+    position: relative;
+    margin-bottom: var(--sp-4);
+    padding-left: var(--sp-3);
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 24px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--gray-300);
+    border-radius: var(--radius-full);
+    transition: all 0.2s ease;
+}
+
+.timeline-event:hover::before {
+    background-color: var(--primary);
+    transform: scale(1.2);
+}
+
+.timeline-event.completed::before {
+    background-color: var(--success);
+}
+
+/* New horizontal row structure */
+.event-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-4);
+}
+
+/* Improved time badge */
+.event-time-badge {
+    min-width: 140px; /* Fixed width to prevent wrapping */
+    background-color: var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 0.85rem;
+    color: var(--gray-700);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping */
+    align-self: flex-start;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+/* Updated event content styling */
+.event-content {
+    display: flex;
+    gap: var(--sp-3);
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-3) var(--sp-4);
+    flex: 1;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: all 0.2s ease;
+}
+
+.timeline-event:hover .event-content {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-lighter);
+    transform: translateX(4px);
+}
+
+.event-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-lighter);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.event-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--sp-2);
+}
+
+.event-description {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    margin-bottom: var(--sp-2);
+}
+
+.event-description p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Custom event type styles */
+.meal-event .event-icon {
+    background-color: rgba(249, 199, 79, 0.2);
+    color: var(--warning);
+}
+
+.coding-event .event-icon {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+}
+
+.workshop-event .event-icon {
+    background-color: rgba(114, 9, 183, 0.1);
+    color: var(--secondary);
+}
+
+.checkpoint-event .event-icon {
+    background-color: rgba(67, 170, 139, 0.1);
+    color: var(--success);
+}
+
+.presentation-event .event-icon {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--accent);
+}
+
+.ceremony-event .event-icon {
+    background-color: rgba(58, 12, 163, 0.1);
+    color: var(--primary-dark);
+}
+
+.deadline-event .event-icon {
+    background-color: rgba(249, 65, 68, 0.1);
+    color: var(--error);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .event-row {
+        flex-direction: column;
+        gap: var(--sp-2);
+    }
+    
+    .event-time-badge {
+        min-width: initial;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .timeline-event::before {
+        top: 14px;
+    }
+}
+
+/* ...existing code... */
 
 .timeline-event {
     position: relative;
@@ -5798,7 +5958,7 @@ textarea.form-control {
 .event-location {
     display: flex;
     align-items: center;
-    gap: var(--sp-1);
+    gap: var (--sp-1);
     margin-top: var(--sp-2);
     color: var(--gray-600);
     font-size: 0.85rem;
@@ -6496,7 +6656,7 @@ textarea.form-control {
 .timeline-actions {
     display: flex;
     align-items: center;
-    gap: var(--sp-2);
+    gap: var (--sp-2);
 }
 
 .timeline-action-btn {
@@ -6726,7 +6886,7 @@ textarea.form-control {
 .timeline-navigation {
     display: flex;
     align-items: center;
-    gap: var(--sp-2);
+    gap: var (--sp-2);
     background-color: var(--light);
     border-radius: var(--radius-full);
     padding: var(--sp-1);
@@ -7900,7 +8060,6 @@ textarea.form-control {
     color: var(--primary);
 }
 
-/* Responsive improvements */
 @media (max-width: 992px) {
     .timeline-dashboard {
         grid-template-columns: 1fr;
