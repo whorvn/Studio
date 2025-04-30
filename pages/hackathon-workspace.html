@@ -1530,41 +1530,45 @@ export default function App() {
                                             </div>
                                             
                                             <div class="schedule-timeline">
-                                                <!-- Event 1 -->
-                                                <div class="timeline-event meal-event">
+                                                <!-- Event 1 (Updated structure for flip animation) -->
+                                                <div class="timeline-event ceremony-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span>9:00 AM - 10:30 AM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-flag"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Opening Ceremony</h4>
-                                                                <div class="event-description">
-                                                                    <p>Welcome address, introduction to the hackathon theme, rules and schedule overview.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-flag"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Opening Ceremony</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-flag"></i> Welcome address, introduction to the hackathon theme, rules and schedule overview.</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 2 -->
+                                                <!-- Event 2 (Updated structure for flip animation) -->
                                                 <div class="timeline-event workshop-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span>11:00 AM - 12:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-laptop-code"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Technical Workshop</h4>
-                                                                <div class="event-description">
-                                                                    <p>Introduction to APIs and tools available for the hackathon. Setup assistance and Q&A.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-laptop-code"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Technical Workshop</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-laptop-code"></i> Learn essential skills and technologies needed for the hackathon challenge.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1667,14 +1671,16 @@ export default function App() {
                                                             <span>8:30 AM - 9:30 AM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-coffee"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Breakfast</h4>
-                                                                <div class="event-description">
-                                                                    <p>Morning refreshments and team check-ins.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-utensils"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Breakfast</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-utensils"></i> Continental breakfast in the main hall. Network with other teams while fueling up for the day.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1687,14 +1693,16 @@ export default function App() {
                                                             <span>9:30 AM - 12:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-code"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Morning Development Sprint</h4>
-                                                                <div class="event-description">
-                                                                    <p>Intense coding session with mentor availability throughout.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-code"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Morning Development Sprint</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-code"></i> Focus on core functionality development. Mentors available for technical assistance.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1707,14 +1715,16 @@ export default function App() {
                                                             <span>12:30 PM - 1:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-utensils"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Lunch Break</h4>
-                                                                <div class="event-description">
-                                                                    <p>Refuel and recharge with provided lunch.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-hamburger"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Lunch</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-hamburger"></i> Buffet lunch in the dining area. Take a break and recharge with your teammates.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1727,34 +1737,38 @@ export default function App() {
                                                             <span>1:30 PM - 2:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-chalkboard-teacher"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">UX Design Workshop</h4>
-                                                                <div class="event-description">
-                                                                    <p>Tips and best practices for improving user experience of your projects.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-chalkboard-teacher"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">AI Model Optimization Workshop</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-chalkboard-teacher"></i> Learn techniques for optimizing ML models for production environments. Room 204.</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 5 -->
+                                                <!-- Event 5 (Current Event) -->
                                                 <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span>2:30 PM - 5:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-code"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Afternoon Development Sprint</h4>
-                                                                <div class="event-description">
-                                                                    <p>Continue development on your projects with focus on implementing core features.</p>
+                                                            <div class="event-front">
+                                                                <div class="event-icon">
+                                                                    <i class="fas fa-laptop-code"></i>
                                                                 </div>
+                                                                <div class="event-details">
+                                                                    <h4 class="event-title">Afternoon Development Sprint</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-back">
+                                                                <p><i class="fas fa-laptop-code"></i> Continue working on project features. Focus on integration between system components.</p>
                                                             </div>
                                                         </div>
                                                     </div>
