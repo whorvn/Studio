@@ -448,3 +448,240 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('No workspace tabs found on this page');
     }
 });
+
+// Timeline tab functionality
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - initializing timeline functionality');
+    
+    // Day tabs navigation
+    const dayTabs = document.querySelectorAll('.day-tab');
+    if (dayTabs.length > 0) {
+        console.log('Found day tabs:', dayTabs.length);
+        
+        dayTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                dayTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all day schedules
+                const daySchedules = document.querySelectorAll('.day-schedule');
+                daySchedules.forEach(schedule => schedule.classList.remove('active'));
+                
+                // Show the selected day schedule
+                const dayId = this.getAttribute('data-day');
+                const targetSchedule = document.getElementById(dayId + '-schedule');
+                if (targetSchedule) {
+                    targetSchedule.classList.add('active');
+                }
+                
+                // Update the timeline navigation text
+                const currentDayIndex = Array.from(dayTabs).findIndex(t => t === this) + 1;
+                const totalDays = dayTabs.length;
+                const currentViewText = document.querySelector('.timeline-current-view');
+                if (currentViewText) {
+                    currentViewText.textContent = `Day ${currentDayIndex} of ${totalDays}`;
+                }
+                
+                console.log(`Switched to ${dayId}, day ${currentDayIndex} of ${totalDays}`);
+            });
+        });
+    }
+    
+    // Previous/Next day navigation
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    
+    if (prevDayBtn && nextDayBtn) {
+        prevDayBtn.addEventListener('click', function() {
+            navigateDay('prev');
+        });
+        
+        nextDayBtn.addEventListener('click', function() {
+            navigateDay('next');
+        });
+    }
+    
+    // Function to navigate between days
+    function navigateDay(direction) {
+        const activeTab = document.querySelector('.day-tab.active');
+        if (!activeTab) return;
+        
+        let targetTab;
+        if (direction === 'prev') {
+            targetTab = activeTab.previousElementSibling;
+            if (!targetTab || !targetTab.classList.contains('day-tab')) {
+                targetTab = document.querySelector('.day-tab:last-child');
+            }
+        } else {
+            targetTab = activeTab.nextElementSibling;
+            if (!targetTab || !targetTab.classList.contains('day-tab')) {
+                targetTab = document.querySelector('.day-tab:first-child');
+            }
+        }
+        
+        if (targetTab) {
+            targetTab.click();
+        }
+    }
+    
+    // View toggle (timeline/calendar)
+    const viewToggleButtons = document.querySelectorAll('.timeline-header-right .btn-icon');
+    if (viewToggleButtons.length > 0) {
+        viewToggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                viewToggleButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // In a real implementation, this would toggle between timeline and calendar views
+                // For now, we'll just log the action
+                const viewType = this.getAttribute('data-view');
+                console.log(`Switched to ${viewType} view`);
+                
+                // Here you could show/hide different view containers based on the selected view
+                if (viewType === 'calendar') {
+                    alert('Calendar view will be available in the next update!');
+                }
+            });
+        });
+    }
+    
+    // Initialize the progress phases
+    const progressTrack = document.querySelector('.phase-track');
+    if (progressTrack) {
+        const phases = [
+            { name: 'Kickoff', percentage: 33, status: 'completed' },
+            { name: 'Development', percentage: 32, status: 'active' },
+            { name: 'Submission', percentage: 35, status: 'upcoming' }
+        ];
+        
+        // Clear existing phases if any
+        progressTrack.innerHTML = '';
+        
+        // Create phase elements
+        phases.forEach(phase => {
+            const phaseElement = document.createElement('div');
+            phaseElement.className = `phase ${phase.status}`;
+            phaseElement.style.width = `${phase.percentage}%`;
+            progressTrack.appendChild(phaseElement);
+        });
+        
+        // Create phase labels
+        const phaseLabels = document.querySelector('.phase-labels');
+        if (phaseLabels) {
+            phaseLabels.innerHTML = '';
+            phases.forEach(phase => {
+                const label = document.createElement('span');
+                label.textContent = phase.name;
+                phaseLabels.appendChild(label);
+            });
+        }
+    }
+    
+    // Position the "Today" marker based on current time relative to the schedule
+    function positionTodayMarker() {
+        const todayMarker = document.querySelector('.today-marker');
+        if (!todayMarker) return;
+        
+        // In a real implementation, this would be calculated based on the current time
+        // For this demo, we'll position it at a fixed location that makes sense for "Day 2"
+        const activeSchedule = document.querySelector('.day-schedule.active');
+        if (activeSchedule && activeSchedule.id === 'day2-schedule') {
+            // Position it around 3:00 PM on Day 2 (between events)
+            todayMarker.style.top = '380px'; // This value would be calculated dynamically in real app
+        } else {
+            // Hide the marker for other days
+            todayMarker.style.display = 'none';
+        }
+    }
+    
+    // Call position today marker on load and when switching days
+    positionTodayMarker();
+    dayTabs.forEach(tab => {
+        tab.addEventListener('click', positionTodayMarker);
+    });
+    
+    // Update remaining time counters
+    function updateTimeRemaining() {
+        const timeElements = document.querySelectorAll('.time-remaining span');
+        timeElements.forEach(el => {
+            // In a real app, this would calculate actual remaining time
+            // For this demo, we'll just decrement minutes on each update
+            const timeText = el.textContent;
+            if (timeText.includes('in')) {
+                const timeParts = timeText.split('h ');
+                const hours = parseInt(timeParts[0].replace('In ', ''));
+                const minutes = parseInt(timeParts[1].replace('m', ''));
+                
+                let newMinutes = minutes - 1;
+                let newHours = hours;
+                
+                if (newMinutes < 0) {
+                    newMinutes = 59;
+                    newHours -= 1;
+                }
+                
+                if (newHours < 0) {
+                    el.textContent = 'Starting now!';
+                } else {
+                    el.textContent = `In ${newHours}h ${newMinutes}m`;
+                }
+            } else if (timeText.includes('Ends')) {
+                const timeParts = timeText.split('h ');
+                const hours = parseInt(timeParts[0].replace('Ends in ', ''));
+                const minutes = parseInt(timeParts[1].replace('m', ''));
+                
+                let newMinutes = minutes - 1;
+                let newHours = hours;
+                
+                if (newMinutes < 0) {
+                    newMinutes = 59;
+                    newHours -= 1;
+                }
+                
+                if (newHours < 0 && newMinutes < 0) {
+                    el.textContent = 'Just ended!';
+                } else {
+                    el.textContent = `Ends in ${newHours}h ${newMinutes}m`;
+                }
+            }
+        });
+    }
+    
+    // Update time every minute
+    setInterval(updateTimeRemaining, 60000);
+    
+    // Update progress percentage over time
+    function updateProgress() {
+        const progressPercentage = document.querySelector('.progress-percentage');
+        if (progressPercentage) {
+            const currentProgress = parseInt(progressPercentage.textContent);
+            if (currentProgress < 100) {
+                progressPercentage.textContent = `${currentProgress + 1}% Complete`;
+                
+                // Also update team progress bars
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const currentWidth = parseInt(bar.style.width);
+                    if (currentWidth < 100) {
+                        const newWidth = Math.min(currentWidth + 1, 100);
+                        bar.style.width = `${newWidth}%`;
+                        
+                        const valueDisplay = bar.parentElement.previousElementSibling.querySelector('.progress-value');
+                        if (valueDisplay) {
+                            valueDisplay.textContent = `${newWidth}%`;
+                        }
+                    }
+                });
+            }
+        }
+    }
+    
+    // Simulate progress update every 5 minutes
+    setInterval(updateProgress, 300000);
+    
+    // Initialize timeline
+    console.log('Timeline functionality initialized');
+});
