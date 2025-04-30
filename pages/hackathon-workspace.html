@@ -1445,6 +1445,633 @@ export default function App() {
                         </div>
                     </div>
                     
+                    <!-- Timeline Tab Content - Enhanced Design -->
+                    <div class="tab-content" id="timeline-tab">
+                        <div class="timeline-dashboard">
+                            <div class="timeline-main">
+                                <div class="timeline-header">
+                                    <div class="timeline-header-left">
+                                        <h2 class="title-glow">Hackathon Schedule</h2>
+                                        <p class="timeline-subtitle">Track events, deadlines and important milestones</p>
+                                    </div>
+                                    <div class="timeline-header-right">
+                                        <div class="view-toggle">
+                                            <button class="view-toggle-btn active" data-view="timeline">
+                                                <i class="fas fa-stream"></i>
+                                                <span>Timeline</span>
+                                            </button>
+                                            <button class="view-toggle-btn" data-view="calendar">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>Calendar</span>
+                                            </button>
+                                        </div>
+                                        <div class="timeline-navigation glass-effect">
+                                            <button class="btn btn-glass" id="prevDayBtn" title="Previous Day" aria-label="Go to previous day">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <span class="timeline-current-view">Day 2 of 3</span>
+                                            <button class="btn btn-glass" id="nextDayBtn" title="Next Day" aria-label="Go to next day">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Progress Tracker - Enhanced -->
+                                <div class="timeline-progress-tracker glass-card">
+                                    <div class="progress-tracker-header">
+                                        <h3>Hackathon Progress</h3>
+                                        <div class="progress-info">
+                                            <span class="progress-percentage pulse-animation">65% Complete</span>
+                                            <span class="progress-time-remaining"><i class="fas fa-clock"></i> 23 hours remaining</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress-phases">
+                                        <div class="phase-track" aria-label="Hackathon progress bar: 65% complete">
+                                            <div class="phase completed" style="width: 33%" data-tooltip="Kickoff Phase: Completed"></div>
+                                            <div class="phase active" style="width: 32%" data-tooltip="Development Phase: In Progress">
+                                                <div class="phase-marker pulse-dot" aria-hidden="true">
+                                                    <span class="sr-only">Current phase</span>
+                                                </div>
+                                            </div>
+                                            <div class="phase" style="width: 35%" data-tooltip="Submission Phase: Upcoming"></div>
+                                        </div>
+                                        <div class="phase-labels">
+                                            <span class="phase-label">
+                                                <i class="fas fa-flag phase-icon completed"></i>
+                                                Kickoff
+                                            </span>
+                                            <span class="phase-label active">
+                                                <i class="fas fa-laptop-code phase-icon active"></i>
+                                                Development
+                                            </span>
+                                            <span class="phase-label">
+                                                <i class="fas fa-paper-plane phase-icon"></i>
+                                                Submission
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="phase-details">
+                                        <div class="phase-detail-item">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>Team Formation: Complete</span>
+                                        </div>
+                                        <div class="phase-detail-item active">
+                                            <i class="fas fa-spinner fa-pulse text-primary"></i>
+                                            <span>Current Focus: Prototype Development</span>
+                                        </div>
+                                        <div class="phase-detail-item">
+                                            <i class="far fa-clock text-muted"></i>
+                                            <span>Next Milestone: Code Freeze (Tomorrow, 12PM)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Main View - Enhanced -->
+                                <div class="timeline-main-view glass-card">
+                                    <!-- Today Marker with Live Time -->
+                                    <div class="today-marker">
+                                        <div class="today-indicator pulse-animation"></div>
+                                        <span>Today - <span id="currentTime">2:45 PM</span></span>
+                                    </div>
+
+                                    <!-- Day Tabs - Enhanced -->
+                                    <div class="hackathon-days-tabs" role="tablist">
+                                        <button class="day-tab completed" data-day="day1" role="tab" aria-selected="false" aria-controls="day1-schedule">
+                                            <div class="day-number">Day 1</div>
+                                            <div class="day-date">Nov 15</div>
+                                            <div class="day-progress-indicator">
+                                                <i class="fas fa-check-circle"></i>
+                                                <span>Completed</span>
+                                            </div>
+                                        </button>
+                                        <button class="day-tab active current" data-day="day2" role="tab" aria-selected="true" aria-controls="day2-schedule">
+                                            <div class="day-number">Day 2</div>
+                                            <div class="day-date">Nov 16</div>
+                                            <div class="day-progress-indicator">
+                                                <i class="fas fa-circle-notch fa-spin"></i>
+                                                <span>In Progress</span>
+                                            </div>
+                                        </button>
+                                        <button class="day-tab upcoming" data-day="day3" role="tab" aria-selected="false" aria-controls="day3-schedule">
+                                            <div class="day-number">Day 3</div>
+                                            <div class="day-date">Nov 17</div>
+                                            <div class="day-progress-indicator">
+                                                <i class="far fa-circle"></i>
+                                                <span>Upcoming</span>
+                                            </div>
+                                        </button>
+                                    </div>
+
+                                    <!-- Day Schedule Content - Enhanced -->
+                                    <div class="hackathon-days-content">
+                                        <!-- Day schedules would be here - I'll just enhance one day as an example -->
+                                        
+                                        <!-- Day 2 Schedule - Active Day -->
+                                        <div class="day-schedule active" id="day2-schedule" role="tabpanel">
+                                            <div class="day-header">
+                                                <div class="day-header-main">
+                                                    <h3>Day 2: Development & Iteration</h3>
+                                                    <p class="day-date-full">Thursday, November 16, 2023</p>
+                                                </div>
+                                                <div class="day-header-actions">
+                                                    <button class="btn btn-outline-primary btn-sm" id="toggleTimeline">
+                                                        <i class="fas fa-expand-alt"></i> Expand All
+                                                    </button>
+                                                    <div class="timeline-filter">
+                                                        <button class="btn btn-icon filter-toggle" title="Filter Events">
+                                                            <i class="fas fa-filter"></i>
+                                                        </button>
+                                                        <div class="filter-dropdown">
+                                                            <div class="filter-option">
+                                                                <input type="checkbox" id="filter-meal" checked>
+                                                                <label for="filter-meal">Meals</label>
+                                                            </div>
+                                                            <div class="filter-option">
+                                                                <input type="checkbox" id="filter-workshop" checked>
+                                                                <label for="filter-workshop">Workshops</label>
+                                                            </div>
+                                                            <div class="filter-option">
+                                                                <input type="checkbox" id="filter-coding" checked>
+                                                                <label for="filter-coding">Coding</label>
+                                                            </div>
+                                                            <div class="filter-option">
+                                                                <input type="checkbox" id="filter-checkpoint" checked>
+                                                                <label for="filter-checkpoint">Checkpoints</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="current-time-indicator" id="currentTimeIndicator">
+                                                <div class="time-indicator-line"></div>
+                                                <div class="time-indicator-label">Current Time</div>
+                                            </div>
+
+                                            <div class="schedule-timeline">
+                                                <!-- Morning Divider -->
+                                                <div class="timeline-divider">
+                                                    <span class="divider-label">Morning</span>
+                                                </div>
+
+                                                <div class="timeline-event meal-event" data-time="08:00">
+                                                    <div class="event-time">
+                                                        <span class="time">8:00 AM</span>
+                                                        <span class="duration">1 hour</span>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <div class="event-tags">
+                                                                <span class="event-tag meal">Meal</span>
+                                                                <span class="event-tag required">Required</span>
+                                                            </div>
+                                                            <h4 class="event-title">Breakfast</h4>
+                                                            <div class="event-description">
+                                                                <p>Fuel up for a productive day with a healthy breakfast.</p>
+                                                            </div>
+                                                            <div class="event-meta">
+                                                                <span class="event-location"><i class="fas fa-map-marker-alt"></i> Main Hall</span>
+                                                                <span class="event-host"><i class="fas fa-user"></i> Hosted by Catering Team</span>
+                                                            </div>
+                                                            <div class="event-actions">
+                                                                <button class="btn btn-sm btn-outline">Add to Calendar</button>
+                                                                <button class="btn btn-sm btn-outline">Set Reminder</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-status past">
+                                                            <i class="fas fa-check-circle"></i>
+                                                            <span class="status-text">Past</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="timeline-event coding-event active" data-time="09:00">
+                                                    <div class="event-time">
+                                                        <span class="time">9:00 AM</span>
+                                                        <span class="duration">2 hours</span>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <div class="event-tags">
+                                                                <span class="event-tag coding">Coding</span>
+                                                                <span class="event-tag highlight">Focus Time</span>
+                                                            </div>
+                                                            <h4 class="event-title">Hacking Continues</h4>
+                                                            <div class="event-description">
+                                                                <p>Continue working on your projects. Mentors will be available throughout the day.</p>
+                                                            </div>
+                                                            <div class="event-meta">
+                                                                <span class="event-location"><i class="fas fa-map-marker-alt"></i> All Rooms</span>
+                                                            </div>
+                                                            <div class="mentor-availability">
+                                                                <h5>Available Mentors</h5>
+                                                                <div class="mentor-avatars">
+                                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" title="Alex Johnson - Frontend">
+                                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" title="Sarah Chen - Backend">
+                                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez" title="Mike Rodriguez - AI/ML">
+                                                                    <span class="more-mentors">+2 more</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event-actions">
+                                                                <button class="btn btn-sm btn-outline">Request Mentor</button>
+                                                                <button class="btn btn-sm btn-outline">Submit Question</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-status current">
+                                                            <i class="fas fa-play-circle"></i>
+                                                            <span class="status-text">Current</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="timeline-event workshop-event" data-time="11:00">
+                                                    <div class="event-time">
+                                                        <span class="time">11:00 AM</span>
+                                                        <span class="duration">90 min</span>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-chalkboard-teacher"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <div class="event-tags">
+                                                                <span class="event-tag workshop">Workshop</span>
+                                                                <span class="event-tag optional">Optional</span>
+                                                            </div>
+                                                            <h4 class="event-title">Tech Talk: Data Visualization</h4>
+                                                            <div class="event-description">
+                                                                <p>Learn effective techniques for presenting your project data in meaningful ways.</p>
+                                                            </div>
+                                                            <div class="event-meta">
+                                                                <span class="event-location"><i class="fas fa-map-marker-alt"></i> Conference Room B</span>
+                                                                <span class="event-host"><i class="fas fa-user"></i> Dr. Lisa Wong</span>
+                                                            </div>
+                                                            <div class="event-countdown">
+                                                                <i class="fas fa-hourglass-half"></i>
+                                                                <span id="workshop-countdown">Starts in 1 hour 15 minutes</span>
+                                                            </div>
+                                                            <div class="event-actions">
+                                                                <button class="btn btn-sm btn-primary">RSVP</button>
+                                                                <button class="btn btn-sm btn-outline">Add to Calendar</button>
+                                                                <button class="btn btn-sm btn-outline btn-icon">
+                                                                    <i class="fas fa-bell"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-status upcoming">
+                                                            <i class="far fa-clock"></i>
+                                                            <span class="status-text">Upcoming</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Afternoon Divider -->
+                                                <div class="timeline-divider">
+                                                    <span class="divider-label">Afternoon</span>
+                                                </div>
+
+                                                <div class="timeline-event meal-event" data-time="12:30">
+                                                    <div class="event-time">
+                                                        <span class="time">12:30 PM</span>
+                                                        <span class="duration">1 hour</span>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <div class="event-tags">
+                                                                <span class="event-tag meal">Meal</span>
+                                                            </div>
+                                                            <h4 class="event-title">Lunch Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Take a break and recharge with a delicious lunch.</p>
+                                                            </div>
+                                                            <div class="event-meta">
+                                                                <span class="event-location"><i class="fas fa-map-marker-alt"></i> Main Hall</span>
+                                                            </div>
+                                                            <div class="event-extra">
+                                                                <div class="menu-preview">
+                                                                    <h5>Today's Menu</h5>
+                                                                    <ul class="menu-items">
+                                                                        <li>Pasta Bar with Various Sauces</li>
+                                                                        <li>Salad Bar with Fresh Ingredients</li>
+                                                                        <li>Vegetarian & Vegan Options Available</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-status upcoming">
+                                                            <i class="far fa-clock"></i>
+                                                            <span class="status-text">Upcoming</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- More events would follow -->
+                                                
+                                                <div class="timeline-event checkpoint-event important" data-time="15:00">
+                                                    <div class="event-time">
+                                                        <span class="time">3:00 PM</span>
+                                                        <span class="duration">1 hour</span>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-flag-checkered"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <div class="event-tags">
+                                                                <span class="event-tag checkpoint">Checkpoint</span>
+                                                                <span class="event-tag required">Required</span>
+                                                            </div>
+                                                            <h4 class="event-title">Mid-Hackathon Check-in</h4>
+                                                            <div class="event-description">
+                                                                <p>Progress updates and feedback session. Share challenges and get targeted help from mentors.</p>
+                                                            </div>
+                                                            <div class="event-meta">
+                                                                <span class="event-location"><i class="fas fa-map-marker-alt"></i> Main Stage</span>
+                                                                <span class="event-host"><i class="fas fa-user"></i> Hackathon Organizers</span>
+                                                            </div>
+                                                            <div class="checkpoint-requirements">
+                                                                <h5>Team Requirements:</h5>
+                                                                <ul>
+                                                                    <li>2-minute project status presentation</li>
+                                                                    <li>List of challenges and blockers</li>
+                                                                    <li>Questions for mentors</li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="event-actions">
+                                                                <button class="btn btn-sm btn-primary">Prepare Check-in</button>
+                                                                <button class="btn btn-sm btn-outline">Add to Calendar</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event-status upcoming highlight">
+                                                            <i class="fas fa-exclamation-circle"></i>
+                                                            <span class="status-text">Important</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Evening Divider -->
+                                                <div class="timeline-divider">
+                                                    <span class="divider-label">Evening</span>
+                                                </div>
+                                                
+                                                <!-- More evening events would follow -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                    <!-- Empty State for Calendar View (initially hidden) -->
+                                    <div id="calendar-view" class="calendar-view" style="display: none;">
+                                        <div class="calendar-placeholder">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <h3>Calendar View Coming Soon</h3>
+                                            <p>We're working on a calendar visualization of the hackathon schedule.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Sidebar - Enhanced -->
+                            <div class="timeline-sidebar">
+                                <!-- Current Status Widget -->
+                                <div class="timeline-widget glass-card">
+                                    <div class="widget-header with-icon">
+                                        <h3><i class="fas fa-info-circle"></i> Current Status</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="status-highlight">
+                                            <div class="status-icon pulse-animation">
+                                                <i class="fas fa-laptop-code"></i>
+                                            </div>
+                                            <div class="status-info">
+                                                <h4>Coding Session</h4>
+                                                <p>Focus on project development</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="time-remaining-display">
+                                            <div class="time-remaining-label">Time until checkpoint:</div>
+                                            <div class="countdown-timer" id="checkpointCountdown">
+                                                <div class="countdown-item">
+                                                    <div class="countdown-value">00</div>
+                                                    <div class="countdown-unit">hours</div>
+                                                </div>
+                                                <div class="countdown-separator">:</div>
+                                                <div class="countdown-item">
+                                                    <div class="countdown-value">45</div>
+                                                    <div class="countdown-unit">mins</div>
+                                                </div>
+                                                <div class="countdown-separator">:</div>
+                                                <div class="countdown-item">
+                                                    <div class="countdown-value">22</div>
+                                                    <div class="countdown-unit">secs</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Upcoming Events Widget - Enhanced -->
+                                <div class="timeline-widget glass-card">
+                                    <div class="widget-header with-icon">
+                                        <h3><i class="fas fa-bolt"></i> Coming Up Next</h3>
+                                        <button class="btn btn-icon btn-sm btn-ghost" title="Refresh"><i class="fas fa-sync-alt"></i></button>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="upcoming-events-list">
+                                            <div class="upcoming-item highlight">
+                                                <div class="upcoming-time">
+                                                    <div class="upcoming-hour">11:00</div>
+                                                    <div class="upcoming-period">AM</div>
+                                                </div>
+                                                <div class="upcoming-content">
+                                                    <h4 class="upcoming-title">
+                                                        <i class="fas fa-chalkboard-teacher event-type-icon workshop"></i>
+                                                        Tech Talk: Data Visualization
+                                                    </h4>
+                                                    <div class="upcoming-meta">
+                                                        <span><i class="fas fa-map-marker-alt"></i> Conference Room B</span>
+                                                        <span class="pill-indicator workshop">Workshop</span>
+                                                    </div>
+                                                    <div class="time-remaining">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>In 1 hour 15 minutes</span>
+                                                    </div>
+                                                </div>
+                                                <div class="upcoming-actions">
+                                                    <button class="btn btn-sm btn-primary">RSVP</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="upcoming-item">
+                                                <div class="upcoming-time">
+                                                    <div class="upcoming-hour">12:30</div>
+                                                    <div class="upcoming-period">PM</div>
+                                                </div>
+                                                <div class="upcoming-content">
+                                                    <h4 class="upcoming-title">
+                                                        <i class="fas fa-utensils event-type-icon meal"></i>
+                                                        Lunch Break
+                                                    </h4>
+                                                    <div class="upcoming-meta">
+                                                        <span><i class="fas fa-map-marker-alt"></i> Main Hall</span>
+                                                        <span class="pill-indicator meal">Meal</span>
+                                                    </div>
+                                                    <div class="time-remaining">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>In 2 hours 45 minutes</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="upcoming-item important">
+                                                <div class="upcoming-time">
+                                                    <div class="upcoming-hour">3:00</div>
+                                                    <div class="upcoming-period">PM</div>
+                                                </div>
+                                                <div class="upcoming-content">
+                                                    <h4 class="upcoming-title">
+                                                        <i class="fas fa-flag-checkered event-type-icon checkpoint"></i>
+                                                        Mid-Hackathon Check-in
+                                                    </h4>
+                                                    <div class="upcoming-meta">
+                                                        <span><i class="fas fa-map-marker-alt"></i> Main Stage</span>
+                                                        <span class="pill-indicator checkpoint">Checkpoint</span>
+                                                    </div>
+                                                    <div class="time-remaining">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>In 5 hours 15 minutes</span>
+                                                    </div>
+                                                </div>
+                                                <div class="upcoming-actions">
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-bell"></i> Remind
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-footer">
+                                        <a href="#" class="link-text">
+                                            <i class="fas fa-calendar-alt"></i> View Full Schedule
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Hackathon Resources Widget - Enhanced -->
+                                <div class="timeline-widget glass-card">
+                                    <div class="widget-header with-icon">
+                                        <h3><i class="fas fa-toolbox"></i> Hackathon Essentials</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="resource-cards">
+                                            <a href="#" class="resource-card-link">
+                                                <div class="resource-card-mini">
+                                                    <div class="resource-icon">
+                                                        <i class="fas fa-cloud-upload-alt"></i>
+                                                    </div>
+                                                    <div class="resource-info">
+                                                        <h4>Submission Portal</h4>
+                                                        <p>Submit by Nov 17, 12:00 PM</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            
+                                            <a href="#" class="resource-card-link">
+                                                <div class="resource-card-mini">
+                                                    <div class="resource-icon">
+                                                        <i class="fas fa-list-check"></i>
+                                                    </div>
+                                                    <div class="resource-info">
+                                                        <h4>Judging Criteria</h4>
+                                                        <p>Evaluation guidelines</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            
+                                            <a href="#" class="resource-card-link">
+                                                <div class="resource-card-mini">
+                                                    <div class="resource-icon">
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                    </div>
+                                                    <div class="resource-info">
+                                                        <h4>Venue Map</h4>
+                                                        <p>Find rooms and amenities</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            
+                                            <a href="#" class="resource-card-link">
+                                                <div class="resource-card-mini">
+                                                    <div class="resource-icon">
+                                                        <i class="fas fa-headset"></i>
+                                                    </div>
+                                                    <div class="resource-info">
+                                                        <h4>Help Desk</h4>
+                                                        <p>Technical support</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Team Activity Widget -->
+                                <div class="timeline-widget glass-card">
+                                    <div class="widget-header with-icon">
+                                        <h3><i class="fas fa-users"></i> Team Activity</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="team-activity-list">
+                                            <div class="team-activity-item">
+                                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="activity-avatar">
+                                                <div class="activity-content">
+                                                    <div class="activity-header">
+                                                        <span class="activity-user">Sarah Chen</span>
+                                                        <span class="activity-time">10 mins ago</span>
+                                                    </div>
+                                                    <p class="activity-text">Completed the frontend API integration</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="team-activity-item">
+                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez" class="activity-avatar">
+                                                <div class="activity-content">
+                                                    <div class="activity-header">
+                                                        <span class="activity-user">Mike Rodriguez</span>
+                                                        <span class="activity-time">35 mins ago</span>
+                                                    </div>
+                                                    <p class="activity-text">Fixed the database performance issue</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="team-activity-item">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson" class="activity-avatar">
+                                                <div class="activity-content">
+                                                    <div class="activity-header">
+                                                        <span class="activity-user">Alex Johnson</span>
+                                                        <span class="activity-time">1 hour ago</span>
+                                                    </div>
+                                                    <p class="activity-text">Created initial design mockups</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Chat Tab Content - Simplified Design -->
                     <div class="tab-content" id="chat-tab">
                         <div class="chat-container simple">
@@ -1605,13 +2232,13 @@ export default function App() {
                             <!-- Timeline Header with Controls -->
                             <div class="timeline-header">
                                 <div class="timeline-header-left">
-                                    <h2>Project Timeline</h2>
+                                    <h2>Hackathon Schedule</h2>
                                     <div class="timeline-navigation">
-                                        <button class="btn-icon btn-sm" title="Previous Month">
+                                        <button class="btn-icon btn-sm" title="Previous Event" id="prevDayBtn">
                                             <i class="fas fa-chevron-left"></i>
                                         </button>
-                                        <div class="timeline-current-view">August - September 2023</div>
-                                        <button class="btn-icon btn-sm" title="Next Month">
+                                        <div class="timeline-current-view">December 23-25, 2023</div>
+                                        <button class="btn-icon btn-sm" title="Next Event" id="nextDayBtn">
                                             <i class="fas fa-chevron-right"></i>
                                         </button>
                                     </div>
@@ -1627,9 +2254,9 @@ export default function App() {
                                             <span>Calendar</span>
                                         </button>
                                     </div>
-                                    <button class="btn btn-primary btn-with-icon">
+                                    <button class="btn btn-primary btn-with-icon" id="addEventBtn">
                                         <i class="fas fa-plus"></i>
-                                        <span>Add Milestone</span>
+                                        <span>Add Event</span>
                                     </button>
                                 </div>
                             </div>
@@ -1637,23 +2264,19 @@ export default function App() {
                             <!-- Timeline Progress Tracker -->
                             <div class="timeline-progress-tracker">
                                 <div class="progress-tracker-header">
-                                    <h3>Progress Overview</h3>
-                                    <span class="progress-percentage">65% Completed</span>
+                                    <h3>Hackathon Progress</h3>
+                                    <span class="progress-percentage">In Progress</span>
                                 </div>
                                 <div class="progress-phases">
                                     <div class="phase-track">
-                                        <div class="phase completed" style="width: 20%"></div>
-                                        <div class="phase completed" style="width: 20%"></div>
-                                        <div class="phase completed" style="width: 25%"></div>
-                                        <div class="phase active" style="width: 20%"></div>
-                                        <div class="phase" style="width: 15%"></div>
+                                        <div class="phase completed" style="width: 33%"></div>
+                                        <div class="phase active" style="width: 33%"></div>
+                                        <div class="phase" style="width: 34%"></div>
                                     </div>
                                     <div class="phase-labels">
-                                        <div class="phase-label">Planning</div>
-                                        <div class="phase-label">Design</div>
-                                        <div class="phase-label">Development</div>
-                                        <div class="phase-label">Testing</div>
-                                        <div class="phase-label">Deployment</div>
+                                        <div class="phase-label">Day 1</div>
+                                        <div class="phase-label">Day 2</div>
+                                        <div class="phase-label">Day 3</div>
                                     </div>
                                 </div>
                             </div>
@@ -1665,188 +2288,597 @@ export default function App() {
                                     <!-- Today Marker -->
                                     <div class="today-marker">
                                         <div class="today-indicator"></div>
-                                        <span>Today</span>
+                                        <span>Current Time</span>
                                     </div>
                                     
-                                    <!-- Timeline Entries -->
-                                    <div class="timeline-entries">
-                                        <!-- Completed Events -->
-                                        <div class="timeline-entry completed">
-                                            <div class="timeline-entry-date-absolute">Aug 12, 2023</div>
-                                            <div class="timeline-entry-content">
-                                                <div class="timeline-entry-header">
-                                                    <h3 class="timeline-entry-title">Project Kickoff</h3>
-                                                    <div class="timeline-entry-date">
-                                                        <i class="fas fa-calendar"></i>
-                                                        <span>2 days ago</span>
+                                    <!-- Day Tabs Navigation -->
+                                    <div class="hackathon-days-tabs">
+                                        <button class="day-tab active" data-day="day1">
+                                            <div class="day-number">Day 1</div>
+                                            <div class="day-date">December 23</div>
+                                        </button>
+                                        <button class="day-tab" data-day="day2">
+                                            <div class="day-number">Day 2</div>
+                                            <div class="day-date">December 24</div>
+                                        </button>
+                                        <button class="day-tab" data-day="day3">
+                                            <div class="day-number">Day 3</div>
+                                            <div class="day-date">December 25</div>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Day Sections -->
+                                    <div class="hackathon-days-content">
+                                        <!-- Day 1 Schedule -->
+                                        <div class="day-schedule active" id="day1-schedule">
+                                            <div class="day-header">
+                                                <h3>Day 1 - December 23</h3>
+                                                <p>Kickoff and Initial Development</p>
+                                            </div>
+                                            
+                                            <div class="schedule-timeline">
+                                                <!-- Registration & Breakfast -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">08:30 - 09:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Registration & Breakfast</h4>
+                                                            <div class="event-description">
+                                                                <p>Participant check-in and breakfast. Introductory "Newspace OI" session and meet-and-greet.</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <p class="timeline-entry-description">
-                                                    Initial team meeting to discuss project goals, roles, and the development timeline. Set up project management tools and version control repositories.
-                                                </p>
-                                                <div class="timeline-entry-tags">
-                                                    <span class="timeline-tag">Milestone</span>
-                                                    <span class="timeline-tag">Planning</span>
-                                                </div>
-                                                <div class="timeline-entry-footer">
-                                                    <div class="timeline-entry-assignees">
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                
+                                                <!-- Welcome Session -->
+                                                <div class="timeline-event ceremony-event">
+                                                    <div class="event-time">09:30 - 10:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-rocket"></i>
                                                         </div>
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Welcome Session</h4>
+                                                            <div class="event-description">
+                                                                <p>Welcome session with Newspace OI introducing the hackathon.</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="timeline-entry-actions">
-                                                        <button class="btn-action-subtle">
-                                                            <i class="fas fa-check-circle"></i> Completed
-                                                        </button>
+                                                </div>
+                                                
+                                                <!-- Opening Remarks -->
+                                                <div class="timeline-event presentation-event">
+                                                    <div class="event-time">10:00 - 10:10</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-microphone"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Opening Remarks</h4>
+                                                            <div class="event-description">
+                                                                <p>Welcome speech by Pasha Bank – Cəlal Orucov, Board Member & COO.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Hackathon Overview -->
+                                                <div class="timeline-event presentation-event">
+                                                    <div class="event-time">10:10 - 10:20</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-clipboard-list"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Hackathon Overview, Rules & Criteria</h4>
+                                                            <div class="event-description">
+                                                                <p>Presentation of categories, challenges, rules, judging criteria, and expected outcomes by New Space Innovation.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Themes & Solutions -->
+                                                <div class="timeline-event presentation-event">
+                                                    <div class="event-time">10:20 - 10:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-lightbulb"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Themes & Solutions Briefing</h4>
+                                                            <div class="event-description">
+                                                                <p>Overview of hackathon objectives by PASHA Bank.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Team Formation -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-time">10:30 - 11:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-users"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Team Formation & Idea Validation</h4>
+                                                            <div class="event-description">
+                                                                <p>Interactive session with Newspace OI to confirm team ideas and solutions.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Product Development Presentation -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-time">11:00 - 12:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-chalkboard-teacher"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Presentation: Product Development</h4>
+                                                            <div class="event-description">
+                                                                <p>"Fast & Faster: How to Rapid-Test Your Product Idea."</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Lunch Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">12:00 - 13:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Lunch Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Lunch will be provided for all participants.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- APIs & Data Presentation -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-time">13:00 - 14:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-database"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Presentation: APIs & Data Utilization</h4>
+                                                            <div class="event-description">
+                                                                <p>Learn to harness APIs effectively and leverage data for innovative solutions.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coding Phase 1 -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">14:00 - 16:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coding Phase 1</h4>
+                                                            <div class="event-description">
+                                                                <p>Teams begin building prototypes and working on their solutions.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Checkpoint 1 -->
+                                                <div class="timeline-event checkpoint-event">
+                                                    <div class="event-time">16:00 - 17:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-flag-checkered"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Checkpoint 1: Solution Validation</h4>
+                                                            <div class="event-description">
+                                                                <p>Teams present initial prototypes to mentors for feedback and validation.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coding Phase 2 -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">17:30 - 19:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coding Phase 2</h4>
+                                                            <div class="event-description">
+                                                                <p>Iterating on feedback to advance their builds.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Dinner Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">19:00 - 20:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Dinner Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Dinner will be provided for all participants.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Night Session -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">20:00 - 23:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-moon"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Hackathon Night Session</h4>
+                                                            <div class="event-description">
+                                                                <p>Participants continue working on prototypes through the evening.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coffee Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">23:00 - 23:59</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coffee Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Coffee and snacks available for night hackers.</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="timeline-entry completed">
-                                            <div class="timeline-entry-date-absolute">Aug 13, 2023</div>
-                                            <div class="timeline-entry-content">
-                                                <div class="timeline-entry-header">
-                                                    <h3 class="timeline-entry-title">Initial UI/UX Mockups</h3>
-                                                    <div class="timeline-entry-date">
-                                                        <i class="fas fa-calendar"></i>
-                                                        <span>Yesterday</span>
-                                                    </div>
-                                                </div>
-                                                <p class="timeline-entry-description">
-                                                    Created wireframes and high-fidelity mockups for the main user interfaces. Team reviewed and provided feedback on design direction.
-                                                </p>
-                                                <div class="timeline-entry-tags">
-                                                    <span class="timeline-tag design">Design</span>
-                                                </div>
-                                                <div class="timeline-entry-footer">
-                                                    <div class="timeline-entry-assignees">
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                                        <!-- Day 2 Schedule -->
+                                        <div class="day-schedule" id="day2-schedule">
+                                            <div class="day-header">
+                                                <h3>Day 2 - December 24</h3>
+                                                <p>Development and Refinement</p>
+                                            </div>
+                                            
+                                            <div class="schedule-timeline">
+                                                <!-- Night Session continued -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">00:00 - 07:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Hackathon Night Session</h4>
+                                                            <div class="event-description">
+                                                                <p>Overnight coding with optional rest periods.</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="timeline-entry-actions">
-                                                        <button class="btn-action-subtle">
-                                                            <i class="fas fa-check-circle"></i> Completed
-                                                        </button>
+                                                </div>
+                                                
+                                                <!-- Breakfast -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">07:00 - 08:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Breakfast</h4>
+                                                            <div class="event-description">
+                                                                <p>Morning refreshments to energize the teams.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coding Phase 3 -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">08:00 - 10:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coding Phase 3</h4>
+                                                            <div class="event-description">
+                                                                <p>Further development with mentor support.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Checkpoint 2 -->
+                                                <div class="timeline-event checkpoint-event">
+                                                    <div class="event-time">10:00 - 10:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-flag-checkered"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Checkpoint 2: 3P Review</h4>
+                                                            <div class="event-description">
+                                                                <p>Progress, Problems & Plan presentations by each team.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coffee Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">10:30 - 11:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coffee Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Quick refreshment break for all participants.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Presentation Skills -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-time">11:00 - 11:45</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-chalkboard-teacher"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Seminar: Presentation Skills</h4>
+                                                            <div class="event-description">
+                                                                <p>Training on crafting effective and engaging demos.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coding Phase 4 -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">11:45 - 13:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coding Phase 4</h4>
+                                                            <div class="event-description">
+                                                                <p>Refinement of prototypes and prep for final pitches.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- More day 2 events -->
+                                                <!-- Lunch Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">13:00 - 14:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Lunch Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Lunch will be provided for all participants.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coding Phase 5 -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">14:00 - 17:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coding Phase 5</h4>
+                                                            <div class="event-description">
+                                                                <p>Final development sprint.</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Current Event -->
-                                        <div class="timeline-entry current">
-                                            <div class="timeline-entry-date-absolute">Aug 14, 2023</div>
-                                            <div class="timeline-entry-content">
-                                                <div class="timeline-entry-header">
-                                                    <h3 class="timeline-entry-title">Frontend Development</h3>
-                                                    <div class="timeline-entry-date">
-                                                        <i class="fas fa-calendar"></i>
-                                                        <span>Today</span>
-                                                    </div>
-                                                </div>
-                                                <p class="timeline-entry-description">
-                                                    Implementing the responsive user interface based on approved designs. Focus on core components and navigation structure.
-                                                </p>
-                                                <div class="timeline-entry-meta">
-                                                    <div class="timeline-entry-meta-item">
-                                                        <i class="fas fa-tasks"></i>
-                                                        <span>6/8 tasks completed</span>
-                                                    </div>
-                                                    <div class="timeline-entry-meta-item">
-                                                        <i class="fas fa-code-branch"></i>
-                                                        <span>12 commits</span>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-entry-tags">
-                                                    <span class="timeline-tag development">Development</span>
-                                                </div>
-                                                <div class="timeline-entry-footer">
-                                                    <div class="timeline-entry-assignees">
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                        </div>
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                        </div>
-                                                    </div>
-                                                    <div class="timeline-entry-actions">
-                                                        <button class="btn-action-subtle">
-                                                            <i class="fas fa-spinner fa-spin"></i> In Progress
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                        <!-- Day 3 Schedule -->
+                                        <div class="day-schedule" id="day3-schedule">
+                                            <div class="day-header">
+                                                <h3>Day 3 - December 25</h3>
+                                                <p>Final Presentations and Awards</p>
                                             </div>
-                                        </div>
-                                        
-                                        <!-- Upcoming Events -->
-                                        <div class="timeline-entry upcoming">
-                                            <div class="timeline-entry-date-absolute">Aug 15, 2023</div>
-                                            <div class="timeline-entry-content">
-                                                <div class="timeline-entry-header">
-                                                    <h3 class="timeline-entry-title">Backend API Implementation</h3>
-                                                    <div class="timeline-entry-date">
-                                                        <i class="fas fa-calendar"></i>
-                                                        <span>Tomorrow</span>
-                                                    </div>
-                                                </div>
-                                                <p class="timeline-entry-description">
-                                                    Develop REST API endpoints for user authentication, data retrieval, and processing. Set up database models and integrate with frontend.
-                                                </p>
-                                                <div class="timeline-entry-tags">
-                                                    <span class="timeline-tag development">Development</span>
-                                                </div>
-                                                <div class="timeline-entry-footer">
-                                                    <div class="timeline-entry-assignees">
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                            
+                                            <div class="schedule-timeline">
+                                                <!-- Night Session continued -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">00:00 - 07:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Hackathon Night Session</h4>
+                                                            <div class="event-description">
+                                                                <p>Open-ended work/rest period.</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="timeline-entry-actions">
-                                                        <button class="btn-action-subtle">
-                                                            <i class="fas fa-clock"></i> Scheduled
-                                                        </button>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-entry upcoming milestone">
-                                            <div class="timeline-entry-date-absolute">Aug 17, 2023</div>
-                                            <div class="timeline-entry-content">
-                                                <div class="timeline-entry-header">
-                                                    <h3 class="timeline-entry-title">Project Demo & Presentation</h3>
-                                                    <div class="timeline-entry-date">
-                                                        <i class="fas fa-calendar"></i>
-                                                        <span>In 3 days</span>
-                                                    </div>
-                                                </div>
-                                                <p class="timeline-entry-description">
-                                                    Final project presentation to judges. Demonstrate the working application, explain technical challenges, and highlight innovative features.
-                                                </p>
-                                                <div class="timeline-entry-tags">
-                                                    <span class="timeline-tag">Milestone</span>
-                                                    <span class="timeline-tag deployment">Deployment</span>
-                                                </div>
-                                                <div class="timeline-entry-footer">
-                                                    <div class="timeline-entry-assignees">
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                                                
+                                                <!-- Breakfast -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">07:00 - 08:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
                                                         </div>
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                        </div>
-                                                        <div class="assignee-avatar">
-                                                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Breakfast</h4>
+                                                            <div class="event-description">
+                                                                <p>Final day breakfast for participants.</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="timeline-entry-actions">
-                                                        <button class="btn-action-subtle">
-                                                            <i class="fas fa-flag"></i> Major Milestone
-                                                        </button>
+                                                </div>
+                                                
+                                                <!-- Final Preparations -->
+                                                <div class="timeline-event coding-event">
+                                                    <div class="event-time">08:00 - 11:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-laptop-code"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Final Preparations</h4>
+                                                            <div class="event-description">
+                                                                <p>Last checks on demos and prototypes before submission.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Submission Deadline -->
+                                                <div class="timeline-event deadline-event">
+                                                    <div class="event-time">11:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-hourglass-end"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Submission Deadline for Proposals</h4>
+                                                            <div class="event-description">
+                                                                <p>All project submissions must be completed.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Coffee Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">11:00 - 11:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-coffee"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Coffee Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Quick break before presentations.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Final Presentations -->
+                                                <div class="timeline-event presentation-event">
+                                                    <div class="event-time">11:30 - 14:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-video"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Final Presentations (Pitches)</h4>
+                                                            <div class="event-description">
+                                                                <p>Each team has 10 minutes (presentation + Q&A) before the jury.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Lunch Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-time">14:00 - 15:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-utensils"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Lunch Break</h4>
+                                                            <div class="event-description">
+                                                                <p>Final lunch while judges deliberate.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Jury Deliberation -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-time">15:00 - 15:30</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-balance-scale"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Jury Deliberation</h4>
+                                                            <div class="event-description">
+                                                                <p>Judges review all presentations and select winners.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Awards & Closing -->
+                                                <div class="timeline-event ceremony-event">
+                                                    <div class="event-time">15:30 - 17:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-trophy"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Awards & Closing Ceremony</h4>
+                                                            <div class="event-description">
+                                                                <p>Announcement of winners, prize giving, closing remarks, group photo.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Networking -->
+                                                <div class="timeline-event ceremony-event">
+                                                    <div class="event-time">17:00 - 18:00</div>
+                                                    <div class="event-content">
+                                                        <div class="event-icon">
+                                                            <i class="fas fa-handshake"></i>
+                                                        </div>
+                                                        <div class="event-details">
+                                                            <h4 class="event-title">Networking & Refreshments</h4>
+                                                            <div class="event-description">
+                                                                <p>Final networking opportunity with participants, mentors and sponsors.</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1863,7 +2895,7 @@ export default function App() {
                                 </div>
                             </div>
                             
-                            <!-- Timeline Sidebar -->
+                            <!-- Timeline Sidebar with Quick Info -->
                             <div class="timeline-sidebar">
                                 <div class="timeline-upcoming-widget">
                                     <div class="widget-header">
@@ -1871,237 +2903,184 @@ export default function App() {
                                     </div>
                                     <div class="widget-body">
                                         <div class="upcoming-item">
-                                            <div class="upcoming-date">Tomorrow, Aug 15</div>
-                                            <h4 class="upcoming-title">Backend API Implementation</h4>
+                                            <div class="upcoming-date">Today, 16:00 - 17:30</div>
+                                            <h4 class="upcoming-title">Checkpoint 1: Solution Validation</h4>
                                             <div class="time-remaining">
                                                 <i class="fas fa-clock"></i>
-                                                <span>23 hours remaining</span>
-                                            </div>
-                                            <div class="upcoming-meta">
-                                                <div class="assignee-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                </div>
-                                                <span>Mike Rodriguez</span>
+                                                <span>Starting in 2 hours</span>
                                             </div>
                                         </div>
                                         
                                         <div class="upcoming-item">
-                                            <div class="upcoming-date">Thursday, Aug 16</div>
-                                            <h4 class="upcoming-title">Unit Testing</h4>
+                                            <div class="upcoming-date">Today, 19:00 - 20:00</div>
+                                            <h4 class="upcoming-title">Dinner Break</h4>
                                             <div class="time-remaining">
                                                 <i class="fas fa-clock"></i>
-                                                <span>47 hours remaining</span>
-                                            </div>
-                                            <div class="upcoming-meta">
-                                                <div class="assignee-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                </div>
-                                                <span>Emma Wilson</span>
+                                                <span>Starting in 5 hours</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="team-availability-widget">
+                                <div class="timeline-upcoming-widget">
                                     <div class="widget-header">
-                                        <h3>Team Availability</h3>
+                                        <h3>Hackathon Essentials</h3>
                                     </div>
                                     <div class="widget-body">
-                                        <div class="availability-user">
-                                            <div class="availability-user-info">
-                                                <div class="availability-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
-                                                </div>
-                                                <div>
-                                                    <h4 class="availability-user-name">Alex Johnson</h4>
-                                                    <div class="availability-user-role">Frontend Dev</div>
-                                                </div>
-                                            </div>
-                                            <span class="availability-status available">Available</span>
-                                        </div>
-                                        
-                                        <div class="availability-user">
-                                            <div class="availability-user-info">
-                                                <div class="availability-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                                                </div>
-                                                <div>
-                                                    <h4 class="availability-user-name">Sarah Chen</h4>
-                                                    <div class="availability-user-role">UI Designer</div>
+                                        <div class="hackathon-essentials">
+                                            <div class="essential-item">
+                                                <i class="fas fa-wifi"></i>
+                                                <div class="essential-info">
+                                                    <h4>Wi-Fi Access</h4>
+                                                    <p>Network: HackathonAI</p>
+                                                    <p>Password: innov@te2023</p>
                                                 </div>
                                             </div>
-                                            <span class="availability-status busy">In Meeting</span>
-                                        </div>
-                                        
-                                        <div class="availability-user">
-                                            <div class="availability-user-info">
-                                                <div class="availability-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mike Rodriguez">
-                                                </div>
-                                                <div>
-                                                    <h4 class="availability-user-name">Mike Rodriguez</h4>
-                                                    <div class="availability-user-role">Backend Dev</div>
-                                                </div>
-                                            </div>
-                                            <span class="availability-status busy">Coding</span>
-                                        </div>
-                                        
-                                        <div class="availability-user">
-                                            <div class="availability-user-info">
-                                                <div class="availability-avatar">
-                                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma Wilson">
-                                                </div>
-                                                <div>
-                                                    <h4 class="availability-user-name">Emma Wilson</h4>
-                                                    <div class="availability-user-role">QA Engineer</div>
-                                                </div>
-                                            </div>
-                                            <span class="availability-status away">Away</span>
-                                        </div>
-                                        
-                                        <div class="availability-legend">
-                                            <div class="legend-item">
-                                                <div class="legend-color available"></div>
-                                                <span>Available</span>
-                                            </div>
-                                            <div class="legend-item">
-                                                <div class="legend-color busy"></div>
-                                                <span>Busy</span>
-                                            </div>
-                                            <div class="legend-item">
-                                                <div class="legend-color away"></div>
-                                                <span>Away</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Tab switching functionality
-        document.querySelectorAll('.workspace-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs
-                document.querySelectorAll('.workspace-tab').forEach(t => {
-                    t.classList.remove('active');
-                });
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Hide all tab content
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                // Show clicked tab content
-                const tabId = this.getAttribute('data-tab') + '-tab';
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Resource categories switching
-        document.querySelectorAll('.resource-category').forEach(category => {
-            category.addEventListener('click', function() {
-                document.querySelectorAll('.resource-category').forEach(c => {
-                    c.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
-        
-        // Upload modal functionality
-        const uploadBtn = document.getElementById('uploadBtn');
-        const uploadModal = document.getElementById('uploadModal');
-        const closeModalBtns = document.querySelectorAll('.close-modal');
-        
-        if (uploadBtn && uploadModal) {
-            uploadBtn.addEventListener('click', function() {
-                uploadModal.classList.add('active');
-            });
-            
-            closeModalBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    uploadModal.classList.remove('active');
+                                            
+                                            <div class="essential-item">
+                                                <i class="fas fa-phone-alt"></i>
+                                                <div class="essential-info">
+                                                    <h4>Support Contact</h4>
+                                                    <p>Tech Support: 555-123-4567</p>
                 });
             });
         }
         
-        // Change form based on resource type
-        const resourceTypeSelect = document.getElementById('resource-type');
-        const linkInputGroup = document.getElementById('link-input-group');
-        const fileUploadArea = document.querySelector('.file-upload-area');
-        
-        if (resourceTypeSelect && linkInputGroup && fileUploadArea) {
-            resourceTypeSelect.addEventListener('change', function() {
-                if (this.value === 'link') {
-                    linkInputGroup.style.display = 'block';
-                    fileUploadArea.style.display = 'none';
-                } else {
-                    linkInputGroup.style.display = 'none';
-                    fileUploadArea.style.display = 'block';
-                }
-            });
-        }
-        
-        // File drop zone functionality
-        const dropZone = document.querySelector('.drop-zone');
-        const dropZoneInput = document.querySelector('.drop-zone-input');
-        
-        if (dropZone && dropZoneInput) {
-            dropZone.addEventListener('click', () => dropZoneInput.click());
-            
-            dropZoneInput.addEventListener('change', (e) => {
-                if (dropZoneInput.files.length) {
-                    updateDropZone(dropZone, dropZoneInput.files[0]);
-                }
-            });
-            
-            dropZone.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                dropZone.classList.add('drop-zone--over');
-            });
-            
-            ['dragleave', 'dragend'].forEach(type => {
-                dropZone.addEventListener(type, () => {
-                    dropZone.classList.remove('drop-zone--over');
-                });
-            });
-            
-            dropZone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                
-                if (e.dataTransfer.files.length) {
-                    dropZoneInput.files = e.dataTransfer.files;
-                    updateDropZone(dropZone, e.dataTransfer.files[0]);
-                }
-                
-                dropZone.classList.remove('drop-zone--over');
-            });
-        }
-        
-        function updateDropZone(dropZone, file) {
-            const prompt = dropZone.querySelector('.drop-zone-prompt');
-            
-            if (prompt) {
-                prompt.innerHTML = `<i class="fas fa-file"></i><p>${file.name}</p>`;
+        // Initialize context menus
+        document.addEventListener('click', function(e) {
+            const contextMenu = document.getElementById('resourceContextMenu');
+            if (contextMenu) {
+                contextMenu.style.display = 'none';
             }
-        }
-        
-        // Mobile sidebar toggle
-        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-            document.querySelector('.dashboard-layout').classList.toggle('sidebar-open');
         });
         
-        document.getElementById('sidebarToggle').addEventListener('click', function() {
-            document.querySelector('.dashboard-layout').classList.toggle('sidebar-collapsed');
+        // Toggle context menu on right click for resource items
+        document.querySelectorAll('.resource-tile, .resource-list-item').forEach(item => {
+            item.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                
+                const contextMenu = document.getElementById('resourceContextMenu');
+                if (contextMenu) {
+                    contextMenu.style.display = 'block';
+                    contextMenu.style.left = e.pageX + 'px';
+                    contextMenu.style.top = e.pageY + 'px';
+                }
+            });
+        });
+        
+        // Timeline functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Day tabs functionality
+            const dayTabs = document.querySelectorAll('.day-tab');
+            const daySchedules = document.querySelectorAll('.day-schedule');
+            
+            dayTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetDay = this.getAttribute('data-day');
+                    
+                    // Update active tab
+                    dayTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding schedule
+                    daySchedules.forEach(schedule => {
+                        schedule.classList.remove('active');
+                        if (schedule.id === targetDay + '-schedule') {
+                            schedule.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Previous and Next buttons
+            const prevDayBtn = document.getElementById('prevDayBtn');
+            const nextDayBtn = document.getElementById('nextDayBtn');
+            
+            if (prevDayBtn && nextDayBtn) {
+                prevDayBtn.addEventListener('click', function() {
+                    const activeTab = document.querySelector('.day-tab.active');
+                    const prevTab = activeTab.previousElementSibling;
+                    
+                    if (prevTab && prevTab.classList.contains('day-tab')) {
+                        prevTab.click();
+                    }
+                });
+                
+                nextDayBtn.addEventListener('click', function() {
+                    const activeTab = document.querySelector('.day-tab.active');
+                    const nextTab = activeTab.nextElementSibling;
+                    
+                    if (nextTab && nextTab.classList.contains('day-tab')) {
+                        nextTab.click();
+                    }
+                });
+            }
+            
+            // Toggle between timeline and calendar views
+            const viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
+            const timelineView = document.getElementById('timeline-view');
+            const calendarView = document.getElementById('calendar-view');
+            
+            viewToggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetView = this.getAttribute('data-view');
+                    
+                    // Update active button
+                    viewToggleBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding view
+                    if (targetView === 'timeline') {
+                        timelineView.style.display = 'block';
+                        calendarView.style.display = 'none';
+                    } else {
+                        timelineView.style.display = 'none';
+                        calendarView.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Add event button functionality
+            const addEventBtn = document.getElementById('addEventBtn');
+            if (addEventBtn) {
+                addEventBtn.addEventListener('click', function() {
+                    // This would typically open a modal to add a new event
+                    alert('Event creation functionality will be implemented in the next release.');
+                });
+            }
+            
+            // Hover effects for timeline events
+            const timelineEvents = document.querySelectorAll('.timeline-event');
+            timelineEvents.forEach(event => {
+                event.addEventListener('mouseenter', function() {
+                    this.classList.add('hover');
+                });
+                
+                event.addEventListener('mouseleave', function() {
+                    this.classList.remove('hover');
+                });
+            });
+            
+            // Simulate current time indicator movement
+            // In a real application, this would be based on the actual time
+            function updateCurrentTimeIndicator() {
+                const todayMarker = document.querySelector('.today-indicator');
+                if (todayMarker) {
+                    // Animate the pulse effect
+                    todayMarker.style.animation = 'none';
+                    setTimeout(() => {
+                        todayMarker.style.animation = 'pulse 2s infinite';
+                    }, 10);
+                }
+            }
+            
+            // Update the time indicator every minute
+            updateCurrentTimeIndicator();
+            setInterval(updateCurrentTimeIndicator, 60000);
         });
     </script>
+    
+    <!-- Add the main.js script reference -->
+    <script src="../main.js"></script>
 </body>
 </html>

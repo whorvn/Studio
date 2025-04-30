@@ -323,3 +323,128 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Timeline functionality for hackathon schedule
+document.addEventListener('DOMContentLoaded', function() {
+    // Day tab switching
+    const dayTabs = document.querySelectorAll('.day-tab');
+    if (dayTabs.length > 0) {
+        dayTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                dayTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all day schedules
+                const daySchedules = document.querySelectorAll('.day-schedule');
+                daySchedules.forEach(schedule => schedule.classList.remove('active'));
+                
+                // Show the selected day schedule
+                const dayId = this.getAttribute('data-day');
+                document.getElementById(dayId + '-schedule').classList.add('active');
+            });
+        });
+    }
+    
+    // Previous/Next day navigation
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    
+    if (prevDayBtn && nextDayBtn) {
+        prevDayBtn.addEventListener('click', function() {
+            navigateDay('prev');
+        });
+        
+        nextDayBtn.addEventListener('click', function() {
+            navigateDay('next');
+        });
+    }
+    
+    // Function to navigate between days
+    function navigateDay(direction) {
+        const activeTab = document.querySelector('.day-tab.active');
+        if (!activeTab) return;
+        
+        let targetTab;
+        if (direction === 'prev') {
+            targetTab = activeTab.previousElementSibling;
+            if (!targetTab || !targetTab.classList.contains('day-tab')) {
+                targetTab = document.querySelector('.day-tab:last-child');
+            }
+        } else {
+            targetTab = activeTab.nextElementSibling;
+            if (!targetTab || !targetTab.classList.contains('day-tab')) {
+                targetTab = document.querySelector('.day-tab:first-child');
+            }
+        }
+        
+        if (targetTab) {
+            targetTab.click();
+        }
+    }
+    
+    // Add Event button functionality
+    const addEventBtn = document.getElementById('addEventBtn');
+    if (addEventBtn) {
+        addEventBtn.addEventListener('click', function() {
+            alert('Add Event functionality will be available in the next update.');
+        });
+    }
+});
+
+// Enhanced workspace tabs functionality with debugging
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded - looking for workspace tabs');
+    
+    const workspaceTabs = document.querySelectorAll('.workspace-tab');
+    console.log('Found ' + workspaceTabs.length + ' workspace tabs');
+    
+    if (workspaceTabs.length > 0) {
+        workspaceTabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const tabId = this.getAttribute('data-tab');
+                console.log('Tab clicked:', tabId);
+                
+                if (!tabId) {
+                    console.error('No data-tab attribute found on tab:', this);
+                    return;
+                }
+                
+                // Remove active class from all tabs
+                workspaceTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Find the target tab content
+                const targetTabContentId = tabId + '-tab';
+                const targetTabContent = document.getElementById(targetTabContentId);
+                
+                if (!targetTabContent) {
+                    console.error('No tab content found with ID:', targetTabContentId);
+                    return;
+                }
+                
+                // Hide all tab contents
+                const tabContents = document.querySelectorAll('.tab-content');
+                console.log('Found ' + tabContents.length + ' tab content areas');
+                
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show the target tab content
+                console.log('Activating tab content:', targetTabContentId);
+                targetTabContent.classList.add('active');
+            });
+        });
+        
+        console.log('Tab event listeners successfully added');
+    } else {
+        console.warn('No workspace tabs found on this page');
+    }
+});
