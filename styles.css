@@ -694,7 +694,7 @@ ul, ol {
   padding: var(--space-3);
   font-size: var(--font-size-md);
   line-height: 1.5;
-  color: var(--color-gray-800);
+  color: var (--color-gray-800);
   background-color: var(--color-background);
   background-clip: padding-box;
   border: 1px solid var(--color-gray-300);
@@ -789,8 +789,6 @@ ul, ol {
 }
 
 .password-strength__bar {
-  height: 4px;
-  background-color: var(--color-gray-200);
   border-radius: var(--border-radius-full);
   overflow: hidden;
 }

@@ -4,7 +4,7 @@
     /* Color system */
     --primary: #4361ee;
     --primary-light: #4895ef;
-    --primary-lighter: rgba(67, 97, 238, 0.1);
+    --primary-lighter: rgba(67, 97, , 0.1);
     --primary-dark: #3a0ca3;
     --secondary: #7209b7;
     --accent: #f72585;
@@ -1145,19 +1145,19 @@ a:hover {
 /* Responsive adaptations for Quick Actions */
 @media (max-width: 1200px) {
     .action-buttons-expanded {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .action-buttons-expanded {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .action-buttons-expanded {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1325,13 +1325,11 @@ a:hover {
 
 @media (max-width: 768px) {
     .workspace-container {
-        padding: var(--sp-4);
+        padding: var(--sp-3);
     }
     
     .workspace-header__info {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
         gap: var(--sp-4);
     }
     
@@ -1340,15 +1338,16 @@ a:hover {
     }
     
     .workspace-meta {
-        justify-content: center;
+        flex-direction: column;
+        gap: var(--sp-3);
     }
     
     .workspace-progress-container {
-        width: 100%;
+        max-width: 100%;
     }
     
     .stats-row {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .hackathon-timeline .label {
@@ -1360,17 +1359,17 @@ a:hover {
     }
     
     .workspace-tab {
-        white-space: nowrap;
+        padding: var(--sp-2) var(--sp-3);
     }
     
     .tab-header {
         flex-direction: column;
-        gap: var (--sp-3);
         align-items: flex-start;
+        gap: var(--sp-3);
     }
     
     .action-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1926,7 +1925,7 @@ a:hover {
     }
     
     .team-sidebar {
-        order: -1;
+        margin-top: var(--sp-6);
     }
 }
 
@@ -2612,7 +2611,7 @@ a:hover {
     border-bottom: 1px solid var(--gray-200);
 }
 
-.folders-header h3 {
+folders-header h3 {
     margin: 0;
     font-size: 1.1rem;
 }
@@ -2768,10 +2767,11 @@ a:hover {
     .resources-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--sp-4);
+        gap: var(--sp-3);
     }
     
     .resources-search {
+        width: 100%;
         max-width: 100%;
     }
     
@@ -2782,16 +2782,61 @@ a:hover {
 
 @media (max-width: 768px) {
     .resources-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
     
     .resource-filters {
         overflow-x: auto;
         padding-bottom: var(--sp-2);
+        white-space: nowrap;
+        gap: var(--sp-2);
     }
     
     .resource-filter-btn {
-        white-space: nowrap;
+        padding: var(--sp-2) var(--sp-3);
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .resources-main {
+        flex-direction: column;
+    }
+    
+    .resources-sidebar {
+        width: 100%;
+        margin-bottom: var(--sp-6);
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-3);
+    }
+    
+    .resources-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .search-container, .search-container input {
+        width: 100%;
+    }
+    
+    .resources-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .resources-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    
+    .resource-tile-preview {
+        height: 120px;
     }
 }
 
@@ -2956,7 +3001,7 @@ a:hover {
 .channel-item {
     display: flex;
     align-items: center;
-    padding: var(--sp-2) var(--sp-3);
+    padding: var(--sp-2) var (--sp-3);
     gap: var(--sp-3);
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -3251,51 +3296,6 @@ a:hover {
     background-color: var(--primary);
     color: var(--white);
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.composer-send:hover {
-    background-color: var(--primary-dark);
-}
-
-.composer-send:disabled {
-    background-color: var(--gray-300);
-    cursor: not-allowed;
-}
-
-.attachment-previews {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-2);
-    margin-top: var(--sp-2);
-    margin-bottom: var(--sp-3);
-}
-
-.attachment-preview {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--gray-200);
-}
-
-.attachment-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.attachment-preview-remove {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    width: 18px;
-    height: 18px;
-    border-radius: var(--radius-full);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.7rem;
@@ -5271,7 +5271,7 @@ textarea.form-control {
 
 .phase {
     height: 100%;
-    background-color: var(--gray-300);
+    background-color: var(--primary);
     position: relative;
     transition: width 0.5s ease;
 }
@@ -5293,17 +5293,17 @@ textarea.form-control {
 }
 
 .phase.completed {
-    background-color: var(--success);
-    background: linear-gradient(to right, var(--success), var(--success-light, #65c6aa));
+    background-color: var(--primary);
 }
 
 .phase.active {
-    background-color: var(--primary);
-    animation: pulse 2s infinite;
-    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    background-color: var(--warning);
 }
 
 .phase-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--sp-2);
     display: flex;
     justify-content: space-between;
     margin-top: var(--sp-2);
@@ -5488,7 +5488,7 @@ textarea.form-control {
 
 .filter-pill.active {
     background-color: var(--primary-lighter);
-    border-color: var(--primary);
+    border-color: var (--primary);
     color: var(--primary);
 }
 
@@ -5867,7 +5867,7 @@ textarea.form-control {
 .calendar-day .date {
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: var(--sp-2);
+    margin-bottom: var (--sp-2);
 }
 
 .calendar-day.today {
@@ -6036,7 +6036,7 @@ textarea.form-control {
 
 .upcoming-item {
     padding: var(--sp-3);
-    border-bottom: 1px solid var(--gray-100);
+    border-bottom: 1px solid var (--gray-100);
     padding: var(--sp-3) var(--sp-4);
     position: relative;
     transition: all 0.2s ease;
@@ -6658,12 +6658,10 @@ textarea.form-control {
 
 /* Timeline container with refined shadows and transitions */
 .timeline-dashboard {
-    /* ...existing code... */
     transition: all 0.3s ease;
 }
 
 .timeline-main {
-    /* ...existing code... */
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
 }
@@ -6674,12 +6672,10 @@ textarea.form-control {
 
 /* Refined Timeline Header */
 .timeline-header {
-    /* ...existing code... */
     padding: var(--sp-5) var(--sp-6);
 }
 
 .timeline-header-left h2 {
-    /* ...existing code... */
     font-weight: 700;
     color: var(--gray-900);
 }
@@ -6752,21 +6748,21 @@ textarea.form-control {
 
 /* Refined Progress Tracker */
 .timeline-progress-tracker {
-    /* ...existing code... */
     background: linear-gradient(to right, rgba(67, 97, 238, 0.05), rgba(67, 97, 238, 0.1));
 }
 
 .progress-tracker-header {
-    /* ...existing code... */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--sp-3);
 }
 
 .progress-tracker-header h3 {
-    /* ...existing code... */
     color: var(--gray-800);
 }
 
 .progress-percentage {
-    /* ...existing code... */
     background-color: var(--primary-lighter);
     color: var(--primary);
     padding: var(--sp-1) var(--sp-3);
@@ -6776,7 +6772,6 @@ textarea.form-control {
 
 /* Enhanced phase track */
 .phase-track {
-    /* ...existing code... */
     height: 10px;
     border-radius: var(--radius-full);
     background-color: var(--gray-200);
@@ -6784,7 +6779,6 @@ textarea.form-control {
 }
 
 .phase {
-    /* ...existing code... */
     position: relative;
     transition: width 0.5s ease;
 }
@@ -6806,17 +6800,14 @@ textarea.form-control {
 }
 
 .phase.completed {
-    /* ...existing code... */
     background: linear-gradient(to right, var(--success), var(--success-light, #65c6aa));
 }
 
 .phase.active {
-    /* ...existing code... */
     background: linear-gradient(to right, var(--primary), var(--primary-light));
 }
 
 .phase-labels {
-    /* ...existing code... */
     padding: 0 var(--sp-2);
     margin-top: var(--sp-3);
 }
@@ -6841,18 +6832,15 @@ textarea.form-control {
 
 /* Enhanced Timeline Main View */
 .timeline-main-view {
-    /* ...existing code... */
     padding: var(--sp-4) var(--sp-6) var(--sp-6);
 }
 
 /* Improved Today Marker */
 .today-marker {
-    /* ...existing code... */
     z-index: 10;
 }
 
 .today-indicator {
-    /* ...existing code... */
     width: 14px;
     height: 14px;
     background-color: var(--accent);
@@ -6861,7 +6849,6 @@ textarea.form-control {
 }
 
 .today-marker span {
-    /* ...existing code... */
     background-color: var(--accent);
     color: white;
     padding: 2px 6px;
@@ -6872,26 +6859,22 @@ textarea.form-control {
 
 /* Enhanced Day Tabs */
 .hackathon-days-tabs {
-    /* ...existing code... */
     padding: var(--sp-2) 0;
     margin-bottom: var(--sp-5);
     position: relative;
 }
 
 .day-tab {
-    /* ...existing code... */
     transition: all 0.25s ease;
     position: relative;
 }
 
 .day-tab:hover {
-    /* ...existing code... */
     transform: translateY(-3px);
     box-shadow: var(--shadow-sm);
 }
 
 .day-tab.active {
-    /* ...existing code... */
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -6915,11 +6898,9 @@ textarea.form-control {
 }
 
 .day-number {
-    /* ...existing code... */
 }
 
 .day-date {
-    /* ...existing code... */
 }
 
 /* Timeline Filter Controls */
@@ -7007,17 +6988,14 @@ textarea.form-control {
 
 /* Improved Schedule Content */
 .hackathon-days-content {
-    /* ...existing code... */
     position: relative;
     min-height: 400px;
 }
 
 .day-schedule {
-    /* ...existing code... */
 }
 
 .day-schedule.active {
-    /* ...existing code... */
     animation: fadeSlideIn 0.4s ease;
 }
 
@@ -7098,12 +7076,10 @@ textarea.form-control {
 
 /* Event expanded state */
 .event-details {
-    /* ...existing code... */
     position: relative;
 }
 
 .event-title {
-    /* ...existing code... */
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -7111,7 +7087,6 @@ textarea.form-control {
 }
 
 .event-description {
-    /* ...existing code... */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, margin 0.3s ease;
@@ -7285,7 +7260,7 @@ textarea.form-control {
 .calendar-day .date {
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: var(--sp-2);
+    margin-bottom: var (--sp-2);
 }
 
 .calendar-day.today {
@@ -7400,7 +7375,6 @@ textarea.form-control {
 
 /* Refined Upcoming events widget */
 .timeline-upcoming-widget {
-    /* ...existing code... */
     box-shadow: var(--shadow-sm);
     transition: box-shadow 0.3s ease;
 }
@@ -7410,12 +7384,10 @@ textarea.form-control {
 }
 
 .widget-header {
-    /* ...existing code... */
     padding: var(--sp-4) var(--sp-5);
 }
 
 .widget-header h3 {
-    /* ...existing code... */
     font-weight: 600;
     font-size: 1rem;
 }
@@ -7446,11 +7418,9 @@ textarea.form-control {
 }
 
 .widget-body {
-    /* ...existing code... */
 }
 
 .upcoming-item {
-    /* ...existing code... */
     padding: var(--sp-3) var(--sp-4);
     position: relative;
     transition: all 0.2s ease;
@@ -7462,7 +7432,6 @@ textarea.form-control {
 }
 
 .upcoming-date {
-    /* ...existing code... */
     display: flex;
     align-items: center;
     gap: var(--sp-2);
@@ -7475,7 +7444,6 @@ textarea.form-control {
 }
 
 .upcoming-title {
-    /* ...existing code... */
     margin-bottom: var(--sp-2);
     font-weight: 600;
     color: var(--gray-800);
@@ -7483,7 +7451,6 @@ textarea.form-control {
 }
 
 .time-remaining {
-    /* ...existing code... */
     font-size: 0.75rem;
     font-weight: 500;
 }
@@ -7522,11 +7489,9 @@ textarea.form-control {
 
 /* Enhanced Hackathon Essentials */
 .hackathon-essentials {
-    /* ...existing code... */
 }
 
 .essential-item {
-    /* ...existing code... */
     padding: var(--sp-2) var(--sp-1);
     border-radius: var(--radius-md);
     transition: all 0.2s ease;
@@ -7538,23 +7503,19 @@ textarea.form-control {
 }
 
 .essential-item i {
-    /* ...existing code... */
     width: 36px;
     height: 36px;
 }
 
 .essential-info {
-    /* ...existing code... */
 }
 
 .essential-info h4 {
-    /* ...existing code... */
     font-size: 0.9rem;
     color: var(--gray-800);
 }
 
 .essential-info p {
-    /* ...existing code... */
     color: var(--gray-600);
 }
 
@@ -8373,7 +8334,7 @@ textarea.form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--sp-4);
+  margin-bottom: var (--sp-4);
   padding-bottom: var(--sp-3);
   border-bottom: 1px solid var(--gray-200);
 }
@@ -8555,7 +8516,7 @@ textarea.form-control {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--gray-200);
-  margin-bottom: var(--sp-4);
+  margin-bottom: var (--sp-4);
 }
 
 .widget-header {
