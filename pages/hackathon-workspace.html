@@ -1525,80 +1525,77 @@ export default function App() {
                                         <!-- Day 1 Schedule -->
                                         <div class="day-schedule" id="day1-schedule">
                                             <div class="day-header">
-                                                <h3>Day 1: Kickoff Day</h3>
-                                                <p>Introduction, team formation, and project planning</p>
+                                                <h3>November 15, 2023</h3>
                                             </div>
                                             
                                             <div class="schedule-timeline">
-                                                <!-- Event 1 (Updated structure for flip animation) -->
+                                                <!-- Timeline vertical line -->
+                                                <div class="timeline-line"></div>
+                                                
+                                                <!-- Opening Ceremony -->
                                                 <div class="timeline-event ceremony-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>9:00 AM - 10:30 AM</span>
-                                                        </div>
-                                                        <div class="event-content">
-                                                            <div class="event-front">
-                                                                <div class="event-icon">
-                                                                    <i class="fas fa-flag"></i>
-                                                                </div>
-                                                                <div class="event-details">
-                                                                    <h4 class="event-title">Opening Ceremony</h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="event-back">
-                                                                <p><i class="fas fa-flag"></i> Welcome address, introduction to the hackathon theme, rules and schedule overview.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Event 2 (Updated structure for flip animation) -->
-                                                <div class="timeline-event workshop-event">
-                                                    <div class="event-row">
-                                                        <div class="event-time-badge">
-                                                            <span>11:00 AM - 12:30 PM</span>
-                                                        </div>
-                                                        <div class="event-content">
-                                                            <div class="event-front">
-                                                                <div class="event-icon">
-                                                                    <i class="fas fa-laptop-code"></i>
-                                                                </div>
-                                                                <div class="event-details">
-                                                                    <h4 class="event-title">Technical Workshop</h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="event-back">
-                                                                <p><i class="fas fa-laptop-code"></i> Learn essential skills and technologies needed for the hackathon challenge.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Event 3 -->
-                                                <div class="timeline-event meal-event">
-                                                    <div class="event-row">
-                                                        <div class="event-time-badge">
-                                                            <span>12:30 PM - 1:30 PM</span>
+                                                            <span class="time-start">9:00 AM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">10:30 AM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
+                                                                <i class="fas fa-flag"></i>
+                                                            </div>
+                                                            <div class="event-details">
+                                                                <h4 class="event-title">Opening Ceremony</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Technical Workshop -->
+                                                <div class="timeline-event workshop-event">
+                                                    <div class="event-row">
+                                                        <div class="event-time-badge">
+                                                            <span class="time-start">11:00 AM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">12:30 PM</span>
+                                                        </div>
+                                                        <div class="event-content">
+                                                            <div class="event-icon">
+                                                                <i class="fas fa-laptop-code"></i>
+                                                            </div>
+                                                            <div class="event-details">
+                                                                <h4 class="event-title">Technical Workshop</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Lunch Break -->
+                                                <div class="timeline-event meal-event">
+                                                    <div class="event-row">
+                                                        <div class="event-time-badge">
+                                                            <span class="time-start">12:30 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">1:30 PM</span>
+                                                        </div>
+                                                        <div class="event-content">
+                                                            <div class="event-icon break">
                                                                 <i class="fas fa-utensils"></i>
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Lunch Break</h4>
-                                                                <div class="event-description">
-                                                                    <p>Networking lunch with fellow participants and mentors.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 4 -->
+                                                <!-- Team Formation & Planning -->
                                                 <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>1:30 PM - 5:00 PM</span>
+                                                            <span class="time-start">1:30 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">5:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
@@ -1606,39 +1603,37 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Team Formation & Planning</h4>
-                                                                <div class="event-description">
-                                                                    <p>Form teams, brainstorm project ideas, and create project plans.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 5 -->
+                                                <!-- First Checkpoint -->
                                                 <div class="timeline-event checkpoint-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>5:00 PM - 6:00 PM</span>
+                                                            <span class="time-start">5:00 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">6:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
+                                                            <div class="event-icon important">
                                                                 <i class="fas fa-clipboard-check"></i>
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">First Checkpoint</h4>
-                                                                <div class="event-description">
-                                                                    <p>Brief team presentations of project proposals and initial plans.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 6 -->
+                                                <!-- Evening Coding Session -->
                                                 <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>6:00 PM - 9:00 PM</span>
+                                                            <span class="time-start">6:00 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">9:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
@@ -1646,9 +1641,6 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Evening Coding Session</h4>
-                                                                <div class="event-description">
-                                                                    <p>Start development on your projects with mentor support available.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1667,7 +1659,7 @@ export default function App() {
                                                 <div class="timeline-line"></div>
                                                 
                                                 <!-- Morning Session -->
-                                                <div class="timeline-event">
+                                                <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">9:00 AM</span>
@@ -1680,14 +1672,13 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Morning Development Sprint</h4>
-                                                                <p class="event-description">Focus session on core functionality</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <!-- First Checkpoint -->
-                                                <div class="timeline-event">
+                                                <div class="timeline-event checkpoint-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">11:00 AM</span>
@@ -1700,14 +1691,13 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">First Checkpoint</h4>
-                                                                <p class="event-description">Team progress review and feedback</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <!-- Lunch Break -->
-                                                <div class="timeline-event">
+                                                <div class="timeline-event meal-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">12:00 PM</span>
@@ -1720,14 +1710,13 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Lunch Break</h4>
-                                                                <p class="event-description">Take a break and recharge</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <!-- Afternoon Session -->
-                                                <div class="timeline-event current">
+                                                <div class="timeline-event current coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">1:00 PM</span>
@@ -1740,14 +1729,13 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Afternoon Development Sprint</h4>
-                                                                <p class="event-description">Focused implementation of core features</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <!-- Second Checkpoint -->
-                                                <div class="timeline-event upcoming">
+                                                <div class="timeline-event upcoming checkpoint-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">5:30 PM</span>
@@ -1760,14 +1748,13 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Second Checkpoint</h4>
-                                                                <p class="event-description">Progress review and planning for Day 3</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
                                                 <!-- Team Dinner -->
-                                                <div class="timeline-event upcoming">
+                                                <div class="timeline-event upcoming social-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
                                                             <span class="time-start">7:00 PM</span>
@@ -1780,7 +1767,6 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Team Dinner</h4>
-                                                                <p class="event-description">Social event with all teams</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1791,36 +1777,20 @@ export default function App() {
                                         <!-- Day 3 Schedule -->
                                         <div class="day-schedule" id="day3-schedule">
                                             <div class="day-header">
-                                                <h3>Day 3: Final Day</h3>
-                                                <p>Project finalization, presentations, and awards</p>
+                                                <h3>November 17, 2023</h3>
                                             </div>
                                             
                                             <div class="schedule-timeline">
-                                                <!-- Event 1 -->
-                                                <div class="timeline-event meal-event">
-                                                    <div class="event-row">
-                                                        <div class="event-time-badge">
-                                                            <span>8:30 AM - 9:30 AM</span>
-                                                        </div>
-                                                        <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-coffee"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Breakfast</h4>
-                                                                <div class="event-description">
-                                                                    <p>Final day breakfast and team strategy meetings.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <!-- Timeline vertical line -->
+                                                <div class="timeline-line"></div>
                                                 
-                                                <!-- Event 2 -->
+                                                <!-- Morning Development -->
                                                 <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>9:30 AM - 12:00 PM</span>
+                                                            <span class="time-start">8:30 AM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">11:00 AM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
@@ -1828,79 +1798,75 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Final Development Sprint</h4>
-                                                                <div class="event-description">
-                                                                    <p>Last coding session to finalize features and fix critical bugs.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 3 -->
-                                                <div class="timeline-event workshop-event">
+                                                <!-- Final Checkpoint -->
+                                                <div class="timeline-event checkpoint-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>12:00 PM - 12:30 PM</span>
+                                                            <span class="time-start">11:00 AM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">12:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-chalkboard-teacher"></i>
+                                                            <div class="event-icon important">
+                                                                <i class="fas fa-flag-checkered"></i>
                                                             </div>
                                                             <div class="event-details">
-                                                                <h4 class="event-title">Presentation Workshop</h4>
-                                                                <div class="event-description">
-                                                                    <p>Quick tips on presenting your projects effectively to the judges.</p>
-                                                                </div>
+                                                                <h4 class="event-title">Final Checkpoint</h4>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 4 -->
+                                                <!-- Lunch Break -->
                                                 <div class="timeline-event meal-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>12:30 PM - 1:30 PM</span>
+                                                            <span class="time-start">12:00 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">1:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
-                                                            <div class="event-icon">
+                                                            <div class="event-icon break">
                                                                 <i class="fas fa-utensils"></i>
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Lunch Break</h4>
-                                                                <div class="event-description">
-                                                                    <p>Final lunch and preparation time for presentations.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 5 -->
-                                                <div class="timeline-event deadline-event">
+                                                <!-- Final Preparations -->
+                                                <div class="timeline-event coding-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>2:00 PM</span>
+                                                            <span class="time-start">1:00 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">2:30 PM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
-                                                                <i class="fas fa-hourglass-end"></i>
+                                                                <i class="fas fa-laptop-code"></i>
                                                             </div>
                                                             <div class="event-details">
-                                                                <h4 class="event-title">Code Freeze</h4>
-                                                                <div class="event-description">
-                                                                    <p>All development must stop. Submit your code to the repository.</p>
-                                                                </div>
+                                                                <h4 class="event-title">Final Preparations</h4>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 6 -->
+                                                <!-- Project Presentations -->
                                                 <div class="timeline-event presentation-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>2:30 PM - 5:00 PM</span>
+                                                            <span class="time-start">3:00 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">5:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
@@ -1908,49 +1874,25 @@ export default function App() {
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Project Presentations</h4>
-                                                                <div class="event-description">
-                                                                    <p>Each team presents their project to judges and other participants.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                                <!-- Event 7 -->
+                                                <!-- Closing Ceremony -->
                                                 <div class="timeline-event ceremony-event">
                                                     <div class="event-row">
                                                         <div class="event-time-badge">
-                                                            <span>5:30 PM - 6:30 PM</span>
+                                                            <span class="time-start">5:30 PM</span>
+                                                            <span class="time-separator">to</span>
+                                                            <span class="time-end">7:00 PM</span>
                                                         </div>
                                                         <div class="event-content">
                                                             <div class="event-icon">
-                                                                <i class="fas fa-award"></i>
+                                                                <i class="fas fa-trophy"></i>
                                                             </div>
                                                             <div class="event-details">
                                                                 <h4 class="event-title">Closing Ceremony & Awards</h4>
-                                                                <div class="event-description">
-                                                                    <p>Recognition of achievements and distribution of prizes across various categories.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Event 8 -->
-                                                <div class="timeline-event meal-event">
-                                                    <div class="event-row">
-                                                        <div class="event-time-badge">
-                                                            <span>6:30 PM - 8:00 PM</span>
-                                                        </div>
-                                                        <div class="event-content">
-                                                            <div class="event-icon">
-                                                                <i class="fas fa-glass-cheers"></i>
-                                                            </div>
-                                                            <div class="event-details">
-                                                                <h4 class="event-title">Celebration Dinner</h4>
-                                                                <div class="event-description">
-                                                                    <p>Final networking dinner to celebrate everyone's hard work and achievements.</p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
