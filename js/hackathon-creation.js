@@ -119,6 +119,107 @@ document.addEventListener('DOMContentLoaded', function() {
         const fileName = this.files[0] ? this.files[0].name : 'No file selected';
         document.getElementById('ndaUpload').textContent = fileName;
     });
+    
+    // Mentor invitation method toggle functionality
+    if (document.querySelector('.wizard-step[data-step="10"]')) {
+        const manualMethodRadio = document.querySelector('input[name="mentorAddMethod"][value="manual"]');
+        const inviteMethodRadio = document.querySelector('input[name="mentorAddMethod"][value="invitation"]');
+        const manualSection = document.getElementById('manualMentorSection');
+        const invitationSection = document.getElementById('invitationMentorSection');
+
+        // Initialize based on default selection
+        if (manualMethodRadio && manualMethodRadio.checked) {
+            manualSection.style.display = 'block';
+            invitationSection.style.display = 'none';
+        }
+
+        // Add event listeners to radio buttons
+        if (manualMethodRadio) {
+            manualMethodRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    manualSection.style.display = 'block';
+                    invitationSection.style.display = 'none';
+                }
+            });
+        }
+
+        if (inviteMethodRadio) {
+            inviteMethodRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    manualSection.style.display = 'none';
+                    invitationSection.style.display = 'block';
+                }
+            });
+        }
+
+        // Copy mentor registration link functionality
+        const copyMentorLinkBtn = document.getElementById('copyMentorLinkBtn');
+        if (copyMentorLinkBtn) {
+            copyMentorLinkBtn.addEventListener('click', function() {
+                const linkInput = document.getElementById('mentorRegistrationLink');
+                linkInput.select();
+                document.execCommand('copy');
+                
+                // Visual feedback for copy
+                const originalText = copyMentorLinkBtn.innerHTML;
+                copyMentorLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    copyMentorLinkBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+
+        // Send invitations functionality
+        const sendInvitationsBtn = document.getElementById('sendMentorInvitationsBtn');
+        if (sendInvitationsBtn) {
+            sendInvitationsBtn.addEventListener('click', function() {
+                const emails = document.getElementById('mentorEmailList').value.trim();
+                if (!emails) {
+                    alert('Please enter at least one email address.');
+                    return;
+                }
+                
+                // Here you would typically make an API call to send invitations
+                // For demo purposes, just show a success message
+                alert('Invitations sent successfully!');
+                
+                // Add the emails to the pending invitations table
+                const emailList = emails.split('\n').filter(email => email.trim());
+                const tbody = document.querySelector('.invited-mentors-table tbody');
+                
+                if (tbody) {
+                    const today = new Date().toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    
+                    emailList.forEach(email => {
+                        if (email.trim()) {
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td>${email.trim()}</td>
+                                <td>${today}</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button type="button" class="btn-icon btn-small" title="Resend invitation">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon btn-small" title="Cancel invitation">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            `;
+                            tbody.appendChild(tr);
+                        }
+                    });
+                    
+                    // Clear the textarea
+                    document.getElementById('mentorEmailList').value = '';
+                }
+            });
+        }
+    }
 });
 
 // Helper Functions

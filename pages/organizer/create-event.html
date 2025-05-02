@@ -111,31 +111,31 @@
                     </div>
                     <div class="progress-tab" data-step="5">
                         <div class="step-number"><span>5</span></div>
-                        <span>Mentors</span>
+                        <span>Evaluation</span>
                     </div>
                     <div class="progress-tab" data-step="6">
                         <div class="step-number"><span>6</span></div>
-                        <span>Judges</span>
+                        <span>Prizes</span>
                     </div>
                     <div class="progress-tab" data-step="7">
                         <div class="step-number"><span>7</span></div>
-                        <span>Evaluation</span>
+                        <span>Submissions</span>
                     </div>
                     <div class="progress-tab" data-step="8">
                         <div class="step-number"><span>8</span></div>
-                        <span>Prizes</span>
+                        <span>Resources</span>
                     </div>
                     <div class="progress-tab" data-step="9">
                         <div class="step-number"><span>9</span></div>
-                        <span>Submissions</span>
+                        <span>Legal & Publish</span>
                     </div>
                     <div class="progress-tab" data-step="10">
                         <div class="step-number"><span>10</span></div>
-                        <span>Resources</span>
+                        <span>Mentors (Optional)</span>
                     </div>
                     <div class="progress-tab" data-step="11">
                         <div class="step-number"><span>11</span></div>
-                        <span>Legal & Publish</span>
+                        <span>Judges (Optional)</span>
                     </div>
                 </div>
                 
@@ -580,179 +580,8 @@
                         </form>
                     </div>
                     
-                    <!-- Step 5: Mentors -->
+                    <!-- Step 5: Evaluation -->
                     <div class="wizard-step" data-step="5">
-                        <form class="wizard-form">
-                            <h3 class="form-section-title">
-                                <i class="fas fa-user-tie"></i>
-                                Hackathon Mentors
-                            </h3>
-                            <div class="form-section">
-                                <p class="form-intro">
-                                    Add mentors who can provide guidance to participants during your hackathon. Mentors will be visible on your event page and participants can book sessions with them.
-                                </p>
-                                
-                                <div id="mentorsContainer">
-                                    <!-- Mentor Card 1 -->
-                                    <div class="mentor-card">
-                                        <div class="mentor-header">
-                                            <div class="mentor-avatar">
-                                                <img src="https://via.placeholder.com/60" alt="Mentor avatar">
-                                            </div>
-                                            <div class="mentor-info">
-                                                <div class="form-group" style="margin-bottom: 0.5rem;">
-                                                    <label for="mentor1Name">Name</label>
-                                                    <input type="text" id="mentor1Name" name="mentors[0][name]" placeholder="Enter mentor name">
-                                                </div>
-                                                <div class="form-group" style="margin-bottom: 0;">
-                                                    <label for="mentor1Title">Title/Role</label>
-                                                    <input type="text" id="mentor1Title" name="mentors[0][title]" placeholder="E.g., Senior Developer, API Specialist">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div style="padding: 0 1rem;">
-                                            <div class="form-group">
-                                                <label for="mentor1Expertise">Areas of Expertise</label>
-                                                <input type="text" id="mentor1Expertise" name="mentors[0][expertise]" placeholder="E.g., API Integration, Mobile Development, UX Design">
-                                                <span class="input-hint">Comma-separated list of expertise areas</span>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="mentor1Email">Email</label>
-                                                <input type="email" id="mentor1Email" name="mentors[0][email]" placeholder="Enter mentor email">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mentor-availability">
-                                            <div class="availability-title">Weekly Availability</div>
-                                            <div class="availability-grid">
-                                                <div class="day-column">
-                                                    <div class="day-label">Mon</div>
-                                                    <div class="time-slot slot-free">9-12</div>
-                                                    <div class="time-slot slot-booked">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Tue</div>
-                                                    <div class="time-slot slot-free">9-12</div>
-                                                    <div class="time-slot slot-free">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Wed</div>
-                                                    <div class="time-slot slot-booked">9-12</div>
-                                                    <div class="time-slot slot-free">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Thu</div>
-                                                    <div class="time-slot slot-free">9-12</div>
-                                                    <div class="time-slot slot-booked">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Fri</div>
-                                                    <div class="time-slot slot-free">9-12</div>
-                                                    <div class="time-slot slot-free">13-16</div>
-                                                    <div class="time-slot slot-booked">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Sat</div>
-                                                    <div class="time-slot slot-free">9-12</div>
-                                                    <div class="time-slot slot-booked">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                                <div class="day-column">
-                                                    <div class="day-label">Sun</div>
-                                                    <div class="time-slot slot-booked">9-12</div>
-                                                    <div class="time-slot slot-free">13-16</div>
-                                                    <div class="time-slot slot-free">17-20</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <button type="button" id="addMentorBtn" class="add-track-btn" style="margin-top: 1.5rem;">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Add Another Mentor</span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Step 6: Judges -->
-                    <div class="wizard-step" data-step="6">
-                        <form class="wizard-form">
-                            <h3 class="form-section-title">
-                                <i class="fas fa-gavel"></i>
-                                Hackathon Judges
-                            </h3>
-                            <div class="form-section">
-                                <p class="form-intro">
-                                    Add judges who will evaluate submissions and determine winners. Provide their credentials to establish credibility and transparency for participants.
-                                </p>
-                                
-                                <div id="judgesContainer">
-                                    <!-- Judge Card 1 -->
-                                    <div class="mentor-card"> <!-- Reusing mentor-card styling for consistency -->
-                                        <div class="mentor-header">
-                                            <div class="mentor-avatar">
-                                                <img src="https://via.placeholder.com/60" alt="Judge avatar">
-                                            </div>
-                                            <div class="mentor-info">
-                                                <div class="form-group" style="margin-bottom: 0.5rem;">
-                                                    <label for="judge1Name">Name</label>
-                                                    <input type="text" id="judge1Name" name="judges[0][name]" placeholder="Enter judge name">
-                                                </div>
-                                                <div class="form-group" style="margin-bottom: 0;">
-                                                    <label for="judge1Title">Title/Role</label>
-                                                    <input type="text" id="judge1Title" name="judges[0][title]" placeholder="E.g., CTO, VP of Engineering">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div style="padding: 0 1rem;">
-                                            <div class="form-group">
-                                                <label for="judge1Company">Company/Organization</label>
-                                                <input type="text" id="judge1Company" name="judges[0][company]" placeholder="Company or organization name">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="judge1Bio">Short Bio</label>
-                                                <textarea id="judge1Bio" name="judges[0][bio]" placeholder="Brief professional background and expertise" rows="3"></textarea>
-                                            </div>
-                                            
-                                            <div class="form-row form-row-2">
-                                                <div class="form-group">
-                                                    <label for="judge1Email">Email</label>
-                                                    <input type="email" id="judge1Email" name="judges[0][email]" placeholder="Enter judge email">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="judge1LinkedInUrl">LinkedIn URL (Optional)</label>
-                                                    <input type="url" id="judge1LinkedInUrl" name="judges[0][linkedIn]" placeholder="https://linkedin.com/in/username">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <button type="button" id="addJudgeBtn" class="add-track-btn" style="margin-top: 1.5rem;">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Add Another Judge</span>
-                                </button>
-                                
-                                <div class="form-group" style="margin-top: 2rem;">
-                                    <label for="judgingInstructions">Instructions for Judges</label>
-                                    <textarea id="judgingInstructions" name="judgingInstructions" placeholder="Provide specific instructions for your judges about the judging process, expectations, and timeline" rows="4"></textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Step 7: Evaluation -->
-                    <div class="wizard-step" data-step="7">
                         <form class="wizard-form">
                             <h3 class="form-section-title">
                                 <i class="fas fa-star-half-alt"></i>
@@ -872,8 +701,8 @@
                         </form>
                     </div>
                     
-                    <!-- Step 8: Prizes -->
-                    <div class="wizard-step" data-step="8">
+                    <!-- Step 6: Prizes -->
+                    <div class="wizard-step" data-step="6">
                         <form class="wizard-form">
                             <h3 class="form-section-title">
                                 <i class="fas fa-trophy"></i>
@@ -1056,8 +885,8 @@
                         </form>
                     </div>
                     
-                    <!-- Step 9: Submissions -->
-                    <div class="wizard-step" data-step="9">
+                    <!-- Step 7: Submissions -->
+                    <div class="wizard-step" data-step="7">
                         <form class="wizard-form">
                             <h3 class="form-section-title">
                                 <i class="fas fa-paper-plane"></i>
@@ -1180,8 +1009,8 @@
                         </form>
                     </div>
                     
-                    <!-- Step 10: Resources -->
-                    <div class="wizard-step" data-step="10">
+                    <!-- Step 8: Resources -->
+                    <div class="wizard-step" data-step="8">
                         <form class="wizard-form">
                             <h3 class="form-section-title">
                                 <i class="fas fa-toolbox"></i>
@@ -1344,8 +1173,8 @@
                         </form>
                     </div>
                     
-                    <!-- Step 11: Legal & Publish -->
-                    <div class="wizard-step" data-step="11">
+                    <!-- Step 9: Legal & Publish -->
+                    <div class="wizard-step" data-step="9">
                         <form class="wizard-form">
                             <h3 class="form-section-title">
                                 <i class="fas fa-file-contract"></i>
@@ -1579,7 +1408,7 @@
                                         <div class="checklist-content">
                                             <h4>Mentor Availability</h4>
                                             <p>Confirm mentor schedules and expertise areas</p>
-                                            <a href="#" class="goto-section" data-step="5">Review this section</a>
+                                            <a href="#" class="goto-section" data-step="10">Review this section</a>
                                         </div>
                                     </div>
 
@@ -1590,7 +1419,7 @@
                                         <div class="checklist-content">
                                             <h4>Judge Confirmations</h4>
                                             <p>Ensure all judges have confirmed participation</p>
-                                            <a href="#" class="goto-section" data-step="6">Complete this section</a>
+                                            <a href="#" class="goto-section" data-step="11">Complete this section</a>
                                         </div>
                                     </div>
 
@@ -1694,6 +1523,279 @@
                                         <i class="fas fa-globe"></i>
                                         Publish Hackathon
                                     </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 10: Mentors -->
+                    <div class="wizard-step" data-step="10">
+                        <form class="wizard-form">
+                            <h3 class="form-section-title">
+                                <i class="fas fa-user-tie"></i>
+                                Hackathon Mentors (Optional)
+                            </h3>
+                            <div class="form-section">
+                                <p class="form-intro">
+                                    Add mentors who can provide guidance to participants during your hackathon. Mentors will be visible on your event page and participants can book sessions with them.
+                                </p>
+                                
+                                <div class="form-group">
+                                    <label>How would you like to add mentors?</label>
+                                    <div class="radio-group">
+                                        <label class="radio">
+                                            <input type="radio" name="mentorAddMethod" value="manual" checked>
+                                            <span>Add mentors manually</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="mentorAddMethod" value="invitation">
+                                            <span>Send invitation links to mentors</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Manual mentor addition section -->
+                                <div id="manualMentorSection">
+                                    <div id="mentorsContainer">
+                                        <!-- Mentor Card 1 -->
+                                        <div class="mentor-card">
+                                            <div class="mentor-header">
+                                                <div class="mentor-avatar">
+                                                    <img src="https://via.placeholder.com/60" alt="Mentor avatar">
+                                                </div>
+                                                <div class="mentor-info">
+                                                    <div class="form-group" style="margin-bottom: 0.5rem;">
+                                                        <label for="mentor1Name">Name</label>
+                                                        <input type="text" id="mentor1Name" name="mentors[0][name]" placeholder="Enter mentor name">
+                                                    </div>
+                                                    <div class="form-group" style="margin-bottom: 0;">
+                                                        <label for="mentor1Title">Title/Role</label>
+                                                        <input type="text" id="mentor1Title" name="mentors[0][title]" placeholder="E.g., Senior Developer, API Specialist">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="padding: 0 1rem;">
+                                                <div class="form-group">
+                                                    <label for="mentor1Expertise">Areas of Expertise</label>
+                                                    <input type="text" id="mentor1Expertise" name="mentors[0][expertise]" placeholder="E.g., API Integration, Mobile Development, UX Design">
+                                                    <span class="input-hint">Comma-separated list of expertise areas</span>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label for="mentor1Email">Email</label>
+                                                    <input type="email" id="mentor1Email" name="mentors[0][email]" placeholder="Enter mentor email">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mentor-availability">
+                                                <div class="availability-title">Weekly Availability</div>
+                                                <div class="availability-grid">
+                                                    <div class="day-column">
+                                                        <div class="day-label">Mon</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Tue</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Wed</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Thu</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Fri</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Sat</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                    <div class="day-column">
+                                                        <div class="day-label">Sun</div>
+                                                        <div class="time-slot slot-free">9-12</div>
+                                                        <div class="time-slot slot-free">13-16</div>
+                                                        <div class="time-slot slot-free">17-20</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="button" id="addMentorBtn" class="add-track-btn" style="margin-top: 1.5rem;">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Add Another Mentor</span>
+                                    </button>
+                                </div>
+                                
+                                <!-- Invitation links section -->
+                                <div id="invitationMentorSection" style="display: none;">
+                                    <div class="form-section">
+                                        <h4 class="subsection-title">Mentor Invitation</h4>
+                                        <p class="form-hint">
+                                            Send invitation links to potential mentors. They can fill in their details and availability directly.
+                                        </p>
+                                        
+                                        <div class="form-group">
+                                            <label for="mentorEmailList">Mentor Emails</label>
+                                            <textarea id="mentorEmailList" name="mentorEmailList" rows="4" placeholder="Enter email addresses, one per line"></textarea>
+                                            <span class="input-hint">Each mentor will receive a unique invitation link</span>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="mentorInvitationMessage">Invitation Message (Optional)</label>
+                                            <textarea id="mentorInvitationMessage" name="mentorInvitationMessage" rows="4" placeholder="Enter a personalized message to include in the invitation"></textarea>
+                                        </div>
+                                        
+                                        <button type="button" id="sendMentorInvitationsBtn" class="btn btn--primary">
+                                            <i class="fas fa-envelope"></i>
+                                            Send Invitations
+                                        </button>
+                                        
+                                        <div class="separator" style="margin: 2rem 0; text-align: center; position: relative;">
+                                            <span style="background-color: white; padding: 0 1rem; position: relative; z-index: 1;">OR</span>
+                                            <hr style="margin-top: -0.7rem;">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Generate Mentor Registration Link</label>
+                                            <div class="input-with-button">
+                                                <input type="text" id="mentorRegistrationLink" value="https://hackconnect.com/hackathon/mentor-registration/12345" readonly>
+                                                <button type="button" id="copyMentorLinkBtn" class="btn btn--outline btn--icon">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <span class="input-hint">Share this link with potential mentors to let them sign up</span>
+                                        </div>
+                                        
+                                        <h4 class="subsection-title" style="margin-top: 2rem;">Pending Invitations</h4>
+                                        <div class="form-hint">
+                                            Mentors who have been invited but haven't confirmed yet.
+                                        </div>
+                                        
+                                        <div class="invited-mentors-table">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <th>Invited On</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>mentor1@example.com</td>
+                                                        <td>May 1, 2025</td>
+                                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                                        <td>
+                                                            <button type="button" class="btn-icon btn-small" title="Resend invitation">
+                                                                <i class="fas fa-redo"></i>
+                                                            </button>
+                                                            <button type="button" class="btn-icon btn-small" title="Cancel invitation">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>mentor2@example.com</td>
+                                                        <td>May 1, 2025</td>
+                                                        <td><span class="status-badge status-accepted">Accepted</span></td>
+                                                        <td>
+                                                            <button type="button" class="btn-icon btn-small" title="View details">
+                                                                <i class="fas fa-eye"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 11: Judges -->
+                    <div class="wizard-step" data-step="11">
+                        <form class="wizard-form">
+                            <h3 class="form-section-title">
+                                <i class="fas fa-gavel"></i>
+                                Hackathon Judges
+                            </h3>
+                            <div class="form-section">
+                                <p class="form-intro">
+                                    Add judges who will evaluate submissions and determine winners. Provide their credentials to establish credibility and transparency for participants.
+                                </p>
+                                
+                                <div id="judgesContainer">
+                                    <!-- Judge Card 1 -->
+                                    <div class="mentor-card"> <!-- Reusing mentor-card styling for consistency -->
+                                        <div class="mentor-header">
+                                            <div class="mentor-avatar">
+                                                <img src="https://via.placeholder.com/60" alt="Judge avatar">
+                                            </div>
+                                            <div class="mentor-info">
+                                                <div class="form-group" style="margin-bottom: 0.5rem;">
+                                                    <label for="judge1Name">Name</label>
+                                                    <input type="text" id="judge1Name" name="judges[0][name]" placeholder="Enter judge name">
+                                                </div>
+                                                <div class="form-group" style="margin-bottom: 0;">
+                                                    <label for="judge1Title">Title/Role</label>
+                                                    <input type="text" id="judge1Title" name="judges[0][title]" placeholder="E.g., CTO, VP of Engineering">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="padding: 0 1rem;">
+                                            <div class="form-group">
+                                                <label for="judge1Company">Company/Organization</label>
+                                                <input type="text" id="judge1Company" name="judges[0][company]" placeholder="Company or organization name">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="judge1Bio">Short Bio</label>
+                                                <textarea id="judge1Bio" name="judges[0][bio]" placeholder="Brief professional background and expertise" rows="3"></textarea>
+                                            </div>
+                                            
+                                            <div class="form-row form-row-2">
+                                                <div class="form-group">
+                                                    <label for="judge1Email">Email</label>
+                                                    <input type="email" id="judge1Email" name="judges[0][email]" placeholder="Enter judge email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="judge1LinkedInUrl">LinkedIn URL (Optional)</label>
+                                                    <input type="url" id="judge1LinkedInUrl" name="judges[0][linkedIn]" placeholder="https://linkedin.com/in/username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="button" id="addJudgeBtn" class="add-track-btn" style="margin-top: 1.5rem;">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Add Another Judge</span>
+                                </button>
+                                
+                                <div class="form-group" style="margin-top: 2rem;">
+                                    <label for="judgingInstructions">Instructions for Judges</label>
+                                    <textarea id="judgingInstructions" name="judgingInstructions" placeholder="Provide specific instructions for your judges about the judging process, expectations, and timeline" rows="4"></textarea>
                                 </div>
                             </div>
                         </form>

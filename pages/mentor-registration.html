@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Mentor Registration - Allin Hackathon Platform</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .mentor-registration-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hackathon-info {
+            background-color: #f5f8ff;
+            border-left: 4px solid #3366ff;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .availability-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        
+        .day-column {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .day-label {
+            text-align: center;
+            font-weight: 600;
+            padding: 8px 0;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .time-slot {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .slot-selected {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 0.5rem;
+        }
+        
+        .expertise-tag {
+            background-color: #e9f0ff;
+            border: 1px solid #d0e0ff;
+            border-radius: 16px;
+            padding: 4px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .expertise-tag .remove {
+            cursor: pointer;
+            color: #5c7cfa;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="../assets/images/logo.svg" alt="Allin Hackathon Platform">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="mentor-registration-container">
+            <div class="hackathon-info">
+                <h2>CodeFest 2025 - Registration</h2>
+                <p>You've been invited to be a mentor for <strong>CodeFest 2025</strong>. Please complete your profile information below.</p>
+                <p><i class="far fa-calendar-alt"></i> <strong>Event dates:</strong> June 10-15, 2025</p>
+            </div>
+            
+            <form id="mentorRegistrationForm">
+                <div class="form-section">
+                    <h3 class="form-section-title">Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="mentorName">Full Name</label>
+                        <input type="text" id="mentorName" name="mentorName" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mentorEmail">Email Address</label>
+                        <input type="email" id="mentorEmail" name="mentorEmail" required placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mentorTitle">Job Title</label>
+                            <input type="text" id="mentorTitle" name="mentorTitle" required placeholder="E.g., Senior Developer, UX Designer">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mentorCompany">Company/Organization</label>
+                            <input type="text" id="mentorCompany" name="mentorCompany" placeholder="Where do you work?">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mentorBio">Short Bio</label>
+                        <textarea id="mentorBio" name="mentorBio" rows="4" placeholder="Tell participants about your background and experience (maximum 300 characters)"></textarea>
+                        <span class="input-hint"><span id="bioCharCount">0</span>/300 characters</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mentorPhoto">Profile Photo</label>
+                        <div class="file-upload-container">
+                            <div class="file-upload-preview">
+                                <img id="photoPreview" src="https://via.placeholder.com/150?text=Photo" alt="Profile preview">
+                            </div>
+                            <div class="file-upload-controls">
+                                <input type="file" id="mentorPhoto" name="mentorPhoto" accept="image/*" class="hidden-file-input">
+                                <button type="button" id="uploadPhotoButton" class="btn btn--outline">
+                                    <i class="fas fa-upload"></i> Upload Photo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Areas of Expertise</h3>
+                    <p class="form-intro">Select or add your areas of expertise to help participants find the right mentor.</p>
+                    
+                    <div class="form-group">
+                        <label for="expertiseInput">Add Area of Expertise</label>
+                        <div class="input-with-button">
+                            <input type="text" id="expertiseInput" placeholder="E.g., Machine Learning, UI Design, API Integration">
+                            <button type="button" id="addExpertiseBtn" class="btn btn--outline">Add</button>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-tags" id="expertiseTags">
+                        <div class="expertise-tag">
+                            Frontend Development <span class="remove"><i class="fas fa-times-circle"></i></span>
+                        </div>
+                        <div class="expertise-tag">
+                            Python <span class="remove"><i class="fas fa-times-circle"></i></span>
+                        </div>
+                        <div class="expertise-tag">
+                            UI/UX <span class="remove"><i class="fas fa-times-circle"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group" style="margin-top: 1.5rem;">
+                        <h4>Popular Tags</h4>
+                        <div class="checkbox-grid">
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="JavaScript">
+                                <span>JavaScript</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="React">
+                                <span>React</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="Node.js">
+                                <span>Node.js</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="AWS">
+                                <span>AWS</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="Docker">
+                                <span>Docker</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="Database">
+                                <span>Database</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="Machine Learning">
+                                <span>Machine Learning</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="expertiseTags[]" value="Mobile Dev">
+                                <span>Mobile Dev</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Mentor Availability</h3>
+                    <p class="form-intro">Select the time slots when you'll be available for mentoring sessions during the hackathon.</p>
+                    
+                    <div class="form-group">
+                        <label>Time Zone</label>
+                        <select id="mentorTimezone" name="mentorTimezone">
+                            <option value="GMT-08:00">Pacific Time (UTC-08:00)</option>
+                            <option value="GMT-05:00">Eastern Time (UTC-05:00)</option>
+                            <option value="GMT+00:00">Greenwich Mean Time (UTC+00:00)</option>
+                            <option value="GMT+01:00">Central European Time (UTC+01:00)</option>
+                            <option value="GMT+02:00">Eastern European Time (UTC+02:00)</option>
+                            <option value="GMT+03:00">Moscow Time (UTC+03:00)</option>
+                            <option value="GMT+04:00">Azerbaijan Time (UTC+04:00)</option>
+                            <option value="GMT+05:30">Indian Standard Time (UTC+05:30)</option>
+                            <option value="GMT+08:00">China Standard Time (UTC+08:00)</option>
+                            <option value="GMT+09:00">Japan Standard Time (UTC+09:00)</option>
+                            <option value="GMT+10:00">Australian Eastern Time (UTC+10:00)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-hint">
+                        <strong>Note:</strong> Each session will be 30 minutes. Click on the time slots when you're available.
+                    </div>
+                    
+                    <div class="availability-grid">
+                        <div class="day-column">
+                            <div class="day-label">Mon</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Tue</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Wed</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Thu</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Fri</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Sat</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                        <div class="day-column">
+                            <div class="day-label">Sun</div>
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="13:00">1:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="mentorPreferences">Mentoring Preferences</label>
+                        <textarea id="mentorPreferences" name="mentorPreferences" rows="4" placeholder="Tell us about your preferred mentoring style, project types you'd like to mentor, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mentorSessionLimit">Maximum Sessions Per Day</label>
+                        <select id="mentorSessionLimit" name="mentorSessionLimit">
+                            <option value="2">2 sessions</option>
+                            <option value="4">4 sessions</option>
+                            <option value="6">6 sessions</option>
+                            <option value="8">8 sessions</option>
+                            <option value="unlimited">No limit</option>
+                        </select>
+                        <span class="input-hint">Each session is approximately 30 minutes</span>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="mentorConsent" required>
+                            <span>I agree to the <a href="#">Mentor Guidelines</a> and understand my role in the hackathon</span>
+                        </label>
+                        
+                        <label class="checkbox">
+                            <input type="checkbox" name="contactConsent">
+                            <span>I'm open to being contacted for future hackathon opportunities</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn--primary btn--lg">Complete Registration</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Allin Hackathon Platform. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle time slot selection
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    this.classList.toggle('slot-selected');
+                });
+            });
+            
+            // Handle expertise tags
+            const addExpertiseBtn = document.getElementById('addExpertiseBtn');
+            const expertiseInput = document.getElementById('expertiseInput');
+            const expertiseTags = document.getElementById('expertiseTags');
+            
+            addExpertiseBtn.addEventListener('click', function() {
+                const expertise = expertiseInput.value.trim();
+                if (expertise) {
+                    addExpertiseTag(expertise);
+                    expertiseInput.value = '';
+                }
+            });
+            
+            // Allow adding tags with Enter key
+            expertiseInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addExpertiseBtn.click();
+                }
+            });
+            
+            // Add initial click handlers for remove buttons
+            document.querySelectorAll('.expertise-tag .remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.parentElement.remove();
+                });
+            });
+            
+            // Function to add a new expertise tag
+            function addExpertiseTag(text) {
+                const tag = document.createElement('div');
+                tag.className = 'expertise-tag';
+                tag.innerHTML = `${text} <span class="remove"><i class="fas fa-times-circle"></i></span>`;
+                
+                tag.querySelector('.remove').addEventListener('click', function() {
+                    tag.remove();
+                });
+                
+                expertiseTags.appendChild(tag);
+            }
+            
+            // Handle photo upload
+            const uploadPhotoButton = document.getElementById('uploadPhotoButton');
+            const mentorPhoto = document.getElementById('mentorPhoto');
+            const photoPreview = document.getElementById('photoPreview');
+            
+            uploadPhotoButton.addEventListener('click', function() {
+                mentorPhoto.click();
+            });
+            
+            mentorPhoto.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoPreview.src = e.target.result;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Character counter for bio
+            const bioField = document.getElementById('mentorBio');
+            const bioCharCount = document.getElementById('bioCharCount');
+            
+            bioField.addEventListener('input', function() {
+                const count = this.value.length;
+                bioCharCount.textContent = count;
+                
+                if (count > 300) {
+                    bioCharCount.style.color = 'red';
+                    this.value = this.value.substring(0, 300);
+                    bioCharCount.textContent = 300;
+                } else {
+                    bioCharCount.style.color = '';
+                }
+            });
+            
+            // Form submission
+            document.getElementById('mentorRegistrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect selected time slots
+                const selectedSlots = [];
+                document.querySelectorAll('.time-slot.slot-selected').forEach(slot => {
+                    const day = slot.parentElement.querySelector('.day-label').textContent;
+                    const time = slot.textContent;
+                    selectedSlots.push(`${day} ${time}`);
+                });
+                
+                // Collect expertise tags
+                const expertise = [];
+                document.querySelectorAll('.expertise-tag').forEach(tag => {
+                    // Extract text without the 'x' button
+                    const text = tag.childNodes[0].textContent.trim();
+                    expertise.push(text);
+                });
+                
+                // Get checkbox values
+                const checkedTags = [];
+                document.querySelectorAll('input[name="expertiseTags[]"]:checked').forEach(checkbox => {
+                    checkedTags.push(checkbox.value);
+                });
+                
+                // Combine all expertise
+                const allExpertise = [...expertise, ...checkedTags];
+                
+                // Here you would typically send the data to the server
+                console.log('Submitting mentor registration:', {
+                    name: document.getElementById('mentorName').value,
+                    email: document.getElementById('mentorEmail').value,
+                    title: document.getElementById('mentorTitle').value,
+                    company: document.getElementById('mentorCompany').value,
+                    bio: document.getElementById('mentorBio').value,
+                    expertise: allExpertise,
+                    timezone: document.getElementById('mentorTimezone').value,
+                    availabilitySlots: selectedSlots,
+                    preferences: document.getElementById('mentorPreferences').value,
+                    sessionLimit: document.getElementById('mentorSessionLimit').value
+                });
+                
+                // Show success message
+                alert('Thank you for registering as a mentor! The hackathon organizers will be in touch with more details.');
+                
+                // In a real app, we'd redirect or show a success page
+                // window.location.href = 'registration-success.html';
+            });
+        });
+    </script>
+</body>
+</html>
