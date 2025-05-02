@@ -12,8 +12,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Design System Tokens */
+        /* Modern Design System Tokens */
         :root {
+            /* Color System */
+            --color-bg-primary: #ffffff;
+            --color-bg-secondary: #f7f9fc;
+            --color-bg-tertiary: #eef2f7;
+            --color-bg-accent: #f0f5ff;
+            
+            /* Brand Colors */
+            --color-primary: #3366ff;
+            --color-primary-rgb: 51, 102, 255;
+            --color-primary-dark: #2952cc;
+            --color-primary-light: #d6e4ff;
+            
+            /* Neutral Colors */
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f2f4f7;
+            --color-gray-200: #e4e7ec;
+            --color-gray-300: #d0d5dd;
+            --color-gray-400: #9aa2b1;
+            --color-gray-500: #667085;
+            --color-gray-600: #4d5875;
+            --color-gray-700: #384262;
+            --color-gray-800: #1d2032;
+            --color-gray-900: #101323;
+            
+            /* Semantic Colors */
+            --color-success: #16b364;
+            --color-warning: #f79009;
+            --color-error: #f04438;
+            --color-info: #0ba5ec;
+            
+            /* Track Colors */
+            --color-track-1: #16b364;
+            --color-track-2: #0ba5ec;
+            --color-track-3: #9e77ed;
+            --color-track-4: #f79009;
+            
             /* Spacings */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
@@ -24,22 +60,53 @@
             
             /* Component Properties */
             --card-radius: 0.75rem;
-            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --card-border: 1px solid var(--color-border);
-            
-            /* Preview Specific */
-            --accent: var(--color-primary);
-            --accent-light: rgba(var(--color-primary-rgb), 0.1);
+            --card-shadow: 0 2px 16px rgba(17, 24, 39, 0.05);
+            --card-border: 1px solid var(--color-gray-200);
             
             /* Text Colors */
-            --color-text: var(--gray-700);
-            --color-text-dark: var(--gray-900);
-            --color-text-muted: var(--gray-500);
+            --color-text: var(--color-gray-700);
+            --color-text-dark: var(--color-gray-900);
+            --color-text-muted: var(--color-gray-500);
             --color-text-light: #ffffff;
             
             /* Border Colors */
-            --color-border: var(--gray-200);
-            --color-border-dark: var(--gray-700);
+            --color-border: var(--color-gray-200);
+            --color-border-muted: var(--color-gray-100);
+        }
+
+        /* Dark Mode Tokens */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg-primary: #13141c;
+                --color-bg-secondary: #1d1f2b;
+                --color-bg-tertiary: #252836;
+                --color-bg-accent: #1a2240;
+                
+                --color-primary: #4d7aff;
+                --color-primary-dark: #3366ff;
+                --color-primary-light: #1e2c4f;
+                
+                --color-gray-50: #1a1d2d;
+                --color-gray-100: #252836;
+                --color-gray-200: #303347;
+                --color-gray-300: #3e4259;
+                --color-gray-400: #6e7186;
+                --color-gray-500: #9094a6;
+                --color-gray-600: #bbbdca;
+                --color-gray-700: #d4d6e1;
+                --color-gray-800: #e8eaef;
+                --color-gray-900: #f9fafb;
+                
+                --color-text: var(--color-gray-700);
+                --color-text-dark: var(--color-gray-900);
+                --color-text-muted: var(--color-gray-500);
+                --color-text-light: #ffffff;
+                
+                --color-border: var(--color-gray-200);
+                --color-border-muted: var(--color-gray-100);
+                --card-border: 1px solid var(--color-gray-200);
+                --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+            }
         }
 
         /* Preview Layout & Controls */
@@ -57,7 +124,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: white;
+            background-color: var(--color-bg-primary);
             padding: var(--space-md) var(--space-lg);
             border-radius: var(--card-radius);
             box-shadow: var(--card-shadow);
@@ -70,7 +137,7 @@
             align-items: center;
             gap: var(--space-sm);
             font-weight: 600;
-            color: var(--accent);
+            color: var(--color-primary);
         }
 
         .preview-actions {
@@ -94,11 +161,11 @@
         }
 
         .btn-outline:hover {
-            background-color: var(--color-gray-50);
+            background-color: var(--color-bg-secondary);
         }
 
         .btn-primary {
-            background-color: var(--accent);
+            background-color: var(--color-primary);
             color: white;
         }
 
@@ -114,7 +181,7 @@
             overflow: hidden;
             height: 280px;
             margin-bottom: var(--space-xl);
-            background: linear-gradient(135deg, var(--accent), var(--color-primary-dark));
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
             display: flex;
             align-items: flex-end;
             padding: var(--space-xl);
@@ -127,7 +194,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
             z-index: 1;
         }
 
@@ -221,7 +288,7 @@
         }
 
         .section-title i {
-            color: var(--accent);
+            color: var(--color-primary);
         }
 
         /* About Section */
@@ -239,6 +306,7 @@
 
         .about-description {
             line-height: 1.6;
+            color: var(--color-text);
         }
 
         .about-description p {
@@ -252,7 +320,7 @@
         }
 
         .detail-card {
-            background-color: var(--color-gray-50);
+            background-color: var(--color-bg-secondary);
             padding: var(--space-lg);
             border-radius: var(--card-radius);
             border: var(--card-border);
@@ -269,10 +337,11 @@
             gap: var(--space-sm);
             font-weight: 600;
             margin-bottom: var(--space-sm);
+            color: var(--color-text-dark);
         }
 
         .detail-title i {
-            color: var(--accent);
+            color: var(--color-primary);
         }
 
         /* Tracks Section */
@@ -289,7 +358,7 @@
         }
 
         .track-card {
-            background-color: white;
+            background-color: var(--color-bg-primary);
             border-radius: var(--card-radius);
             border: var(--card-border);
             padding: var(--space-lg);
@@ -314,10 +383,23 @@
             display: flex;
             align-items: center;
             gap: var(--space-sm);
+            color: var(--color-text-dark);
         }
 
-        .track-name i {
-            color: var(--accent);
+        .track-1 .track-name i {
+            color: var(--color-track-1);
+        }
+
+        .track-2 .track-name i {
+            color: var(--color-track-2);
+        }
+
+        .track-3 .track-name i {
+            color: var(--color-track-3);
+        }
+
+        .track-4 .track-name i {
+            color: var(--color-track-4);
         }
 
         .track-level {
@@ -328,22 +410,22 @@
         }
 
         .level-beginner {
-            background-color: rgba(72, 187, 120, 0.1);
-            color: rgb(72, 187, 120);
+            background-color: rgba(22, 179, 100, 0.1);
+            color: var(--color-track-1);
         }
 
         .level-intermediate {
-            background-color: rgba(66, 153, 225, 0.1);
-            color: rgb(66, 153, 225);
+            background-color: rgba(11, 165, 236, 0.1);
+            color: var(--color-track-2);
         }
 
         .level-advanced {
-            background-color: rgba(159, 122, 234, 0.1);
-            color: rgb(159, 122, 234);
+            background-color: rgba(158, 119, 237, 0.1);
+            color: var(--color-track-3);
         }
 
         .track-description {
-            color: var(--color-text);
+            color: var(--color-text-muted);
             line-height: 1.6;
             font-size: 0.9375rem;
         }
@@ -405,7 +487,7 @@
 
         .place-1 .podium-pillar {
             height: 180px;
-            background-color: rgba(255, 215, 0, 0.08);
+            background-color: rgba(255, 213, 0, 0.08);
         }
 
         .place-1 .podium-pillar::before {
@@ -437,12 +519,12 @@
             transform: translate(-50%, -50%);
             width: 48px;
             height: 48px;
-            background-color: white;
+            background-color: var(--color-bg-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
         }
 
         .place-1 .prize-icon {
@@ -479,7 +561,7 @@
         }
 
         .special-prize {
-            background-color: var(--color-gray-50);
+            background-color: var(--color-bg-secondary);
             border-radius: var(--card-radius);
             border: var(--card-border);
             padding: var(--space-lg);
@@ -496,18 +578,19 @@
             align-items: center;
             gap: var(--space-sm);
             font-weight: 600;
-            margin-bottom: var(--space-md);
+            margin-bottom: var (--space-md);
             color: var(--color-text-dark);
         }
 
         .special-prize-title i {
-            color: #6A5ACD;
+            color: var(--color-track-3);
         }
 
         .special-prize-amount {
             font-weight: 600;
             font-size: 1.25rem;
             margin-bottom: var(--space-sm);
+            color: var(--color-text-dark);
         }
 
         .special-prize-sponsor {
@@ -529,7 +612,7 @@
             bottom: 0;
             left: 7px;
             width: 2px;
-            background-color: var(--color-gray-200);
+            background-color: var(--color-border);
         }
 
         .timeline-event {
@@ -548,8 +631,8 @@
             top: 0.375rem;
             width: 14px;
             height: 14px;
-            background-color: white;
-            border: 2px solid var(--accent);
+            background-color: var(--color-bg-primary);
+            border: 2px solid var(--color-primary);
             border-radius: 50%;
             z-index: 1;
         }
@@ -558,7 +641,7 @@
             font-weight: 600;
             font-size: 0.875rem;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--color-primary);
             margin-bottom: var(--space-xs);
             letter-spacing: 0.5px;
         }
@@ -593,17 +676,18 @@
             align-items: flex-start;
             gap: var(--space-md);
             padding: var(--space-md);
-            background-color: var(--color-gray-50);
+            background-color: var(--color-bg-secondary);
             border-radius: var(--card-radius);
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .resource-item:hover {
-            background-color: var(--color-gray-100);
+            background-color: var(--color-bg-tertiary);
+            transform: translateY(-2px);
         }
 
         .resource-icon {
-            color: var(--accent);
+            color: var(--color-primary);
             font-size: 1.25rem;
         }
 
@@ -638,7 +722,7 @@
         }
 
         .contact-icon {
-            color: var(--accent);
+            color: var(--color-primary);
             font-size: 1.25rem;
         }
 
@@ -652,7 +736,7 @@
         }
 
         .contact-value a {
-            color: var(--accent);
+            color: var(--color-primary);
             text-decoration: none;
             transition: color 0.2s ease;
         }
@@ -662,56 +746,74 @@
             text-decoration: underline;
         }
 
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            .preview-controls {
-                background-color: var(--color-gray-800);
-            }
+        /* Simple, focused content */
+        body {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-text);
+            font-family: 'Inter', sans-serif;
+        }
 
-            .track-card,
-            .prize-icon {
-                background-color: var(--color-gray-800);
-            }
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
 
-            .btn-outline {
-                border-color: var(--color-border-dark);
-                color: var(--color-text-light);
-            }
+        .main-content {
+            background-color: var(--color-bg-secondary);
+            padding: var(--space-lg);
+            overflow-y: auto;
+        }
 
-            .btn-outline:hover {
-                background-color: var(--color-gray-700);
-            }
+        .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-xl);
+        }
 
-            .timeline-event::before {
-                background-color: var(--color-gray-800);
-            }
+        .content-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
 
-            .timeline::before {
-                background-color: var(--color-gray-700);
-            }
+        .header-actions {
+            display: flex;
+            gap: var(--space-md);
+        }
 
-            .detail-card,
-            .special-prize,
-            .resource-item {
-                background-color: var(--color-gray-800);
-                border-color: var(--color-border-dark);
-            }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--card-radius);
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-            .resource-item:hover {
-                background-color: var(--color-gray-700);
+        /* Responsive Mobile View */
+        @media (max-width: 768px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
             }
-
-            .contact-method {
-                border-color: var(--color-border-dark);
+            
+            .sidebar {
+                position: fixed;
+                left: -260px;
+                top: 0;
+                bottom: 0;
+                width: 260px;
+                z-index: 100;
+                transition: left 0.3s ease;
             }
-
-            .prize-amount,
-            .resource-content h4,
-            .contact-label,
-            .timeline-title,
-            .detail-title,
-            .track-name {
-                color: var(--color-text-light);
+            
+            .sidebar.active {
+                left: 0;
             }
         }
     </style>
@@ -890,7 +992,7 @@
                     </h2>
                     
                     <div class="tracks-grid">
-                        <div class="track-card">
+                        <div class="track-card track-1">
                             <div class="track-header">
                                 <div class="track-name">
                                     <i class="fas fa-robot"></i>
@@ -903,7 +1005,7 @@
                             </p>
                         </div>
                         
-                        <div class="track-card">
+                        <div class="track-card track-2">
                             <div class="track-header">
                                 <div class="track-name">
                                     <i class="fas fa-leaf"></i>
@@ -916,7 +1018,7 @@
                             </p>
                         </div>
                         
-                        <div class="track-card">
+                        <div class="track-card track-3">
                             <div class="track-header">
                                 <div class="track-name">
                                     <i class="fas fa-universal-access"></i>
@@ -929,7 +1031,7 @@
                             </p>
                         </div>
                         
-                        <div class="track-card">
+                        <div class="track-card track-4">
                             <div class="track-header">
                                 <div class="track-name">
                                     <i class="fas fa-graduation-cap"></i>
