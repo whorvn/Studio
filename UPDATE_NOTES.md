@@ -1,5 +1,11 @@
 # Update Notes
 
+## v1.4 – 2025-05-02 19:15
+• Fixed black text on black background issue in dark mode
+• Added missing color variables for proper text contrast in dark mode
+• Ensured text is visible against dark backgrounds by defining --color-text-light
+• Improved dark mode readability across all hackathon preview components
+
 ## v1.3 – 2025-05-02 18:30
 • Completely redesigned hackathon preview page with modern, minimal interface
 • Implemented prize podium visualization for clear award hierarchy
