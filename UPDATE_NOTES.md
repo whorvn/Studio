@@ -1,5 +1,14 @@
 # Update Notes
 
+## v1.3 – 2025-05-02 18:30
+• Completely redesigned hackathon preview page with modern, minimal interface
+• Implemented prize podium visualization for clear award hierarchy
+• Added interactive timeline for event schedule display
+• Designed responsive card-based layouts for all content sections
+• Added dark mode support via CSS variables and prefers-color-scheme
+• Improved accessibility with proper contrast ratios and focus states
+• Enhanced mobile responsiveness for all components and layouts
+
 ## v1.2 – 2025-05-02 17:45
 • Reorganized hackathon creation flow to move mentors and judges sections to the end
 • Added functionality to send invitation links to mentors instead of manual entry
