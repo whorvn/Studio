@@ -1128,7 +1128,7 @@
   padding: var(--space-1);
   font-size: var(--font-size-xs);
   margin-bottom: var(--space-1);
-  border-radius: var(--border-radius-sm);
+  border-radius: var (--border-radius-sm);
 }
 
 .slot-free {
@@ -1658,4 +1658,191 @@ textarea {
   padding: 1rem;
   border-radius: var(--border-radius-md);
   border-left: 3px solid var(--color-primary);
+}
+
+/* Publication Readiness Checklist */
+.readiness-checklist {
+    margin-bottom: 2rem;
+}
+
+.checklist-item {
+    display: flex;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.checklist-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.checklist-status {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.25rem;
+}
+
+.checklist-status.complete i {
+    color: var(--color-success);
+}
+
+.checklist-status.incomplete i {
+    color: var(--color-danger);
+}
+
+.checklist-status.warning i {
+    color: var(--color-warning);
+}
+
+.checklist-content {
+    flex: 1;
+}
+
+.checklist-content h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.checklist-content p {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.goto-section {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.goto-section:hover {
+    text-decoration: underline;
+}
+
+/* Publication Actions */
+.publication-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.publication-confirmation {
+    margin-bottom: 1rem;
+}
+
+/* Phased Publishing Schedule */
+#phasedPublishingSection {
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+#phasedPublishingSection h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#phasedPublishingSection .form-group {
+    margin-bottom: 1rem;
+}
+
+#phasedPublishingSection .input-datepair {
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+}
+
+/* Notifications */
+.notification-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1050;
+    width: 320px;
+    max-width: 90vw;
+}
+
+.notification {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.75rem;
+    display: flex;
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.notification--hiding {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+.notification__content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.notification__close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+}
+
+.notification__close:hover {
+    color: var(--color-text-primary);
+}
+
+.notification--success {
+    border-left: 4px solid var(--color-success);
+}
+
+.notification--error {
+    border-left: 4px solid var(--color-danger);
+}
+
+.notification--info {
+    border-left: 4px solid var(--color-info);
+}
+
+.notification--warning {
+    border-left: 4px solid var(--color-warning);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }

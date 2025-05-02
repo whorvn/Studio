@@ -1392,7 +1392,7 @@
                             
                             <h3 class="form-section-title">
                                 <i class="fas fa-globe"></i>
-                                Publish Settings
+                                Publication Strategy
                             </h3>
                             <div class="form-section">
                                 <div class="form-group">
@@ -1410,6 +1410,56 @@
                                             <input type="radio" name="eventVisibility" value="private">
                                             <span>Private (Invitation only)</span>
                                         </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="publicationStrategy">Publication Strategy</label>
+                                    <select id="publicationStrategy" name="publicationStrategy">
+                                        <option value="full" selected>Full Publication (All details at once)</option>
+                                        <option value="essentials">Essentials First (Basic info → Details later)</option>
+                                        <option value="phased">Phased Release (Controlled information stages)</option>
+                                    </select>
+                                    <span class="input-hint">Choose how you want to release information about your event</span>
+                                </div>
+
+                                <div id="phasedPublishingSection" style="display: none;">
+                                    <h4 class="subsection-title">Phased Publishing Schedule</h4>
+                                    <div class="form-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="phaseEssentials" value="1" checked>
+                                            <span>Phase 1: Essentials (title, dates, format)</span>
+                                        </label>
+                                        <div class="input-datepair">
+                                            <input type="datetime-local" id="phaseEssentialsDate" name="phaseEssentialsDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="phaseThemes" value="1" checked>
+                                            <span>Phase 2: Themes & Tracks</span>
+                                        </label>
+                                        <div class="input-datepair">
+                                            <input type="datetime-local" id="phaseThemesDate" name="phaseThemesDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="phaseMentors" value="1">
+                                            <span>Phase 3: Mentors & Judges</span>
+                                        </label>
+                                        <div class="input-datepair">
+                                            <input type="datetime-local" id="phaseMentorsDate" name="phaseMentorsDate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="phasePrizes" value="1">
+                                            <span>Phase 4: Prizes & Evaluation</span>
+                                        </label>
+                                        <div class="input-datepair">
+                                            <input type="datetime-local" id="phasePrizesDate" name="phasePrizesDate">
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -1458,6 +1508,10 @@
                                             <span>Save as Draft</span>
                                         </label>
                                         <label class="radio">
+                                            <input type="radio" name="publicationStatus" value="preview">
+                                            <span>Save & Preview</span>
+                                        </label>
+                                        <label class="radio">
                                             <input type="radio" name="publicationStatus" value="published">
                                             <span>Publish Now</span>
                                         </label>
@@ -1474,12 +1528,172 @@
                                         <input type="datetime-local" id="publishDate" name="publishDate">
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <h3 class="form-section-title">
+                                <i class="fas fa-clipboard-check"></i>
+                                Publication Readiness
+                            </h3>
+                            <div class="form-section">
+                                <p class="form-intro">
+                                    Ensure your hackathon is ready for participants. The following checklist will help you confirm all essential information is complete.
+                                </p>
                                 
-                                <div class="form-group">
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="confirmReady" value="1" required>
-                                        <span>I confirm that all required information is complete and the hackathon is ready to be published.</span>
-                                    </label>
+                                <div class="readiness-checklist">
+                                    <div class="checklist-item">
+                                        <div class="checklist-status complete">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Basic Information</h4>
+                                            <p>Event title, description, dates, and contact information</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="checklist-item">
+                                        <div class="checklist-status incomplete">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Evaluation Criteria</h4>
+                                            <p>Define judging criteria with weights adding to 100%</p>
+                                            <a href="#" class="goto-section" data-step="7">Complete this section</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="checklist-item">
+                                        <div class="checklist-status warning">
+                                            <i class="fas fa-question-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Prizes & Incentives</h4>
+                                            <p>Verify prize details and distribution plan</p>
+                                            <a href="#" class="goto-section" data-step="8">Review this section</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="checklist-item">
+                                        <div class="checklist-status warning">
+                                            <i class="fas fa-question-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Mentor Availability</h4>
+                                            <p>Confirm mentor schedules and expertise areas</p>
+                                            <a href="#" class="goto-section" data-step="5">Review this section</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="checklist-item">
+                                        <div class="checklist-status incomplete">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Judge Confirmations</h4>
+                                            <p>Ensure all judges have confirmed participation</p>
+                                            <a href="#" class="goto-section" data-step="6">Complete this section</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="checklist-item">
+                                        <div class="checklist-status warning">
+                                            <i class="fas fa-question-circle"></i>
+                                        </div>
+                                        <div class="checklist-content">
+                                            <h4>Required Resources</h4>
+                                            <p>Verify all APIs, datasets, and support channels</p>
+                                            <a href="#" class="goto-section" data-step="10">Review this section</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-section-divider"></div>
+
+                                <h4 class="subsection-title">Publication Options</h4>
+                                <div class="publication-options">
+                                    <div class="form-group">
+                                        <label>Publication Mode</label>
+                                        <div class="radio-group">
+                                            <label class="radio">
+                                                <input type="radio" name="publicationMode" value="publish" checked>
+                                                <span>Publish Now</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="publicationMode" value="iterate">
+                                                <span>Continue Iterating</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="publicationMode" value="preview">
+                                                <span>Preview Only</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="iterationNotesSection">
+                                        <div class="form-group">
+                                            <label for="iterationNotes">Iteration Notes</label>
+                                            <textarea id="iterationNotes" name="iterationNotes" rows="3" placeholder="Note what still needs work before final publication (visible to your team only)"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="iterationDeadline">Iteration Deadline</label>
+                                            <input type="datetime-local" id="iterationDeadline" name="iterationDeadline">
+                                            <span class="input-hint">When should this iteration phase be completed?</span>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="iterationAssignee">Assigned To</label>
+                                            <select id="iterationAssignee" name="iterationAssignee">
+                                                <option value="self">Myself</option>
+                                                <option value="team">Full Team</option>
+                                                <option value="member1">Jane Smith</option>
+                                                <option value="member2">John Doe</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="phasePublishingOptions">
+                                        <div class="form-group">
+                                            <label>Publish Phases</label>
+                                            <div class="checkbox-group">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="publishPhases[]" value="essentials" checked>
+                                                    <span>Essentials (title, dates, format)</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="publishPhases[]" value="tracks" checked>
+                                                    <span>Themes & Tracks</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="publishPhases[]" value="judges">
+                                                    <span>Judges & Mentors</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="publishPhases[]" value="prizes">
+                                                    <span>Prizes & Evaluation</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="publishPhases[]" value="resources">
+                                                    <span>Resources & Support</span>
+                                                </label>
+                                            </div>
+                                            <span class="input-hint">Select which sections to make visible in the current iteration</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group action-buttons">
+                                    <button type="button" id="previewHackathon" class="btn btn--secondary">
+                                        <i class="fas fa-eye"></i>
+                                        Preview Hackathon
+                                    </button>
+                                    <button type="button" id="iterateHackathon" class="btn btn--outline">
+                                        <i class="fas fa-sync"></i>
+                                        Continue Iterating
+                                    </button>
+                                    <button type="button" id="publishHackathon" class="btn btn--primary">
+                                        <i class="fas fa-globe"></i>
+                                        Publish Hackathon
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -1976,6 +2190,155 @@
                     alert('Your hackathon has been saved as a draft. You can continue editing it later from your dashboard.');
                 });
             }
+            
+            // Publication Readiness Checklist Click Handlers
+            const gotoSectionLinks = document.querySelectorAll('.goto-section');
+            gotoSectionLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const stepNumber = parseInt(this.dataset.step);
+                    if (stepNumber > 0 && stepNumber <= totalSteps) {
+                        goToStep(stepNumber);
+                    }
+                });
+            });
+            
+            // Continue to Iterate / Publication Options functionality
+            const publicationModeRadios = document.querySelectorAll('input[name="publicationMode"]');
+            const iterationNotesSection = document.getElementById('iterationNotesSection');
+            const phasePublishingOptions = document.getElementById('phasePublishingOptions');
+            const previewHackathonBtn = document.getElementById('previewHackathon');
+            const iterateHackathonBtn = document.getElementById('iterateHackathon');
+            const publishHackathonBtn = document.getElementById('publishHackathon');
+            
+            // Show/hide appropriate sections based on publication mode
+            publicationModeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const mode = this.value;
+                    
+                    // Show/hide iteration notes section
+                    if (iterationNotesSection) {
+                        iterationNotesSection.style.display = mode === 'iterate' ? 'block' : 'none';
+                    }
+                    
+                    // Show/hide phase publishing options
+                    if (phasePublishingOptions) {
+                        phasePublishingOptions.style.display = mode === 'preview' || mode === 'publish' ? 'block' : 'none';
+                    }
+                    
+                    // Update button states
+                    if (publishHackathonBtn && iterateHackathonBtn) {
+                        publishHackathonBtn.classList.toggle('btn--primary', mode === 'publish');
+                        publishHackathonBtn.classList.toggle('btn--outline', mode !== 'publish');
+                        
+                        iterateHackathonBtn.classList.toggle('btn--primary', mode === 'iterate');
+                        iterateHackathonBtn.classList.toggle('btn--outline', mode !== 'iterate');
+                        
+                        if (previewHackathonBtn) {
+                            previewHackathonBtn.classList.toggle('btn--primary', mode === 'preview');
+                            previewHackathonBtn.classList.toggle('btn--secondary', mode !== 'preview');
+                        }
+                    }
+                });
+            });
+            
+            // Initialize default state - initially show/hide based on default radio selection
+            if (iterationNotesSection && phasePublishingOptions) {
+                const defaultMode = document.querySelector('input[name="publicationMode"]:checked');
+                if (defaultMode) {
+                    iterationNotesSection.style.display = defaultMode.value === 'iterate' ? 'block' : 'none';
+                    phasePublishingOptions.style.display = defaultMode.value === 'publish' || defaultMode.value === 'preview' ? 'block' : 'none';
+                }
+            }
+            
+            // Preview hackathon button
+            if (previewHackathonBtn) {
+                previewHackathonBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Opening hackathon preview in a new tab. This preview shows exactly how your hackathon will appear to participants.');
+                    // In a real implementation, this would open a preview in a new tab
+                    window.open('about:blank', '_blank');
+                });
+            }
+            
+            // Continue iterating button
+            if (iterateHackathonBtn) {
+                iterateHackathonBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get iteration notes
+                    const notes = document.getElementById('iterationNotes')?.value || 'No notes provided';
+                    const deadline = document.getElementById('iterationDeadline')?.value;
+                    const assignee = document.getElementById('iterationAssignee')?.value;
+                    
+                    // Save the iteration state
+                    updateSaveStatus();
+                    alert(`Hackathon saved for continued iteration.\n\nNotes: ${notes}\nDeadline: ${deadline || 'Not specified'}\nAssigned to: ${assignee || 'Not assigned'}`);
+                    
+                    // In a real implementation, this would redirect to the dashboard
+                    // or show a confirmation dialog with next steps
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                });
+            }
+            
+            // Publish hackathon button
+            if (publishHackathonBtn) {
+                publishHackathonBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get selected phases if applicable
+                    const selectedPhases = [];
+                    const phases = document.querySelectorAll('input[name="publishPhases[]"]:checked');
+                    phases.forEach(phase => {
+                        selectedPhases.push(phase.value);
+                    });
+                    
+                    // Validate readiness
+                    const incompleteItems = document.querySelectorAll('.checklist-status.incomplete');
+                    
+                    if (incompleteItems.length > 0) {
+                        if (!confirm('There are incomplete items in your hackathon setup. Do you still want to publish?')) {
+                            return;
+                        }
+                    }
+                    
+                    updateSaveStatus();
+                    alert(`Hackathon published successfully! ${selectedPhases.length > 0 ? 'Published phases: ' + selectedPhases.join(', ') : 'All sections published.'}`);
+                    
+                    // In a real implementation, this would redirect to the published hackathon
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                });
+            }
+            
+            // Readiness checklist item status updates
+            // In a real implementation, this would be dynamically calculated
+            // Here we're just demonstrating the UI functionality
+            function updateReadinessChecklist() {
+                // This function would check each section's completeness
+                // For now, we'll just update the classes manually
+                
+                // Example of how to update a checklist item:
+                // document.querySelector('.checklist-item:nth-child(2) .checklist-status')
+                //     .className = 'checklist-status complete';
+                // document.querySelector('.checklist-item:nth-child(2) .checklist-status i')
+                //     .className = 'fas fa-check-circle';
+            }
+            
+            // Call once on load
+            updateReadinessChecklist();
+            
+            // Goto section links from readiness checklist
+            document.querySelectorAll('.goto-section').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const step = parseInt(this.dataset.step);
+                    goToStep(step);
+                });
+            });
         });
     </script>
 </body>
