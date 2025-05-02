@@ -1,372 +1,318 @@
-/**
- * Hackathon Creation JavaScript
- * Handles the functionality for the hackathon creation wizard
- */
+// Hackathon Creation Form JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the evaluation rounds functionality
-    initEvaluationRounds();
+    // Handle publication mode selection
+    const publicationModeRadios = document.querySelectorAll('input[name="publicationMode"]');
+    const iterationNotesSection = document.getElementById('iterationNotesSection');
+    const phasePublishingOptions = document.getElementById('phasePublishingOptions');
+    const publishButton = document.getElementById('publishHackathon');
+    const iterateButton = document.getElementById('iterateHackathon');
     
-    // Initialize other hackathon creation functionality
-    setupWizardNavigation();
+    publicationModeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Show/hide appropriate sections based on publication mode
+            if (this.value === 'iterate') {
+                iterationNotesSection.style.display = 'block';
+                phasePublishingOptions.style.display = 'none';
+                publishButton.style.display = 'none';
+                iterateButton.style.display = 'block';
+            } else if (this.value === 'publish') {
+                iterationNotesSection.style.display = 'none';
+                phasePublishingOptions.style.display = 'block';
+                publishButton.style.display = 'block';
+                iterateButton.style.display = 'none';
+            } else if (this.value === 'preview') {
+                iterationNotesSection.style.display = 'none';
+                phasePublishingOptions.style.display = 'none';
+                publishButton.style.display = 'none';
+                iterateButton.style.display = 'none';
+                // Trigger preview functionality
+                showPreviewModal();
+            }
+        });
+    });
+    
+    // Handle "Continue Iterating" button click
+    document.getElementById('iterateHackathon').addEventListener('click', function() {
+        const notes = document.getElementById('iterationNotes').value;
+        const deadline = document.getElementById('iterationDeadline').value;
+        const assignee = document.getElementById('iterationAssignee').value;
+        
+        // Save iteration data
+        saveHackathonIteration(notes, deadline, assignee);
+        
+        // Show success notification
+        showNotification('Hackathon progress saved. You can continue editing later.', 'success');
+        
+        // Redirect to dashboard
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 2000);
+    });
+    
+    // Handle "Publish Hackathon" button click
+    document.getElementById('publishHackathon').addEventListener('click', function() {
+        // Get selected phases
+        const selectedPhases = [];
+        document.querySelectorAll('input[name="publishPhases[]"]:checked').forEach(checkbox => {
+            selectedPhases.push(checkbox.value);
+        });
+        
+        if (validatePublishRequirements(selectedPhases)) {
+            publishHackathon(selectedPhases);
+            
+            // Show success notification
+            showNotification('Hackathon published successfully!', 'success');
+            
+            // Redirect to live hackathon page
+            setTimeout(() => {
+                window.location.href = '../hackathon-detail.html?id=123';
+            }, 2000);
+        } else {
+            // Show error if validation fails
+            showNotification('Please complete all required sections before publishing.', 'error');
+        }
+    });
+    
+    // Preview button click handler
+    document.getElementById('previewHackathon').addEventListener('click', function() {
+        showPreviewModal();
+    });
+    
+    // Handle readiness checklist item clicks
+    document.querySelectorAll('.goto-section').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const stepNumber = parseInt(this.getAttribute('data-step'));
+            navigateToStep(stepNumber);
+        });
+    });
+    
+    // Custom IP ownership change handler
+    document.getElementById('ipOwnership').addEventListener('change', function() {
+        const customIpSection = document.getElementById('customIpSection');
+        if (this.value === 'custom') {
+            customIpSection.style.display = 'block';
+        } else {
+            customIpSection.style.display = 'none';
+        }
+    });
+    
+    // NDA requirement change handler
+    document.querySelectorAll('input[name="ndaRequired"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const ndaSection = document.getElementById('ndaSection');
+            if (this.value === 'yes') {
+                ndaSection.style.display = 'block';
+            } else {
+                ndaSection.style.display = 'none';
+            }
+        });
+    });
+    
+    // File upload button handler
+    document.getElementById('ndaUpload').addEventListener('click', function() {
+        document.getElementById('ndaFile').click();
+    });
+    
+    document.getElementById('ndaFile').addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : 'No file selected';
+        document.getElementById('ndaUpload').textContent = fileName;
+    });
+    
+    // Mentor invitation method toggle functionality
+    if (document.querySelector('.wizard-step[data-step="10"]')) {
+        const manualMethodRadio = document.querySelector('input[name="mentorAddMethod"][value="manual"]');
+        const inviteMethodRadio = document.querySelector('input[name="mentorAddMethod"][value="invitation"]');
+        const manualSection = document.getElementById('manualMentorSection');
+        const invitationSection = document.getElementById('invitationMentorSection');
+
+        // Initialize based on default selection
+        if (manualMethodRadio && manualMethodRadio.checked) {
+            manualSection.style.display = 'block';
+            invitationSection.style.display = 'none';
+        }
+
+        // Add event listeners to radio buttons
+        if (manualMethodRadio) {
+            manualMethodRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    manualSection.style.display = 'block';
+                    invitationSection.style.display = 'none';
+                }
+            });
+        }
+
+        if (inviteMethodRadio) {
+            inviteMethodRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    manualSection.style.display = 'none';
+                    invitationSection.style.display = 'block';
+                }
+            });
+        }
+
+        // Copy mentor registration link functionality
+        const copyMentorLinkBtn = document.getElementById('copyMentorLinkBtn');
+        if (copyMentorLinkBtn) {
+            copyMentorLinkBtn.addEventListener('click', function() {
+                const linkInput = document.getElementById('mentorRegistrationLink');
+                linkInput.select();
+                document.execCommand('copy');
+                
+                // Visual feedback for copy
+                const originalText = copyMentorLinkBtn.innerHTML;
+                copyMentorLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    copyMentorLinkBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+
+        // Send invitations functionality
+        const sendInvitationsBtn = document.getElementById('sendMentorInvitationsBtn');
+        if (sendInvitationsBtn) {
+            sendInvitationsBtn.addEventListener('click', function() {
+                const emails = document.getElementById('mentorEmailList').value.trim();
+                if (!emails) {
+                    alert('Please enter at least one email address.');
+                    return;
+                }
+                
+                // Here you would typically make an API call to send invitations
+                // For demo purposes, just show a success message
+                alert('Invitations sent successfully!');
+                
+                // Add the emails to the pending invitations table
+                const emailList = emails.split('\n').filter(email => email.trim());
+                const tbody = document.querySelector('.invited-mentors-table tbody');
+                
+                if (tbody) {
+                    const today = new Date().toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    
+                    emailList.forEach(email => {
+                        if (email.trim()) {
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td>${email.trim()}</td>
+                                <td>${today}</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button type="button" class="btn-icon btn-small" title="Resend invitation">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon btn-small" title="Cancel invitation">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            `;
+                            tbody.appendChild(tr);
+                        }
+                    });
+                    
+                    // Clear the textarea
+                    document.getElementById('mentorEmailList').value = '';
+                }
+            });
+        }
+    }
 });
 
-/**
- * Initialize the evaluation rounds functionality
- */
-function initEvaluationRounds() {
-    const roundsCountInput = document.getElementById('evaluationRoundsCount');
-    const roundsContainer = document.getElementById('evaluationRoundsContainer');
+// Helper Functions
+
+function saveHackathonIteration(notes, deadline, assignee) {
+    // This would typically send an AJAX request to save the data
+    console.log('Saving iteration with notes:', notes);
+    console.log('Deadline:', deadline);
+    console.log('Assignee:', assignee);
     
-    if (roundsCountInput && roundsContainer) {
-        // Set initial rounds based on default value
-        const initialCount = parseInt(roundsCountInput.value) || 1;
-        generateEvaluationRounds(initialCount, roundsContainer);
-        
-        // Update rounds when the count changes
-        roundsCountInput.addEventListener('change', function() {
-            const count = parseInt(this.value) || 1;
-            generateEvaluationRounds(count, roundsContainer);
-        });
-    }
+    // For demonstration purposes, we're just logging to console
+    // In a real app, this would call an API endpoint
 }
 
-/**
- * Generate the evaluation rounds based on the specified count
- * @param {number} count - The number of rounds to generate
- * @param {HTMLElement} container - The container element for the rounds
- */
-function generateEvaluationRounds(count, container) {
-    // Clear the current rounds
-    container.innerHTML = '';
+function publishHackathon(phases) {
+    // This would typically send an AJAX request to publish the hackathon
+    console.log('Publishing hackathon with phases:', phases);
     
-    // Generate new rounds
-    for (let i = 1; i <= count; i++) {
-        const round = createEvaluationRound(i, count);
-        container.appendChild(round);
-        
-        // Add separator between rounds
-        if (i < count) {
-            const separator = document.createElement('div');
-            separator.className = 'round-separator';
-            container.appendChild(separator);
-        }
-    }
-    
-    // Initialize date pickers for all rounds
-    initDatePickers();
+    // For demonstration purposes, we're just logging to console
+    // In a real app, this would call an API endpoint
 }
 
-/**
- * Create a single evaluation round element
- * @param {number} index - The round number
- * @param {number} totalRounds - The total number of rounds
- * @returns {HTMLElement} The round element
- */
-function createEvaluationRound(index, totalRounds) {
-    const round = document.createElement('div');
-    round.className = 'evaluation-round';
-    round.dataset.roundIndex = index;
+function validatePublishRequirements(phases) {
+    // Basic validation logic - in a real app this would be more comprehensive
     
-    // Determine round type based on position
-    let roundType = 'Evaluation Round';
-    if (index === 1 && totalRounds > 1) {
-        roundType = 'Initial Evaluation';
-    } else if (index === totalRounds && totalRounds > 1) {
-        roundType = 'Final Evaluation';
-    } else if (totalRounds > 1) {
-        roundType = `Semi-final ${index - 1}`;
+    // Check if any phases are selected
+    if (phases.length === 0) {
+        return false;
     }
     
-    round.innerHTML = `
-        <div class="round-title">
-            <div class="round-number">${index}</div>
-            ${roundType}
+    // Check if required fields are completed
+    // For simplicity, we're just checking if terms and conditions are filled
+    const termsConditions = document.getElementById('termsConditions').value;
+    if (!termsConditions) {
+        return false;
+    }
+    
+    return true;
+}
+
+function showPreviewModal() {
+    // This would typically open a modal with a preview of the hackathon
+    console.log('Showing preview modal');
+    
+    // For demonstration purposes, we're just logging to console
+    // In a real app, this would open a modal or redirect to a preview page
+    
+    // Example of a preview mechanism:
+    const previewUrl = '../hackathon-detail.html?id=123&preview=true';
+    window.open(previewUrl, '_blank');
+}
+
+function navigateToStep(stepNumber) {
+    // This would navigate the form wizard to the specified step
+    console.log('Navigating to step:', stepNumber);
+    
+    // For demonstration purposes, we're just logging to console
+    // In a real app, this would trigger the wizard navigation
+    
+    // Example implementation for a wizard:
+    const wizardSteps = document.querySelectorAll('.wizard-step');
+    wizardSteps.forEach(step => {
+        step.classList.remove('active');
+    });
+    
+    document.querySelector(`.wizard-step[data-step="${stepNumber}"]`).classList.add('active');
+}
+
+function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification--${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
         </div>
-        
-        <div class="form-row form-row-2">
-            <div class="form-group">
-                <label for="round${index}Name">Round Name</label>
-                <div class="input-wrapper">
-                    <input type="text" id="round${index}Name" name="rounds[${index - 1}][name]" 
-                           value="${roundType}" class="form-control" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="round${index}Weight">Round Weight</label>
-                <div class="input-suffix-wrapper">
-                    <input type="number" id="round${index}Weight" name="rounds[${index - 1}][weight]" 
-                           value="${index === totalRounds ? '50' : (100 / totalRounds).toFixed(0)}" 
-                           min="1" max="100" class="form-control" required>
-                    <span class="input-suffix">%</span>
-                </div>
-                <small class="input-hint">Weight in final score calculation</small>
-            </div>
-        </div>
-        
-        <div class="form-row form-row-2">
-            <div class="form-group">
-                <label for="round${index}StartDate">Start Date & Time</label>
-                <div class="input-wrapper">
-                    <input type="datetime-local" id="round${index}StartDate" 
-                           name="rounds[${index - 1}][startDate]" class="form-control datepicker" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="round${index}EndDate">End Date & Time</label>
-                <div class="input-wrapper">
-                    <input type="datetime-local" id="round${index}EndDate" 
-                           name="rounds[${index - 1}][endDate]" class="form-control datepicker" required>
-                </div>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label for="round${index}Criteria">Evaluation Criteria</label>
-            <div class="input-wrapper">
-                <textarea id="round${index}Criteria" name="rounds[${index - 1}][criteria]" 
-                          rows="3" class="form-control" 
-                          placeholder="Enter the criteria judges will use to evaluate projects in this round..."
-                          required></textarea>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label>Evaluation Scale</label>
-            <div class="radio-group">
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][scale]" value="1-5" checked>
-                    <span>1-5 Scale</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][scale]" value="1-10">
-                    <span>1-10 Scale</span>
-                </label>
-            </div>
-            
-            <div class="evaluation-scale-option">
-                <div class="scale-row">
-                    <div class="scale-label">Poor</div>
-                    <div class="scale-bar"></div>
-                    <div class="scale-label text-right">Excellent</div>
-                </div>
-                <div class="scale-row">
-                    <div class="scale-value">1</div>
-                    <div class="scale-value">2</div>
-                    <div class="scale-value">3</div>
-                    <div class="scale-value">4</div>
-                    <div class="scale-value">5</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label>Projects Move Forward</label>
-            <div class="radio-group">
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][advancement]" 
-                           value="percentage" ${index < totalRounds ? 'checked' : ''} 
-                           ${index === totalRounds ? 'disabled' : ''}>
-                    <span>Top Percentage</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][advancement]" 
-                           value="count" ${index === totalRounds ? 'disabled' : ''}>
-                    <span>Top Count</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][advancement]" 
-                           value="threshold" ${index === totalRounds ? 'disabled' : ''}>
-                    <span>Score Threshold</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" name="rounds[${index - 1}][advancement]" 
-                           value="all" ${index === totalRounds ? 'checked' : ''}>
-                    <span>All Projects (Final Round)</span>
-                </label>
-            </div>
-            
-            <div id="round${index}AdvancementValue" class="form-group" 
-                 ${index === totalRounds ? 'style="display: none;"' : ''}>
-                <div class="input-suffix-wrapper" style="max-width: 150px; margin-top: 10px;">
-                    <input type="number" name="rounds[${index - 1}][advancementValue]" 
-                           value="${index < totalRounds ? '50' : ''}" 
-                           min="1" max="100" class="form-control" 
-                           ${index === totalRounds ? 'disabled' : ''}>
-                    <span class="input-suffix">%</span>
-                </div>
-            </div>
-        </div>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
     `;
     
-    // Add event listeners for the advancement type radio buttons
+    // Add to document
+    document.body.appendChild(notification);
+    
+    // Auto-remove after delay
     setTimeout(() => {
-        const advancementRadios = round.querySelectorAll('input[name="rounds[' + (index - 1) + '][advancement]"]');
-        const advancementValueDiv = document.getElementById(`round${index}AdvancementValue`);
-        
-        advancementRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                const suffix = this.value === 'percentage' ? '%' : 
-                               this.value === 'count' ? '' : 
-                               this.value === 'threshold' ? '/5' : '';
-                
-                if (this.value === 'all') {
-                    advancementValueDiv.style.display = 'none';
-                } else {
-                    advancementValueDiv.style.display = 'block';
-                    const input = advancementValueDiv.querySelector('input');
-                    const suffixSpan = advancementValueDiv.querySelector('.input-suffix');
-                    if (suffixSpan) suffixSpan.textContent = suffix;
-                    
-                    // Set default values based on advancement type
-                    if (input) {
-                        if (this.value === 'percentage') {
-                            input.value = '50';
-                            input.max = '100';
-                        } else if (this.value === 'count') {
-                            input.value = '10';
-                            input.max = '1000';
-                        } else if (this.value === 'threshold') {
-                            input.value = '3.5';
-                            input.max = '5';
-                            input.step = '0.1';
-                        }
-                    }
-                }
-            });
-        });
-    }, 0);
+        notification.classList.add('notification--fade');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
     
-    return round;
-}
-
-/**
- * Initialize date pickers for the evaluation rounds
- */
-function initDatePickers() {
-    // This function would initialize any date picker libraries if needed
-    // For the native datetime-local inputs, we can set default dates
-    
-    const now = new Date();
-    const roundDateInputs = document.querySelectorAll('.evaluation-round input[type="datetime-local"]');
-    
-    roundDateInputs.forEach((input, index) => {
-        // Set default dates with appropriate offsets based on index
-        const isStartDate = input.id.includes('StartDate');
-        const roundIndex = parseInt(input.closest('.evaluation-round').dataset.roundIndex) || 1;
-        
-        // Calculate offset: 7 days per round, plus 1 day between start and end dates
-        const daysOffset = isStartDate ? (roundIndex - 1) * 7 : (roundIndex - 1) * 7 + 1;
-        
-        const date = new Date(now);
-        date.setDate(date.getDate() + daysOffset);
-        
-        // Format date for datetime-local input (YYYY-MM-DDTHH:MM)
-        const formattedDate = formatDateForInput(date);
-        input.value = formattedDate;
+    // Close button handler
+    notification.querySelector('.notification-close').addEventListener('click', function() {
+        document.body.removeChild(notification);
     });
-}
-
-/**
- * Format a Date object for datetime-local input
- * @param {Date} date - The date to format
- * @returns {string} The formatted date string (YYYY-MM-DDTHH:MM)
- */
-function formatDateForInput(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
-}
-
-/**
- * Set up the wizard navigation
- */
-function setupWizardNavigation() {
-    const nextButtons = document.querySelectorAll('.btn-next');
-    const prevButtons = document.querySelectorAll('.btn-prev');
-    const steps = document.querySelectorAll('.wizard-step');
-    const progressSteps = document.querySelectorAll('.progress-step, .progress-tab');
-    
-    if (nextButtons.length && steps.length) {
-        nextButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Get the current step
-                const currentStep = document.querySelector('.wizard-step.active');
-                const currentIndex = Array.from(steps).indexOf(currentStep);
-                
-                // Validate the current step if needed
-                if (validateStep(currentIndex)) {
-                    // Move to the next step
-                    if (currentIndex < steps.length - 1) {
-                        steps.forEach(step => step.classList.remove('active'));
-                        steps[currentIndex + 1].classList.add('active');
-                        
-                        // Update progress indicators
-                        updateProgress(currentIndex + 1, progressSteps);
-                        
-                        // Scroll to top of the step
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-        
-        prevButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Get the current step
-                const currentStep = document.querySelector('.wizard-step.active');
-                const currentIndex = Array.from(steps).indexOf(currentStep);
-                
-                // Move to the previous step
-                if (currentIndex > 0) {
-                    steps.forEach(step => step.classList.remove('active'));
-                    steps[currentIndex - 1].classList.add('active');
-                    
-                    // Update progress indicators
-                    updateProgress(currentIndex - 1, progressSteps);
-                    
-                    // Scroll to top of the step
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-        });
-    }
-}
-
-/**
- * Update the progress indicators based on current step
- * @param {number} currentIndex - The index of the current step
- * @param {NodeList} progressSteps - The progress indicators
- */
-function updateProgress(currentIndex, progressSteps) {
-    progressSteps.forEach((step, index) => {
-        step.classList.remove('active', 'completed');
-        
-        if (index < currentIndex) {
-            step.classList.add('completed');
-        } else if (index === currentIndex) {
-            step.classList.add('active');
-        }
-    });
-}
-
-/**
- * Validate the current step
- * @param {number} stepIndex - The index of the step to validate
- * @returns {boolean} Whether the step is valid
- */
-function validateStep(stepIndex) {
-    // This function would implement validation logic for each step
-    // For now, return true to allow navigation
-    return true;
 }
