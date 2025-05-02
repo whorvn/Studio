@@ -714,6 +714,16 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize steps visibility - hide all steps except the first one
+            const wizardSteps = document.querySelectorAll('.wizard-step');
+            wizardSteps.forEach((step, index) => {
+                if (index === 0) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+            
             // Initialize Rich Text Editor
             const quill = new Quill('#eventDescription', {
                 theme: 'snow',
@@ -736,6 +746,10 @@
             counterInputs.forEach(input => {
                 const counter = input.nextElementSibling;
                 if (counter && counter.classList.contains('char-counter')) {
+                    // Update counter on page load
+                    counter.textContent = `${input.value.length}/${input.maxLength}`;
+                    
+                    // Update counter on input
                     input.addEventListener('input', function() {
                         counter.textContent = `${this.value.length}/${this.maxLength}`;
                     });
@@ -865,19 +879,22 @@
                 });
             }
             
-            // Wizard Navigation
-            const wizardSteps = document.querySelectorAll('.wizard-step');
+            // Wizard Navigation - Improved version
+            const wizardStepElements = document.querySelectorAll('.wizard-step');
             const progressTabs = document.querySelectorAll('.progress-tab');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const submitBtn = document.getElementById('submitBtn');
             
             let currentStep = 1;
-            const totalSteps = wizardSteps.length;
+            const totalSteps = wizardStepElements.length;
             
             function goToStep(step) {
+                // Validate step number
+                if (step < 1 || step > totalSteps) return;
+                
                 // Hide all steps
-                wizardSteps.forEach(s => s.classList.remove('active'));
+                wizardStepElements.forEach(s => s.classList.remove('active'));
                 
                 // Remove active class from progress tabs
                 progressTabs.forEach(tab => tab.classList.remove('active'));
@@ -908,7 +925,13 @@
                 });
                 
                 currentStep = step;
+                
+                // Scroll to top of form
+                document.querySelector('.wizard-body').scrollTop = 0;
             }
+            
+            // Initialize with step 1
+            goToStep(1);
             
             // Next button
             nextBtn.addEventListener('click', function() {
