@@ -581,124 +581,70 @@
                     </div>
                     
                     <!-- Step 5: Evaluation -->
-                    <div class="wizard-step" data-step="5">
-                        <form class="wizard-form">
-                            <h3 class="form-section-title">
-                                <i class="fas fa-star-half-alt"></i>
-                                Evaluation Criteria
-                            </h3>
-                            <div class="form-section">
-                                <p class="form-intro">
-                                    Define how submissions will be evaluated. Clear, transparent criteria help participants focus their efforts and ensure fair judging.
-                                </p>
-                                
-                                <div id="criteriaContainer">
-                                    <!-- Criteria 1 -->
-                                    <div class="criteria-card">
-                                        <div class="form-row form-row-2">
-                                            <div class="form-group">
-                                                <label for="criteria1Name">Criterion Name</label>
-                                                <input type="text" id="criteria1Name" name="criteria[0][name]" placeholder="E.g., Innovation" value="Innovation">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="criteria1Weight">Weight (%)</label>
-                                                <input type="number" id="criteria1Weight" name="criteria[0][weight]" min="1" max="100" placeholder="Percentage weight" value="25">
-                                                <span class="input-hint">Weights across all criteria should add up to 100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="criteria1Description">Description</label>
-                                            <textarea id="criteria1Description" name="criteria[0][description]" rows="2" placeholder="Describe what judges should look for when evaluating this criterion">Originality and creativity of the solution; addresses the problem in a novel way.</textarea>
-                                        </div>
-                                        <button type="button" class="btn-icon criteria-delete" style="position: absolute; top: 10px; right: 10px; display: none;">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Criteria 2 -->
-                                    <div class="criteria-card">
-                                        <div class="form-row form-row-2">
-                                            <div class="form-group">
-                                                <label for="criteria2Name">Criterion Name</label>
-                                                <input type="text" id="criteria2Name" name="criteria[1][name]" placeholder="E.g., Technical Implementation" value="Technical Implementation">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="criteria2Weight">Weight (%)</label>
-                                                <input type="number" id="criteria2Weight" name="criteria[1][weight]" min="1" max="100" placeholder="Percentage weight" value="25">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="criteria2Description">Description</label>
-                                            <textarea id="criteria2Description" name="criteria[1][description]" rows="2" placeholder="Describe what judges should look for when evaluating this criterion">Quality of code, architecture choices, and technical difficulty of implementation.</textarea>
-                                        </div>
-                                        <button type="button" class="btn-icon criteria-delete" style="position: absolute; top: 10px; right: 10px;">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Criteria 3 -->
-                                    <div class="criteria-card">
-                                        <div class="form-row form-row-2">
-                                            <div class="form-group">
-                                                <label for="criteria3Name">Criterion Name</label>
-                                                <input type="text" id="criteria3Name" name="criteria[2][name]" placeholder="E.g., Impact" value="Impact & Feasibility">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="criteria3Weight">Weight (%)</label>
-                                                <input type="number" id="criteria3Weight" name="criteria[2][weight]" min="1" max="100" placeholder="Percentage weight" value="25">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="criteria3Description">Description</label>
-                                            <textarea id="criteria3Description" name="criteria[2][description]" rows="2" placeholder="Describe what judges should look for when evaluating this criterion">Potential for real-world impact and practical implementation; scalability and sustainability.</textarea>
-                                        </div>
-                                        <button type="button" class="btn-icon criteria-delete" style="position: absolute; top: 10px; right: 10px;">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Criteria 4 -->
-                                    <div class="criteria-card">
-                                        <div class="form-row form-row-2">
-                                            <div class="form-group">
-                                                <label for="criteria4Name">Criterion Name</label>
-                                                <input type="text" id="criteria4Name" name="criteria[3][name]" placeholder="E.g., User Experience" value="User Experience">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="criteria4Weight">Weight (%)</label>
-                                                <input type="number" id="criteria4Weight" name="criteria[3][weight]" min="1" max="100" placeholder="Percentage weight" value="25">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="criteria4Description">Description</label>
-                                            <textarea id="criteria4Description" name="criteria[3][description]" rows="2" placeholder="Describe what judges should look for when evaluating this criterion">Usability, design quality, and overall user experience of the solution.</textarea>
-                                        </div>
-                                        <button type="button" class="btn-icon criteria-delete" style="position: absolute; top: 10px; right: 10px;">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
+                    <div class="wizard-step" data-step="5" id="step-evaluation">
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fas fa-star-half-alt"></i> Evaluation Setup</h3>
+                            <p class="form-intro">
+                                Define how participants will be evaluated during your hackathon. Set up multiple evaluation rounds with specific timelines for participant selection, progress checks, and final judging.
+                            </p>
+
+                            <div class="form-row form-row-2">
+                                <div class="form-group">
+                                    <label for="evaluationRoundsCount">Number of Evaluation Rounds</label>
+                                    <select id="evaluationRoundsCount" name="evaluationRoundsCount" class="form-control">
+                                        <option value="2" selected>2 (Participant Selection + Final Judging)</option>
+                                        <option value="3">3 (Selection + Progress Check + Final)</option>
+                                        <option value="4">4 (Selection + 2 Progress Checks + Final)</option>
+                                        <option value="5">5 (Selection + 3 Progress Checks + Final)</option>
+                                    </select>
+                                    <span class="input-hint">Choose how many evaluation rounds your hackathon will have</span>
                                 </div>
-                                
-                                <button type="button" id="addCriteriaBtn" class="add-track-btn" style="margin-top: 1.5rem;">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Add Another Criterion</span>
-                                </button>
-                                
-                                <div class="form-group" style="margin-top: 2rem;">
-                                    <label for="scoringSystem">Scoring System</label>
-                                    <select id="scoringSystem" name="scoringSystem">
-                                        <option value="1-5" selected>1-5 Scale (1=Poor, 5=Excellent)</option>
-                                        <option value="1-10">1-10 Scale (1=Poor, 10=Excellent)</option>
-                                        <option value="0-100">0-100 Scale (Percentage)</option>
+                                <div class="form-group">
+                                    <label for="evaluationType">Evaluation Type</label>
+                                    <select id="evaluationType" name="evaluationType">
+                                        <option value="points">Points-based (0-100)</option>
+                                        <option value="ranks">Rank-based (1st, 2nd, 3rd place)</option>
+                                        <option value="custom">Custom Scale</option>
                                     </select>
                                 </div>
-                                
+                            </div>
+
+                            <!-- Container for evaluation rounds -->
+                            <div id="evaluationRoundsContainer">
+                                <!-- Evaluation rounds will be generated dynamically via JavaScript -->
+                            </div>
+
+                            <div class="form-row">
                                 <div class="form-group">
-                                    <label for="evaluationInstructions">Additional Evaluation Instructions</label>
-                                    <textarea id="evaluationInstructions" name="evaluationInstructions" placeholder="Any additional context or instructions about the evaluation process" rows="4"></textarea>
+                                    <label for="evaluationCriteria">Evaluation Criteria</label>
+                                    <textarea id="evaluationCriteria" name="evaluationCriteria" rows="5" placeholder="Describe the criteria judges should use when evaluating projects..."></textarea>
+                                    <span class="input-hint">List the criteria that judges will use to evaluate projects (e.g., innovation, technical complexity, user experience)</span>
                                 </div>
                             </div>
-                        </form>
+
+                            <div class="form-row form-row-2">
+                                <div class="form-group">
+                                    <label for="minimumScore">Minimum Score to Qualify</label>
+                                    <input type="number" id="minimumScore" name="minimumScore" min="0" max="100" value="60">
+                                    <span class="input-hint">Projects below this threshold will not qualify for awards</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicFeedback">Public Feedback</label>
+                                    <select id="publicFeedback" name="publicFeedback">
+                                        <option value="yes">Yes, make feedback public to participants</option>
+                                        <option value="no" selected>No, keep feedback private</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-footer">
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn btn-secondary" onclick="navigateToPreviousStep()">Previous</button>
+                                <button type="button" class="btn btn-primary" onclick="navigateToNextStep()">Next</button>
+                            </div>
+                            <div class="wizard-status">Step 5 of 12</div>
+                        </div>
                     </div>
                     
                     <!-- Step 6: Prizes -->
