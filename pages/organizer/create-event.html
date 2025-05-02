@@ -906,7 +906,8 @@
                 // Update buttons
                 prevBtn.disabled = step === 1;
                 
-                if (step === totalSteps) {
+                // Only show Submit button on the final step (step 11)
+                if (step === 11) {
                     nextBtn.style.display = 'none';
                     submitBtn.style.display = 'inline-flex';
                 } else {
