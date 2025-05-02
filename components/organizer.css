@@ -1845,3 +1845,353 @@ textarea {
         transform: translateX(100%);
         opacity: 0;
     }
+}
+
+/* Prizes Section Styles */
+.prizes-container,
+.special-prizes-container {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .prizes-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.prize-card,
+.special-prize-card {
+    background-color: var(--color-bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prize-card:hover,
+.special-prize-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.prize-first {
+    border-top: 4px solid #FFD700; /* Gold */
+}
+
+.prize-second {
+    border-top: 4px solid #C0C0C0; /* Silver */
+}
+
+.prize-third {
+    border-top: 4px solid #CD7F32; /* Bronze */
+}
+
+.special-prize-card {
+    border-top: 4px solid #6A5ACD; /* Special prize color */
+}
+
+.prize-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.prize-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.prize-icon.gold {
+    background-color: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+}
+
+.prize-icon.silver {
+    background-color: rgba(192, 192, 192, 0.2);
+    color: #C0C0C0;
+}
+
+.prize-icon.bronze {
+    background-color: rgba(205, 127, 50, 0.2);
+    color: #CD7F32;
+}
+
+.prize-icon.special {
+    background-color: rgba(106, 90, 205, 0.2);
+    color: #6A5ACD;
+}
+
+.prize-info {
+    flex: 1;
+}
+
+.prize-delete,
+.special-prize-delete {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.prize-delete:hover,
+.special-prize-delete:hover {
+    opacity: 1;
+    color: var(--color-danger);
+}
+
+.input-prefix-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.input-prefix-wrapper input {
+    padding-left: 28px;
+}
+
+/* Prize Preview Styles */
+.prize-preview-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color-primary);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.prize-preview {
+    background-color: var(--color-bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.prize-preview-header {
+    padding: 1rem;
+    background-color: var(--color-bg-tertiary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.prize-preview-header h5 {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.prize-preview-body {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.prize-podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    height: 200px;
+}
+
+.podium-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 90px;
+}
+
+.podium-platform {
+    background-color: var(--color-bg-tertiary);
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+}
+
+.podium-first .podium-platform {
+    height: 120px;
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.podium-second .podium-platform {
+    height: 90px;
+    background-color: rgba(192, 192, 192, 0.2);
+}
+
+.podium-third .podium-platform {
+    height: 60px;
+    background-color: rgba(205, 127, 50, 0.2);
+}
+
+.podium-trophy {
+    margin-bottom: 0.5rem;
+    height: 40px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.podium-first .podium-trophy {
+    color: #FFD700;
+}
+
+.podium-second .podium-trophy {
+    color: #C0C0C0;
+}
+
+.podium-third .podium-trophy {
+    color: #CD7F32;
+}
+
+.podium-prize {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--color-text);
+}
+
+.podium-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.special-prizes-preview {
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.special-prizes-preview h6 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.special-prizes-list {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .special-prizes-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.special-prize-item {
+    background-color: var(--color-bg-secondary);
+    border-left: 3px solid #6A5ACD;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+}
+
+.special-prize-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.special-prize-title i {
+    color: #6A5ACD;
+}
+
+.special-prize-value {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.special-prize-sponsor {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+}
+
+.prize-preview-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+    text-align: right;
+}

@@ -220,6 +220,65 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    // Prize preview and save functionality
+    if (document.querySelector('.wizard-step[data-step="6"]')) {
+        // Update prize preview as values change
+        const prizeInputs = document.querySelectorAll('#prize1CashValue, #prize2CashValue, #prize3CashValue');
+        prizeInputs.forEach(input => {
+            input.addEventListener('input', updatePrizePreview);
+        });
+
+        // Update special prizes preview as values change
+        const specialPrizeInputs = document.querySelectorAll('.special-prize-card input[type="text"]');
+        specialPrizeInputs.forEach(input => {
+            input.addEventListener('input', updateSpecialPrizesPreview);
+        });
+
+        // Toggle prize preview visibility
+        const showPrizePreview = document.getElementById('showPrizePreview');
+        if (showPrizePreview) {
+            showPrizePreview.addEventListener('change', function() {
+                document.getElementById('prizePreviewContainer').style.display = this.checked ? 'block' : 'none';
+            });
+        }
+
+        // Save and preview button
+        const btnSaveAndPreview = document.getElementById('btnSaveAndPreview');
+        if (btnSaveAndPreview) {
+            btnSaveAndPreview.addEventListener('click', function() {
+                savePrizeConfiguration();
+                showPrizePreviewPage();
+            });
+        }
+
+        // Initial preview update
+        updatePrizePreview();
+        updateSpecialPrizesPreview();
+    }
+
+    // Handle "Continue to iterate?" selection
+    const continueToIterate = document.getElementById('continueToIterate');
+    if (continueToIterate) {
+        continueToIterate.addEventListener('click', function() {
+            document.getElementById('iterationOptions').style.display = 'block';
+        });
+    }
+
+    // Add event listener for save and preview button
+    const savePreviewButton = document.getElementById('btnSavePrizePreview');
+    if (savePreviewButton) {
+        savePreviewButton.addEventListener('click', openPrizePreview);
+    }
+
+    // Add event listener for adding new special prize
+    const addSpecialPrizeButton = document.getElementById('btnAddSpecialPrize');
+    if (addSpecialPrizeButton) {
+        addSpecialPrizeButton.addEventListener('click', addSpecialPrize);
+    }
+    
+    // Load any saved prize configuration
+    loadSavedPrizeConfiguration();
 });
 
 // Helper Functions
@@ -314,5 +373,305 @@ function showNotification(message, type) {
     // Close button handler
     notification.querySelector('.notification-close').addEventListener('click', function() {
         document.body.removeChild(notification);
+    });
+}
+
+function updatePrizePreview() {
+    // Update the prize preview with the current values
+    const first = document.getElementById('prize1CashValue').value || '0';
+    const second = document.getElementById('prize2CashValue').value || '0';
+    const third = document.getElementById('prize3CashValue').value || '0';
+    
+    document.getElementById('previewFirstPrize').textContent = first;
+    document.getElementById('previewSecondPrize').textContent = second;
+    document.getElementById('previewThirdPrize').textContent = third;
+}
+
+function updateSpecialPrizesPreview() {
+    const previewList = document.getElementById('specialPrizesPreviewList');
+    if (!previewList) return;
+    
+    // Clear current preview
+    previewList.innerHTML = '';
+    
+    // Get all special prize cards
+    const specialPrizes = document.querySelectorAll('.special-prize-card');
+    
+    specialPrizes.forEach(card => {
+        const titleInput = card.querySelector('input[id^="specialPrize"][id$="Title"]');
+        const valueInput = card.querySelector('input[id^="specialPrize"][id$="Value"]');
+        const sponsorInput = card.querySelector('input[id^="specialPrize"][id$="Sponsor"]');
+        
+        if (titleInput && valueInput) {
+            const title = titleInput.value || 'Special Prize';
+            const value = valueInput.value || '';
+            const sponsor = sponsorInput && sponsorInput.value ? `(Sponsored by ${sponsorInput.value})` : '';
+            
+            // Create preview item
+            const prizeItem = document.createElement('div');
+            prizeItem.className = 'special-prize-item';
+            prizeItem.innerHTML = `
+                <i class="fas fa-star"></i>
+                <div class="special-prize-info">
+                    <div class="special-prize-name">${title}</div>
+                    <div class="special-prize-value">${value} ${sponsor}</div>
+                </div>
+            `;
+            
+            previewList.appendChild(prizeItem);
+        }
+    });
+}
+
+function savePrizeConfiguration() {
+    // Collect all prize data
+    const prizeData = {
+        mainPrizes: [
+            {
+                title: document.getElementById('prize1Title').value,
+                cashValue: document.getElementById('prize1CashValue').value,
+                numRecipients: document.getElementById('prize1NumRecipients').value,
+                description: document.getElementById('prize1Description').value
+            },
+            {
+                title: document.getElementById('prize2Title').value,
+                cashValue: document.getElementById('prize2CashValue').value,
+                numRecipients: document.getElementById('prize2NumRecipients').value,
+                description: document.getElementById('prize2Description').value
+            },
+            {
+                title: document.getElementById('prize3Title').value,
+                cashValue: document.getElementById('prize3CashValue').value,
+                numRecipients: document.getElementById('prize3NumRecipients').value,
+                description: document.getElementById('prize3Description').value
+            }
+        ],
+        specialPrizes: [],
+        distribution: {
+            method: document.getElementById('prizeDistributionMethod').value,
+            timeline: document.getElementById('prizeTimeline').value,
+            notes: document.getElementById('prizeDistributionNotes').value
+        }
+    };
+    
+    // Collect special prizes
+    document.querySelectorAll('.special-prize-card').forEach((card, index) => {
+        const titleInput = card.querySelector(`input[id^="specialPrize"][id$="Title"]`);
+        const valueInput = card.querySelector(`input[id^="specialPrize"][id$="Value"]`);
+        const sponsorInput = card.querySelector(`input[id^="specialPrize"][id$="Sponsor"]`);
+        
+        if (titleInput && valueInput) {
+            prizeData.specialPrizes.push({
+                title: titleInput.value,
+                value: valueInput.value,
+                sponsor: sponsorInput ? sponsorInput.value : ''
+            });
+        }
+    });
+    
+    // Save to localStorage for demo purposes
+    // In a real application, this would be sent to a server
+    localStorage.setItem('hackathon_prize_config', JSON.stringify(prizeData));
+    
+    // Show success notification
+    showNotification('Prize configuration saved successfully!', 'success');
+}
+
+function showPrizePreviewPage() {
+    // In a real application, this would navigate to a dedicated preview page
+    // For now, we'll open a new tab with the preview URL
+    const previewUrl = 'prize-preview.html';
+    window.open(previewUrl, '_blank');
+}
+
+// Prize Configuration Management
+function savePrizeConfiguration() {
+    // Collect main prize data
+    const mainPrizes = [
+        {
+            title: document.getElementById('firstPrizeTitle').value,
+            cashValue: document.getElementById('firstPrizeCash').value,
+            numRecipients: document.getElementById('firstPrizeRecipients').value,
+            description: document.getElementById('firstPrizeDescription').value
+        },
+        {
+            title: document.getElementById('secondPrizeTitle').value,
+            cashValue: document.getElementById('secondPrizeCash').value,
+            numRecipients: document.getElementById('secondPrizeRecipients').value,
+            description: document.getElementById('secondPrizeDescription').value
+        },
+        {
+            title: document.getElementById('thirdPrizeTitle').value,
+            cashValue: document.getElementById('thirdPrizeCash').value,
+            numRecipients: document.getElementById('thirdPrizeRecipients').value,
+            description: document.getElementById('thirdPrizeDescription').value
+        }
+    ];
+    
+    // Collect special prize data
+    const specialPrizeContainers = document.querySelectorAll('.special-prize-container');
+    const specialPrizes = [];
+    
+    specialPrizeContainers.forEach(container => {
+        specialPrizes.push({
+            title: container.querySelector('.special-prize-title').value,
+            value: container.querySelector('.special-prize-value').value,
+            sponsor: container.querySelector('.special-prize-sponsor').value,
+            description: container.querySelector('.special-prize-description').value
+        });
+    });
+    
+    // Collect distribution details
+    const distribution = {
+        method: document.getElementById('prizeDistributionMethod').value,
+        timeline: document.getElementById('prizeDistributionTimeline').value,
+        notes: document.getElementById('prizeDistributionNotes').value
+    };
+    
+    // Save to localStorage
+    const prizeConfig = {
+        mainPrizes: mainPrizes,
+        specialPrizes: specialPrizes,
+        distribution: distribution,
+        lastUpdated: new Date().toISOString()
+    };
+    
+    localStorage.setItem('hackathon_prize_config', JSON.stringify(prizeConfig));
+    return prizeConfig;
+}
+
+function openPrizePreview() {
+    // First save the current configuration
+    savePrizeConfiguration();
+    
+    // Open the preview in a new window
+    const previewWindow = window.open('prize-preview.html', 'PrizePreview', 'width=1000,height=800');
+    
+    if (!previewWindow) {
+        alert('Pop-up blocker may have prevented the preview window from opening. Please allow pop-ups for this site.');
+    }
+}
+
+// Hook up event listeners after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing event listeners...
+    
+    // Add event listener for save and preview button
+    const savePreviewButton = document.getElementById('btnSavePrizePreview');
+    if (savePreviewButton) {
+        savePreviewButton.addEventListener('click', openPrizePreview);
+    }
+
+    // Add event listener for adding new special prize
+    const addSpecialPrizeButton = document.getElementById('btnAddSpecialPrize');
+    if (addSpecialPrizeButton) {
+        addSpecialPrizeButton.addEventListener('click', addSpecialPrize);
+    }
+    
+    // Load any saved prize configuration
+    loadSavedPrizeConfiguration();
+});
+
+function loadSavedPrizeConfiguration() {
+    const savedConfig = localStorage.getItem('hackathon_prize_config');
+    if (!savedConfig) return;
+    
+    const config = JSON.parse(savedConfig);
+    
+    // Populate main prizes
+    if (config.mainPrizes && config.mainPrizes.length >= 3) {
+        document.getElementById('firstPrizeTitle').value = config.mainPrizes[0].title || '';
+        document.getElementById('firstPrizeCash').value = config.mainPrizes[0].cashValue || '';
+        document.getElementById('firstPrizeRecipients').value = config.mainPrizes[0].numRecipients || '1';
+        document.getElementById('firstPrizeDescription').value = config.mainPrizes[0].description || '';
+        
+        document.getElementById('secondPrizeTitle').value = config.mainPrizes[1].title || '';
+        document.getElementById('secondPrizeCash').value = config.mainPrizes[1].cashValue || '';
+        document.getElementById('secondPrizeRecipients').value = config.mainPrizes[1].numRecipients || '1';
+        document.getElementById('secondPrizeDescription').value = config.mainPrizes[1].description || '';
+        
+        document.getElementById('thirdPrizeTitle').value = config.mainPrizes[2].title || '';
+        document.getElementById('thirdPrizeCash').value = config.mainPrizes[2].cashValue || '';
+        document.getElementById('thirdPrizeRecipients').value = config.mainPrizes[2].numRecipients || '1';
+        document.getElementById('thirdPrizeDescription').value = config.mainPrizes[2].description || '';
+    }
+    
+    // Populate special prizes
+    if (config.specialPrizes && config.specialPrizes.length > 0) {
+        // Clear existing special prizes
+        const specialPrizesContainer = document.getElementById('specialPrizesContainer');
+        if (specialPrizesContainer) {
+            while (specialPrizesContainer.firstChild) {
+                specialPrizesContainer.removeChild(specialPrizesContainer.firstChild);
+            }
+            
+            // Add special prizes from saved config
+            config.specialPrizes.forEach(prize => {
+                addSpecialPrize(prize);
+            });
+        }
+    }
+    
+    // Populate distribution details
+    if (config.distribution) {
+        document.getElementById('prizeDistributionMethod').value = config.distribution.method || '';
+        document.getElementById('prizeDistributionTimeline').value = config.distribution.timeline || '';
+        document.getElementById('prizeDistributionNotes').value = config.distribution.notes || '';
+    }
+}
+
+function addSpecialPrize(existingPrize = null) {
+    const specialPrizesContainer = document.getElementById('specialPrizesContainer');
+    if (!specialPrizesContainer) return;
+    
+    const specialPrizeContainer = document.createElement('div');
+    specialPrizeContainer.className = 'special-prize-container';
+    
+    specialPrizeContainer.innerHTML = `
+        <div class="card mb-4">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>Special Category Prize</h5>
+                    <button type="button" class="btn btn-sm btn-danger remove-special-prize">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-row form-row-2">
+                    <div class="form-group">
+                        <label>Prize Title</label>
+                        <input type="text" class="form-control special-prize-title" 
+                            placeholder="e.g., Best UI/UX Design" 
+                            value="${existingPrize ? existingPrize.title : ''}">
+                    </div>
+                    <div class="form-group">
+                        <label>Cash Value ($)</label>
+                        <input type="text" class="form-control special-prize-value" 
+                            placeholder="e.g., 1000" 
+                            value="${existingPrize ? existingPrize.value : ''}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Sponsor (Optional)</label>
+                    <input type="text" class="form-control special-prize-sponsor" 
+                        placeholder="e.g., Adobe" 
+                        value="${existingPrize ? existingPrize.sponsor : ''}">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control special-prize-description" rows="2" 
+                        placeholder="Describe the criteria for this prize...">${existingPrize ? existingPrize.description : ''}</textarea>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    specialPrizesContainer.appendChild(specialPrizeContainer);
+    
+    // Add event listener to the remove button
+    const removeButton = specialPrizeContainer.querySelector('.remove-special-prize');
+    removeButton.addEventListener('click', function() {
+        specialPrizesContainer.removeChild(specialPrizeContainer);
     });
 }
