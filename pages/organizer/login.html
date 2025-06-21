@@ -1,138 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Organizer Login | HackConnect</title>
-    <meta name="description" content="Login to the HackConnect Organizer Portal to create and manage hackathons">
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="../../components/auth.css">
-    <link rel="stylesheet" href="../../components/organizer.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Login to the HackConnect Organizer Portal to create and manage hackathons"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../components/auth.css" />
+    <link rel="stylesheet" href="../../components/organizer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="split-layout">
-        <!-- Left side - Platform info -->
-        <div class="info-panel info-panel--organizer">
-            <div class="info-content">
-                <div class="logo">
-                    <i class="fas fa-code"></i>
-                    <h1>HackConnect</h1>
-                </div>
-                <div class="info-text">
-                    <h2>Organizer Portal</h2>
-                    <p>Create and manage hackathons for your organization. Design engaging challenges, recruit judges, and showcase innovation.</p>
-                
-                    <div class="features">
-                        <div class="feature">
-                            <i class="fas fa-calendar-plus"></i>
-                            <span>Create Custom Hackathons</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-users-cog"></i>
-                            <span>Manage Participants & Teams</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Track Event Analytics</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-award"></i>
-                            <span>Evaluate Submissions</span>
-                        </div>
-                    </div>
-                </div>
+      <!-- Left side - Platform info -->
+      <div class="info-panel info-panel--organizer">
+        <div class="info-content">
+          <div class="logo">
+            <i class="fas fa-code"></i>
+            <h1>HackConnect</h1>
+          </div>
+          <div class="info-text">
+            <h2>Organizer Portal</h2>
+            <p>
+              Create and manage hackathons for your organization. Design
+              engaging challenges, recruit judges, and showcase innovation.
+            </p>
+
+            <div class="features">
+              <div class="feature">
+                <i class="fas fa-calendar-plus"></i>
+                <span>Create Custom Hackathons</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-users-cog"></i>
+                <span>Manage Participants & Teams</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <span>Track Event Analytics</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-award"></i>
+                <span>Evaluate Submissions</span>
+              </div>
             </div>
-            <div class="info-footer">
-                <p>Need an organizer account? Contact <a href="mailto:support@hackconnect.com">support@hackconnect.com</a></p>
-            </div>
+          </div>
         </div>
-        
-        <!-- Right side - Login form -->
-        <div class="auth-panel">
-            <div class="auth-container">
-                <div class="auth-header">
-                    <div class="portal-badge">Organizer Portal</div>
-                    <h2>Sign in to your account</h2>
-                    <p>Manage your hackathon events</p>
-                </div>
-                
-                <form id="loginForm" class="auth-form active">
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="your@organization.com" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <div class="label-row">
-                            <label for="password">Password</label>
-                            <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
-                                <i class="far fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <input type="checkbox" id="rememberMe" name="rememberMe">
-                            <label for="rememberMe">Remember me on this device</label>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn--primary btn--full">Sign In</button>
-                </form>
-                
-                <div class="auth-footer">
-                    <p>By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-                </div>
-            </div>
+        <div class="info-footer">
+          <p>
+            Need an organizer account? Contact
+            <a href="mailto:support@hackconnect.com">support@hackconnect.com</a>
+          </p>
         </div>
+      </div>
+
+      <!-- Right side - Login form -->
+      <div class="auth-panel">
+        <div class="auth-container">
+          <div class="auth-header">
+            <div class="portal-badge">Organizer Portal</div>
+            <h2>Sign in to your account</h2>
+            <p>Manage your hackathon events</p>
+          </div>
+
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@organization.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="password">Password</label>
+                <a href="forgot-password.html" class="forgot-link"
+                  >Forgot Password?</a
+                >
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="checkbox">
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+                <label for="rememberMe">Remember me on this device</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Sign In
+            </button>
+          </form>
+
+          <div class="auth-footer">
+            <p>
+              By signing in, you agree to our
+              <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Toggle password visibility
-            const passwordToggle = document.querySelector('.password-toggle');
-            const passwordInput = document.getElementById('password');
-            
-            if (passwordToggle && passwordInput) {
-                passwordToggle.addEventListener('click', function() {
-                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                    passwordInput.setAttribute('type', type);
-                    
-                    const icon = this.querySelector('i');
-                    if (type === 'password') {
-                        icon.classList.remove('fa-eye-slash');
-                        icon.classList.add('fa-eye');
-                    } else {
-                        icon.classList.remove('fa-eye');
-                        icon.classList.add('fa-eye-slash');
-                    }
-                });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle password visibility
+        const passwordToggle = document.querySelector(".password-toggle");
+        const passwordInput = document.getElementById("password");
+
+        if (passwordToggle && passwordInput) {
+          passwordToggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            const type =
+              passwordInput.getAttribute("type") === "password"
+                ? "text"
+                : "password";
+            passwordInput.setAttribute("type", type);
+
+            const icon = this.querySelector("i");
+            if (type === "password") {
+              icon.classList.remove("fa-eye-slash");
+              icon.classList.add("fa-eye");
+            } else {
+              icon.classList.remove("fa-eye");
+              icon.classList.add("fa-eye-slash");
             }
-            
-            // Handle form submission
-            const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    // Redirect to organizer dashboard upon successful login
-                    window.location.href = 'dashboard.html';
-                });
+          });
+        }
+
+        // DÜZGÜN TANIMLA!
+        const loginForm = document.getElementById("loginForm");
+        if (loginForm) {
+          loginForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Remove previous errors
+            loginForm
+              .querySelectorAll(".error-message")
+              .forEach((el) => el.remove());
+            loginForm
+              .querySelectorAll(".form-group")
+              .forEach((g) => g.classList.remove("has-error"));
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            let valid = true;
+            if (!email) {
+              showError("email", "Email is required");
+              valid = false;
+            } else if (!isValidEmail(email)) {
+              showError("email", "Please enter a valid email address");
+              valid = false;
             }
-        });
+            if (!password) {
+              showError("password", "Password is required");
+              valid = false;
+            }
+            if (!valid) return;
+
+            try {
+              const response = await fetch(
+                "http://142.93.173.189:5533/api/auth/admin/login",
+                {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email, password }),
+                }
+              );
+
+              if (response.ok) {
+                const result = await response.json();
+                // Doğru şekilde tokenları al
+                if (result.data?.tokens?.access_token) {
+                  localStorage.setItem(
+                    "accessToken",
+                    result.data.tokens.access_token
+                  );
+                }
+                if (result.data?.tokens?.refresh_token) {
+                  localStorage.setItem(
+                    "refreshToken",
+                    result.data.tokens.refresh_token
+                  );
+                }
+                setTimeout(() => {
+                  window.location.href = "dashboard.html";
+                }, 100);
+              } else {
+                const errorData = await response.json();
+                showError("password", errorData.message || "Login failed");
+              }
+            } catch (err) {
+              showError("password", "Network error");
+            }
+          });
+
+          function showError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            const group = input.closest(".form-group");
+            group.classList.add("has-error");
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.innerText = message;
+            group.appendChild(errorDiv);
+          }
+
+          function isValidEmail(email) {
+            const re =
+              /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+          }
+        }
+      });
     </script>
     <script src="../main.js"></script>
-</body>
+  </body>
 </html>

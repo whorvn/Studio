@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Management | HackConnect</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../components/auth.css" />
+    <link rel="stylesheet" href="../../components/organizer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .mentor-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .mentor-table th,
+      .mentor-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .mentor-table th {
+        background: #f7f8fa;
+        font-weight: 600;
+      }
+      .mentor-table tr:last-child td {
+        border-bottom: none;
+      }
+      .mentor-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 0.5rem;
+        color: #6366f1;
+        font-size: 1.1rem;
+      }
+      .mentor-actions button:last-child {
+        margin-right: 0;
+        color: #ef4444;
+      }
+      .add-mentor-form {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .add-mentor-form input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+      .add-mentor-form button {
+        padding: 0.5rem 1.5rem;
+        border-radius: 6px;
+        border: none;
+        background: #6366f1;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .add-mentor-form button:hover {
+        background: #4f46e5;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .error-message {
+        color: #ef4444;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .success-message {
+        color: #22c55e;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* Mentor Edit Modal Styles */
+      #mentorEditModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+      #mentorEditModal > div {
+        background: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+        min-width: 320px;
+        max-width: 95vw;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        position: relative;
+      }
+      #closeEditModal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        color: #888;
+        cursor: pointer;
+      }
+      #mentorEditForm input,
+      #mentorEditForm textarea {
+        margin-bottom: 0.5rem;
+        width: 100%;
+      }
+      #mentorEditForm button {
+        width: 100%;
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0.7rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo">
+            <i class="fas fa-code"></i>
+            <span>HackConnect</span>
+          </a>
+        </div>
+        <nav class="sidebar-menu">
+          <div class="menu-title">MAIN</div>
+          <a href="dashboard.html" class="menu-item">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="create-event.html" class="menu-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Hackathon</span>
+          </a>
+          <a href="participants.html" class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Participants</span>
+          </a>
+          <a href="mentors.html" class="menu-item active">
+            <i class="fas fa-user-tie"></i>
+            <span>Mentors</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-trophy"></i>
+            <span>Submissions</span>
+          </a>
+          <div class="menu-title">SETTINGS</div>
+          <a href="#" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Account Settings</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-building"></i>
+            <span>Organization Profile</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-users-cog"></i>
+            <span>Team Members</span>
+          </a>
+          <a href="#" class="menu-item" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="content-header">
+          <div class="content-title">
+            <h1>Mentor Management</h1>
+            <div class="content-subtitle">
+              Add, edit, or remove mentors for your hackathons
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">Add New Mentor</div>
+        <form class="add-mentor-form" id="addMentorForm" autocomplete="off">
+          <input
+            type="text"
+            id="mentorFirstName"
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            id="mentorLastName"
+            placeholder="Last Name"
+            required
+          />
+          <input type="text" id="mentorPosition" placeholder="Position" />
+          <input type="text" id="mentorCompany" placeholder="Company" />
+          <input
+            type="email"
+            id="mentorEmail"
+            placeholder="Email Address"
+            required
+          />
+          <input type="text" id="mentorPhone" placeholder="Phone Number" />
+          <input
+            type="url"
+            id="mentorProfilePic"
+            placeholder="Profile Picture URL"
+          />
+          <input type="url" id="mentorLinkedin" placeholder="LinkedIn URL" />
+          <input type="url" id="mentorGithub" placeholder="GitHub URL" />
+          <input type="url" id="mentorWebsite" placeholder="Website" />
+          <textarea id="mentorBio" placeholder="Short Bio" rows="2"></textarea>
+          <input
+            type="text"
+            id="mentorHackathonId"
+            placeholder="Hackathon ID"
+          />
+          <input
+            type="text"
+            id="mentorExpertise"
+            placeholder="Expertise (comma separated)"
+            required
+          />
+          <button type="submit">Add Mentor</button>
+        </form>
+        <div id="mentorFormMessage"></div>
+
+        <div class="section-title" style="margin-top: 2.5rem">Mentor List</div>
+        <table class="mentor-table" id="mentorTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Expertise</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Mentor rows will be injected here -->
+          </tbody>
+        </table>
+
+        <!-- Mentor Edit Modal -->
+        <div
+          id="mentorEditModal"
+          style="
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <div
+            style="
+              background: #fff;
+              border-radius: 10px;
+              padding: 2rem;
+              min-width: 320px;
+              max-width: 95vw;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+              position: relative;
+            "
+          >
+            <button
+              id="closeEditModal"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: none;
+                border: none;
+                font-size: 1.3rem;
+                color: #888;
+                cursor: pointer;
+              "
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <h2 style="margin-bottom: 1rem">Edit Mentor</h2>
+            <form id="mentorEditForm" autocomplete="off">
+              <input
+                type="text"
+                id="editMentorFirstName"
+                placeholder="First Name"
+                required
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="text"
+                id="editMentorLastName"
+                placeholder="Last Name"
+                required
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="text"
+                id="editMentorPosition"
+                placeholder="Position"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="text"
+                id="editMentorCompany"
+                placeholder="Company"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="email"
+                id="editMentorEmail"
+                placeholder="Email Address"
+                required
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="text"
+                id="editMentorPhone"
+                placeholder="Phone Number"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="url"
+                id="editMentorProfilePic"
+                placeholder="Profile Picture URL"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="url"
+                id="editMentorLinkedin"
+                placeholder="LinkedIn URL"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="url"
+                id="editMentorGithub"
+                placeholder="GitHub URL"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <input
+                type="url"
+                id="editMentorWebsite"
+                placeholder="Website"
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <textarea
+                id="editMentorBio"
+                placeholder="Short Bio"
+                rows="2"
+                style="margin-bottom: 0.5rem; width: 100%"
+              ></textarea>
+              <input
+                type="text"
+                id="editMentorExpertise"
+                placeholder="Expertise (comma separated)"
+                required
+                style="margin-bottom: 0.5rem; width: 100%"
+              />
+              <button
+                type="submit"
+                style="
+                  width: 100%;
+                  background: #6366f1;
+                  color: #fff;
+                  border: none;
+                  border-radius: 6px;
+                  padding: 0.7rem 0;
+                  font-size: 1rem;
+                  font-weight: 500;
+                "
+              >
+                Update Mentor
+              </button>
+              <div id="mentorEditMessage" style="margin-top: 0.5rem"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
+            window.location.href = "login.html";
+          });
+        }
+
+        const API_BASE = "http://142.93.173.189:5533";
+        const accessToken = localStorage.getItem("accessToken");
+
+        // mentorTableBody değişkenini en başta tanımla!
+        const mentorTableBody = document.querySelector("#mentorTable tbody");
+        const addMentorForm = document.getElementById("addMentorForm");
+        const mentorFormMessage = document.getElementById("mentorFormMessage");
+
+        // Hackathonları getir ve select'e ekle
+        async function fetchHackathons() {
+          const hackathonInput = document.getElementById("mentorHackathonId");
+          hackathonInput.style.display = "none"; // input'u gizle
+
+          // Select ekle
+          let select = document.getElementById("hackathonSelect");
+          if (!select) {
+            select = document.createElement("select");
+            select.id = "hackathonSelect";
+            select.required = false;
+            select.style.marginBottom = "1rem";
+            hackathonInput.parentNode.insertBefore(select, hackathonInput);
+          }
+          select.innerHTML = `<option value="">Select Hackathon (optional)</option>`;
+
+          try {
+            const res = await fetch(`${API_BASE}/api/hackathon`, {
+              headers: { Authorization: "Bearer " + accessToken },
+            });
+            const data = await res.json();
+            // Düzgün veri yapısı: data.data.hackathons
+            if (data && data.data && Array.isArray(data.data.hackathons)) {
+              data.data.hackathons.forEach((hackathon) => {
+                const option = document.createElement("option");
+                option.value = hackathon.id;
+                option.textContent = `${hackathon.name} (${hackathon.id})`;
+                select.appendChild(option);
+              });
+            }
+          } catch {
+            select.innerHTML = `<option value="">Failed to load hackathons</option>`;
+          }
+        }
+
+        // List mentors
+        async function fetchMentors() {
+          mentorTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#aaa;">Loading...</td></tr>`;
+          try {
+            const res = await fetch(`${API_BASE}/api/mentor`, {
+              headers: { Authorization: "Bearer " + accessToken },
+            });
+            const data = await res.json();
+            // Doğru veri: data.data.mentors
+            renderMentors(data.data?.mentors || []);
+          } catch {
+            mentorTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#ef4444;">Failed to load mentors.</td></tr>`;
+          }
+        }
+
+        // Render mentors
+        function renderMentors(mentors) {
+          mentorTableBody.innerHTML = "";
+          if (!mentors.length) {
+            mentorTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#aaa;">No mentors yet.</td></tr>`;
+            return;
+          }
+          mentors.forEach((mentor) => {
+            // expertise artık array of object: {id, name, category}
+            const expertiseList = Array.isArray(mentor.expertise)
+              ? mentor.expertise.map((e) => e.name).join(", ")
+              : "";
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>
+                <span class="mentor-name">${mentor.first_name || ""} ${
+              mentor.last_name || ""
+            }</span>
+              </td>
+              <td>
+                <span class="mentor-email">${mentor.email || ""}</span>
+              </td>
+              <td>
+                <span class="mentor-expertise">${expertiseList}</span>
+              </td>
+              <td class="mentor-actions">
+                <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+              </td>
+            `;
+            // Edit
+            tr.querySelector(".edit-btn").onclick = function () {
+              openEditModal(mentor);
+            };
+            // Delete
+            tr.querySelector(".delete-btn").onclick = async function () {
+              if (confirm("Are you sure you want to delete this mentor?")) {
+                await deleteMentor(mentor.id);
+              }
+            };
+            mentorTableBody.appendChild(tr);
+          });
+        }
+
+        // Add mentor
+        addMentorForm.onsubmit = async function (e) {
+          e.preventDefault();
+          mentorFormMessage.textContent = "";
+          const first_name = document
+            .getElementById("mentorFirstName")
+            .value.trim();
+          const last_name = document
+            .getElementById("mentorLastName")
+            .value.trim();
+          const position = document
+            .getElementById("mentorPosition")
+            .value.trim();
+          const company = document.getElementById("mentorCompany").value.trim();
+          const phone_number = document
+            .getElementById("mentorPhone")
+            .value.trim();
+          const email = document.getElementById("mentorEmail").value.trim();
+          const profile_pic_url = document
+            .getElementById("mentorProfilePic")
+            .value.trim();
+          const linkedin_url = document
+            .getElementById("mentorLinkedin")
+            .value.trim();
+          const github_url = document
+            .getElementById("mentorGithub")
+            .value.trim();
+          const website = document.getElementById("mentorWebsite").value.trim();
+          const expertise = document
+            .getElementById("mentorExpertise")
+            .value.trim()
+            .split(",")
+            .map((e) => e.trim());
+          const bio = document.getElementById("mentorBio").value.trim();
+          const hackathon_id =
+            document.getElementById("hackathonSelect")?.value || "";
+
+          const body = {
+            first_name,
+            last_name,
+            position,
+            company,
+            phone_number,
+            email,
+            profile_pic_url,
+            linkedin_url,
+            github_url,
+            website,
+            bio,
+            expertise,
+            hackathon_id,
+          };
+
+          try {
+            const res = await fetch(`${API_BASE}/api/mentor`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + accessToken,
+              },
+              body: JSON.stringify(body),
+            });
+            if (res.ok) {
+              mentorFormMessage.textContent = "Mentor added successfully!";
+              mentorFormMessage.className = "success-message";
+              addMentorForm.reset();
+              fetchMentors();
+            } else {
+              const data = await res.json();
+              mentorFormMessage.textContent =
+                data.message || "Failed to add mentor.";
+              mentorFormMessage.className = "error-message";
+            }
+          } catch {
+            mentorFormMessage.textContent = "Network error.";
+            mentorFormMessage.className = "error-message";
+          }
+          setTimeout(() => (mentorFormMessage.textContent = ""), 2000);
+        };
+
+        // Delete mentor
+        async function deleteMentor(id) {
+          try {
+            const res = await fetch(`${API_BASE}/api/mentor/${id}`, {
+              method: "DELETE",
+              headers: { Authorization: "Bearer " + accessToken },
+            });
+            if (res.ok) {
+              fetchMentors();
+            } else {
+              alert("Failed to delete mentor.");
+            }
+          } catch {
+            alert("Network error.");
+          }
+        }
+
+        // Edit mentor modal (popup page)
+        let currentEditMentorId = null;
+        function openEditModal(mentor) {
+          currentEditMentorId = mentor.id;
+          document.getElementById("mentorEditModal").style.display = "flex";
+          document.getElementById("editMentorFirstName").value =
+            mentor.first_name || "";
+          document.getElementById("editMentorLastName").value =
+            mentor.last_name || "";
+          document.getElementById("editMentorPosition").value =
+            mentor.position || "";
+          document.getElementById("editMentorCompany").value =
+            mentor.company || "";
+          document.getElementById("editMentorEmail").value = mentor.email || "";
+          document.getElementById("editMentorPhone").value =
+            mentor.phone_number || "";
+          document.getElementById("editMentorProfilePic").value =
+            mentor.profile_pic_url || "";
+          document.getElementById("editMentorLinkedin").value =
+            mentor.linkedin_url || "";
+          document.getElementById("editMentorGithub").value =
+            mentor.github_url || "";
+          document.getElementById("editMentorWebsite").value =
+            mentor.website || "";
+          document.getElementById("editMentorBio").value = mentor.bio || "";
+          document.getElementById("editMentorExpertise").value = Array.isArray(
+            mentor.expertise
+          )
+            ? mentor.expertise.map((e) => e.name).join(", ")
+            : "";
+          document.getElementById("mentorEditMessage").textContent = "";
+        }
+
+        document.getElementById("closeEditModal").onclick = function () {
+          document.getElementById("mentorEditModal").style.display = "none";
+        };
+
+        document.getElementById("mentorEditModal").onclick = function (e) {
+          if (e.target === this) this.style.display = "none";
+        };
+
+        document.getElementById("mentorEditForm").onsubmit = async function (
+          e
+        ) {
+          e.preventDefault();
+          const mentorEditMessage =
+            document.getElementById("mentorEditMessage");
+          mentorEditMessage.textContent = "";
+          const body = {
+            first_name: document
+              .getElementById("editMentorFirstName")
+              .value.trim(),
+            last_name: document
+              .getElementById("editMentorLastName")
+              .value.trim(),
+            position: document
+              .getElementById("editMentorPosition")
+              .value.trim(),
+            company: document.getElementById("editMentorCompany").value.trim(),
+            email: document.getElementById("editMentorEmail").value.trim(),
+            phone_number: document
+              .getElementById("editMentorPhone")
+              .value.trim(),
+            profile_pic_url: document
+              .getElementById("editMentorProfilePic")
+              .value.trim(),
+            linkedin_url: document
+              .getElementById("editMentorLinkedin")
+              .value.trim(),
+            github_url: document
+              .getElementById("editMentorGithub")
+              .value.trim(),
+            website: document.getElementById("editMentorWebsite").value.trim(),
+            bio: document.getElementById("editMentorBio").value.trim(),
+            expertise: document
+              .getElementById("editMentorExpertise")
+              .value.trim()
+              .split(",")
+              .map((e) => e.trim())
+              .filter((e) => e),
+          };
+          try {
+            const res = await fetch(
+              `${API_BASE}/api/mentor/${currentEditMentorId}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Bearer " + accessToken,
+                },
+                body: JSON.stringify(body),
+              }
+            );
+            if (res.ok) {
+              mentorEditMessage.textContent = "Mentor updated successfully!";
+              mentorEditMessage.className = "success-message";
+              setTimeout(() => {
+                document.getElementById("mentorEditModal").style.display =
+                  "none";
+                fetchMentors();
+              }, 1000);
+            } else {
+              const data = await res.json();
+              mentorEditMessage.textContent =
+                data.message || "Failed to update mentor.";
+              mentorEditMessage.className = "error-message";
+            }
+          } catch {
+            mentorEditMessage.textContent = "Network error.";
+            mentorEditMessage.className = "error-message";
+          }
+        };
+
+        fetchHackathons();
+        fetchMentors();
+      });
+    </script>
+  </body>
+</html>

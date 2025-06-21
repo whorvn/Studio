@@ -1,1258 +1,1336 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Preview your hackathon before publishing">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Preview your hackathon before publishing"
+    />
     <title>Hackathon Preview | Allin</title>
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="../../components/organizer.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../components/organizer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        /* Modern Design System Tokens */
+      /* Modern Design System Tokens */
+      :root {
+        /* Color System */
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #f7f9fc;
+        --color-bg-tertiary: #eef2f7;
+        --color-bg-accent: #f0f5ff;
+
+        /* Brand Colors */
+        --color-primary: #3366ff;
+        --color-primary-rgb: 51, 102, 255;
+        --color-primary-dark: #2952cc;
+        --color-primary-light: #d6e4ff;
+
+        /* Neutral Colors */
+        --color-gray-50: #f9fafb;
+        --color-gray-100: #f2f4f7;
+        --color-gray-200: #e4e7ec;
+        --color-gray-300: #d0d5dd;
+        --color-gray-400: #9aa2b1;
+        --color-gray-500: #667085;
+        --color-gray-600: #4d5875;
+        --color-gray-700: #384262;
+        --color-gray-800: #1d2032;
+        --color-gray-900: #101323;
+
+        /* Semantic Colors */
+        --color-success: #16b364;
+        --color-warning: #f79009;
+        --color-error: #f04438;
+        --color-info: #0ba5ec;
+
+        /* Track Colors */
+        --color-track-1: #16b364;
+        --color-track-2: #0ba5ec;
+        --color-track-3: #9e77ed;
+        --color-track-4: #f79009;
+
+        /* Spacings */
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+
+        /* Component Properties */
+        --card-radius: 0.75rem;
+        --card-shadow: 0 2px 16px rgba(17, 24, 39, 0.05);
+        --card-border: 1px solid var(--color-gray-200);
+
+        /* Text Colors */
+        --color-text: var(--color-gray-700);
+        --color-text-dark: var(--color-gray-900);
+        --color-text-muted: var(--color-gray-500);
+        --color-text-light: #ffffff;
+
+        /* Border Colors */
+        --color-border: var(--color-gray-200);
+        --color-border-muted: var(--color-gray-100);
+      }
+
+      /* Dark Mode Tokens */
+      @media (prefers-color-scheme: dark) {
         :root {
-            /* Color System */
-            --color-bg-primary: #ffffff;
-            --color-bg-secondary: #f7f9fc;
-            --color-bg-tertiary: #eef2f7;
-            --color-bg-accent: #f0f5ff;
-            
-            /* Brand Colors */
-            --color-primary: #3366ff;
-            --color-primary-rgb: 51, 102, 255;
-            --color-primary-dark: #2952cc;
-            --color-primary-light: #d6e4ff;
-            
-            /* Neutral Colors */
-            --color-gray-50: #f9fafb;
-            --color-gray-100: #f2f4f7;
-            --color-gray-200: #e4e7ec;
-            --color-gray-300: #d0d5dd;
-            --color-gray-400: #9aa2b1;
-            --color-gray-500: #667085;
-            --color-gray-600: #4d5875;
-            --color-gray-700: #384262;
-            --color-gray-800: #1d2032;
-            --color-gray-900: #101323;
-            
-            /* Semantic Colors */
-            --color-success: #16b364;
-            --color-warning: #f79009;
-            --color-error: #f04438;
-            --color-info: #0ba5ec;
-            
-            /* Track Colors */
-            --color-track-1: #16b364;
-            --color-track-2: #0ba5ec;
-            --color-track-3: #9e77ed;
-            --color-track-4: #f79009;
-            
-            /* Spacings */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            
-            /* Component Properties */
-            --card-radius: 0.75rem;
-            --card-shadow: 0 2px 16px rgba(17, 24, 39, 0.05);
-            --card-border: 1px solid var(--color-gray-200);
-            
-            /* Text Colors */
-            --color-text: var(--color-gray-700);
-            --color-text-dark: var(--color-gray-900);
-            --color-text-muted: var(--color-gray-500);
-            --color-text-light: #ffffff;
-            
-            /* Border Colors */
-            --color-border: var(--color-gray-200);
-            --color-border-muted: var(--color-gray-100);
-        }
+          --color-bg-primary: #13141c;
+          --color-bg-secondary: #1d1f2b;
+          --color-bg-tertiary: #252836;
+          --color-bg-accent: #1a2240;
 
-        /* Dark Mode Tokens */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-bg-primary: #13141c;
-                --color-bg-secondary: #1d1f2b;
-                --color-bg-tertiary: #252836;
-                --color-bg-accent: #1a2240;
-                
-                --color-primary: #4d7aff;
-                --color-primary-dark: #3366ff;
-                --color-primary-light: #1e2c4f;
-                
-                --color-gray-50: #1a1d2d;
-                --color-gray-100: #252836;
-                --color-gray-200: #303347;
-                --color-gray-300: #3e4259;
-                --color-gray-400: #6e7186;
-                --color-gray-500: #9094a6;
-                --color-gray-600: #bbbdca;
-                --color-gray-700: #d4d6e1;
-                --color-gray-800: #e8eaef;
-                --color-gray-900: #f9fafb;
-                
-                --color-text: var(--color-gray-700);
-                --color-text-dark: var(--color-gray-900);
-                --color-text-muted: var(--color-gray-500);
-                --color-text-light: #ffffff;
-                
-                --color-border: var(--color-gray-200);
-                --color-border-muted: var(--color-gray-100);
-                --card-border: 1px solid var(--color-gray-200);
-                --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-            }
-        }
+          --color-primary: #4d7aff;
+          --color-primary-dark: #3366ff;
+          --color-primary-light: #1e2c4f;
 
-        /* Preview Layout & Controls */
-        .preview-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--space-lg);
-        }
+          --color-gray-50: #1a1d2d;
+          --color-gray-100: #252836;
+          --color-gray-200: #303347;
+          --color-gray-300: #3e4259;
+          --color-gray-400: #6e7186;
+          --color-gray-500: #9094a6;
+          --color-gray-600: #bbbdca;
+          --color-gray-700: #d4d6e1;
+          --color-gray-800: #e8eaef;
+          --color-gray-900: #f9fafb;
 
-        .preview-controls {
-            position: sticky;
-            top: 1rem;
-            z-index: 10;
-            margin-bottom: var(--space-xl);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--color-bg-primary);
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--card-radius);
-            box-shadow: var(--card-shadow);
-            backdrop-filter: blur(8px);
-            border: var(--card-border);
-        }
+          --color-text: var(--color-gray-700);
+          --color-text-dark: var(--color-gray-900);
+          --color-text-muted: var(--color-gray-500);
+          --color-text-light: #ffffff;
 
-        .preview-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-weight: 600;
-            color: var(--color-primary);
+          --color-border: var(--color-gray-200);
+          --color-border-muted: var(--color-gray-100);
+          --card-border: 1px solid var(--color-gray-200);
+          --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
         }
+      }
 
-        .preview-actions {
-            display: flex;
-            gap: var(--space-md);
-        }
+      /* Preview Layout & Controls */
+      .preview-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--space-lg);
+      }
 
-        .preview-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: 2rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
+      .preview-controls {
+        position: sticky;
+        top: 1rem;
+        z-index: 10;
+        margin-bottom: var(--space-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--color-bg-primary);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--card-radius);
+        box-shadow: var(--card-shadow);
+        backdrop-filter: blur(8px);
+        border: var(--card-border);
+      }
 
-        .btn-outline {
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-        }
+      .preview-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-weight: 600;
+        color: var(--color-primary);
+      }
 
-        .btn-outline:hover {
-            background-color: var(--color-bg-secondary);
-        }
+      .preview-actions {
+        display: flex;
+        gap: var(--space-md);
+      }
 
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
-        }
+      .preview-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: 2rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
 
-        .btn-primary:hover {
-            background-color: var(--color-primary-dark);
-            transform: translateY(-1px);
-        }
+      .btn-outline {
+        border: 1px solid var(--color-border);
+        color: var(--color-text);
+      }
 
-        /* Hackathon Header */
-        .hackathon-header {
-            position: relative;
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            height: 280px;
-            margin-bottom: var(--space-xl);
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            display: flex;
-            align-items: flex-end;
-            padding: var(--space-xl);
-            color: white;
-        }
+      .btn-outline:hover {
+        background-color: var(--color-bg-secondary);
+      }
 
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
-            z-index: 1;
-        }
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+      }
 
-        .header-pattern {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 50%;
-            background-image: url('../../assets/images/pattern.svg');
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
+      .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-1px);
+      }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
+      /* Hackathon Header */
+      .hackathon-header {
+        position: relative;
+        border-radius: var(--card-radius);
+        overflow: hidden;
+        height: 280px;
+        margin-bottom: var(--space-xl);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: var(--space-xl);
+        color: white;
+      }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--space-lg);
-        }
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+        z-index: 1;
+      }
 
-        .header-title {
-            margin-bottom: var(--space-sm);
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
+      .header-pattern {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        background-image: url("../../assets/images/pattern.svg");
+        background-size: cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
 
-        .header-subtitle {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            margin-bottom: var(--space-lg);
-            max-width: 600px;
-        }
+      .header-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
 
-        .header-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md) var(--space-lg);
-        }
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--space-lg);
+      }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
+      .header-title {
+        margin-bottom: var(--space-sm);
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
 
-        .meta-item i {
-            font-size: 1rem;
-        }
+      .header-subtitle {
+        font-size: 1.125rem;
+        opacity: 0.9;
+        margin-bottom: var(--space-lg);
+        max-width: 600px;
+      }
 
-        .header-action {
-            z-index: 2;
-        }
+      .header-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md) var(--space-lg);
+      }
 
-        .status-badge {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-        }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.875rem;
+        opacity: 0.9;
+      }
 
-        /* Content Sections */
-        .preview-section {
-            margin-bottom: var(--space-2xl);
-        }
+      .meta-item i {
+        font-size: 1rem;
+      }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: var(--space-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--color-text-dark);
-        }
+      .header-action {
+        z-index: 2;
+      }
 
-        .section-title i {
-            color: var(--color-primary);
-        }
+      .status-badge {
+        display: inline-block;
+        padding: var(--space-xs) var(--space-md);
+        border-radius: 2rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+      }
 
-        /* About Section */
+      /* Content Sections */
+      .preview-section {
+        margin-bottom: var(--space-2xl);
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--color-text-dark);
+      }
+
+      .section-title i {
+        color: var(--color-primary);
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      @media (min-width: 768px) {
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-xl);
+          grid-template-columns: 2fr 1fr;
         }
+      }
 
-        @media (min-width: 768px) {
-            .about-content {
-                grid-template-columns: 2fr 1fr;
-            }
-        }
+      .about-description {
+        line-height: 1.6;
+        color: var(--color-text);
+      }
 
-        .about-description {
-            line-height: 1.6;
-            color: var(--color-text);
-        }
+      .about-description p {
+        margin-bottom: var(--space-lg);
+      }
 
-        .about-description p {
-            margin-bottom: var(--space-lg);
-        }
+      .about-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
 
-        .about-details {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-        }
+      .detail-card {
+        background-color: var(--color-bg-secondary);
+        padding: var(--space-lg);
+        border-radius: var(--card-radius);
+        border: var(--card-border);
+        transition: transform 0.2s ease;
+      }
 
-        .detail-card {
-            background-color: var(--color-bg-secondary);
-            padding: var(--space-lg);
-            border-radius: var(--card-radius);
-            border: var(--card-border);
-            transition: transform 0.2s ease;
-        }
+      .detail-card:hover {
+        transform: translateY(-2px);
+      }
 
-        .detail-card:hover {
-            transform: translateY(-2px);
-        }
+      .detail-title {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-weight: 600;
+        margin-bottom: var(--space-sm);
+        color: var(--color-text-dark);
+      }
 
-        .detail-title {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-            color: var(--color-text-dark);
-        }
+      .detail-title i {
+        color: var(--color-primary);
+      }
 
-        .detail-title i {
-            color: var(--color-primary);
-        }
+      /* Tracks Section */
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
 
-        /* Tracks Section */
+      @media (min-width: 768px) {
         .tracks-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-lg);
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
 
-        @media (min-width: 768px) {
-            .tracks-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+      .track-card {
+        background-color: var(--color-bg-primary);
+        border-radius: var(--card-radius);
+        border: var(--card-border);
+        padding: var(--space-lg);
+        transition: all 0.2s ease;
+      }
 
-        .track-card {
-            background-color: var(--color-bg-primary);
-            border-radius: var(--card-radius);
-            border: var(--card-border);
-            padding: var(--space-lg);
-            transition: all 0.2s ease;
-        }
+      .track-card:hover {
+        box-shadow: var(--card-shadow);
+        transform: translateY(-2px);
+      }
 
-        .track-card:hover {
-            box-shadow: var(--card-shadow);
-            transform: translateY(-2px);
-        }
+      .track-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--space-md);
+      }
 
-        .track-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--space-md);
-        }
+      .track-name {
+        font-weight: 600;
+        font-size: 1.125rem;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--color-text-dark);
+      }
 
-        .track-name {
-            font-weight: 600;
-            font-size: 1.125rem;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--color-text-dark);
-        }
+      .track-1 .track-name i {
+        color: var(--color-track-1);
+      }
 
-        .track-1 .track-name i {
-            color: var(--color-track-1);
-        }
+      .track-2 .track-name i {
+        color: var(--color-track-2);
+      }
 
-        .track-2 .track-name i {
-            color: var(--color-track-2);
-        }
+      .track-3 .track-name i {
+        color: var(--color-track-3);
+      }
 
-        .track-3 .track-name i {
-            color: var(--color-track-3);
-        }
+      .track-4 .track-name i {
+        color: var(--color-track-4);
+      }
 
-        .track-4 .track-name i {
-            color: var(--color-track-4);
-        }
+      .track-level {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: 4px;
+      }
 
-        .track-level {
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 4px;
-        }
+      .level-beginner {
+        background-color: rgba(22, 179, 100, 0.1);
+        color: var(--color-track-1);
+      }
 
-        .level-beginner {
-            background-color: rgba(22, 179, 100, 0.1);
-            color: var(--color-track-1);
-        }
+      .level-intermediate {
+        background-color: rgba(11, 165, 236, 0.1);
+        color: var(--color-track-2);
+      }
 
-        .level-intermediate {
-            background-color: rgba(11, 165, 236, 0.1);
-            color: var(--color-track-2);
-        }
+      .level-advanced {
+        background-color: rgba(158, 119, 237, 0.1);
+        color: var(--color-track-3);
+      }
 
-        .level-advanced {
-            background-color: rgba(158, 119, 237, 0.1);
-            color: var(--color-track-3);
-        }
+      .track-description {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        font-size: 0.9375rem;
+      }
 
-        .track-description {
-            color: var(--color-text-muted);
-            line-height: 1.6;
-            font-size: 0.9375rem;
-        }
+      /* Prizes Section */
+      .prizes-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        /* Prizes Section */
-        .prizes-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .podium {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-2xl);
+        width: 100%;
+      }
 
+      @media (max-width: 640px) {
         .podium {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-            width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--space-xl);
         }
+      }
 
-        @media (max-width: 640px) {
-            .podium {
-                flex-direction: column;
-                align-items: center;
-                gap: var(--space-xl);
-            }
-        }
+      .prize-place {
+        text-align: center;
+        max-width: 240px;
+        flex: 1;
+        position: relative;
+        transition: transform 0.2s ease;
+      }
 
-        .prize-place {
-            text-align: center;
-            max-width: 240px;
-            flex: 1;
-            position: relative;
-            transition: transform 0.2s ease;
-        }
+      .prize-place:hover {
+        transform: translateY(-4px);
+      }
 
-        .prize-place:hover {
-            transform: translateY(-4px);
-        }
+      .podium-pillar {
+        position: relative;
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .podium-pillar {
-            position: relative;
-            border-radius: var(--card-radius) var(--card-radius) 0 0;
-            margin-bottom: var(--space-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .podium-pillar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+      }
 
-        .podium-pillar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            border-radius: var(--card-radius) var(--card-radius) 0 0;
-        }
+      .place-1 .podium-pillar {
+        height: 180px;
+        background-color: rgba(255, 213, 0, 0.08);
+      }
 
-        .place-1 .podium-pillar {
-            height: 180px;
-            background-color: rgba(255, 213, 0, 0.08);
-        }
+      .place-1 .podium-pillar::before {
+        background-color: #ffd700;
+      }
 
-        .place-1 .podium-pillar::before {
-            background-color: #FFD700;
-        }
+      .place-2 .podium-pillar {
+        height: 140px;
+        background-color: rgba(192, 192, 192, 0.08);
+      }
 
-        .place-2 .podium-pillar {
-            height: 140px;
-            background-color: rgba(192, 192, 192, 0.08);
-        }
+      .place-2 .podium-pillar::before {
+        background-color: #c0c0c0;
+      }
 
-        .place-2 .podium-pillar::before {
-            background-color: #C0C0C0;
-        }
+      .place-3 .podium-pillar {
+        height: 100px;
+        background-color: rgba(205, 127, 50, 0.08);
+      }
 
-        .place-3 .podium-pillar {
-            height: 100px;
-            background-color: rgba(205, 127, 50, 0.08);
-        }
+      .place-3 .podium-pillar::before {
+        background-color: #cd7f32;
+      }
 
-        .place-3 .podium-pillar::before {
-            background-color: #CD7F32;
-        }
+      .prize-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 48px;
+        height: 48px;
+        background-color: var(--color-bg-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--card-shadow);
+      }
 
-        .prize-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 48px;
-            height: 48px;
-            background-color: var(--color-bg-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--card-shadow);
-        }
+      .place-1 .prize-icon {
+        color: #ffd700;
+      }
 
-        .place-1 .prize-icon {
-            color: #FFD700;
-        }
+      .place-2 .prize-icon {
+        color: #c0c0c0;
+      }
 
-        .place-2 .prize-icon {
-            color: #C0C0C0;
-        }
+      .place-3 .prize-icon {
+        color: #cd7f32;
+      }
 
-        .place-3 .prize-icon {
-            color: #CD7F32;
-        }
+      .prize-amount {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: var(--space-xs);
+        color: var(--color-text-dark);
+      }
 
-        .prize-amount {
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: var(--space-xs);
-            color: var(--color-text-dark);
-        }
+      .prize-label {
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
 
-        .prize-label {
-            color: var(--color-text-muted);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
+      /* Special Prizes */
+      .special-prizes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-lg);
+        margin-top: var(--space-xl);
+      }
 
-        /* Special Prizes */
-        .special-prizes {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-        }
+      .special-prize {
+        background-color: var(--color-bg-secondary);
+        border-radius: var(--card-radius);
+        border: var(--card-border);
+        padding: var(--space-lg);
+        transition: all 0.2s ease;
+      }
 
-        .special-prize {
-            background-color: var(--color-bg-secondary);
-            border-radius: var(--card-radius);
-            border: var(--card-border);
-            padding: var(--space-lg);
-            transition: all 0.2s ease;
-        }
+      .special-prize:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--card-shadow);
+      }
 
-        .special-prize:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--card-shadow);
-        }
+      .special-prize-title {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-weight: 600;
+        margin-bottom: var (--space-md);
+        color: var(--color-text-dark);
+      }
 
-        .special-prize-title {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-weight: 600;
-            margin-bottom: var (--space-md);
-            color: var(--color-text-dark);
-        }
+      .special-prize-title i {
+        color: var(--color-track-3);
+      }
 
-        .special-prize-title i {
-            color: var(--color-track-3);
-        }
+      .special-prize-amount {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+        color: var(--color-text-dark);
+      }
 
-        .special-prize-amount {
-            font-weight: 600;
-            font-size: 1.25rem;
-            margin-bottom: var(--space-sm);
-            color: var(--color-text-dark);
-        }
+      .special-prize-sponsor {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        margin-top: var(--space-md);
+      }
 
-        .special-prize-sponsor {
-            font-size: 0.875rem;
-            color: var(--color-text-muted);
-            margin-top: var(--space-md);
-        }
+      /* Timeline Section */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
 
-        /* Timeline Section */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 7px;
+        width: 2px;
+        background-color: var(--color-border);
+      }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 7px;
-            width: 2px;
-            background-color: var(--color-border);
-        }
+      .timeline-event {
+        position: relative;
+        margin-bottom: var(--space-xl);
+      }
 
-        .timeline-event {
-            position: relative;
-            margin-bottom: var(--space-xl);
-        }
+      .timeline-event:last-child {
+        margin-bottom: 0;
+      }
 
-        .timeline-event:last-child {
-            margin-bottom: 0;
-        }
+      .timeline-event::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 0.375rem;
+        width: 14px;
+        height: 14px;
+        background-color: var(--color-bg-primary);
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        z-index: 1;
+      }
 
-        .timeline-event::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0.375rem;
-            width: 14px;
-            height: 14px;
-            background-color: var(--color-bg-primary);
-            border: 2px solid var(--color-primary);
-            border-radius: 50%;
-            z-index: 1;
-        }
+      .timeline-date {
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: var(--space-xs);
+        letter-spacing: 0.5px;
+      }
 
-        .timeline-date {
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: var(--color-primary);
-            margin-bottom: var(--space-xs);
-            letter-spacing: 0.5px;
-        }
+      .timeline-title {
+        font-weight: 600;
+        margin-bottom: var(--space-xs);
+        color: var(--color-text-dark);
+      }
 
-        .timeline-title {
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            color: var(--color-text-dark);
-        }
+      .timeline-desc {
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+      }
 
-        .timeline-desc {
-            font-size: 0.9375rem;
-            color: var(--color-text-muted);
-            line-height: 1.6;
-        }
+      /* Resources Section */
+      .resources-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
 
-        /* Resources Section */
+      @media (min-width: 640px) {
         .resources-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
 
-        @media (min-width: 640px) {
-            .resources-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+      .resource-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        background-color: var(--color-bg-secondary);
+        border-radius: var(--card-radius);
+        transition: all 0.2s ease;
+      }
 
-        .resource-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            padding: var(--space-md);
-            background-color: var(--color-bg-secondary);
-            border-radius: var(--card-radius);
-            transition: all 0.2s ease;
-        }
+      .resource-item:hover {
+        background-color: var(--color-bg-tertiary);
+        transform: translateY(-2px);
+      }
 
-        .resource-item:hover {
-            background-color: var(--color-bg-tertiary);
-            transform: translateY(-2px);
-        }
+      .resource-icon {
+        color: var(--color-primary);
+        font-size: 1.25rem;
+      }
 
-        .resource-icon {
-            color: var(--color-primary);
-            font-size: 1.25rem;
-        }
+      .resource-content h4 {
+        font-weight: 600;
+        margin-bottom: var(--space-xs);
+        color: var(--color-text-dark);
+      }
 
-        .resource-content h4 {
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            color: var(--color-text-dark);
-        }
+      .resource-content p {
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+      }
 
-        .resource-content p {
-            font-size: 0.9375rem;
-            color: var(--color-text-muted);
-        }
+      /* Contact Section */
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 480px;
+      }
 
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            max-width: 480px;
-        }
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--color-border);
+      }
 
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            padding: var(--space-md) 0;
-            border-bottom: 1px solid var(--color-border);
-        }
+      .contact-method:last-child {
+        border-bottom: none;
+      }
 
-        .contact-method:last-child {
-            border-bottom: none;
-        }
+      .contact-icon {
+        color: var(--color-primary);
+        font-size: 1.25rem;
+      }
 
-        .contact-icon {
-            color: var(--color-primary);
-            font-size: 1.25rem;
-        }
+      .contact-label {
+        font-weight: 500;
+        color: var(--color-text-dark);
+      }
 
-        .contact-label {
-            font-weight: 500;
-            color: var(--color-text-dark);
-        }
+      .contact-value {
+        margin-left: auto;
+      }
 
-        .contact-value {
-            margin-left: auto;
-        }
+      .contact-value a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
 
-        .contact-value a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+      .contact-value a:hover {
+        color: var(--color-primary-dark);
+        text-decoration: underline;
+      }
 
-        .contact-value a:hover {
-            color: var(--color-primary-dark);
-            text-decoration: underline;
-        }
+      /* Simple, focused content */
+      body {
+        background-color: var(--color-bg-secondary);
+        color: var(--color-text);
+        font-family: "Inter", sans-serif;
+      }
 
-        /* Simple, focused content */
-        body {
-            background-color: var(--color-bg-secondary);
-            color: var(--color-text);
-            font-family: 'Inter', sans-serif;
-        }
+      .dashboard-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 100vh;
+      }
 
+      .main-content {
+        background-color: var(--color-bg-secondary);
+        padding: var(--space-lg);
+        overflow-y: auto;
+      }
+
+      .content-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--space-xl);
+      }
+
+      .content-header h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-text-dark);
+      }
+
+      .header-actions {
+        display: flex;
+        gap: var(--space-md);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--card-radius);
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: all 0.2s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Responsive Mobile View */
+      @media (max-width: 768px) {
         .dashboard-layout {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            min-height: 100vh;
+          grid-template-columns: 1fr;
         }
 
-        .main-content {
-            background-color: var(--color-bg-secondary);
-            padding: var(--space-lg);
-            overflow-y: auto;
+        .sidebar {
+          position: fixed;
+          left: -260px;
+          top: 0;
+          bottom: 0;
+          width: 260px;
+          z-index: 100;
+          transition: left 0.3s ease;
         }
 
-        .content-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-xl);
+        .sidebar.active {
+          left: 0;
         }
-
-        .content-header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-text-dark);
-        }
-
-        .header-actions {
-            display: flex;
-            gap: var(--space-md);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: var(--card-radius);
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Responsive Mobile View */
-        @media (max-width: 768px) {
-            .dashboard-layout {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                position: fixed;
-                left: -260px;
-                top: 0;
-                bottom: 0;
-                width: 260px;
-                z-index: 100;
-                transition: left 0.3s ease;
-            }
-            
-            .sidebar.active {
-                left: 0;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="dashboard-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <a href="dashboard.html" class="logo">
-                    <i class="fas fa-code"></i>
-                    <span>Allin</span>
-                </a>
-            </div>
-            
-            <nav class="sidebar-menu">
-                <div class="menu-title">ORGANIZER</div>
-                <a href="dashboard.html" class="menu-item">
-                    <i class="fas fa-th-large"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="create-event.html" class="menu-item">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Create Hackathon</span>
-                </a>
-                <a href="#" class="menu-item active">
-                    <i class="fas fa-eye"></i>
-                    <span>Preview</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-users"></i>
-                    <span>Participants</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Analytics</span>
-                </a>
-                
-                <div class="menu-title">SETTINGS</div>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-            </nav>
-        </aside>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <div class="content-header">
-                <h1>Hackathon Preview</h1>
-                <div class="header-actions">
-                    <button class="btn btn-outline">
-                        <i class="fas fa-pencil-alt"></i>
-                        <span>Edit</span>
-                    </button>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Publish</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="preview-container">
-                <!-- Preview Controls -->
-                <div class="preview-controls">
-                    <div class="preview-badge">
-                        <i class="fas fa-eye"></i>
-                        <span>Preview Mode</span>
-                    </div>
-                    <div class="preview-actions">
-                        <button class="preview-btn btn-outline">
-                            <i class="fas fa-desktop"></i>
-                            <span>Desktop</span>
-                        </button>
-                        <button class="preview-btn btn-outline">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Mobile</span>
-                        </button>
-                        <button class="preview-btn btn-primary">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Looks Good</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Hackathon Header -->
-                <div class="hackathon-header">
-                    <div class="header-overlay"></div>
-                    <div class="header-pattern"></div>
-                    
-                    <div class="header-content">
-                        <div class="header-top">
-                            <span class="status-badge">Coming Soon</span>
-                            <div class="header-action">
-                                <button class="btn btn-primary">Register Now</button>
-                            </div>
-                        </div>
-                        
-                        <h1 class="header-title">AI Innovation Challenge 2025</h1>
-                        <p class="header-subtitle">Build the next generation of AI applications that solve real-world problems</p>
-                        
-                        <div class="header-meta">
-                            <div class="meta-item">
-                                <i class="far fa-calendar-alt"></i>
-                                <span>June 15-18, 2025</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Virtual + San Francisco, CA</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-users"></i>
-                                <span>500 Participants</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-trophy"></i>
-                                <span>$25,000 in Prizes</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- About Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-info-circle"></i>
-                        About the Hackathon
-                    </h2>
-                    
-                    <div class="about-content">
-                        <div class="about-description">
-                            <p>Join us for the AI Innovation Challenge, where developers, designers, and entrepreneurs come together to build cutting-edge AI applications that address real-world challenges. This hackathon focuses on creating ethical and accessible AI solutions that can make a positive impact across industries.</p>
-                            
-                            <p>Participants will have access to exclusive APIs, mentorship from industry experts, and workshops to enhance their skills. Whether you're an AI veteran or just starting out, this hackathon offers a platform to learn, network, and showcase your creativity.</p>
-                            
-                            <p>The event will be conducted in a hybrid format, allowing both virtual participation and an in-person experience in San Francisco for those who can attend.</p>
-                        </div>
-                        
-                        <div class="about-details">
-                            <div class="detail-card">
-                                <div class="detail-title">
-                                    <i class="fas fa-users"></i>
-                                    Team Size
-                                </div>
-                                <div>2-5 members per team</div>
-                            </div>
-                            
-                            <div class="detail-card">
-                                <div class="detail-title">
-                                    <i class="fas fa-laptop-code"></i>
-                                    Format
-                                </div>
-                                <div>Hybrid (Virtual & In-person)</div>
-                            </div>
-                            
-                            <div class="detail-card">
-                                <div class="detail-title">
-                                    <i class="fas fa-clock"></i>
-                                    Duration
-                                </div>
-                                <div>72 hours</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tracks Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-map-signs"></i>
-                        Challenge Tracks
-                    </h2>
-                    
-                    <div class="tracks-grid">
-                        <div class="track-card track-1">
-                            <div class="track-header">
-                                <div class="track-name">
-                                    <i class="fas fa-robot"></i>
-                                    AI for Healthcare
-                                </div>
-                                <span class="track-level level-intermediate">Intermediate</span>
-                            </div>
-                            <p class="track-description">
-                                Develop AI solutions that improve healthcare delivery, diagnosis, or patient care. Focus areas include predictive analytics, medical imaging analysis, and personalized medicine applications.
-                            </p>
-                        </div>
-                        
-                        <div class="track-card track-2">
-                            <div class="track-header">
-                                <div class="track-name">
-                                    <i class="fas fa-leaf"></i>
-                                    Climate Tech
-                                </div>
-                                <span class="track-level level-advanced">Advanced</span>
-                            </div>
-                            <p class="track-description">
-                                Build AI-powered tools to address climate challenges, such as carbon footprint monitoring, renewable energy optimization, or environmental conservation solutions.
-                            </p>
-                        </div>
-                        
-                        <div class="track-card track-3">
-                            <div class="track-header">
-                                <div class="track-name">
-                                    <i class="fas fa-universal-access"></i>
-                                    Accessibility
-                                </div>
-                                <span class="track-level level-beginner">Beginner</span>
-                            </div>
-                            <p class="track-description">
-                                Create AI applications that improve digital accessibility for people with disabilities, including voice interfaces, automated captioning, or assistive technologies.
-                            </p>
-                        </div>
-                        
-                        <div class="track-card track-4">
-                            <div class="track-header">
-                                <div class="track-name">
-                                    <i class="fas fa-graduation-cap"></i>
-                                    EdTech
-                                </div>
-                                <span class="track-level level-intermediate">Intermediate</span>
-                            </div>
-                            <p class="track-description">
-                                Develop AI solutions for education, such as personalized learning platforms, intelligent tutoring systems, or tools that help educators enhance their teaching methods.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Prizes Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-trophy"></i>
-                        Prizes
-                    </h2>
-                    
-                    <div class="prizes-container">
-                        <div class="podium">
-                            <div class="prize-place place-2">
-                                <div class="podium-pillar">
-                                    <div class="prize-icon">
-                                        <i class="fas fa-medal"></i>
-                                    </div>
-                                </div>
-                                <div class="prize-amount">$5,000</div>
-                                <div class="prize-label">Second Place</div>
-                            </div>
-                            
-                            <div class="prize-place place-1">
-                                <div class="podium-pillar">
-                                    <div class="prize-icon">
-                                        <i class="fas fa-trophy"></i>
-                                    </div>
-                                </div>
-                                <div class="prize-amount">$10,000</div>
-                                <div class="prize-label">Grand Prize</div>
-                            </div>
-                            
-                            <div class="prize-place place-3">
-                                <div class="podium-pillar">
-                                    <div class="prize-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                </div>
-                                <div class="prize-amount">$2,500</div>
-                                <div class="prize-label">Third Place</div>
-                            </div>
-                        </div>
-                        
-                        <div class="special-prizes">
-                            <div class="special-prize">
-                                <div class="special-prize-title">
-                                    <i class="fas fa-lightbulb"></i>
-                                    Most Innovative
-                                </div>
-                                <div class="special-prize-amount">$2,000</div>
-                                <p>For the most creative and innovative solution regardless of track</p>
-                                <div class="special-prize-sponsor">Sponsored by TechInnovate</div>
-                            </div>
-                            
-                            <div class="special-prize">
-                                <div class="special-prize-title">
-                                    <i class="fas fa-bolt"></i>
-                                    Best Use of API
-                                </div>
-                                <div class="special-prize-amount">$1,500</div>
-                                <p>For the project that best utilizes our partner APIs</p>
-                                <div class="special-prize-sponsor">Sponsored by CloudAPI</div>
-                            </div>
-                            
-                            <div class="special-prize">
-                                <div class="special-prize-title">
-                                    <i class="fas fa-users"></i>
-                                    People's Choice
-                                </div>
-                                <div class="special-prize-amount">$1,500</div>
-                                <p>Voted by all participants during the final demo day</p>
-                                <div class="special-prize-sponsor">Sponsored by Community Tech</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-calendar-alt"></i>
-                        Event Timeline
-                    </h2>
-                    
-                    <div class="timeline">
-                        <div class="timeline-event">
-                            <div class="timeline-date">May 25, 2025</div>
-                            <h3 class="timeline-title">Registration Deadline</h3>
-                            <p class="timeline-desc">Last day to register your team and secure your spot in the hackathon</p>
-                        </div>
-                        
-                        <div class="timeline-event">
-                            <div class="timeline-date">June 1, 2025</div>
-                            <h3 class="timeline-title">Pre-event Workshop</h3>
-                            <p class="timeline-desc">Optional session for participants to learn about available APIs and tools</p>
-                        </div>
-                        
-                        <div class="timeline-event">
-                            <div class="timeline-date">June 15, 2025</div>
-                            <h3 class="timeline-title">Hackathon Kickoff</h3>
-                            <p class="timeline-desc">Opening ceremony, team formation finalization, and hackathon start</p>
-                        </div>
-                        
-                        <div class="timeline-event">
-                            <div class="timeline-date">June 16-17, 2025</div>
-                            <h3 class="timeline-title">Build Phase & Mentorship</h3>
-                            <p class="timeline-desc">Dedicated time to build your project with scheduled mentor sessions</p>
-                        </div>
-                        
-                        <div class="timeline-event">
-                            <div class="timeline-date">June 18, 2025</div>
-                            <h3 class="timeline-title">Demo Day & Awards</h3>
-                            <p class="timeline-desc">Project presentations, judging, and awards ceremony</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Resources Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-tools"></i>
-                        Resources
-                    </h2>
-                    
-                    <div class="resources-grid">
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="resource-content">
-                                <h4>API Documentation</h4>
-                                <p>Comprehensive guides for all partner APIs available to participants</p>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <div class="resource-content">
-                                <h4>Tutorial Videos</h4>
-                                <p>Quick start guides and implementation tutorials</p>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="resource-content">
-                                <h4>Starter Templates</h4>
-                                <p>Boilerplate code to help you get started quickly</p>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <div class="resource-icon">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <div class="resource-content">
-                                <h4>Cloud Credits</h4>
-                                <p>Free cloud hosting and computing resources for participants</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div class="preview-section">
-                    <h2 class="section-title">
-                        <i class="fas fa-envelope"></i>
-                        Contact Information
-                    </h2>
-                    
-                    <div class="contact-container">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">
-                                <a href="mailto:info@aiinnovationchallenge.com">info@aiinnovationchallenge.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-discord"></i>
-                            </div>
-                            <div class="contact-label">Discord</div>
-                            <div class="contact-value">
-                                <a href="#">Join our community</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-twitter"></i>
-                            </div>
-                            <div class="contact-label">Twitter</div>
-                            <div class="contact-value">
-                                <a href="#">@AIChallenge</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="logo">
+            <i class="fas fa-code"></i>
+            <span>Allin</span>
+          </a>
         </div>
+
+        <nav class="sidebar-menu">
+          <div class="menu-title">ORGANIZER</div>
+          <a href="dashboard.html" class="menu-item">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="create-event.html" class="menu-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Hackathon</span>
+          </a>
+          <a href="#" class="menu-item active">
+            <i class="fas fa-eye"></i>
+            <span>Preview</span>
+          </a>
+          <a href="participants.html" class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Participants</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Analytics</span>
+          </a>
+
+          <div class="menu-title">SETTINGS</div>
+          <a href="#" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="content-header">
+          <h1>Hackathon Preview</h1>
+          <div class="header-actions">
+            <button class="btn btn-outline">
+              <i class="fas fa-pencil-alt"></i>
+              <span>Edit</span>
+            </button>
+            <button class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              <span>Publish</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-container">
+          <!-- Preview Controls -->
+          <div class="preview-controls">
+            <div class="preview-badge">
+              <i class="fas fa-eye"></i>
+              <span>Preview Mode</span>
+            </div>
+            <div class="preview-actions">
+              <button class="preview-btn btn-outline">
+                <i class="fas fa-desktop"></i>
+                <span>Desktop</span>
+              </button>
+              <button class="preview-btn btn-outline">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Mobile</span>
+              </button>
+              <button class="preview-btn btn-primary">
+                <i class="fas fa-check-circle"></i>
+                <span>Looks Good</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Hackathon Header -->
+          <div class="hackathon-header">
+            <div class="header-overlay"></div>
+            <div class="header-pattern"></div>
+
+            <div class="header-content">
+              <div class="header-top">
+                <span class="status-badge">Coming Soon</span>
+                <div class="header-action">
+                  <button class="btn btn-primary">Register Now</button>
+                </div>
+              </div>
+
+              <h1 class="header-title">AI Innovation Challenge 2025</h1>
+              <p class="header-subtitle">
+                Build the next generation of AI applications that solve
+                real-world problems
+              </p>
+
+              <div class="header-meta">
+                <div class="meta-item">
+                  <i class="far fa-calendar-alt"></i>
+                  <span>June 15-18, 2025</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Virtual + San Francisco, CA</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <span>500 Participants</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-trophy"></i>
+                  <span>$25,000 in Prizes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-info-circle"></i>
+              About the Hackathon
+            </h2>
+
+            <div class="about-content">
+              <div class="about-description">
+                <p>
+                  Join us for the AI Innovation Challenge, where developers,
+                  designers, and entrepreneurs come together to build
+                  cutting-edge AI applications that address real-world
+                  challenges. This hackathon focuses on creating ethical and
+                  accessible AI solutions that can make a positive impact across
+                  industries.
+                </p>
+
+                <p>
+                  Participants will have access to exclusive APIs, mentorship
+                  from industry experts, and workshops to enhance their skills.
+                  Whether you're an AI veteran or just starting out, this
+                  hackathon offers a platform to learn, network, and showcase
+                  your creativity.
+                </p>
+
+                <p>
+                  The event will be conducted in a hybrid format, allowing both
+                  virtual participation and an in-person experience in San
+                  Francisco for those who can attend.
+                </p>
+              </div>
+
+              <div class="about-details">
+                <div class="detail-card">
+                  <div class="detail-title">
+                    <i class="fas fa-users"></i>
+                    Team Size
+                  </div>
+                  <div>2-5 members per team</div>
+                </div>
+
+                <div class="detail-card">
+                  <div class="detail-title">
+                    <i class="fas fa-laptop-code"></i>
+                    Format
+                  </div>
+                  <div>Hybrid (Virtual & In-person)</div>
+                </div>
+
+                <div class="detail-card">
+                  <div class="detail-title">
+                    <i class="fas fa-clock"></i>
+                    Duration
+                  </div>
+                  <div>72 hours</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tracks Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-map-signs"></i>
+              Challenge Tracks
+            </h2>
+
+            <div class="tracks-grid">
+              <div class="track-card track-1">
+                <div class="track-header">
+                  <div class="track-name">
+                    <i class="fas fa-robot"></i>
+                    AI for Healthcare
+                  </div>
+                  <span class="track-level level-intermediate"
+                    >Intermediate</span
+                  >
+                </div>
+                <p class="track-description">
+                  Develop AI solutions that improve healthcare delivery,
+                  diagnosis, or patient care. Focus areas include predictive
+                  analytics, medical imaging analysis, and personalized medicine
+                  applications.
+                </p>
+              </div>
+
+              <div class="track-card track-2">
+                <div class="track-header">
+                  <div class="track-name">
+                    <i class="fas fa-leaf"></i>
+                    Climate Tech
+                  </div>
+                  <span class="track-level level-advanced">Advanced</span>
+                </div>
+                <p class="track-description">
+                  Build AI-powered tools to address climate challenges, such as
+                  carbon footprint monitoring, renewable energy optimization, or
+                  environmental conservation solutions.
+                </p>
+              </div>
+
+              <div class="track-card track-3">
+                <div class="track-header">
+                  <div class="track-name">
+                    <i class="fas fa-universal-access"></i>
+                    Accessibility
+                  </div>
+                  <span class="track-level level-beginner">Beginner</span>
+                </div>
+                <p class="track-description">
+                  Create AI applications that improve digital accessibility for
+                  people with disabilities, including voice interfaces,
+                  automated captioning, or assistive technologies.
+                </p>
+              </div>
+
+              <div class="track-card track-4">
+                <div class="track-header">
+                  <div class="track-name">
+                    <i class="fas fa-graduation-cap"></i>
+                    EdTech
+                  </div>
+                  <span class="track-level level-intermediate"
+                    >Intermediate</span
+                  >
+                </div>
+                <p class="track-description">
+                  Develop AI solutions for education, such as personalized
+                  learning platforms, intelligent tutoring systems, or tools
+                  that help educators enhance their teaching methods.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prizes Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-trophy"></i>
+              Prizes
+            </h2>
+
+            <div class="prizes-container">
+              <div class="podium">
+                <div class="prize-place place-2">
+                  <div class="podium-pillar">
+                    <div class="prize-icon">
+                      <i class="fas fa-medal"></i>
+                    </div>
+                  </div>
+                  <div class="prize-amount">$5,000</div>
+                  <div class="prize-label">Second Place</div>
+                </div>
+
+                <div class="prize-place place-1">
+                  <div class="podium-pillar">
+                    <div class="prize-icon">
+                      <i class="fas fa-trophy"></i>
+                    </div>
+                  </div>
+                  <div class="prize-amount">$10,000</div>
+                  <div class="prize-label">Grand Prize</div>
+                </div>
+
+                <div class="prize-place place-3">
+                  <div class="podium-pillar">
+                    <div class="prize-icon">
+                      <i class="fas fa-award"></i>
+                    </div>
+                  </div>
+                  <div class="prize-amount">$2,500</div>
+                  <div class="prize-label">Third Place</div>
+                </div>
+              </div>
+
+              <div class="special-prizes">
+                <div class="special-prize">
+                  <div class="special-prize-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Most Innovative
+                  </div>
+                  <div class="special-prize-amount">$2,000</div>
+                  <p>
+                    For the most creative and innovative solution regardless of
+                    track
+                  </p>
+                  <div class="special-prize-sponsor">
+                    Sponsored by TechInnovate
+                  </div>
+                </div>
+
+                <div class="special-prize">
+                  <div class="special-prize-title">
+                    <i class="fas fa-bolt"></i>
+                    Best Use of API
+                  </div>
+                  <div class="special-prize-amount">$1,500</div>
+                  <p>For the project that best utilizes our partner APIs</p>
+                  <div class="special-prize-sponsor">Sponsored by CloudAPI</div>
+                </div>
+
+                <div class="special-prize">
+                  <div class="special-prize-title">
+                    <i class="fas fa-users"></i>
+                    People's Choice
+                  </div>
+                  <div class="special-prize-amount">$1,500</div>
+                  <p>Voted by all participants during the final demo day</p>
+                  <div class="special-prize-sponsor">
+                    Sponsored by Community Tech
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-calendar-alt"></i>
+              Event Timeline
+            </h2>
+
+            <div class="timeline">
+              <div class="timeline-event">
+                <div class="timeline-date">May 25, 2025</div>
+                <h3 class="timeline-title">Registration Deadline</h3>
+                <p class="timeline-desc">
+                  Last day to register your team and secure your spot in the
+                  hackathon
+                </p>
+              </div>
+
+              <div class="timeline-event">
+                <div class="timeline-date">June 1, 2025</div>
+                <h3 class="timeline-title">Pre-event Workshop</h3>
+                <p class="timeline-desc">
+                  Optional session for participants to learn about available
+                  APIs and tools
+                </p>
+              </div>
+
+              <div class="timeline-event">
+                <div class="timeline-date">June 15, 2025</div>
+                <h3 class="timeline-title">Hackathon Kickoff</h3>
+                <p class="timeline-desc">
+                  Opening ceremony, team formation finalization, and hackathon
+                  start
+                </p>
+              </div>
+
+              <div class="timeline-event">
+                <div class="timeline-date">June 16-17, 2025</div>
+                <h3 class="timeline-title">Build Phase & Mentorship</h3>
+                <p class="timeline-desc">
+                  Dedicated time to build your project with scheduled mentor
+                  sessions
+                </p>
+              </div>
+
+              <div class="timeline-event">
+                <div class="timeline-date">June 18, 2025</div>
+                <h3 class="timeline-title">Demo Day & Awards</h3>
+                <p class="timeline-desc">
+                  Project presentations, judging, and awards ceremony
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resources Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-tools"></i>
+              Resources
+            </h2>
+
+            <div class="resources-grid">
+              <div class="resource-item">
+                <div class="resource-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <div class="resource-content">
+                  <h4>API Documentation</h4>
+                  <p>
+                    Comprehensive guides for all partner APIs available to
+                    participants
+                  </p>
+                </div>
+              </div>
+
+              <div class="resource-item">
+                <div class="resource-icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <div class="resource-content">
+                  <h4>Tutorial Videos</h4>
+                  <p>Quick start guides and implementation tutorials</p>
+                </div>
+              </div>
+
+              <div class="resource-item">
+                <div class="resource-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="resource-content">
+                  <h4>Starter Templates</h4>
+                  <p>Boilerplate code to help you get started quickly</p>
+                </div>
+              </div>
+
+              <div class="resource-item">
+                <div class="resource-icon">
+                  <i class="fas fa-cloud"></i>
+                </div>
+                <div class="resource-content">
+                  <h4>Cloud Credits</h4>
+                  <p>
+                    Free cloud hosting and computing resources for participants
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="preview-section">
+            <h2 class="section-title">
+              <i class="fas fa-envelope"></i>
+              Contact Information
+            </h2>
+
+            <div class="contact-container">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:info@aiinnovationchallenge.com"
+                    >info@aiinnovationchallenge.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-discord"></i>
+                </div>
+                <div class="contact-label">Discord</div>
+                <div class="contact-value">
+                  <a href="#">Join our community</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-twitter"></i>
+                </div>
+                <div class="contact-label">Twitter</div>
+                <div class="contact-value">
+                  <a href="#">@AIChallenge</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../../js/hackathon-creation.js"></script>
-</body>
+  </body>
 </html>
