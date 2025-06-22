@@ -246,12 +246,10 @@
               <div class="event-tab">Completed</div>
             </div>
           </div>
-
           <div class="event-list-body">
-            <!-- When no events exist -->
             <div
               id="no-events-message"
-              style="padding: 2rem; text-align: center"
+              style="padding: 2rem; text-align: center; display:none;"
             >
               <i
                 class="fas fa-calendar-plus"
@@ -271,98 +269,8 @@
                 >Create Your First Hackathon</a
               >
             </div>
-
-            <!-- Sample events (shown when there are created events) -->
-            <div id="sample-events" style="display: none">
-              <div class="event-item">
-                <div class="event-logo">
-                  <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="event-details">
-                  <div class="event-name">Financial Innovation Challenge</div>
-                  <div class="event-date">Draft • Last edited May 1, 2025</div>
-                </div>
-                <div class="event-status status-draft">DRAFT</div>
-                <div class="event-actions">
-                  <button class="btn-icon">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="btn-icon">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="event-item">
-                <div class="event-logo">
-                  <img
-                    src="../../assets/images/logo.svg"
-                    alt="Hackathon logo"
-                  />
-                </div>
-                <div class="event-details">
-                  <div class="event-name">Blockchain for Banking</div>
-                  <div class="event-date">
-                    Registration opens in 14 days • June 15, 2025
-                  </div>
-                </div>
-                <div class="event-status status-scheduled">SCHEDULED</div>
-                <div class="event-actions">
-                  <button class="btn-icon">
-                    <i class="fas fa-chart-bar"></i>
-                  </button>
-                  <button class="btn-icon">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="event-item">
-                <div class="event-logo">
-                  <img
-                    src="../../assets/images/logo.svg"
-                    alt="Hackathon logo"
-                  />
-                </div>
-                <div class="event-details">
-                  <div class="event-name">Open Banking API Challenge</div>
-                  <div class="event-date">In progress • Ends in 3 days</div>
-                </div>
-                <div class="event-status status-active">ACTIVE</div>
-                <div class="event-actions">
-                  <button class="btn-icon">
-                    <i class="fas fa-chart-bar"></i>
-                  </button>
-                  <button class="btn-icon">
-                    <i class="fas fa-cog"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="event-item">
-                <div class="event-logo">
-                  <img
-                    src="../../assets/images/logo.svg"
-                    alt="Hackathon logo"
-                  />
-                </div>
-                <div class="event-details">
-                  <div class="event-name">Mobile Payment Solutions</div>
-                  <div class="event-date">Completed on April 15, 2025</div>
-                </div>
-                <div class="event-status status-completed">COMPLETED</div>
-                <div class="event-actions">
-                  <button class="btn-icon">
-                    <i class="fas fa-chart-bar"></i>
-                  </button>
-                  <button class="btn-icon">
-                    <i class="fas fa-download"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <div id="hackathon-list"></div>
           </div>
-
           <div class="event-list-footer">
             <a href="create-event.html" class="btn btn--outline"
               >Create New Hackathon</a
@@ -529,6 +437,76 @@
       }
 
       console.log("accessToken:", localStorage.getItem("accessToken"));
+
+      // New script for fetching and displaying hackathons
+      document.addEventListener("DOMContentLoaded", function () {
+        const API_BASE = "http://142.93.173.189:5533";
+        const accessToken = localStorage.getItem("accessToken");
+        const hackathonList = document.getElementById("hackathon-list");
+        const noEventsMsg = document.getElementById("no-events-message");
+
+        async function fetchHackathons() {
+          hackathonList.innerHTML = `<div style="text-align:center;color:#aaa;">Loading...</div>`;
+          try {
+            const res = await fetch(`${API_BASE}/api/hackathon`, {
+              headers: { Authorization: "Bearer " + accessToken },
+            });
+            const data = await res.json();
+            if (
+              data &&
+              data.data &&
+              Array.isArray(data.data.hackathons) &&
+              data.data.hackathons.length > 0
+            ) {
+              noEventsMsg.style.display = "none";
+              hackathonList.innerHTML = "";
+              data.data.hackathons.forEach((hackathon) => {
+                const div = document.createElement("div");
+                div.className = "event-item";
+                div.innerHTML = `
+                  <div class="event-logo">
+                    <i class="fas fa-laptop-code"></i>
+                  </div>
+                  <div class="event-details">
+                    <div class="event-name">${hackathon.name}</div>
+                    <div class="event-date">${
+                      hackathon.status
+                        ? hackathon.status.toUpperCase()
+                        : ""
+                    } • ${
+                  hackathon.updated_at
+                    ? new Date(hackathon.updated_at).toLocaleDateString()
+                    : ""
+                }</div>
+                    <div class="event-id" style="font-size:0.95em;color:#888;">ID: ${hackathon.id}</div>
+                  </div>
+                  <div class="event-status status-${
+                    hackathon.status || "draft"
+                  }">${hackathon.status ? hackathon.status.toUpperCase() : "DRAFT"
+                }</div>
+                  <div class="event-actions">
+                    <a href="hackathon-preview.html?id=${hackathon.id}" class="btn-icon" title="Preview">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="edit-hackathon.html?id=${hackathon.id}" class="btn-icon" title="Edit">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </div>
+                `;
+                hackathonList.appendChild(div);
+              });
+            } else {
+              hackathonList.innerHTML = "";
+              noEventsMsg.style.display = "block";
+            }
+          } catch {
+            hackathonList.innerHTML = `<div style="text-align:center;color:#ef4444;">Failed to load hackathons.</div>`;
+            noEventsMsg.style.display = "none";
+          }
+        }
+
+        fetchHackathons();
+      });
     </script>
   </body>
 </html>
